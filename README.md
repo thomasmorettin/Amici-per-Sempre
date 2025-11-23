@@ -1,6 +1,5 @@
 # [Titolo sito web]
 ## Link alle risorse
-**Relazione tecnica** → https://typst.app/project/rFdbj6bOesPogDGePyxrHw
 
 **Organizzazione lavoro** → https://docs.google.com/spreadsheets/d/1IvmOP4-L43-3rZKMP3HjJTAKV10f5UtU-ZQy_u4UrjI/edit?usp=sharing
 ## AA25/26 - Progetto del corso **Tecnologie Web** [SCP4065581]
