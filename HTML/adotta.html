@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Adozione animali - Amici per sempre </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="...">
+    <meta name="keywords" content="...">
+
+    <link class="title-icon" rel="icon" href="../Resources/Favicon/favicon.ico" sizes="any" />
+    <link class="title-icon" rel="icon" href="../Resources/Favicon/icon.svg" type="image/svg+xml" />
+    <link class="title-icon" rel="apple-touch-icon" href="../Resources/Favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../Resources/Favicon/manifest.webmanifest" />
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
+
+    <script src="../JavaScript/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="scrolled">
+        <h1>Rifugio Amici per Sempre</h1>
+
+        <nav id="menu">
+            <ul>
+                <li lang="en"><a href="index.html">Home</a></li>
+                <li><a href="#">Adotta</a></li>
+                <li><a href="#">Porta in adozione</a></li>
+            </ul>
+        </nav>
+
+        <menu id="header-btns">
+            <button id="btn-access" title="Accessibilità"></button>
+            <a id="btn-login" href="#" lang="en">Login</a>
+        </menu>
+
+        <button id="hamburger">
+            <span class="linea"></span>
+            <span class="linea"></span>
+            <span class="linea"></span>
+        </button>
+    </header>
+
+    
+    <main>
+        <div class="hero">
+            <h2>Animali in Cerca di Casa</h2>
+            <p>Trova il tuo nuovo amico a quattro zampe</p>
+        </div>
+
+        <div class="ricerca-filtrata">  
+            <h2>Filtri</h2>       
+            <button data-tipo="tutti">Tutti</button>
+            <button data-tipo="cane">Cani</button>
+            <button data-tipo="gatto">Gatti</button>
+        </div>
+
+        <section id="animal-container">
+            <ul class="animal-list">
+                <li class="animal-card">
+                    <a href="scheda-animale.html?id=1">
+                        <figure>
+                            <img src="images/max.jpg" alt="">
+                            <figcaption>
+                                <h3>Max, cane meticcio</h3>
+                                <p class="tipo">Cane</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </li>
+
+                <li class="animal-card">
+                    <a href="scheda-animale.html?id=2">
+                        <figure>
+                            <img src="images/luna.jpg" alt="">
+                            <figcaption>
+                                <h3>Luna, gatta tigratazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz</h3>
+                                <p class="tipo">Gatto</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </li>
+
+                <li class="animal-card">
+                    <a href="scheda-animale.html?id=3">
+                        <figure>
+                            <img src="images/rocky.jpg" alt="">
+                            <figcaption>
+                                <h3>Rocky, cane pastore</h3>
+                                <p class="tipo">Cane</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </li>
+
+                <li class="animal-card">
+                    <a href="scheda-animale.html?id=8">
+                        <figure>
+                            <img src="images/felix.jpg" alt="">
+                            <figcaption>
+                                <h3>Felix, gatto europeo</h3>
+                                <p class="tipo">Gatto</p>
+                            </figcaption>
+                        </figure>
+                     </a>
+                </li>
+
+                <li class="animal-card">
+                    <a href="scheda-animale.html?id=9">
+                        <figure>
+                            <img src="images/duke.jpg" alt="">
+                            <figcaption>
+                                <h3>Duke, cane boxer</h3>
+                                <p class="tipo">Cane</p>
+                            </figcaption>
+                        </figure>
+                     </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rifugio Amici per Sempre</p>
+    </footer>
+
+</body>
+
+</html>

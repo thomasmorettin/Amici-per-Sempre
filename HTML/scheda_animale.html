@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Amici per Sempre: Scheda animale</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="...">
+    <meta name="keywords" content="...">
+
+    <link class="title-icon" rel="icon" href="../Resources/Favicon/favicon.ico" sizes="any" />
+    <link class="title-icon" rel="icon" href="../Resources/Favicon/icon.svg" type="image/svg+xml" />
+    <link class="title-icon" rel="apple-touch-icon" href="../Resources/Favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../Resources/Favicon/manifest.webmanifest" />
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
+
+    <script src="../JavaScript/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="scrolled">
+        <h1>Rifugio Amici per Sempre</h1>
+
+        <nav id="menu">
+            <ul>
+                <li lang="en"><a href="index.html">Home</a></li>
+                <li><a href="adotta.html">Adotta</a></li>
+                <li><a href="#">Porta in adozione</a></li>
+            </ul>
+        </nav>
+
+        <menu id="header-btns">
+            <button id="btn-access" title="Accessibilità"></button>
+            <a id="btn-login" href="#" lang="en">Login</a>
+        </menu>
+
+        <button id="hamburger">
+            <span class="linea"></span>
+            <span class="linea"></span>
+            <span class="linea"></span>
+        </button>
+    </header>
+
+    <main id="content" >
+
+        <section id="panoramica-animale">
+
+            <img src="../Resources/Images/gatto2.jpg" alt="descrizione gatto " class="animal-image">
+        
+     
+            <div class="animal-info">
+                <h2>Nome gatto</h2>
+                <p><strong>Età:</strong> 3 anni</p>
+                <p><strong>Razza:</strong> Europeo</p>
+                 <p><strong>Carattere:</strong> Affettuoso, giocherellone, socievole</p>
+                <p><strong>Storia:</strong> Trovato randagio, cerca una famiglia amorevole.</p>
+             </div>
+
+            <div class="description">
+                <h2 class="description-title" > La storia </h2>
+                <p> Questo gatto è stato trovato in Ohio nel 1967.</p>
+            </div>
+
+            <div class="features">
+                <h2 class="features-title"> Caratteristiche</h2>
+                <ul>
+                    <li>Vaccinato</li>
+                    <li>Sverminato</li>
+                    <li>Microchippato</li>
+                    <li>Abituato alla lettiera</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="chiedi-adozione">
+            <h2> Richiesta di adozione</h2>
+            <div class="form-intro">
+                <h3> 🐾 Sei interessato ad adottare NOMEGATTO?</h3>
+                <p>Compila il form sottostante con i tuoi dati. Il nostro team ti contatterà al più presto per fissare un appuntamento conoscitivo e fornirti tutte le informazioni necessarie per l'adozione.</p>
+            </div>
+
+            <form class="adoption-form" id="adoption-form">
+                
+                <div class="form-row">
+                    <div class="single-form">
+                        <label for="nome"><
+                            Nome <span class="required">*</span>
+                        </label>
+                        <input type="text" 
+                               id="nome" 
+                               name="nome" 
+                               required 
+                               placeholder="Il tuo nome">    
+                    </div>
+                    
+                    <div class="single-form">
+                        <label for="cognome">
+                            Cognome <span class="required">*</span>
+                        </label>
+                        <input type="text" 
+                               id="cognome" 
+                               name="cognome" 
+                               required 
+                               placeholder="Il tuo cognome">    
+                    </div>        
+                    
+
+                </div>
+                
+
+                <div class="form-row">
+                    <div class="single-form">
+                        <label for="email">
+                            Email <span class="required">*</span>
+                        </label>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               required 
+                               placeholder="tuaemail@esempio.it">
+                    </div>
+
+                    <div class="single-form">
+                        <label for="telefono">
+                            Telefono <span class="required">*</span>
+                        </label>
+                        <input type="tel" 
+                               id="telefono" 
+                               name="telefono" 
+                               required 
+                               placeholder="+39 123 456 7890">
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="single-form">
+                        <label for="citta">
+                            Città <span class="required">*</span>
+                        </label>
+                        <input type="text" 
+                               id="citta" 
+                               name="citta" 
+                               required 
+                               placeholder="La tua città">
+                    </div>
+
+                    <div class="single-form">
+                        <label for="cap">
+                            CAP <span class="required">*</span>
+                        </label>
+                        <input type="text" 
+                               id="cap" 
+                               name="cap" 
+                               required 
+                               placeholder="00100"
+                               pattern="[0-9]{5}"> 
+                    </div>
+                </div>
+
+
+                <div class="form-group full-width">
+                    <label for="indirizzo">
+                        Indirizzo completo <span class="required">*</span>
+                    </label>
+                    <input type="text" 
+                           id="indirizzo" 
+                           name="indirizzo" 
+                           required 
+                           placeholder="Via, numero civico">
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="abitazione">
+                        Tipo di abitazione <span class="required">*</span>
+                    </label>
+                    <select id="abitazione" name="abitazione" required>
+                        <option value="">Seleziona...</option>
+                        <option value="appartamento">Appartamento</option>
+                        <option value="villa">Villa/Casa indipendente</option>
+                        <option value="casa-giardino">Casa con giardino</option>
+                    </select>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="single-form">
+                        <label for="altri-animali">
+                            Hai altri animali?
+                        </label>
+                        <select id="altri-animali" name="altri_animali">
+                            <option value="no">No</option>
+                            <option value="gatti">Sì, gatti</option>
+                            <option value="cani">Sì, cani</option>
+                            <option value="entrambi">Sì, gatti e cani</option>
+                            <option value="altri">Sì, altri animali</option>
+                        </select>
+                    </div>
+
+                    <div class="single-form">
+                        <label for="esperienza">
+                            Esperienza con animali
+                        </label>
+                        <select id="esperienza" name="esperienza">
+                            <option value="nessuna">Nessuna esperienza</option>
+                            <option value="poca">Poca esperienza</option>
+                            <option value="media">Media esperienza</option>
+                            <option value="molta">Molta esperienza</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="single-form-group">
+                    <label for="motivazione">
+                        Perché vuoi adottare Luna? <span class="required">*</span>
+                    </label>
+                    <textarea id="motivazione" 
+                              name="motivazione" 
+                              required 
+                              placeholder="Raccontaci le tue motivazioni..."></textarea>
+                </div>
+
+                <div class="single-form-group">
+                    <label for="note">
+                        Note aggiuntive
+                    </label>
+                    <textarea id="note" 
+                              name="note" 
+                              placeholder="Eventuali informazioni aggiuntive che vuoi condividere..."></textarea>
+                </div>
+
+
+                <div class="privacy-policy">                  
+                    <label for="privacy">
+                        Acconsento al trattamento dei miei dati personali ai sensi della normativa vigente sulla privacy. <span class="required">*</span>
+                    </label>
+                    <input type="checkbox" 
+                           id="privacy" 
+                           name="privacy" 
+                           required>
+                </div>
+
+                <div class="">
+                    <button type="submit" class="submite-bt">
+                        📩 Invia Richiesta di Adozione
+                    </button>
+                </div>
+
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rifugio Amici per Sempre</p>
+    </footer>
+
+</body>
+
+</html>
