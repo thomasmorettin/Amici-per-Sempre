@@ -3,6 +3,11 @@
     margin: 0em;
 }
 
+*::selection {
+    background-color: var(--txtcolor);
+    color: var(--bgcolor);
+}
+
 :root {
     --txtcolor: #484340;
     --bgcolor: #FFF8E7;
