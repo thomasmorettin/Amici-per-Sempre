@@ -17,6 +17,9 @@
     --btnhovercolor: #B4C0A7;
     --btncolor: #C8D5B9;
     --bgheader: #F2ECDB;
+    --forminputhovercolor: #C8D5B9;  /* DA TESTARE */
+    --requiredcolor: #ff0000;
+    --formbgcolor: #dee6d6;  /* DA TESTARE */
 }
 
 html, body {
@@ -615,3 +618,213 @@ footer {
 
 
 /* --------------------parte di Niccolò --------------------*/
+
+.description {
+    margin: 1em;
+    font-size: 1.6em;
+    line-height: 1.4em;
+    text-align: center;
+}
+
+.required::after {
+    content: " (richiesto)";
+    font-size: 0.9em;
+    color: var(--requiredcolor);
+}
+
+#section-form-porta-adozione {
+    padding: 2em;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: var(--bgbread);
+    max-width: 50em;
+    margin: 3em auto;
+}
+
+#section-form-porta-adozione h2 {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+#form-porta-adozione {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field {
+    margin: 0.8em;
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-input {
+    flex-direction: row;
+    display: flex;
+    gap: 0.5em;
+}
+
+.phone-prefix {
+    align-self: center;
+    font-size: 1.1em;
+}
+
+.phone-number {
+    flex: 1;
+}
+
+#form-porta-adozione label {
+    margin-bottom: 0.23em;
+    font-size: 1.1em;
+}
+
+#form-porta-adozione input,
+#form-porta-adozione textarea {
+    padding: 0.5em;
+    font-size: 1.1em;
+    border: 1px solid var(--txtcolor);
+    border-radius: 0.25em;
+}
+
+#form-porta-adozione input:focus,
+#form-porta-adozione textarea:focus {
+    outline: none;
+    border-color: var(--forminputhovercolor);
+}
+
+#form-porta-adozione textarea {
+    resize: vertical;
+    min-height: 6em;
+}
+
+#form-porta-adozione button {
+    padding: 0.75em 1.5em;
+    background-color: var(--btncolor);
+    color: var(--txtcolor);
+    border: 0.125em solid var(--btnhovercolor);
+    border-radius: 0.5em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    margin-top: 1em;
+}
+
+#section-padrone {
+    margin: 2em 0em 0em 0em;
+    border: 1px solid var(--txtcolor);
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+#section-padrone legend {
+    font-size: 1.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+#section-animale {
+    margin: 2em 0em 0em 0em;
+    border: 1px solid var(--txtcolor);
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+#section-animale legend {
+    font-size: 1.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+#form-porta-adozione .radio-group {
+    flex-direction: row;
+    display: flex;
+    margin: 0.8em;
+    gap: 3em;
+}
+
+#form-porta-adozione .radio-group label {
+    display: flex;
+    align-items: center;
+}
+
+#form-porta-adozione .radio-group input[type="radio"] {
+    appearance: none;
+    margin-right: 0.7em;
+    transform: scale(1.5);
+    border: 1px solid var(--txtcolor);
+    cursor: pointer;
+    place-items: center;
+    background-color: white;
+    width: 1.1em;
+    height: 1.1em;
+    padding-top: 0.1em;
+}
+
+#form-porta-adozione .radio-group input[type="radio"]::before {
+    content: "";
+    width: 0.7em;
+    height: 0.7em;
+    display: block;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: inherit;                        
+                             
+    transition: 0.2s ease-in-out;
+}
+
+#form-porta-adozione .radio-group input[type="radio"]:checked::before {
+    background-color: var(--txtcolor);
+}
+
+#section-form-login {
+    padding: 2em;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: var(--bgbread);
+    max-width: 30em;
+    margin: 3em auto;
+}
+
+#form-login {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-login div {
+    margin: 0.8em;
+    display: flex;
+    flex-direction: column;
+}
+
+#form-login label {
+    margin-bottom: 0.23em;
+    font-size: 1.1em;
+}
+
+#form-login input,
+#form-login textarea {
+    padding: 0.5em;
+    font-size: 1.1em;
+    border: 1px solid var(--txtcolor);
+    border-radius: 0.25em;
+}
+
+#form-login input:focus,
+#form-login textarea:focus {
+    outline: none;
+    border-color: var(--forminputhovercolor);
+}
+
+#form-login button {
+    padding: 0.75em 1.5em;
+    background-color: var(--btncolor);
+    color: var(--txtcolor);
+    border: 0.125em solid var(--btnhovercolor);
+    border-radius: 0.5em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
