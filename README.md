@@ -1,4 +1,4 @@
-# [Titolo sito web]
+# Rifugio _Amici per Sempre_
 ## Link alle risorse
 
 **Organizzazione lavoro** → https://docs.google.com/spreadsheets/d/1IvmOP4-L43-3rZKMP3HjJTAKV10f5UtU-ZQy_u4UrjI/edit?usp=sharing
