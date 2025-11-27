@@ -509,7 +509,18 @@ footer {
     transition: background-color 0.3s ease;
 }
 
-.dtl-animale::-webkit-details-marker { display: none; } /* Per i motori di ricerca: Chrome e Safari */
+.dtl-animale .img-animale {
+    height: 7.5em;
+    width: auto;
+    border-radius: 0.5em;
+}
+
+.dtl-animale summary div {
+    flex: 1;
+    margin-left: 1em;
+}
+
+.dtl-animale::-webkit-details-marker { display: none; }     /* Per i motori di ricerca: Chrome e Safari */
 
 .dtl-animale summary:hover {
     background-color: var(--btnhovercolor);
@@ -534,13 +545,13 @@ footer {
     padding-bottom: 0.2em;
 }
 
-.dtl-animale summary img {
+.dtl-animale summary .exp-freccia {
     width: 2em;
     height: 2em;
     transition: transform 0.3s ease;
 }
 
-.dtl-animale.dtl-aperto > summary img {
+.dtl-animale.dtl-aperto > summary .exp-freccia {
     transform: rotate(180deg);
 }
 
@@ -664,6 +675,7 @@ details[open] > .contenuto-nascosto {
 .titolo-dialog {
     font-size: 1.5em;
     font-weight: bold;
+    margin-bottom: 0.25em;
 }
 
 #dia-appuntamento form {

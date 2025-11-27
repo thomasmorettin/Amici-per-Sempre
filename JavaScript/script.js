@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cliente = document.getElementById("nome-cliente");
   const btnChiudi = dialogApp.querySelector(".btn-close");
   
-  const btnPopUp = document.querySelectorAll(".btn-popup-app");
+  const btnPopUp = document.querySelectorAll(".btn-popup-app, .btn-modifica-app");
 
   btnPopUp.forEach(btn => {
     btn.addEventListener("click", () => {
