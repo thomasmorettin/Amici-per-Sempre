@@ -3,233 +3,6 @@
     margin: 0em;
 }
 
-.dtl-animale {
-    border-radius: 0.5em;
-    overflow: hidden;
-    margin-bottom: 1em;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.dtl-animale summary {
-    display: flex;
-    align-items: center;
-    padding: 1em;
-    cursor: pointer;
-    justify-content: space-between;
-    background-color: var(--btncolor);
-    list-style: none;
-    transition: background-color 0.3s ease;
-}
-
-.dtl-animale::-webkit-details-marker { display: none; } /* Per i motori di ricerca: Chrome e Safari */
-
-.dtl-animale summary:hover {
-    background-color: var(--btnhovercolor);
-}
-
-.nome-animale {
-    font-size: 1.25em;
-    font-weight: bold;
-}
-
-.status-richieste {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-}
-
-.status-richieste::before {
-    content: url("../Resources/Vectors/Notification.svg");
-    width: 1em;
-    height: 1em;
-    margin-right: 0.25em;
-    padding-bottom: 0.2em;
-}
-
-.dtl-animale summary img {
-    width: 2em;
-    height: 2em;
-    transition: transform 0.3s ease;
-}
-
-.dtl-animale.dtl-aperto > summary img {
-    transform: rotate(180deg);
-}
-
-.contenuto-nascosto {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s ease;
-    backdrop-filter: blur(1em);
-}
-
-details[open] > .contenuto-nascosto {
-    grid-template-rows: 1fr;
-}
-
-.contenuto-nascosto > * {
-    overflow: hidden;
-}
-
-.contenuto-nascosto section {
-    padding: 1em;
-}
-
-.contenuto-nascosto section > p {
-    font-size: 1.25em;
-    font-weight: bold;
-    margin-bottom: 0.5em;
-}
-
-.contenuto-nascosto section > ul {
-    list-style: none;
-}
-
-.contenuto-nascosto section > ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.contenuto-nascosto section > ul li:not(:last-child) {
-    border-bottom: 1px solid var(--txtcolor);
-    padding-bottom: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-.contenuto-nascosto section > ul li > dl {
-    flex: 1;
-}
-
-.btn-gruppo button {
-    padding: 0.5em;
-    border-radius: 0.5em;
-    background-color: var(--btncolor);
-    width: 2.5em;
-    height: 2.5em;
-}
-
-.btn-gruppo button:hover {
-    background-color: var(--btnhovercolor);
-}
-
-.btn-popup-app,
-.btn-modifica-app {
-    content: url("../Resources/Vectors/Calendar.svg");
-    margin-right: 1em;
-}
-
-.btn-elimina-app {
-    content: url("../Resources/Vectors/Delete.svg");
-}
-
-.cliente-info dt {
-    margin-left: 0.5em;
-    float: left;
-    font-weight: bold;
-    margin-right: 0.25em;
-}
-
-#dia-appuntamento {
-    margin: auto;
-    border: none;
-    padding: 3em;
-    background-color: var(--bgcolor);
-    border-radius: 1em;
-    opacity: 0;
-}
-
-#dia-appuntamento::backdrop {
-    background-color: rgba(0, 0, 0, 0.75);
-    opacity: 0;
-}
-
-#dia-appuntamento[open] {
-    opacity: 1;
-}
-
-#dia-appuntamento[open]::backdrop {
-    opacity: 1;
-}
-
-.btn-close {
-    background-image: url("../Resources/Vectors/Cancel.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    border-radius: 0.5em;
-    width: 1.5em;
-    height: 1.5em;
-}
-
-.btn-close:hover {
-    background-color: var(--onhovercolor);
-}
-
-#dia-appuntamento > p {
-    text-align: center;
-}
-
-.titolo-dialog {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-#dia-appuntamento form {
-    margin-top: 1.5em;
-    text-align: center;
-}
-
-#dia-appuntamento form label {
-    font-weight: bold;
-    text-align: center;
-}
-
-#data-appuntamento {
-    margin-right: 1em;
-}
-
-#btn-prenota-app {
-    margin-top: 1.5em;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    background-color: var(--btncolor);
-}
-
-#btn-prenota-app:hover {
-    background-color: var(--btnhovercolor);
-}
-
-/* PROVA */
-
-.bottone-principale {
-    margin-top: 1.5em;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    background-color: var(--btncolor);
-}
-
-.bottone-principale:hover {
-    background-color: var(--btnhovercolor);
-}
-
-/* --- Lo Stato "APERTO" (controllato da JS) --- */
-
-.modal-overlay.aperto {
-  visibility: visible;
-  opacity: 1;
-  transition-delay: 0s;
-}
-
-.modal-overlay.aperto .modal-contenuto {
-  transform: scale(1);
-  opacity: 1;
-}
-/* PROVA */
-
 *::selection {
     background-color: var(--txtcolor);
     color: var(--bgcolor);
@@ -716,6 +489,206 @@ footer {
 
 .cnt-presa-adozione .linea {
     background-color: var(--bgsection);
+}
+
+.dtl-animale {
+    border-radius: 0.5em;
+    overflow: hidden;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.dtl-animale summary {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    cursor: pointer;
+    justify-content: space-between;
+    background-color: var(--btncolor);
+    list-style: none;
+    transition: background-color 0.3s ease;
+}
+
+.dtl-animale::-webkit-details-marker { display: none; } /* Per i motori di ricerca: Chrome e Safari */
+
+.dtl-animale summary:hover {
+    background-color: var(--btnhovercolor);
+}
+
+.nome-animale {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.status-richieste {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.status-richieste::before {
+    content: url("../Resources/Vectors/Notification.svg");
+    width: 1em;
+    height: 1em;
+    margin-right: 0.25em;
+    padding-bottom: 0.2em;
+}
+
+.dtl-animale summary img {
+    width: 2em;
+    height: 2em;
+    transition: transform 0.3s ease;
+}
+
+.dtl-animale.dtl-aperto > summary img {
+    transform: rotate(180deg);
+}
+
+.contenuto-nascosto {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+    backdrop-filter: blur(1em);
+}
+
+details[open] > .contenuto-nascosto {
+    grid-template-rows: 1fr;
+}
+
+.contenuto-nascosto > * {
+    overflow: hidden;
+}
+
+.contenuto-nascosto section {
+    padding: 1em;
+}
+
+.contenuto-nascosto section > p {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.contenuto-nascosto section > ul {
+    list-style: none;
+}
+
+.contenuto-nascosto section > ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenuto-nascosto section > ul li:not(:last-child) {
+    border-bottom: 1px solid var(--txtcolor);
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.contenuto-nascosto section > ul li > dl {
+    flex: 1;
+}
+
+.btn-gruppo button {
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background-color: var(--btncolor);
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.btn-gruppo button:hover {
+    background-color: var(--btnhovercolor);
+}
+
+.btn-popup-app,
+.btn-modifica-app {
+    content: url("../Resources/Vectors/Calendar.svg");
+    margin-right: 1em;
+}
+
+.btn-elimina-app {
+    content: url("../Resources/Vectors/Delete.svg");
+}
+
+.cliente-info dt {
+    margin-left: 0.5em;
+    float: left;
+    font-weight: bold;
+    margin-right: 0.25em;
+}
+
+#dia-appuntamento {
+    margin: auto;
+    border: none;
+    padding: 3em;
+    background-color: var(--bgcolor);
+    border-radius: 1em;
+    opacity: 0;
+}
+
+#dia-appuntamento::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+}
+
+#dia-appuntamento[open] {
+    opacity: 1;
+}
+
+#dia-appuntamento[open]::backdrop {
+    opacity: 1;
+}
+
+.btn-close {
+    background-image: url("../Resources/Vectors/Cancel.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    border-radius: 0.5em;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.btn-close:hover {
+    background-color: var(--onhovercolor);
+}
+
+#dia-appuntamento > p {
+    text-align: center;
+}
+
+.titolo-dialog {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#dia-appuntamento form {
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+#dia-appuntamento form label {
+    font-weight: bold;
+    text-align: center;
+}
+
+#data-appuntamento {
+    margin-right: 1em;
+}
+
+#btn-prenota-app {
+    margin-top: 1.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background-color: var(--btncolor);
+}
+
+#btn-prenota-app:hover {
+    background-color: var(--btnhovercolor);
 }
 
 
