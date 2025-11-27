@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Amici per Sempre: Porta in adozione</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="...">
+    <meta name="keywords" content="...">
+
+    <link class="title-icon" rel="icon" href="../Resources/Favicon/favicon.ico" sizes="any" />
+    <link class="title-icon" rel="icon" href="../Resources/Favicon/icon.svg" type="image/svg+xml" />
+    <link class="title-icon" rel="apple-touch-icon" href="../Resources/Favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../Resources/Favicon/manifest.webmanifest" />
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
+
+    <script src="../JavaScript/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="scrolled">
+        <h1>Rifugio Amici per Sempre</h1>
+
+        <nav id="menu">
+            <ul>
+                <li lang="en"><a href="index.html">Home</a></li>
+                <li><a href="#">Adotta</a></li>
+                <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
+            </ul>
+        </nav>
+
+        <menu id="header-btns">
+            <button id="btn-access" title="Accessibilità"></button>
+            <a id="btn-login" href="#" lang="en">Login</a>
+        </menu>
+
+        <button id="hamburger">
+            <span class="linea"></span>
+            <span class="linea"></span>
+            <span class="linea"></span>
+        </button>
+    </header>
+
+    <nav id="breadcrumb">
+        <p>Ti trovi in: Home → <span id="where" lang="en">Accedi</span></p>
+    </nav>
+
+    <main>
+        <p class="titolo">Accedi</p>
+        <section id="section-form-login">
+            <form id="form-login"> 
+                <div>
+                    <label for="email" class="required">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password" class="required">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <button type="submit">Accedi</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rifugio Amici per Sempre</p>
+    </footer>
+
+    <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>
+</body>
+</html>
