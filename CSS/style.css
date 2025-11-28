@@ -121,10 +121,25 @@ header h1 {
 #menu a {
     color: var(--txtcolor);
     text-decoration: none;
+    position: relative;
+    padding-bottom: 0.25em;
 }
 
-#menu a:hover {
-    text-decoration: underline;
+#menu a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--txtcolor);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+#menu a:hover::after {
+    transform: scaleX(1);
 }
 
 #menu ul {
