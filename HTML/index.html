@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <title>Amici per Sempre: Home</title>
+    <title>Home: Amici per Sempre</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,26 +16,27 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
 
-    <script src="../JavaScript/script.js" defer></script>
+    <script src="../JavaScript/global.js" defer></script>
+    <script src="../JavaScript/index.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body data-theme="light">
     <header class="scrolled">
         <h1>Rifugio Amici per Sempre</h1>
 
         <nav id="menu">
             <ul>
-                <li lang="en">Home</li>
+                <li lang="en" class="active-link">Home</li>
                 <li><a href="#">Adotta</a></li>
                 <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
             </ul>
         </nav>
 
         <menu id="header-btns">
-            <button id="btn-access" title="Accessibilità"></button>
+            <button id="btn-theme" title="Cambio tema"></button>
             <a id="btn-login" href="#" lang="en">Login</a>
         </menu>
 
@@ -47,7 +48,7 @@
     </header>
 
     <nav id="breadcrumb">
-        <p>Ti trovi in: <span id="where" lang="en">Home</span></p>
+        <p>Ti trovi in: <span class="active-link" lang="en">Home</span></p>
     </nav>
 
     <main>
@@ -78,18 +79,121 @@
 
             <ul>
                 <li>
-                    <dl><dt>Volontari che lavorano con noi</dt>
-                    <dd>18</dd></dl>
+                    <figure>
+                        <img src="../Resources/Images/Volontaria.jpg">
+                        <figcaption>
+                            <dl><dt>Volontari che lavorano con noi</dt>
+                            <dd>18</dd></dl>
+                        </figcaption>
+                    </figure>
                 </li>
                 <li>
-                    <dl><dt>Animali salvati dal randagismo</dt>
-                    <dd>150+</dd></dl>
+                    <figure>
+                        <img src="../Resources/Images/GattoRandagio.jpg">
+                        <figcaption>
+                            <dl><dt>Animali salvati dal randagismo</dt>
+                            <dd>150+</dd></dl>
+                        </figcaption>
+                    </figure>
                 </li>
-                <li><dl><dt>Animali adottati</dt>
-                    <dd>50+</dd></dl></li>
-                <li><dl><dt>Animali accolti da padroni consapevoli</dt>
-                    <dd>50+</dd></dl></li>
+                <li>
+                    <figure>
+                        <img src="../Resources/Images/CaneAdottato.jpg">
+                        <figcaption>
+                            <dl><dt>Animali adottati</dt>
+                            <dd>50+</dd></dl>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="../Resources/Images/NuovoCane.jpg">
+                        <figcaption>
+                            <dl><dt>Animali accolti da padroni consapevoli</dt>
+                            <dd>50+</dd></dl>
+                        </figcaption>
+                    </figure>
+                </li>
             </ul>
+        </section>
+
+        <section id="section-faqs">
+            <h2>FAQs</h2>
+
+            <details>
+                <summary>
+                    <p>Come funziona il percorso di adozione?</p>
+                    <img src="../Resources/Vectors/DownArrow.svg" class="exp-freccia">
+                </summary>
+
+                <div>
+                    <div>       <!-- Con il solo scopo di rendere più fluida la dissolvenza della scheda -->
+                        <p>Adottare un animale è una scelta consapevole e che dimostra un gesto di vero amore nei confronti dell'animale con il quale si vuole intraprendere questo percorso.</p>
+                        <p>Il nostro rifugio offre la possibilità di inviare una <a href="adotta.html">richiesta</a> per adottare un animale, oppure è possibile recarsi presso la sede fisica per instaurare immediatamente un rapporto di fiducia. Nel caso di una richiesta virtuale si verrà contattati personalmente per fissare un appuntamento e avere la possibilità di conoscerci più a fondo.</p>
+                        <p>L'idoneità all'adozione sarà il passaggio finale per portare a casa il tuo nuovo amico a quattro zampe.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <p>Posso adottare se vivo in appartamento e non ho un giardino?</p>
+                    <img src="../Resources/Vectors/DownArrow.svg" class="exp-freccia">
+                </summary>
+
+                <div>
+                    <div>
+                        <p>Assolutamente sì!</p>
+                        <p>I nostri amici a quattro zampe non hanno bisogno di ettari di terreno, per loro è importante l'amore che gli puoi offrire e la possibilità di fare passeggiate (soprattutto per i cani) in compagnia.</p>
+                        <p>Qualsiasi dubbio possa nascere sulla possibilità o meno di un animale di stare in appartemento i nostri volontari sono a disposizione per consigliarti l'amico che meglio apprezza il tuo spazio domestico.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <p>Gli animali sono vaccinati e controllati?</p>
+                    <img src="../Resources/Vectors/DownArrow.svg" class="exp-freccia">
+                </summary>
+
+                <div>
+                    <div>
+                        <p>Certamente!</p>
+                        <p>Ciascun animale possiede il proprio certificato con tutte le vaccinazioni al quale è stato sottoposto</p>
+                        <p>Tutti i nostri amici a quattro zampe, che siano stati salvati dalla strada o accompagnati al nostro rifugio da padroni consapevoli, affrontano controlli periodici per quanto riguarda possibili malattie/infezioni e il nostro personale veterinario è sempre a disposizione sia in rifugio che anche nella fase post-adozione dovesse servire qualsiasi aiuto.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <p>Non ho esperienza con cani o gatti, mi aiuterete?</p>
+                    <img src="../Resources/Vectors/DownArrow.svg" class="exp-freccia">
+                </summary>
+
+                <div>
+                    <div>
+                        <p>Il nostro aiuto è un dovere.</p>
+                        <p>Sarai accompagnato sia nella fase di pre-adozione, con la corretta consapevolezza per l'azione che porterai avanti, che nella fase di post-adozione.</p>
+                        <p>Terminata la fase di adozione i volontari del Rifugio Amici per Sempre sono pronti ad offrire qualsiasi tipologia di supporto, che questo sia emotivo o fisico con la possibilità di donare all'adottante, in casi di necessità, il materiale necessario per fornire il miglior amore possibile all'amico appena adottato</p>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <p>Ho trovato un cane/gatto randagio, cosa posso fare?</p>
+                    <img src="../Resources/Vectors/DownArrow.svg" class="exp-freccia">
+                </summary>
+
+                <div>
+                    <div>
+                        <p>Come prima azione da svolgere è fondamentale mettere in sicurezza l'animale, stando attenti a non farsi mordere.</p>
+                        <p>Dopo il ritrovamente è importante contattare subito la Polizia Locale del comune di ritrovamento o l'ASL veterinaria di riferimento. Non portare mai l'animale al Rifugio prima di aver chiamato le autorità competenti, le quali si occuperanno della verifica del microchip.</p>
+                        <p>Una volta che le autorità avranno effettuato le verifiche necessarie il Rifugio Amici per Sempre accoglierà il povero animale con l'obiettivo di farlo adottare da padroni più consapevoli e amorevoli.</p>
+                    </div>
+                </div>
+            </details>
         </section>
 
         <section id="section-contatti">
@@ -125,7 +229,17 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Rifugio Amici per Sempre</p>
+        <p id="titolo-orari">I nostri orari</p>
+        <dl id="tbl-orari">
+            <dt>Lunedì - Venerdì</dt>
+            <dd>8:30 - 19:30</dd>
+            <dt>Sabato</dt>
+            <dd>8:30 - 12:30</dd>
+            <dt>Domenica</dt>
+            <dd><span class="attention">Chiuso</span></dd>
+        </dl>
+
+        <p id="copyright">&copy; 2025 Rifugio Amici per Sempre</p>
     </footer>
 
     <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>
