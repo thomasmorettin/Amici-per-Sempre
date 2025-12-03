@@ -23,13 +23,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body data-theme="light">
     <header class="scrolled">
         <h1>Rifugio Amici per Sempre</h1>
 
         <nav id="menu">
             <ul>
-                <li lang="en" class="active-link">Home</li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Adotta</a></li>
                 <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
             </ul>
@@ -48,22 +48,29 @@
     </header>
 
     <nav id="breadcrumb">
-        <p>Ti trovi in: Home → <span id="where" lang="en">Accedi</span></p>
+        <p>Ti trovi in: Home → <span class="active-link" lang="en">Accedi</span></p>
     </nav>
 
     <main>
         <p class="titolo">Accedi</p>
         <section id="section-form-login">
-            <form id="form-login"> 
-                <div>
-                    <label for="email" class="required">Email</label>
+            <div class="info-required">
+                <p><span class="required"></span> Campo obbligatorio</p>
+            </div>
+            <form> 
+                <div class="form-field">
+                    <label for="email" class="required">
+                        Email
+                    </label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                <div>
-                    <label for="password" class="required">Password</label>
+                <div class="form-field">
+                    <label for="password" class="required">
+                        Password
+                    </label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <div>
+                <div class="form-field">
                     <button type="submit">Accedi</button>
                 </div>
             </form>

@@ -23,21 +23,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body data-theme="light">
     <header class="scrolled">
         <h1>Rifugio Amici per Sempre</h1>
 
         <nav id="menu">
             <ul>
-                <li lang="en" class="active-link">Home</li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Adotta</a></li>
-                <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
+                <li lang="en" class="active-link">Porta in adozione</li>
             </ul>
         </nav>
 
         <menu id="header-btns">
             <button id="btn-theme" title="Cambio tema"></button>
-            <a id="btn-login" href="#" lang="en">Login</a>
+            <a id="btn-login" href="login.html" lang="en">Login</a>
         </menu>
 
         <button id="hamburger">
@@ -48,7 +48,7 @@
     </header>
 
     <nav id="breadcrumb">
-        <p>Ti trovi in: Home → <span id="where" lang="en">Porta in adozione</span></p>
+        <p>Ti trovi in: Home → <span class="active-link" lang="en">Porta in adozione</span></p>
     </nav>
 
     <main>
@@ -56,7 +56,10 @@
         <p class="description">Ci sono momenti in cui incontriamo un animale che ha bisogno di più di ciò che possiamo offrirgli da soli. Puoi prenotare una visita con il centro e portare il tuo cane o gatto per darlo in adozione. Dopo la prenotazione un operatore di chiamerà per accordarsi sul giorno e l'ora della visita.</p>
         <section id="section-form-porta-adozione">
             <h2>Compila il form per prenotare una visita al centro di adozione</h2>
-            <form id="form-porta-adozione"> 
+            <div class="info-required">
+                <p><span class="required"></span> Campo obbligatorio</p>
+            </div>
+            <form> 
                 <fieldset id="section-padrone"> <legend> Dati del padrone </legend>
                     <div class="form-field">
                         <label for="idk1" class="required">
@@ -112,7 +115,22 @@
                         <label for="idk7" class="required">
                             Razza
                         </label>
-                        <input placeholder="Es: Labrador, Persiano, Ibrido..." required>
+                        <input placeholder="Es: Labrador, Persiano, Ibrido..." list="races" required>
+                        <datalist id="races">
+                            <option value="Labrador">
+                            <option value="Golden Retriever">
+                            <option value="Bulldog">
+                            <option value="Beagle">
+                            <option value="Poodle">
+                            <option value="Siberian Husky">
+                            <option value="Dachshund">
+                            <option value="Boxer">
+                            <option value="Rottweiler">
+                            <option value="German Shepherd">
+                            <option value="Persiano">
+                            <option value="Siamese">
+                            <option value="Maine"></option>
+                        </datalist>
                     </div>
                     <div class="form-field">
                         <label for="idk9" class="required">
