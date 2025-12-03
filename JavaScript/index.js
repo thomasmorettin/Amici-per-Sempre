@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   faq.forEach(detail => {
     const summary = detail.querySelector("summary");
-    const contenuto = detail.querySelector("div");
+    const contenuto = detail.querySelector("details > div");
 
     summary.addEventListener("click", (event) => {
       event.preventDefault();   // Prevenzione dell'azione di default
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const openDetail = faqArray.find(detail => detail.hasAttribute("open"));
 
         if (openDetail) {
-            const openContenuto = openDetail.querySelector("div");
+            const openContenuto = openDetail.querySelector("details > div");
             openDetail.classList.remove("dtl-aperto");    // Permette animazione fluida della freccia
 
             const closeOpenCont = openContenuto.animate({gridTemplateRows: ["1fr", "0fr"]}, {
