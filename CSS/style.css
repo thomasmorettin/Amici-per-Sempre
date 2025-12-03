@@ -20,7 +20,34 @@
     --brownshadow: 0 2px 10px rgba(112, 64, 43, 0.3);
     --greenshadow: 0 2px 10px rgba(68, 93, 23, 0.3);
     --redshadow: 0 2px 10px rgba(150, 52, 40, 0.3);
-    --greyshadow: 0 2px 10px rgba(51, 48, 45, 0.3);
+    --normalshadow: 0 2px 10px rgba(51, 48, 45, 0.3);
+
+    --generalpadding: 0.5em 1em 0.5em 1em; /* top, right, bottom, left */
+}
+
+[data-theme="dark"] {
+    --txtcolor: #D9D3C4;
+    --borderform: #D9D3C4;
+    --inverttxtcolor: #141312;
+    --bgcolor: #141312;
+    --bgbread: #181816;
+    --bgdecoration: #70402B;
+    --borderdecoration: #F3D5C8;
+    --strongdecoration: #F3D5C8;
+    --txtdecoration: #F3D5C8;
+    --bgbtn: #445D17;
+    --borderbtn: #DEE4D2;
+    --txtbtncolor: #DEE4D2;
+    --bgbtnhover: #DEE4D2;
+    --linkcolor: #2E799B;
+    --bgwarning: #963428;
+    --borderwarning: #EAD6D4;
+    --txtwarning: #EAD6D4;
+
+    --brownshadow: 0 rgba(243, 213, 200, 0.3);
+    --greenshadow: 0 rgba(222, 228, 210, 0.3);
+    --redshadow: 0 rgba(234, 214, 212, 0.3);
+    --normalshadow: 0 rgba(255, 248, 231, 0.3);
 
     --generalpadding: 0.5em 1em 0.5em 1em; /* top, right, bottom, left */
 }
@@ -110,7 +137,7 @@ header {
 }
 
 header.scrolled {
-    box-shadow: var(--greyshadow);
+    box-shadow: var(--normalshadow);
 }
 
 header h1 {
@@ -522,7 +549,7 @@ details.summary-hovered {
 #google-maps {
     border: none;
     border-radius: 0.5em;
-    box-shadow: var(--greyshadow);
+    box-shadow: var(--normalshadow);
     width: 20em;
     height: 20em;
 }
@@ -548,7 +575,7 @@ footer {
     margin-top: 1em;
     border-radius: 0.5em;
     padding: var(--generalpadding);
-    box-shadow: var(--greyshadow);
+    box-shadow: var(--normalshadow);
     background-color: var(--bgcolor);
     text-align: center;
 }
