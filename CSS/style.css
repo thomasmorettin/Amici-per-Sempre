@@ -144,7 +144,7 @@ header h1 {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 1.5px;
     background-color: var(--txtcolor);
     transform: scaleX(0);
     transform-origin: center;
@@ -545,6 +545,7 @@ details.summary-hovered {
 }
 
 footer {
+    margin-top: 1em;
     border-radius: 0.5em;
     padding: var(--generalpadding);
     box-shadow: var(--greyshadow);
@@ -552,32 +553,47 @@ footer {
     text-align: center;
 }
 
+#dati-footer {
+    margin: auto;
+    display: flex;
+    width: fit-content;
+    gap: 7.5em;
+    align-items: center;
+}
+
+#dati-rifugio {
+    text-align: left;
+}
+
+#orari-rifugio {
+    width: fit-content;
+    text-align: right;
+}
+
 #copyright {
     margin-top: 1em;
 }
 
-#titolo-orari {
+.titolo-footer {
     font-size: 1.3em;
     margin-bottom: 0.5em;
     font-weight: bold;
 }
 
 #tbl-orari {
-    width: fit-content;
-    margin: auto;
+    text-align: left;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
 }
 
 #tbl-orari dt {
-    float: left;
     font-weight: bold;
     margin-right: 1em;
-    text-align: right;
+    margin-left: auto;
 }
 
 #tbl-orari dd {
-    text-align: left;
+    margin-left: auto;
 }
 
 .attention {
@@ -592,6 +608,33 @@ footer {
     margin: 1em;
 }
 
+#btns-mesi {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    position: sticky;
+    top: 7em;
+    z-index: 2;
+    margin: auto;
+    width: fit-content;
+}
+
+#btns-mesi p {
+    background-color: var(--bgbread);
+    padding: var(--generalpadding);
+    border-radius: 0.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#btn-mese-prec,
+#btn-mese-succ {
+    font-size: 1em;
+    border: 2px solid var(--borderbtn);
+    box-shadow: var(--greenshadow);
+    padding: var(--generalpadding);
+}
+
 .giornata {
     font-size: 1.5em;
     font-weight: bold;
@@ -599,7 +642,7 @@ footer {
 }
 
 .info {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--brownshadow);
     padding: 0.5em;
     border-radius: 0.5em;
     width: 100%;
@@ -608,45 +651,36 @@ footer {
 .linea {
     content: "";
     display: inline-block;
-    border-radius: 0.25em;
+    border-radius: 0.5em;
     width: 0.25em;
     height: auto;
     vertical-align: middle;
+    background-color: var(--strongdecoration);
 }
 
 .orario {
     margin: 0.5em;
     vertical-align: middle;
-    display: inline-block;
     height: auto;
     align-self: center;
     font-weight: bold;
 }
 
-.cnt-adozione {
-    display: flex;
-    margin: 0.5em auto;
-}
-
-.cnt-adozione .info {
-    background-color: rgba(180, 192, 167, 0.5);
-}
-
-.cnt-adozione .linea {
-    background-color: var(--btnhovercolor);
-}
-
+.cnt-adozione,
 .cnt-presa-adozione {
     display: flex;
     margin: 0.5em auto;
 }
 
-.cnt-presa-adozione .info {
-    background-color: rgba(250, 233, 232, 0.75);
+.cnt-adozione .info {
+    background-color: var(--bgdecoration);
+    border: 2px solid var(--borderdecoration);
 }
 
-.cnt-presa-adozione .linea {
-    background-color: var(--bgsection);
+.cnt-presa-adozione .info {
+    background-color: var(--strongdecoration);
+    border: 2px solid var(--borderdecoration);
+    color: var(--inverttxtcolor);
 }
 
 .dtl-animale {
