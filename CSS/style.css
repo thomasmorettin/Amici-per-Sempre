@@ -330,13 +330,69 @@ main {
     gap: 1em;
 }
 
+.tit-evidenza {
+    color: var(--txtimportant);
+}
+
 #section-chi-siamo h2,
+#section-esperti h2,
 #section-dati h2,
 #section-faqs h2,
 #section-contatti h2 {
     margin-bottom: 1em;
     font-size: 2.25em;
     text-align: center;
+}
+
+#section-esperti {
+    margin: 7.5em auto;
+}
+
+#section-esperti ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    justify-content: center;
+    list-style: none;
+    gap: 4em;
+}
+
+#section-esperti ul li {
+    flex: 1;
+}
+
+#section-esperti figure {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#section-esperti ul li figure img {
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 0.5em;
+    width: 100%;
+    height: 15em;
+    border-radius: 56% 44% 71% 29% / 50% 59% 41% 50%;
+}
+
+#section-esperti figcaption {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+#section-esperti .descrizione {
+    margin-top: auto;
+}
+
+.nome-esperto {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 1em;
 }
 
 #section-dati {
@@ -385,6 +441,7 @@ main {
     margin-top: 0.5em;
     flex: 1;
     display: flex;
+    font-weight: bold;
     flex-direction: column;
     justify-content: center;
 }
@@ -392,7 +449,6 @@ main {
 #section-dati ul li figure dl dd {
     color: var(--txtdecoration);
     margin-top: 0.25em;
-    font-weight: bold;
     font-size: 2em;
     text-align: center;
 }
@@ -450,7 +506,6 @@ main {
     bottom: 1em;
     right: 1em;
     z-index: 2;
-    background-color: var(--bgbtn);
     opacity: 0;
     visibility: hidden;
 }
@@ -1276,7 +1331,7 @@ textarea {
     min-height: 6em;
 }
 
-button {
+form button {
     background-color: var(--bgbtn);
     color: var(--txtbtncolor);
     text-decoration: none;
