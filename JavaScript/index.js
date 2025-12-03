@@ -21,6 +21,23 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
       } else {    // È chiuso = si vuole aprire
+        const faqArray = Array.from(faq);
+        const openDetail = faqArray.find(detail => detail.hasAttribute("open"));
+
+        if (openDetail) {
+            const openContenuto = openDetail.querySelector("div");
+            openDetail.classList.remove("dtl-aperto");    // Permette animazione fluida della freccia
+
+            const closeOpenCont = openContenuto.animate({gridTemplateRows: ["1fr", "0fr"]}, {
+            duration: 300,
+            easing: "ease"
+          });
+
+          closeOpenCont.onfinish = () => {
+            openDetail.removeAttribute("open");
+          };
+        }
+
         detail.classList.add("dtl-aperto");    // Permette animazione fluida della freccia
         detail.setAttribute("open", "");
         
