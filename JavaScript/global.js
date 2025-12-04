@@ -14,24 +14,16 @@ function updateTitleIcon() {
 
 function headerScroll() {
   const header = document.querySelector("header");
-  if (header) {
+  const backToTop = document.getElementById("btn-back-to-top");
+  const footer = document.querySelector("footer");
+
+  if (header && backToTop) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
         header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
-  }
-}
-
-function showBtnBackToTop() {
-  const backToTop = document.getElementById("btn-back-to-top");
-  if (backToTop) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
         backToTop.classList.add("visible");
       } else {
+        header.classList.remove("scrolled");
         backToTop.classList.remove("visible");
       }
     });
