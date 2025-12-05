@@ -123,7 +123,8 @@ html {
 .contenitore,
 .contenitore-header {
     max-width: 1200px;
-    margin: auto;
+    width: 100%;
+    margin: 0 auto auto auto;
 }
 
 .contenitore-header {
@@ -135,7 +136,8 @@ html {
 body {
     position: relative;
     min-height: 100vh;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
     color: var(--txtcolor);
 }
 
@@ -279,7 +281,8 @@ header h1 {
 }
 
 main {
-    margin: auto;
+    flex: 1;
+    width: 100%;
 }
 
 #section-title {
@@ -660,9 +663,6 @@ details.dtl-aperto .exp-freccia {
 }
 
 footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
     margin-top: 1em;
     padding: var(--generalpadding);
     box-shadow: var(--normalshadow);
