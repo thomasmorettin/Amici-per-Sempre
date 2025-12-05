@@ -660,6 +660,9 @@ details.dtl-aperto .exp-freccia {
 }
 
 footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     margin-top: 1em;
     padding: var(--generalpadding);
     box-shadow: var(--normalshadow);
@@ -992,7 +995,7 @@ details[open] > .contenuto-nascosto {
     border: none;
     padding: 3em;
     background-color: var(--bgcolor);
-    border-radius: 1em;
+    border-radius: 0.5em;
     opacity: 0;
 }
 
@@ -1046,7 +1049,7 @@ details[open] > .contenuto-nascosto {
 
 #dia-appuntamento form label {
     font-weight: bold;
-    text-align: center;
+    margin-right: 0.5em;
 }
 
 #data-appuntamento {
@@ -1054,18 +1057,8 @@ details[open] > .contenuto-nascosto {
 }
 
 #btn-prenota-app {
-    margin-top: 2em;
-    padding: var(--generalpadding);
-    border-radius: 0.5em;
-    border: 2px solid var(--borderbtn);
-    background-color: var(--bgbtn);
-    color: var(--txtbtncolor);
-    box-shadow: var(--greenshadow);
-}
-
-#btn-prenota-app:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
+    margin-top: 2.5em;
+    margin: auto;
 }
 
 
@@ -1335,18 +1328,16 @@ input,
 textarea {
     padding: 0.5em;
     font-size: 1.1em;
-    border: 1px solid var(--txtcolor);
+    border: 2px solid var(--txtcolor);
     border-radius: 0.25em;
-}
-
-textarea {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", serif;
+    color: var(--txtcolor);
 }
 
 input:focus,
 textarea:focus {
     outline: none;
-    border-color: var(--borderbtn);
+    border: 2px solid var(--borderbtn);
     box-shadow: var(--greenshadow)
 }
 
