@@ -26,295 +26,300 @@
 <body data-theme="light">
 
     <header class="scrolled">
-        <h1>Rifugio Amici per Sempre</h1>
+        <div class="contenitore-header">
+            <h1>Rifugio Amici per Sempre</h1>
 
-        <nav id="menu">
-            <ul>
-                <li lang="en" class="active-link">Home</li>
-                <li><a href="#">Adotta</a></li>
-                <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
-            </ul>
-        </nav>
+            <nav id="menu">
+                <ul>
+                    <li lang="en" class="active-link">Home</li>
+                    <li><a href="#">Adotta</a></li>
+                    <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
+                </ul>
+            </nav>
 
-        <menu id="header-btns">
-            <button id="btn-theme" title="Cambio tema"></button>
-            <a id="btn-login" href="#" lang="en">Login</a>
-        </menu>
+            <menu id="header-btns">
+                <button id="btn-theme" title="Cambio tema"></button>
+                <a id="btn-login" href="#" lang="en">Login</a>
+            </menu>
 
-        <button id="hamburger">
-            <span class="linea"></span>
-            <span class="linea"></span>
-            <span class="linea"></span>
-        </button>
+            <button id="hamburger">
+                <span class="linea"></span>
+                <span class="linea"></span>
+                <span class="linea"></span>
+            </button>
+        </div>
     </header>
 
     <nav id="breadcrumb">
         <p>Ti trovi in: Home → Amministrazione → <span id="where" lang="en">Richieste adozioni</span></p>
     </nav>
 
-    <main>
-        <p class="titolo">Richieste per gli animali</p>
+    <div class="contenitore">
+        <main>
+            <p class="titolo">Richieste per gli animali</p>
 
 
-        <div class="list-topbar">
-            <button id="filtra-btn" onclick="toggleFilter()">
-                Filtra
-            </button>
-            <button id="ordina-btn">
-                Ordina
-            </button>
-        </div>
-        <section class="section-list">
-            <div class="filter-panel">
-                <div class="filter-content">
-                    <form>
-                        <div class="form-field">
-                            <label>
-                                Tipo animale
-                            </label>
-                            
-                        </div>
-                        <div class="form-field">
-                            <label>
-                                Nome
-                            </label>
-                        </div>
-                        <div class="form-field">
-                            <label>
-                                Razza
-                            </label>
-                        </div>
-                        <div class="form-field">
-                            <label>
-                                Numero Richieste
-                            </label>
-                        </div>    
-                        <div class="form-field">
-                            <label>
-                                Altro che non mi viene in mente
-                            </label>
-                        </div>                                            
-                    </form>
-                </div>
+            <div class="list-topbar">
+                <button id="filtra-btn" onclick="toggleFilter()">
+                    Filtra
+                </button>
+                <button id="ordina-btn">
+                    Ordina
+                </button>
             </div>
-
-            <div class="list-vertical-panel">
-                <div class="list-panel">
-                    <details class="dtl-animale">
-                        <summary>
-                            <img src="../Resources/Images/Corgi.jpg" class="img-animale">
-
-                            <div>
-                                <p class="nome-animale">Batuffolo</p>
-                                <p>Cane - Corgi</p>
-                                <p class="status-richieste">2 nuove richieste</p>
-                            </div>
-
-                            <div class="exp-freccia"></div>
-                        </summary>
-
-                        <div class="contenuto-nascosto">
-                            <div>       <!-- Con il solo scopo di rendere più fluida la dissolvenza della scheda -->
-                                <section>
-                                    <p class="titolo-richieste">Richieste da gestire:</p>
-
-                                    <ul>
-                                        <li>
-                                            <dl>
-                                                <dt>Mario Rossi</dt>
-                                                <dd>
-                                                    <dl class="cliente-info">
-                                                        <dt>Data richiesta:</dt>
-                                                        <dd>25/11/2025</dd>
-                                                        <dt>E-mail:</dt>
-                                                        <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
-                                                        <dt>Tel:</dt>
-                                                        <dd><a href="tel:3400562945">3400562945</a></dd>
-                                                    </dl>
-                                                </dd>
-                                            </dl>
-
-                                            <div class="btn-gruppo">
-                                                <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                                <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <dl>
-                                                <dt>Mario Rossi</dt>
-                                                <dd>
-                                                    <dl class="cliente-info">
-                                                        <dt>Data richiesta:</dt>
-                                                        <dd>25/11/2025</dd>
-                                                        <dt>E-mail:</dt>
-                                                        <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
-                                                        <dt>Tel:</dt>
-                                                        <dd><a href="tel:3400562945">3400562945</a></dd>
-                                                    </dl>
-                                                </dd>
-                                            </dl>
-
-                                            <div class="btn-gruppo">
-                                                <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                                <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </section>
-
-                                <section>
-                                    <p>Richieste gestite:</p>
-
-                                    <ul>
-                                        <li>
-                                            <dl>
-                                                <dt>Mario Rossi</dt>
-                                                <dd>
-                                                    <dl class="cliente-info">
-                                                        <dt>Data appuntamento:</dt>
-                                                        <dd>25/11/2025</dd>
-                                                        <dt>E-mail:</dt>
-                                                        <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
-                                                        <dt>Tel:</dt>
-                                                        <dd><a href="tel:3400562945">3400562945</a></dd>
-                                                    </dl>
-                                                </dd>
-                                            </dl>
-
-                                            <div class="btn-gruppo">
-                                                <button class="btn-modifica-app" title="Modifica appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                                <button class="btn-elimina-app" title="Elimina appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </section>
-                            </div>
-                        </div>
-                    </details>
-                                        <details class="dtl-animale">
-                        <summary>
-                            <img src="../Resources/Images/Corgi.jpg" class="img-animale">
-
-                            <div>
-                                <p class="nome-animale">Batuffolo</p>
-                                <p>Cane - Corgi</p>
-                                <p class="status-richieste">2 nuove richieste</p>
-                            </div>
-
-                            <div class="exp-freccia"></div>
-                        </summary>
-
-                        <div class="contenuto-nascosto">
-                            <div>       <!-- Con il solo scopo di rendere più fluida la dissolvenza della scheda -->
-                                <section>
-                                    <p class="titolo-richieste">Richieste da gestire:</p>
-
-                                    <ul>
-                                        <li>
-                                            <dl>
-                                                <dt>Mario Rossi</dt>
-                                                <dd>
-                                                    <dl class="cliente-info">
-                                                        <dt>Data richiesta:</dt>
-                                                        <dd>25/11/2025</dd>
-                                                        <dt>E-mail:</dt>
-                                                        <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
-                                                        <dt>Tel:</dt>
-                                                        <dd><a href="tel:3400562945">3400562945</a></dd>
-                                                    </dl>
-                                                </dd>
-                                            </dl>
-
-                                            <div class="btn-gruppo">
-                                                <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                                <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <dl>
-                                                <dt>Mario Rossi</dt>
-                                                <dd>
-                                                    <dl class="cliente-info">
-                                                        <dt>Data richiesta:</dt>
-                                                        <dd>25/11/2025</dd>
-                                                        <dt>E-mail:</dt>
-                                                        <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
-                                                        <dt>Tel:</dt>
-                                                        <dd><a href="tel:3400562945">3400562945</a></dd>
-                                                    </dl>
-                                                </dd>
-                                            </dl>
-
-                                            <div class="btn-gruppo">
-                                                <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                                <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </section>
-
-                                <section>
-                                    <p>Richieste gestite:</p>
-
-                                    <ul>
-                                        <li>
-                                            <dl>
-                                                <dt>Mario Rossi</dt>
-                                                <dd>
-                                                    <dl class="cliente-info">
-                                                        <dt>Data appuntamento:</dt>
-                                                        <dd>25/11/2025</dd>
-                                                        <dt>E-mail:</dt>
-                                                        <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
-                                                        <dt>Tel:</dt>
-                                                        <dd><a href="tel:3400562945">3400562945</a></dd>
-                                                    </dl>
-                                                </dd>
-                                            </dl>
-
-                                            <div class="btn-gruppo">
-                                                <button class="btn-modifica-app" title="Modifica appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                                <button class="btn-elimina-app" title="Elimina appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </section>
-                            </div>
-                        </div>
-                    </details>
+            <section class="section-list">
+                <div class="filter-panel">
+                    <div class="filter-content">
+                        <form>
+                            <fieldset class="section-filter"> 
+                                <legend>Tipo animale</legend>
+                                <div class="form-field">
+                                    <div class="check-group">
+                                        <label for="cane"><input type="checkbox" name="tipo-animale" value="cane">Cane</label>
+                                        <label for="gatto"><input type="checkbox" name="tipo-animale" value="gatto">Gatto</label>
+                                    </div>
+                                </div>      
+                            </fieldset>       
+                            <fieldset class="section-filter"> <legend> Dati animale </legend>
+                                <div class="form-field">
+                                    <label>Nome</label>
+                                    <input>
+                                </div>       
+                            </fieldset>
+                            <fieldset class="section-filter"> <legend> Razza </legend>
+                                <div class="form-field">
+                                    <div class="check-group">
+                                        <label for="cane"><input type="checkbox" name="tipo-animale" value="cane">Labrador</label>
+                                        <label for="gatto"><input type="checkbox" name="tipo-animale" value="gatto">Ibrido</label>
+                                        <label for="gatto"><input type="checkbox" name="tipo-animale" value="gatto">Other</label>
+                                    </div>
+                                </div>  
+                            </fieldset>                                    
+                        </form>
+                    </div>
+                    <span class="divider"></span>
                 </div>
-            </div>
 
-        </section>
+                <div class="list-vertical-panel">
+                    <div class="list-panel">
+                        <details class="dtl-animale">
+                            <summary>
+                                <img src="../Resources/Images/Corgi.jpg" class="img-animale">
 
-    </main>
+                                <div>
+                                    <p class="nome-animale">Batuffolo</p>
+                                    <p>Cane - Corgi</p>
+                                    <p class="status-richieste">2 nuove richieste</p>
+                                </div>
+
+                                <div class="exp-freccia"></div>
+                            </summary>
+
+                            <div class="contenuto-nascosto">
+                                <div>       <!-- Con il solo scopo di rendere più fluida la dissolvenza della scheda -->
+                                    <section>
+                                        <p class="titolo-richieste">Richieste da gestire:</p>
+
+                                        <ul>
+                                            <li>
+                                                <dl>
+                                                    <dt>Mario Rossi</dt>
+                                                    <dd>
+                                                        <dl class="cliente-info">
+                                                            <dt>Data richiesta:</dt>
+                                                            <dd>25/11/2025</dd>
+                                                            <dt>E-mail:</dt>
+                                                            <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
+                                                            <dt>Tel:</dt>
+                                                            <dd><a href="tel:3400562945">3400562945</a></dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+
+                                                <div class="btn-gruppo">
+                                                    <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                                                    <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <dl>
+                                                    <dt>Mario Rossi</dt>
+                                                    <dd>
+                                                        <dl class="cliente-info">
+                                                            <dt>Data richiesta:</dt>
+                                                            <dd>25/11/2025</dd>
+                                                            <dt>E-mail:</dt>
+                                                            <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
+                                                            <dt>Tel:</dt>
+                                                            <dd><a href="tel:3400562945">3400562945</a></dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+
+                                                <div class="btn-gruppo">
+                                                    <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                                                    <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </section>
+
+                                    <section>
+                                        <p>Richieste gestite:</p>
+
+                                        <ul>
+                                            <li>
+                                                <dl>
+                                                    <dt>Mario Rossi</dt>
+                                                    <dd>
+                                                        <dl class="cliente-info">
+                                                            <dt>Data appuntamento:</dt>
+                                                            <dd>25/11/2025</dd>
+                                                            <dt>E-mail:</dt>
+                                                            <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
+                                                            <dt>Tel:</dt>
+                                                            <dd><a href="tel:3400562945">3400562945</a></dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+
+                                                <div class="btn-gruppo">
+                                                    <button class="btn-modifica-app" title="Modifica appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                                                    <button class="btn-elimina-app" title="Elimina appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </details>
+                                            <details class="dtl-animale">
+                            <summary>
+                                <img src="../Resources/Images/Corgi.jpg" class="img-animale">
+
+                                <div>
+                                    <p class="nome-animale">Batuffolo</p>
+                                    <p>Cane - Corgi</p>
+                                    <p class="status-richieste">2 nuove richieste</p>
+                                </div>
+
+                                <div class="exp-freccia"></div>
+                            </summary>
+
+                            <div class="contenuto-nascosto">
+                                <div>       <!-- Con il solo scopo di rendere più fluida la dissolvenza della scheda -->
+                                    <section>
+                                        <p class="titolo-richieste">Richieste da gestire:</p>
+
+                                        <ul>
+                                            <li>
+                                                <dl>
+                                                    <dt>Mario Rossi</dt>
+                                                    <dd>
+                                                        <dl class="cliente-info">
+                                                            <dt>Data richiesta:</dt>
+                                                            <dd>25/11/2025</dd>
+                                                            <dt>E-mail:</dt>
+                                                            <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
+                                                            <dt>Tel:</dt>
+                                                            <dd><a href="tel:3400562945">3400562945</a></dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+
+                                                <div class="btn-gruppo">
+                                                    <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                                                    <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <dl>
+                                                    <dt>Mario Rossi</dt>
+                                                    <dd>
+                                                        <dl class="cliente-info">
+                                                            <dt>Data richiesta:</dt>
+                                                            <dd>25/11/2025</dd>
+                                                            <dt>E-mail:</dt>
+                                                            <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
+                                                            <dt>Tel:</dt>
+                                                            <dd><a href="tel:3400562945">3400562945</a></dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+
+                                                <div class="btn-gruppo">
+                                                    <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                                                    <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </section>
+
+                                    <section>
+                                        <p>Richieste gestite:</p>
+
+                                        <ul>
+                                            <li>
+                                                <dl>
+                                                    <dt>Mario Rossi</dt>
+                                                    <dd>
+                                                        <dl class="cliente-info">
+                                                            <dt>Data appuntamento:</dt>
+                                                            <dd>25/11/2025</dd>
+                                                            <dt>E-mail:</dt>
+                                                            <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
+                                                            <dt>Tel:</dt>
+                                                            <dd><a href="tel:3400562945">3400562945</a></dd>
+                                                        </dl>
+                                                    </dd>
+                                                </dl>
+
+                                                <div class="btn-gruppo">
+                                                    <button class="btn-modifica-app" title="Modifica appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                                                    <button class="btn-elimina-app" title="Elimina appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
 
     <footer>
-        <section id="dati-footer">
-            <div id="dati-rifugio">
-                <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
-                <p>Ente del Terzo Settore iscritto al RUNTS (rep. 12345)</p>
-                <p>Sede Legale: <a href="https://maps.app.goo.gl/4DNcs18vGaJqHiDB8" target="_blank" rel="noopener noreferrer">Via Trieste, 63, 35121 Padova (PD)</a></p>
-                <p>C.F. 91022233344</p>
-            </div>
+        <div class="contenitore">
+            <section id="dati-footer">
+                <div id="dati-rifugio">
+                    <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
+                    <p>Ente del Terzo Settore iscritto al RUNTS (rep. 12345)</p>
+                    <p>Sede Legale: <a href="https://maps.app.goo.gl/4DNcs18vGaJqHiDB8" target="_blank" rel="noopener noreferrer">Via Trieste, 63, 35121 Padova (PD)</a></p>
+                    <p>C.F. 91022233344</p>
+                </div>
 
-            <div id="orari-rifugio">
-                <p class="titolo-footer">I nostri orari</p>
+                <div id="orari-rifugio">
+                    <p class="titolo-footer">I nostri orari</p>
 
-                <dl id="tbl-orari">
-                    <dt>Lunedì - Venerdì</dt>
-                    <dd>8:30 - 19:30</dd>
-                    <dt>Sabato</dt>
-                    <dd>8:30 - 12:30</dd>
-                    <dt>Domenica</dt>
-                    <dd><span class="attention">Chiuso</span></dd>
-                </dl>
-            </div>
-        </section>
-        
-        <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
+                    <dl id="tbl-orari">
+                        <dt>Lunedì - Venerdì</dt>
+                        <dd>8:30 - 19:30</dd>
+                        <dt>Sabato</dt>
+                        <dd>8:30 - 12:30</dd>
+                        <dt>Domenica</dt>
+                        <dd><span class="attention">Chiuso</span></dd>
+                    </dl>
+                </div>
+            </section>
+            
+            <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
+        </div>
     </footer>
 
     <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>
@@ -343,5 +348,11 @@
         function toggleFilter() {
             div.classList.toggle("open");
         }
+
+        document.querySelectorAll("fieldset.collapse legend.toggle").forEach(legend => {
+            legend.addEventListener("click", function () {
+                this.parentElement.classList.toggle("open");
+            });
+        });
     </script>
 </body>

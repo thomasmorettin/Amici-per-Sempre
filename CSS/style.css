@@ -1224,16 +1224,16 @@ details[open] > .contenuto-nascosto {
 #section-form-porta-adozione {
     padding: 2em;
     border-radius: 0.5em;
-    box-shadow: var(--brownshadow);
-    background-color: var(--bgdecoration);
-    border: 2px solid var(--borderdecoration);
+    box-shadow: var(--normalshadow);
+    background-color: var(--bgcolor);
+    border: 2px solid var(--borderform);
     max-width: 50em;
     margin: 3em auto;
 }
 
 #section-form-porta-adozione h2 {
     text-align: center;
-    color: var(--txtdecoration);
+    color: var(--txtcolor);
     margin-bottom: 1em;
 }
 
@@ -1257,10 +1257,35 @@ details[open] > .contenuto-nascosto {
     flex: 1;
 }
 
-#section-padrone {
-    border: 1px solid var(--txtcolor);
+.section-legend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.legend-left {
+    background-color: var(--txtcolor);
+    height: 2px;
+    width: 1em;
     border-radius: 0.5em;
-    padding: 1.5em;
+}
+
+.legend-right {
+    background-color: var(--txtcolor);
+    height: 2px;
+    flex: 1;
+    border-radius: 0.5em;
+}
+
+.section-legend p {
+    margin: 0 0.5em;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#section-padrone {
+    border: 0px solid var(--txtcolor);
+    border-radius: 0.5em;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -1273,9 +1298,9 @@ details[open] > .contenuto-nascosto {
 }
 
 #section-animale {
-    border: 1px solid var(--txtcolor);
+    border: 0px solid var(--txtcolor);
     border-radius: 0.5em;
-    padding: 1.5em;
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -1332,6 +1357,7 @@ textarea {
     border-radius: 0.25em;
     font-family: "Inter", serif;
     color: var(--txtcolor);
+    background-color: var(--bgbread);
 }
 
 input:focus,
@@ -1423,16 +1449,14 @@ form button:hover {
     overflow: hidden;
     width: 0;
     transition: width 0.3s ease;
-    background-color: var(--bgbread);
-    border: 1px solid var(--txtcolor);
-    box-shadow: var(--normalshadow);
     border-radius: 0.5em;
     margin-top: 1em;
+    backdrop-filter: blur(0.7em);
 }
 
 .filter-panel.open {
     flex: 1;
-    max-width: 20em;
+    max-width: 17em;
 }
 
 .list-panel {
@@ -1446,8 +1470,15 @@ form button:hover {
     padding: 1em 1em 0.5em 0.5em;
 }
 
+.filter-panel,
+.filter-content,
+.section-filter
+{
+    min-width: 0;
+}
+
 .divider {
-    width: 1px;
+    width: 2px;
     background-color: var(--txtcolor);
 }
 
@@ -1522,4 +1553,62 @@ form button:hover {
     flex: 1;
     display: flex;
     flex-direction: column;
+}
+
+.section-filter {
+    border: 1px solid var(--txtcolor);
+    border-radius: 0.5em;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: var(--bgcolor);
+}
+
+
+.section-filter legend {
+    font-size: 1.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.check-group input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid var(--borderbtn);
+    background-color: var(--bgbtn);
+    cursor: pointer;
+    padding: 0;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+}
+
+.check-group input[type="checkbox"]:hover {
+    background-color: var(--bgbtnhover);
+}
+
+.check-group input[type="checkbox"]:checked {
+    background-color: var(--bgbtnhover);
+    box-shadow: var(--greenshadow);
+    background-image: url("../Resources/Vectors/Check.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+.check-group {
+    flex-direction: column;
+    display: flex;
+    gap: 1em;
+}
+
+.check-group label {
+    display: flex;
+    align-items: center;
 }

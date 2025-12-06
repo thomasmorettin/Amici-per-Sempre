@@ -60,7 +60,12 @@
                 <p><span class="required"></span> Campo obbligatorio</p>
             </div>
             <form> 
-                <fieldset id="section-padrone"> <legend> Dati del padrone </legend>
+                <div id="section-padrone">
+                    <div class="section-legend">
+                        <div class="legend-left"></div>
+                        <p>Dati del padrone</p>
+                        <div class="legend-right"></div>
+                    </div>
                     <div class="form-field">
                         <label for="idk1" class="required">
                             Nome
@@ -88,8 +93,13 @@
                             <input class="phone-number" placeholder="Es: 123 456 7890" required>
                         </div>
                     </div>
-                </fieldset>
-                <fieldset id="section-animale"> <legend> Dati dell'animale </legend>
+                </div>
+                <div id="section-animale">
+                    <div class="section-legend">
+                        <div class="legend-left"></div>
+                        <p>Dati dell'animale</p>
+                        <div class="legend-right"></div>
+                    </div>
                     <div class="form-field">
                         <label for="idk5" class="required">
                             Tipo di animale
@@ -147,10 +157,10 @@
                         </label>
                         <textarea placeholder="Descrivi eventuali vaccini, comportamenti e altre caratteristiche..."></textarea>
                     </div>
-                    <div class="form-field">
-                        <button type="submit">Prenota visita</button>
-                    </div>
-                </fieldset>
+                </div>
+                <div class="form-field">
+                    <button type="submit">Prenota visita</button>
+                </div>
             </form>
         </section>
     </main>
