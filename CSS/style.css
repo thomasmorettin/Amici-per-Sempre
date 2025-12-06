@@ -120,20 +120,30 @@ html {
     background-color: var(--bgcolor);
 }
 
-body {
+.contenitore,
+.contenitore-header {
     max-width: 1200px;
-    margin: auto;
-    padding: 1em;
+    width: 100%;
+    margin: 0 auto auto auto;
+}
+
+.contenitore-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     color: var(--txtcolor);
 }
 
 header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
     position: sticky;
-    top: 1em;
-    border-radius: 0.5em;
+    top: 0;
     padding: var(--generalpadding);
     background-color: var(--bgcolor);
     z-index: 999;
@@ -271,11 +281,12 @@ header h1 {
 }
 
 main {
-    margin: auto;
+    flex: 1;
+    width: 100%;
 }
 
 #section-title {
-    margin: 7.5em auto;
+    margin: 6em auto;
     text-align: center;
 }
 
@@ -345,7 +356,7 @@ main {
 }
 
 #section-esperti {
-    margin: 7.5em auto;
+    margin: 6em auto;
 }
 
 #section-esperti ul {
@@ -367,15 +378,32 @@ main {
     display: flex;
     flex-direction: column;
     height: 100%;
+    transition: transform 0.3s ease;
+}
+
+#section-esperti figure:hover {
+    transform: scale(1.05);
 }
 
 #section-esperti ul li figure img {
     object-fit: cover;
     object-position: center top;
-    border-radius: 0.5em;
     width: 100%;
     height: 15em;
+    border: 2px solid var(--borderdecoration);
+    box-shadow: var(--brownshadow);
+}
+
+#esperto-1 {
+    border-radius: 34% 66% 36% 64% / 32% 38% 62% 68%;
+}
+
+#esperto-2 {
     border-radius: 56% 44% 71% 29% / 50% 59% 41% 50%;
+}
+
+#esperto-3 {
+    border-radius: 78% 22% 56% 44% / 58% 30% 70% 42%;
 }
 
 #section-esperti figcaption {
@@ -396,7 +424,7 @@ main {
 }
 
 #section-dati {
-    margin: 7.5em auto;
+    margin: 6em auto;
 }
 
 #section-dati ul {
@@ -441,7 +469,6 @@ main {
     margin-top: 0.5em;
     flex: 1;
     display: flex;
-    font-weight: bold;
     flex-direction: column;
     justify-content: center;
 }
@@ -456,7 +483,9 @@ main {
 #img-volontari {
     content: url("../Resources/Images/ImgChiSiamo.jpg");
     width: 25em;
-    border-radius: 10em 5em 10em 5em;
+    border-radius: 56% 44% 71% 29% / 50% 59% 41% 50%;
+    border: 2px solid var(--borderdecoration);
+    box-shadow: var(--brownshadow);
 }
 
 #descrizione-foto {
@@ -593,7 +622,7 @@ details.dtl-aperto .exp-freccia {
 }
 
 #section-contatti {
-    margin: 7.5em auto;
+    margin: 6em auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -635,18 +664,16 @@ details.dtl-aperto .exp-freccia {
 
 footer {
     margin-top: 1em;
-    border-radius: 0.5em;
     padding: var(--generalpadding);
     box-shadow: var(--normalshadow);
-    background-color: var(--bgcolor);
+    background-color: var(--bgbread);
     text-align: center;
 }
 
 #dati-footer {
     margin: auto;
     display: flex;
-    width: fit-content;
-    gap: 7.5em;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -655,7 +682,6 @@ footer {
 }
 
 #orari-rifugio {
-    width: fit-content;
     text-align: right;
 }
 
@@ -687,6 +713,7 @@ footer {
 
 .attention {
     color: var(--txtwarning);
+    font-weight: bold;
 }
 
 .titolo {
@@ -968,7 +995,7 @@ details[open] > .contenuto-nascosto {
     border: none;
     padding: 3em;
     background-color: var(--bgcolor);
-    border-radius: 1em;
+    border-radius: 0.5em;
     opacity: 0;
 }
 
@@ -1022,7 +1049,7 @@ details[open] > .contenuto-nascosto {
 
 #dia-appuntamento form label {
     font-weight: bold;
-    text-align: center;
+    margin-right: 0.5em;
 }
 
 #data-appuntamento {
@@ -1030,18 +1057,8 @@ details[open] > .contenuto-nascosto {
 }
 
 #btn-prenota-app {
-    margin-top: 2em;
-    padding: var(--generalpadding);
-    border-radius: 0.5em;
-    border: 2px solid var(--borderbtn);
-    background-color: var(--bgbtn);
-    color: var(--txtbtncolor);
-    box-shadow: var(--greenshadow);
-}
-
-#btn-prenota-app:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
+    margin-top: 2.5em;
+    margin: auto;
 }
 
 
@@ -1311,18 +1328,16 @@ input,
 textarea {
     padding: 0.5em;
     font-size: 1.1em;
-    border: 1px solid var(--txtcolor);
+    border: 2px solid var(--txtcolor);
     border-radius: 0.25em;
-}
-
-textarea {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", serif;
+    color: var(--txtcolor);
 }
 
 input:focus,
 textarea:focus {
     outline: none;
-    border-color: var(--borderbtn);
+    border: 2px solid var(--borderbtn);
     box-shadow: var(--greenshadow)
 }
 

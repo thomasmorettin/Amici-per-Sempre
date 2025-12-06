@@ -12,26 +12,18 @@ function updateTitleIcon() {
   }
 }
 
-function headerScroll() {
+function pageScroll() {
   const header = document.querySelector("header");
-  if (header) {
+  const backToTop = document.getElementById("btn-back-to-top");
+  const footer = document.querySelector("footer");
+
+  if (header && backToTop) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
         header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
-  }
-}
-
-function showBtnBackToTop() {
-  const backToTop = document.getElementById("btn-back-to-top");
-  if (backToTop) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
         backToTop.classList.add("visible");
       } else {
+        header.classList.remove("scrolled");
         backToTop.classList.remove("visible");
       }
     });
@@ -57,8 +49,7 @@ loadPage();   // Funzione per modificare pagina al login. Se JavaScript non atti
 updateTitleIcon();    // Avvio della pagina web
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateTitleIcon);    // Aggiornamento automatico
 
-headerScroll();   // Modifica dello stile dell'header allo scorrimento della pagina
-showBtnBackToTop();   // Mostra il pulsante per ritornare in cima alla pagina
+pageScroll();   // Modifica dello stile dell'header allo scorrimento della pagina e mostra il pulsante per ritornare in cima alla pagina
 
 btnHamburgerClick();    // Click del menù hamburger in formato mobile
 
