@@ -78,7 +78,7 @@
                                     <div class="legend-right"></div>
                                 </div>
                                 <div class="content">
-                                    <div class="inner-content">
+                                    <div class="inner-content form-field">
                                         <div class="check-group">
                                             <label for="cane"><input type="checkbox" name="tipo-animale" value="cane">Cane</label>
                                             <label for="gatto"><input type="checkbox" name="tipo-animale" value="gatto">Gatto</label>
@@ -89,15 +89,59 @@
                             <div class="accordion">
                                 <div class="accordion-header">
                                     <div class="legend-left"></div>
-                                    <div class="header">Tipo animale</div>
+                                    <div class="header">Dati animale</div>
                                     <div class="legend-right"></div>
                                 </div>
                                 <div class="content">
                                     <div class="inner-content">
-                                        <input>
+                                        <div class="form-field">
+                                            <label>Nome</label>
+                                            <input>
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Peso ( > kg )</label>
+                                            <div class="form-slider">
+                                                <input type="text">
+                                                <input type="range" min="1" max="100" value="50">
+                                            </div>
+                                        </div> 
+                                        <div class="form-field">
+                                            <label>Età ( > )</label>
+                                            <div class="form-slider">
+                                                <input type="text">
+                                                <input type="range" min="1" max="100" value="50">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>                          
+                            </div>      
+                            <div class="accordion">
+                                <div class="accordion-header">
+                                    <div class="legend-left"></div>
+                                    <div class="header">Dati persona</div>
+                                    <div class="legend-right"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner-content">
+                                        <div class="form-field">
+                                            <label>Nome</label>
+                                            <input>
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Cognome</label>
+                                            <input>
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Email</label>
+                                            <input>
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Telefono</label>
+                                            <input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                    
                         </form>
                     </div>
                     <span class="divider"></span>

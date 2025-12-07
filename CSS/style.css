@@ -1628,7 +1628,7 @@ form button:hover {
 }
 
 .inner-content {
-    padding: 1em;
+    padding: 1em 0.5em;
 }
 
 .header {
@@ -1646,4 +1646,75 @@ form button:hover {
 .header::after {
     content: " \\/ ";
     transition: transform 0.3s ease;
+}
+
+.form-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+}
+
+.form-slider input[type="text"]{
+    flex: 1;
+    max-width: 2em;
+    min-width: 0;
+}
+
+.form-slider input[type="range"] {
+    flex: 1;
+    min-width: 0;
+
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid var(--borderbtn);
+    background-color: var(--bgbtn);
+    cursor: pointer;
+    padding: 0;
+    height: 0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.form-slider input[type="range"]:hover {
+    background-color: var(--borderbtn);
+}
+
+.form-slider input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.6em;
+    height: 1.2em;
+    background-color: var(--bgbtn);
+    border: 2px solid var(--borderbtn);
+    border-radius: 0.3em;
+    transition: 0.3s ease;
+}
+
+.form-slider input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.6em;
+    height: 1.2em;
+    background-color: var(--bgbtn);
+    border: 2px solid var(--borderbtn);
+    border-radius: 0.3em;
+    transition: 0.3s ease;
+}
+
+.form-slider input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: var(--borderbtn);
+    box-shadow: var(--greenshadow);
+}
+
+.form-slider input[type="range"]::-moz-range-thumb:hover {
+    background-color: var(--borderbtn);
+    box-shadow: var(--greenshadow);
+}
+
+.inner-content .form-field {
+    margin-bottom: 1em;
 }
