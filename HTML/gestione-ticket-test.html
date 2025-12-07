@@ -71,30 +71,33 @@
                 <div class="filter-panel">
                     <div class="filter-content">
                         <form>
-                            <fieldset class="section-filter"> 
-                                <legend>Tipo animale</legend>
-                                <div class="form-field">
-                                    <div class="check-group">
-                                        <label for="cane"><input type="checkbox" name="tipo-animale" value="cane">Cane</label>
-                                        <label for="gatto"><input type="checkbox" name="tipo-animale" value="gatto">Gatto</label>
+                            <div class="accordion">
+                                <div class="accordion-header">
+                                    <div class="legend-left"></div>
+                                    <div class="header">Tipo animale</div>
+                                    <div class="legend-right"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner-content">
+                                        <div class="check-group">
+                                            <label for="cane"><input type="checkbox" name="tipo-animale" value="cane">Cane</label>
+                                            <label for="gatto"><input type="checkbox" name="tipo-animale" value="gatto">Gatto</label>
+                                        </div>
                                     </div>
-                                </div>      
-                            </fieldset>       
-                            <fieldset class="section-filter"> <legend> Dati animale </legend>
-                                <div class="form-field">
-                                    <label>Nome</label>
-                                    <input>
-                                </div>       
-                            </fieldset>
-                            <fieldset class="section-filter"> <legend> Razza </legend>
-                                <div class="form-field">
-                                    <div class="check-group">
-                                        <label for="cane"><input type="checkbox" name="tipo-animale" value="cane">Labrador</label>
-                                        <label for="gatto"><input type="checkbox" name="tipo-animale" value="gatto">Ibrido</label>
-                                        <label for="gatto"><input type="checkbox" name="tipo-animale" value="gatto">Other</label>
+                                </div>
+                            </div>
+                            <div class="accordion">
+                                <div class="accordion-header">
+                                    <div class="legend-left"></div>
+                                    <div class="header">Tipo animale</div>
+                                    <div class="legend-right"></div>
+                                </div>
+                                <div class="content">
+                                    <div class="inner-content">
+                                        <input>
                                     </div>
-                                </div>  
-                            </fieldset>                                    
+                                </div>
+                            </div>                          
                         </form>
                     </div>
                     <span class="divider"></span>
@@ -344,6 +347,40 @@
     </dialog>
 
     <script>
+        document.querySelectorAll('.accordion').forEach(acc => {
+
+        const header = acc.querySelector('.accordion-header');
+        const panel = acc.querySelector('.content');
+
+        header.addEventListener('click', () => {
+
+        if (panel.classList.contains('open')) {
+
+            // Closing
+            panel.style.height = panel.scrollHeight + "px";
+            panel.getBoundingClientRect(); // force reflow
+
+            requestAnimationFrame(() => {
+            panel.style.height = "0px";
+            });
+
+        } else {
+
+            // Opening
+            panel.style.height = panel.scrollHeight + "px";
+        }
+
+        panel.classList.toggle('open');
+        });
+
+        panel.addEventListener('transitionend', () => {
+        if (panel.classList.contains('open')) {
+            panel.style.height = "auto";
+        }
+        });
+
+        });
+
         const div = document.getElementsByClassName("filter-panel")[0];
         function toggleFilter() {
             div.classList.toggle("open");
