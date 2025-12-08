@@ -1345,7 +1345,8 @@ details[open] > .contenuto-nascosto {
     margin: 3em auto;
 }
 
-form {
+#section-form-porta-adozione form,
+#section-form-login form {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -1457,14 +1458,12 @@ form button:hover {
     overflow: hidden;
     width: 0;
     transition: width 0.3s ease;
-    border-radius: 0.5em;
-    margin-top: 1em;
     backdrop-filter: blur(0.7em);
 }
 
 .filter-panel.open {
     flex: 1;
-    max-width: 17em;
+    max-width: 20em;
 }
 
 .list-panel {
@@ -1475,19 +1474,17 @@ form button:hover {
 
 .filter-content {
     flex: 1;
-    padding: 1em 1em 0.5em 0.5em;
+    padding: 1em 0.5em 0.5em 0.5em;
 }
 
 .filter-panel,
-.filter-content,
-.section-filter
+.filter-content
 {
     min-width: 0;
 }
 
 .divider {
-    width: 2px;
-    background-color: var(--txtcolor);
+    border: 1px solid var(--txtcolor);
 }
 
 .list-topbar {
@@ -1573,13 +1570,6 @@ form button:hover {
     background-color: var(--bgcolor);
 }
 
-
-.section-filter legend {
-    font-size: 1.2em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-}
-
 .check-group input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -1628,24 +1618,49 @@ form button:hover {
 }
 
 .inner-content {
-    padding: 1em 0.5em;
+    padding: 1em 0.5em 0em 0.5em;
 }
 
 .header {
     cursor: pointer;
-    margin: 0 0.5em;
-    font-size: 1.2em;
+    padding: 0.2em 0em 0.2em 0.3em;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    background-color: var(--bgbtn);
+    border: 2px solid var(--borderbtn);
+    border-radius: 0.5em;
+    margin: 0 0.4em;
+    font-weight: bold;
+    color: var(--txtbtncolor);
+    transition: 0.3s ease;
+    box-shadow: var(--greenshadow);
+}
+
+.header:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor)
+}
+
+.header-arrow {
+    background-image: url("../Resources/Vectors/UpArrow.svg");
+    transform: rotate(180deg);
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1.4em;
+    height: 1.4em;
+    transition: transform 0.3s ease;
+}
+
+.header-arrow.open {
+    transform: rotate(0deg);
 }
 
 .accordion-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.header::after {
-    content: " \\/ ";
-    transition: transform 0.3s ease;
 }
 
 .form-slider {
@@ -1717,4 +1732,10 @@ form button:hover {
 
 .inner-content .form-field {
     margin-bottom: 1em;
+}
+
+.filter-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
 }
