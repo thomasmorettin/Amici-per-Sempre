@@ -1338,9 +1338,9 @@ details[open] > .contenuto-nascosto {
 #section-form-login {
     padding: 2em;
     border-radius: 0.5em;
-    box-shadow: var(--brownshadow);
-    background-color: var(--bgdecoration);
-    border: 2px solid var(--borderdecoration);
+    box-shadow: var(--normalshadow);
+    background-color: var(--bgcolor);
+    border: 2px solid var(--borderform);
     max-width: 25em;
     margin: 3em auto;
 }
@@ -1738,4 +1738,89 @@ form button:hover {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+}
+
+.info-step {
+    text-align: center;
+    font-size: 1.3em;
+    line-height: 1.3em;
+}
+
+#step-1 {
+    background-color: var(--bgdecoration);
+    border-radius: 80% 20% 43% 57% / 50% 30% 70% 50% ;
+}
+
+#step-2 {
+    background-color: var(--bgdecoration);
+    border-radius: 39% 61% 71% 29% / 68% 60% 40% 32%;
+}
+
+#step-3 {
+    background-color: var(--bgdecoration);
+    border-radius: 29% 71% 29% 71% / 49% 44% 56% 51% ;
+}
+
+.step-number {
+    background-color: var(--borderdecoration);
+    color: var(--inverttxtcolor);
+    width: 1em;
+    height: 1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 0.2em;
+}
+
+#section-step-porta-adozione figcaption {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+#section-step-porta-adozione {
+    margin: 6em auto;
+}
+
+#section-step-porta-adozione ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    justify-content: center;
+    list-style: none;
+    gap: 4em;
+}
+
+#section-step-porta-adozione ul li {
+    flex: 1;
+}
+
+#section-step-porta-adozione figure {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+#section-step-porta-adozione figure:hover {
+    transform: scale(1.05);
+}
+
+#section-step-porta-adozione ul li figure img {
+    object-fit: cover;
+    object-position: center top;
+    width: 100%;
+    height: 15em;
+    border: 2px solid var(--borderdecoration);
+    box-shadow: var(--brownshadow);
+}
+
+#section-step-porta-adozione figcaption {
+    flex: 1;
+    margin-top: 2em;
 }
