@@ -1224,16 +1224,16 @@ details[open] > .contenuto-nascosto {
 #section-form-porta-adozione {
     padding: 2em;
     border-radius: 0.5em;
-    box-shadow: var(--brownshadow);
-    background-color: var(--bgdecoration);
-    border: 2px solid var(--borderdecoration);
+    box-shadow: var(--normalshadow);
+    background-color: var(--bgcolor);
+    border: 2px solid var(--borderform);
     max-width: 50em;
     margin: 3em auto;
 }
 
 #section-form-porta-adozione h2 {
     text-align: center;
-    color: var(--txtdecoration);
+    color: var(--txtcolor);
     margin-bottom: 1em;
 }
 
@@ -1257,10 +1257,42 @@ details[open] > .contenuto-nascosto {
     flex: 1;
 }
 
-#section-padrone {
-    border: 1px solid var(--txtcolor);
+.section-legend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.legend-left {
+    background-color: var(--txtcolor);
+    height: 2px;
+    width: 1em;
     border-radius: 0.5em;
-    padding: 1.5em;
+}
+
+.legend-right {
+    background-color: var(--txtcolor);
+    height: 2px;
+    flex: 1;
+    border-radius: 0.5em;
+}
+
+.line {
+    background-color: var(--txtcolor);
+    height: 2px;
+    flex: 1;
+    border-radius: 0.5em;
+}
+
+.section-legend p {
+    margin: 0 0.5em;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+#section-padrone {
+    border: 0px solid var(--txtcolor);
+    border-radius: 0.5em;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -1273,9 +1305,9 @@ details[open] > .contenuto-nascosto {
 }
 
 #section-animale {
-    border: 1px solid var(--txtcolor);
+    border: 0px solid var(--txtcolor);
     border-radius: 0.5em;
-    padding: 1.5em;
+    margin-top: 1.2em;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -1306,14 +1338,15 @@ details[open] > .contenuto-nascosto {
 #section-form-login {
     padding: 2em;
     border-radius: 0.5em;
-    box-shadow: var(--brownshadow);
-    background-color: var(--bgdecoration);
-    border: 2px solid var(--borderdecoration);
+    box-shadow: var(--normalshadow);
+    background-color: var(--bgcolor);
+    border: 2px solid var(--borderform);
     max-width: 25em;
     margin: 3em auto;
 }
 
-form {
+#section-form-porta-adozione form,
+#section-form-login form {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -1322,6 +1355,7 @@ form {
 label {
     margin-bottom: 0.23em;
     font-size: 1.1em;
+    font-weight: bold;
 }
 
 input,
@@ -1332,6 +1366,7 @@ textarea {
     border-radius: 0.25em;
     font-family: "Inter", serif;
     color: var(--txtcolor);
+    background-color: var(--bgbread);
 }
 
 input:focus,
@@ -1359,7 +1394,7 @@ form button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+form button:hover {
     background-color: var(--bgbtnhover);
     color: var(--inverttxtcolor);
 }
@@ -1411,4 +1446,381 @@ button:hover {
     font-size: 1.1em;
     color: var(--txtwarning);
     font-weight: bold;
+}
+
+.section-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.filter-panel { 
+    display: flex;
+    overflow: hidden;
+    width: 0;
+    transition: width 0.3s ease;
+    backdrop-filter: blur(0.7em);
+}
+
+.filter-panel.open {
+    flex: 1;
+    max-width: 20em;
+}
+
+.list-panel {
+    flex: 1;
+    padding-top: 1em;
+    padding-left: 1em;
+}
+
+.filter-content {
+    flex: 1;
+    padding: 1em 0.5em 0.5em 0.5em;
+}
+
+.filter-panel,
+.filter-content
+{
+    min-width: 0;
+}
+
+.divider {
+    border: 1px solid var(--txtcolor);
+}
+
+.list-topbar {
+    border: 1px solid var(--borderdecoration);
+    border-radius: 0.5em;
+    background-color: var(--bgdecoration);
+    box-shadow: var(--brownshadow);
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    position: sticky;
+    top: 7em;
+    z-index: 20;
+}
+
+.list-topbar button {
+    background-color: var(--bgbtn);
+    color: var(--txtbtncolor);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: var(--greenshadow);
+    border-radius: 0.5em;
+    border: 2px solid var(--borderbtn);
+    padding: var(--generalpadding);
+    transition: background-color 0.3s ease;
+    flex: 1;
+    max-width: 20em;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    justify-content: center;
+}
+
+.list-topbar button:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor);
+}
+
+#filtra-btn::after {
+    content: url("../Resources/Vectors/Filter.svg");
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#filtra-btn:hover::after {
+    content: url("../Resources/Vectors/Filter-Light.svg");
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#ordina-btn::after {
+    content: url("../Resources/Vectors/Order.svg");
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#ordina-btn:hover::after {
+    content: url("../Resources/Vectors/Order-Light.svg");
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.list-vertical-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-filter {
+    border: 1px solid var(--txtcolor);
+    border-radius: 0.5em;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: var(--bgcolor);
+}
+
+.check-group input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid var(--borderbtn);
+    background-color: var(--bgbtn);
+    cursor: pointer;
+    padding: 0;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+}
+
+.check-group input[type="checkbox"]:hover {
+    background-color: var(--bgbtnhover);
+}
+
+.check-group input[type="checkbox"]:checked {
+    background-color: var(--bgbtnhover);
+    box-shadow: var(--greenshadow);
+    background-image: url("../Resources/Vectors/Check.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+.check-group {
+    flex-direction: column;
+    display: flex;
+    gap: 1em;
+}
+
+.check-group label {
+    display: flex;
+    align-items: center;
+}
+
+.accordion .content {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s ease;
+}
+
+.inner-content {
+    padding: 1em 0.5em 0em 0.5em;
+}
+
+.header {
+    cursor: pointer;
+    padding: 0.2em 0em 0.2em 0.3em;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    background-color: var(--bgbtn);
+    border: 2px solid var(--borderbtn);
+    border-radius: 0.5em;
+    margin: 0 0.4em;
+    font-weight: bold;
+    color: var(--txtbtncolor);
+    transition: 0.3s ease;
+    box-shadow: var(--greenshadow);
+}
+
+.header:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor)
+}
+
+.header-arrow {
+    background-image: url("../Resources/Vectors/UpArrow.svg");
+    transform: rotate(180deg);
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1.4em;
+    height: 1.4em;
+    transition: transform 0.3s ease;
+}
+
+.header-arrow.open {
+    transform: rotate(0deg);
+}
+
+.accordion-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-slider {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+}
+
+.form-slider input[type="text"]{
+    flex: 1;
+    max-width: 2em;
+    min-width: 0;
+}
+
+.form-slider input[type="range"] {
+    flex: 1;
+    min-width: 0;
+
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid var(--borderbtn);
+    background-color: var(--bgbtn);
+    cursor: pointer;
+    padding: 0;
+    height: 0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.form-slider input[type="range"]:hover {
+    background-color: var(--borderbtn);
+}
+
+.form-slider input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.6em;
+    height: 1.2em;
+    background-color: var(--bgbtn);
+    border: 2px solid var(--borderbtn);
+    border-radius: 0.3em;
+    transition: 0.3s ease;
+}
+
+.form-slider input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.6em;
+    height: 1.2em;
+    background-color: var(--bgbtn);
+    border: 2px solid var(--borderbtn);
+    border-radius: 0.3em;
+    transition: 0.3s ease;
+}
+
+.form-slider input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: var(--borderbtn);
+    box-shadow: var(--greenshadow);
+}
+
+.form-slider input[type="range"]::-moz-range-thumb:hover {
+    background-color: var(--borderbtn);
+    box-shadow: var(--greenshadow);
+}
+
+.inner-content .form-field {
+    margin-bottom: 1em;
+}
+
+.filter-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.info-step {
+    text-align: center;
+    font-size: 1.3em;
+    line-height: 1.3em;
+}
+
+#step-1 {
+    background-color: var(--bgdecoration);
+    border-radius: 80% 20% 43% 57% / 50% 30% 70% 50% ;
+}
+
+#step-2 {
+    background-color: var(--bgdecoration);
+    border-radius: 39% 61% 71% 29% / 68% 60% 40% 32%;
+}
+
+#step-3 {
+    background-color: var(--bgdecoration);
+    border-radius: 29% 71% 29% 71% / 49% 44% 56% 51% ;
+}
+
+.step-number {
+    background-color: var(--borderdecoration);
+    color: var(--inverttxtcolor);
+    width: 1em;
+    height: 1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 0.2em;
+}
+
+#section-step-porta-adozione figcaption {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+#section-step-porta-adozione {
+    margin: 6em auto;
+}
+
+#section-step-porta-adozione ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    justify-content: center;
+    list-style: none;
+    gap: 4em;
+}
+
+#section-step-porta-adozione ul li {
+    flex: 1;
+}
+
+#section-step-porta-adozione figure {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+#section-step-porta-adozione figure:hover {
+    transform: scale(1.05);
+}
+
+#section-step-porta-adozione ul li figure img {
+    object-fit: cover;
+    object-position: center top;
+    width: 100%;
+    height: 15em;
+    border: 2px solid var(--borderdecoration);
+    box-shadow: var(--brownshadow);
+}
+
+#section-step-porta-adozione figcaption {
+    flex: 1;
+    margin-top: 2em;
 }
