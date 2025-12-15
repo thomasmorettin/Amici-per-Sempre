@@ -1673,9 +1673,10 @@ dialog[open]::backdrop {
 
 .appointment-form.active {
     max-height: 5000px;
-    padding: 2.5em; /* padding completo quando aperto */
+    padding: 2.5em; /* padding completo quando aperto
 }
-/**/
+*/
+
 .appointment-form {
     max-height: 0;
     overflow: hidden;
@@ -1908,7 +1909,6 @@ dialog[open]::backdrop {
 
 .contenitore main {
     padding: 1.5em 0;
-    text-align: center;
 }
 
 .contenitore h2 {
