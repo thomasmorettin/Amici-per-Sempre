@@ -25,160 +25,203 @@
 
 <body data-theme="light">
     <header class="scrolled">
-        <h1>Rifugio Amici per Sempre</h1>
+        <div class="contenitore-header">
+            <h1>Rifugio Amici per Sempre</h1>
 
-        <nav id="menu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Adotta</a></li>
-                <li lang="en" class="active-link">Porta in adozione</li>
-            </ul>
-        </nav>
+            <nav id="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Adotta</a></li>
+                    <li lang="en" class="active-link">Porta in adozione</li>
+                </ul>
+            </nav>
 
-        <menu id="header-btns">
-            <button id="btn-theme" title="Cambio tema"></button>
-            <a id="btn-login" href="login.html" lang="en">Login</a>
-        </menu>
+            <menu id="header-btns">
+                <button id="btn-theme" title="Cambio tema"></button>
+                <a id="btn-login" href="login.html" lang="en">Login</a>
+            </menu>
 
-        <button id="hamburger">
-            <span class="linea"></span>
-            <span class="linea"></span>
-            <span class="linea"></span>
-        </button>
+            <button id="hamburger">
+                <span class="linea"></span>
+                <span class="linea"></span>
+                <span class="linea"></span>
+            </button>
+        </div>
     </header>
 
-    <nav id="breadcrumb">
-        <p>Ti trovi in: Home → <span class="active-link" lang="en">Porta in adozione</span></p>
-    </nav>
-
-    <main>
-        <p class="titolo">Porta in adozione il tuo animale</p>
-        <p class="description">Ci sono momenti in cui incontriamo un animale che ha bisogno di più di ciò che possiamo offrirgli da soli. Puoi prenotare una visita con il centro e portare il tuo cane o gatto per darlo in adozione. Dopo la prenotazione un operatore di chiamerà per accordarsi sul giorno e l'ora della visita.</p>
-        <section id="section-form-porta-adozione">
-            <h2>Compila il form per prenotare una visita al centro di adozione</h2>
-            <div class="info-required">
-                <p><span class="required"></span> Campo obbligatorio</p>
-            </div>
-            <form> 
-                <fieldset id="section-padrone"> <legend> Dati del padrone </legend>
-                    <div class="form-field">
-                        <label for="idk1" class="required">
-                            Nome
-                        </label>
-                        <input placeholder="Es: Mario" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="idk2" class="required">
-                            Cognome
-                        </label>
-                        <input placeholder="Es: Rossi" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="idk3" class="required">
-                            Email
-                        </label>
-                        <input placeholder="Es: mario.rossi@example.com" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="idk4" class="required" required>
-                            Numero di telefono
-                        </label>
-                        <div class="phone-input">
-                            <span class="phone-prefix">+39</span>
-                            <input class="phone-number" placeholder="Es: 123 456 7890" required>
+    <div class="contenitore">
+        <nav id="breadcrumb">
+            <p>Ti trovi in: Home → <span class="active-link" lang="en">Porta in adozione</span></p>
+        </nav>
+        <main>
+            <p class="titolo">Porta in adozione il tuo animale</p>
+            <p class="description">Puoi prenotare una visita con il centro compilando il form sottostante e portare il tuo cane o gatto per darlo in adozione. Dopo la prenotazione un operatore ti chiamerà entro 1 giorno lavorativo per accordarsi sul giorno e l'ora della visita.</p>
+            <section id="section-step-porta-adozione">
+                <ul>
+                    <li>
+                        <figure>
+                            <img src="../Resources/Images/Survey.png" id="step-1">
+                            <figcaption>
+                                <p class="info-step"><span class="step-number">1</span> <strong>Compila</strong> il form con i tuoi dati e quelli del tuo animale</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="../Resources/Images/Message Received.png" id="step-2">
+                            <figcaption>
+                                <p class="info-step"><span class="step-number">2</span> <strong>Accetta</strong> la email di conferma che sarà inviata dopo la compilazione</p>                            
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="../Resources/Images/Receptionist.png" id="step-3">
+                            <figcaption>
+                                <p class="info-step"><span class="step-number">3</span> <strong>Attendi</strong> la chiamata di un operatore per accordarti dell'orario della visita</p>                           
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </section>
+            <section id="section-form-porta-adozione">
+                <h2>Compila il form per prenotare una visita al centro di adozione</h2>
+                <div class="info-required">
+                    <p><span class="required"></span> Campo obbligatorio</p>
+                </div>
+                <form> 
+                    <div id="section-padrone">
+                        <div class="section-legend">
+                            <div class="line"></div>
+                            <p>Dati del padrone</p>
+                            <div class="line"></div>
+                        </div>
+                        <div class="form-field">
+                            <label for="idk1" class="required">
+                                Nome
+                            </label>
+                            <input placeholder="Es: Mario" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="idk2" class="required">
+                                Cognome
+                            </label>
+                            <input placeholder="Es: Rossi" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="idk3" class="required">
+                                Email
+                            </label>
+                            <input placeholder="Es: mario.rossi@example.com" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="idk4" class="required" required>
+                                Numero di telefono
+                            </label>
+                            <div class="phone-input">
+                                <span class="phone-prefix">+39</span>
+                                <input class="phone-number" placeholder="Es: 123 456 7890" required>
+                            </div>
                         </div>
                     </div>
-                </fieldset>
-                <fieldset id="section-animale"> <legend> Dati dell'animale </legend>
-                    <div class="form-field">
-                        <label for="idk5" class="required">
-                            Tipo di animale
-                        </label>
-                        <div class="radio-group">
-                            <label for="cane"><input type="radio" name="tipo-animale" value="cane" required>Cane</label>
-                            <label for="gatto"><input type="radio" name="tipo-animale" value="gatto" required>Gatto</label>
+                    <div id="section-animale">
+                        <div class="section-legend">
+                            <div class="line"></div>
+                            <p>Dati dell'animale</p>
+                            <div class="line"></div>
                         </div>
-                    </div>
-                    <div class="form-field">
-                        <label for="idk6" class="required">
-                            Età (approssimativa)
-                        </label>
-                        <input placeholder="Es: 4 anni, 6 mesi, cucciolo, adulto, anziano..." required>
-                    </div>
-                    <div class="form-field">
-                        <label for="idk8" class="required">
-                            Peso (approssimativo)
-                        </label>
-                        <input placeholder="Es: 5 kg, leggero, medio, pesante..." required>
-                    </div>
-                    <div class="form-field">
-                        <label for="idk7" class="required">
-                            Razza
-                        </label>
-                        <input placeholder="Es: Labrador, Persiano, Ibrido..." list="races" required>
-                        <datalist id="races">
-                            <option value="Labrador">
-                            <option value="Golden Retriever">
-                            <option value="Bulldog">
-                            <option value="Beagle">
-                            <option value="Poodle">
-                            <option value="Siberian Husky">
-                            <option value="Dachshund">
-                            <option value="Boxer">
-                            <option value="Rottweiler">
-                            <option value="German Shepherd">
-                            <option value="Persiano">
-                            <option value="Siamese">
-                            <option value="Maine"></option>
-                        </datalist>
-                    </div>
-                    <div class="form-field">
-                        <label for="idk9" class="required">
-                            Sesso
-                        </label>
-                        <div class="radio-group">
-                            <label for="maschio"><input type="radio" name="sesso" value="maschio" required>Maschio</label>
-                            <label for="femmina"><input type="radio" name="sesso" value="femmina" required>Femmina</label>
+                        <div class="form-field">
+                            <label for="idk5" class="required">
+                                Tipo di animale
+                            </label>
+                            <div class="radio-group">
+                                <label for="cane"><input type="radio" name="tipo-animale" value="cane" required>Cane</label>
+                                <label for="gatto"><input type="radio" name="tipo-animale" value="gatto" required>Gatto</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-field">
-                        <label for="idk10">
-                            Caratteristiche e comportamento
-                        </label>
-                        <textarea placeholder="Descrivi eventuali vaccini, comportamenti e altre caratteristiche..."></textarea>
+                        <div class="form-field">
+                            <label for="idk6" class="required">
+                                Età (approssimativa)
+                            </label>
+                            <input placeholder="Es: 4 anni, 6 mesi, cucciolo, adulto, anziano..." required>
+                        </div>
+                        <div class="form-field">
+                            <label for="idk8" class="required">
+                                Peso (approssimativo)
+                            </label>
+                            <input placeholder="Es: 5 kg, leggero, medio, pesante..." required>
+                        </div>
+                        <div class="form-field">
+                            <label for="idk7" class="required">
+                                Razza
+                            </label>
+                            <input placeholder="Es: Labrador, Persiano, Ibrido..." list="races" required>
+                            <datalist id="races">
+                                <option value="Labrador">
+                                <option value="Golden Retriever">
+                                <option value="Bulldog">
+                                <option value="Beagle">
+                                <option value="Poodle">
+                                <option value="Siberian Husky">
+                                <option value="Dachshund">
+                                <option value="Boxer">
+                                <option value="Rottweiler">
+                                <option value="German Shepherd">
+                                <option value="Persiano">
+                                <option value="Siamese">
+                                <option value="Maine"></option>
+                            </datalist>
+                        </div>
+                        <div class="form-field">
+                            <label for="idk9" class="required">
+                                Sesso
+                            </label>
+                            <div class="radio-group">
+                                <label for="maschio"><input type="radio" name="sesso" value="maschio" required>Maschio</label>
+                                <label for="femmina"><input type="radio" name="sesso" value="femmina" required>Femmina</label>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="idk10">
+                                Caratteristiche e comportamento
+                            </label>
+                            <textarea placeholder="Descrivi eventuali vaccini, comportamenti e altre caratteristiche..."></textarea>
+                        </div>
                     </div>
                     <div class="form-field">
                         <button type="submit">Prenota visita</button>
                     </div>
-                </fieldset>
-            </form>
-        </section>
-    </main>
-
+                </form>
+            </section>
+        </main>
+    </div>
+    
     <footer>
-        <section id="dati-footer">
-            <div id="dati-rifugio">
-                <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
-                <p>Ente del Terzo Settore iscritto al RUNTS (rep. 12345)</p>
-                <p>Sede Legale: <a href="https://maps.app.goo.gl/4DNcs18vGaJqHiDB8" target="_blank" rel="noopener noreferrer">Via Trieste, 63, 35121 Padova (PD)</a></p>
-                <p>C.F. 91022233344</p>
-            </div>
+        <div class="contenitore">
+            <section id="dati-footer">
+                <div id="dati-rifugio">
+                    <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
+                    <p>Ente del Terzo Settore iscritto al RUNTS (rep. 12345)</p>
+                    <p>Sede Legale: <a href="https://maps.app.goo.gl/4DNcs18vGaJqHiDB8" target="_blank" rel="noopener noreferrer">Via Trieste, 63, 35121 Padova (PD)</a></p>
+                    <p>C.F. 91022233344</p>
+                </div>
 
-            <div id="orari-rifugio">
-                <p class="titolo-footer">I nostri orari</p>
+                <div id="orari-rifugio">
+                    <p class="titolo-footer">I nostri orari</p>
 
-                <dl id="tbl-orari">
-                    <dt>Lunedì - Venerdì</dt>
-                    <dd>8:30 - 19:30</dd>
-                    <dt>Sabato</dt>
-                    <dd>8:30 - 12:30</dd>
-                    <dt>Domenica</dt>
-                    <dd><span class="attention">Chiuso</span></dd>
-                </dl>
-            </div>
-        </section>
-        
-        <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
+                    <dl id="tbl-orari">
+                        <dt>Lunedì - Venerdì</dt>
+                        <dd>8:30 - 19:30</dd>
+                        <dt>Sabato</dt>
+                        <dd>8:30 - 12:30</dd>
+                        <dt>Domenica</dt>
+                        <dd><span class="attention">Chiuso</span></dd>
+                    </dl>
+                </div>
+            </section>
+            
+            <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
+        </div>
     </footer>
 
     <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>

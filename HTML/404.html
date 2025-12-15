@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-    <title>Amici per Sempre: Porta in adozione</title>
+    <title>Home: Amici per Sempre</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +17,7 @@
     <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
 
     <script src="../JavaScript/global.js" defer></script>
+    <script src="../JavaScript/index.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
 
             <nav id="menu">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li lang="en" class="active-link">Home</li>
                     <li><a href="#">Adotta</a></li>
                     <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
                 </ul>
@@ -50,37 +50,29 @@
     </header>
 
     <div class="contenitore">
-        <nav id="breadcrumb">
-            <p>Ti trovi in: Home → <span class="active-link" lang="en">Accedi</span></p>
-        </nav>
-
         <main>
-            <p class="titolo">Accedi</p>
-            <section id="section-form-login">
-                <div class="info-required">
-                    <p><span class="required"></span> Campo obbligatorio</p>
+            <h2 class="hidden-header">Errore 404 - Pagina Non Trovata</h2>
+            
+            <div class="error-code" role="img" aria-label="Errore quattro zero quattro">
+                <span class="digit" aria-hidden="true">4</span>
+                <div class="dog-circle">
+                    <img src="../Resources/Images/zampa.jpg" alt="Immagine decorativa di un cane">
                 </div>
-                <form> 
-                    <div class="form-field">
-                        <label for="email" class="required">
-                            Email
-                        </label>
-                        <input type="email" id="email" name="email" placeholder="Es: mario.rossi@example.com" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="password" class="required">
-                            Password
-                        </label>
-                        <input type="password" id="password" name="password" placeholder="Es: password1234" required>
-                    </div>
-                    <div class="form-field">
-                        <button type="submit">Accedi</button>
-                    </div>
-                </form>
-            </section>
+                <span class="digit" aria-hidden="true">4</span>
+            </div>
+            
+            <div class="messaggio-errore">
+                <p>Oops! Questa pagina non è stata trovata</p>
+                <p>Abbiamo trovato una zampa, ma la pagina si è persa lungo il cammino. Torniamo insieme sulla strada giusta.</p>
+                <a href="index.html">
+                    Torna alla <span lang="en"> home </span>
+                </a>
+            </div>
         </main>
     </div>
 
+    </div>
+    
     <footer>
         <div class="contenitore">
             <section id="dati-footer">
@@ -108,7 +100,4 @@
             <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
         </div>
     </footer>
-
-    <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>
 </body>
-</html>
