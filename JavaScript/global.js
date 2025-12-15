@@ -15,7 +15,6 @@ function updateTitleIcon() {
 function pageScroll() {
   const header = document.querySelector("header");
   const backToTop = document.getElementById("btn-back-to-top");
-  const footer = document.querySelector("footer");
 
   if (header && backToTop) {
     window.addEventListener("scroll", () => {
@@ -44,6 +43,10 @@ function btnHamburgerClick() {
   })
 }
 
+function changeCopyright() {
+  const year = document.getElementById("cop-year").innerHTML = new Date().getFullYear();
+}
+
 loadPage();   // Funzione per modificare pagina al login. Se JavaScript non attivo, vengono mantenuti gli elementi del file HTML
 
 updateTitleIcon();    // Avvio della pagina web
@@ -52,6 +55,8 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", upd
 pageScroll();   // Modifica dello stile dell'header allo scorrimento della pagina e mostra il pulsante per ritornare in cima alla pagina
 
 btnHamburgerClick();    // Click del menù hamburger in formato mobile
+
+changeCopyright();    // Cambio dell'anno di copyright in base all'anno corrente
 
 // Listener per la pulizia del tag details con summary:hover
 document.addEventListener("DOMContentLoaded", () => {

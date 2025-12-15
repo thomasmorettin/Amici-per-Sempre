@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
 
     <script src="../JavaScript/global.js" defer></script>
+    <script src="../JavaScript/calendario.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -56,14 +57,24 @@
         <main>
             <p class="titolo">Calendario appuntamenti</p>
 
-            <div id="btns-mesi">
-                <button id="btn-mese-prec" title="Mese precedente">Mese precedente</button>
-                <p>Novembre</p>
-                <button id="btn-mese-succ" title="Mese successivo">Mese successivo</button>
+            <div id="btns-flottanti">
+                <div id="btns-mesi">
+                    <button id="btn-mese-prec" title="Mese precedente">Mese precedente</button>
+                    <p>Dicembre 2025</p>
+                    <button id="btn-mese-succ" title="Mese successivo">Mese successivo</button>
+                </div>
+
+                <div id="btns-sett">
+                    <button class="btn-toggle active" title="Settimana 1">Settimana 1</button>
+                    <button class="btn-toggle" title="Settimana 2">Settimana 2</button>
+                    <button class="btn-toggle" title="Settimana 3">Settimana 3</button>
+                    <button class="btn-toggle" title="Settimana 4">Settimana 4</button>
+                    <button class="btn-toggle" title="Settimana 5">Settimana 5</button>
+                </div>
             </div>
 
             <section id="calendario">
-                <p class="giornata">21 Novembre 2025</p>
+                <p class="giornata">LUN - 01</p>
 
                 <div class="cnt-adozione">
                     <div class="linea"></div>
@@ -71,6 +82,11 @@
                     <div class="info">
                         <p>Appuntamento per adottare "Willy"</p>
                         <p>Sig./ra Mario Rossi</p>
+                    </div>
+
+                    <div class="btn-gruppo">
+                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
                     </div>
                 </div>
 
@@ -81,6 +97,11 @@
                         <p>Appuntamento per valutare adozione di "Fido"</p>
                         <p>Sig./ra Luigia Assunta</p>
                     </div>
+
+                    <div class="btn-gruppo">
+                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                    </div>
                 </div>
 
                 <div class="cnt-adozione">
@@ -89,6 +110,11 @@
                     <div class="info">
                         <p>Appuntamento per adottare "Willy"</p>
                         <p>Sig./ra Mario Rossi</p>
+                    </div>
+
+                    <div class="btn-gruppo">
+                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
                     </div>
                 </div>
 
@@ -99,15 +125,73 @@
                         <p>Appuntamento per adottare "Willy"</p>
                         <p>Sig./ra Mario Rossi</p>
                     </div>
+
+                    <div class="btn-gruppo">
+                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                    </div>
                 </div>
 
-                <p class="giornata">22 Novembre 2025</p>
+                <p class="giornata">MAR - 02</p>
+                <p>Nessun appuntamento per questa giornata.</p>
+
+                <p class="giornata">MER - 03</p>
+
+                <div class="cnt-adozione">
+                    <div class="linea"></div>
+                    <p class="orario">18:30</p>
+                    <div class="info">
+                        <p>Appuntamento per adottare "Willy"</p>
+                        <p>Sig./ra Mario Rossi</p>
+                    </div>
+
+                    <div class="btn-gruppo">
+                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                    </div>
+                </div>
+
+                <div class="cnt-adozione">
+                    <div class="linea"></div>
+                    <p class="orario">18:30</p>
+                    <div class="info">
+                        <p>Appuntamento per adottare "Willy"</p>
+                        <p>Sig./ra Mario Rossi</p>
+                    </div>
+
+                    <div class="btn-gruppo">
+                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                    </div>
+                </div>
+
+                <p class="giornata">GIO - 04</p>
+                <p>Nessun appuntamento per questa giornata.</p>
+
+                <p class="giornata">VEN - 05</p>
+
+                <div class="cnt-presa-adozione">
+                    <div class="linea"></div>
+                    <p class="orario">14:30</p>
+                    <div class="info">
+                        <p>Appuntamento per valutare adozione di "Fido"</p>
+                        <p>Sig./ra Luigia Assunta</p>
+                    </div>
+
+                    <div class="btn-gruppo">
+                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                    </div>
+                </div>
+
+                <p class="giornata">SAB - 06</p>
+                <p>Nessun appuntamento per questa giornata.</p>
             </section>
         </main>
     </div>
 
     <footer>
-        <div class="contenitore">
+        <div class="contenitore-footer">
             <section id="dati-footer">
                 <div id="dati-rifugio">
                     <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
@@ -135,4 +219,32 @@
     </footer>
 
     <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>
+
+    <dialog id="dia-appuntamento">
+        <p class="titolo-dialog">Programma appuntamento</p>
+        <p>Sig/ra. <span id="nome-cliente">-</span></p>
+
+        <button class="btn-close"></button>
+
+        <form method="dialog">
+            <div class="campi-input">
+                <label for="data-appuntamento">Data</label>
+                <input type="date" id="data-appuntamento" name="data" placeholder="gg/mm/aaaa" required>
+
+                <label for="ora-appuntamento">Ora</label>
+                <input type="time" id="ora-appuntamento" name="ora" required>
+            </div>
+
+            <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
+        </form>
+    </dialog>
+
+    <dialog id="dia-cancellazione">
+        <p class="titolo-dialog">Programma appuntamento</p>
+        <p>Sig/ra. <span ></span></p>
+
+        <button class="btn-close"></button>
+
+        <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
+    </dialog>
 </body>

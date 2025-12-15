@@ -124,7 +124,9 @@ html {
 .contenitore-header {
     max-width: 1200px;
     width: 100%;
-    margin: 0 auto auto auto;
+    margin: 0 auto;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .contenitore-header {
@@ -146,7 +148,7 @@ header {
     top: 0;
     padding: var(--generalpadding);
     background-color: var(--bgcolor);
-    z-index: 999;
+    z-index: 2;
     transition: box-shadow 0.3s ease;
 }
 
@@ -276,13 +278,15 @@ header h1 {
     width: fit-content;
     font-size: 1.1em;
     border-radius: 0.5em;
-    margin: 1em auto;
+    margin: 0 auto;
+    margin-top: 1em;
     padding: var(--generalpadding);
 }
 
 main {
     flex: 1;
     width: 100%;
+    position: relative;
 }
 
 #section-title {
@@ -319,7 +323,7 @@ main {
     border-radius: 0.5em;
     border: 2px solid var(--borderbtn);
     padding: var(--generalpadding);
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 #section-title a:hover {
@@ -371,6 +375,7 @@ main {
 }
 
 #section-esperti ul li {
+    transform: translateZ(0);
     flex: 1;
 }
 
@@ -382,7 +387,7 @@ main {
 }
 
 #section-esperti figure:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(0);
 }
 
 #section-esperti ul li figure img {
@@ -445,11 +450,12 @@ main {
     border: 2px solid var(--borderdecoration);
     color: var(--txtcolor);
     box-shadow: var(--brownshadow);
+    transform: translateZ(0);
     transition: transform 0.3s ease;
 }
 
 #section-dati ul li:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(0);
 }
 
 #section-dati ul li figure img {
@@ -663,7 +669,6 @@ details.dtl-aperto .exp-freccia {
 }
 
 footer {
-    margin-top: 1em;
     padding: var(--generalpadding);
     box-shadow: var(--normalshadow);
     background-color: var(--bgbread);
@@ -724,14 +729,25 @@ footer {
     margin: 1em;
 }
 
+#btns-flottanti {
+    width: fit-content;
+    margin: auto;
+    position: sticky;
+    top: 7em;
+    padding: var(--generalpadding);
+    transition: all 0.3s ease;
+}
+
+#btns-flottanti.scrolled {
+    background-color: var(--bgbread);
+    border-radius: 0.5em;
+}
+
 #btns-mesi {
     display: flex;
     gap: 1em;
-    align-items: center;
-    position: sticky;
-    top: 7em;
-    z-index: 2;
     margin: auto;
+    align-items: center;
     width: fit-content;
 }
 
@@ -743,8 +759,8 @@ footer {
     font-weight: bold;
 }
 
-#btn-mese-prec,
-#btn-mese-succ {
+#btns-mesi button,
+#btns-sett button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -775,6 +791,20 @@ footer {
     content: url("../Resources/Vectors/UpArrow-Light.svg");
 }
 
+#btns-sett {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin: auto;
+    margin-top: 1em;
+    width: fit-content;
+}
+
+.btn-toggle.active {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor);
+}
+
 .giornata {
     font-size: 1.5em;
     font-weight: bold;
@@ -792,16 +822,13 @@ footer {
     content: "";
     display: inline-block;
     border-radius: 0.5em;
-    width: 0.25em;
+    width: 0.3em;
     height: auto;
-    vertical-align: middle;
     background-color: var(--strongdecoration);
 }
 
 .orario {
     margin: 0.5em;
-    vertical-align: middle;
-    height: auto;
     align-self: center;
     font-weight: bold;
 }
@@ -810,6 +837,11 @@ footer {
 .cnt-presa-adozione {
     display: flex;
     margin: 0.5em auto;
+}
+
+.cnt-adozione .info,
+.cnt-presa-adozione .info {
+    margin-right: 1em;
 }
 
 .cnt-adozione .info {
@@ -949,6 +981,11 @@ details[open] > .contenuto-nascosto {
     flex: 1;
 }
 
+.btn-gruppo {
+    display: flex;
+    align-items: center;
+}
+
 .btn-gruppo button {
     padding: 0.5em;
     border-radius: 0.5em;
@@ -956,30 +993,70 @@ details[open] > .contenuto-nascosto {
     height: 3em;
 }
 
-.btn-popup-app,
-.btn-modifica-app {
+.go-calendario {
+    background-color: var(--bgbtn);
+    border: 2px solid var(--borderbtn);
+    font-weight: bold;
+    color: var(--txtbtncolor);
+    padding: var(--generalpadding);
+    border-radius: 0.5em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.go-calendario:before {
+    content: "";
+    background-image: url("../Resources/Vectors/Forward.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.25em;
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 0.5em;
+    background-position: center;
+    transition: all 0.3s ease;
+}
+
+.go-calendario:visited {
+    color: var(--txtbtncolor);
+}
+
+.go-calendario:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor);
+}
+
+.go-calendario:hover:before {
+    background-image: url("../Resources/Vectors/Forward-Light.svg");
+}
+
+.btn-popup-app {
     background-color: var(--bgbtn);
     box-shadow: var(--greenshadow);
     border: 2px solid var(--borderbtn);
-    content: url("../Resources/Vectors/Calendar.svg");
+    background-image: url("../Resources/Vectors/Calendar.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     margin-right: 1em;
 }
 
-.btn-popup-app:hover,
-.btn-modifica-app:hover {
-    content: url("../Resources/Vectors/Calendar-Light.svg");
-    background-color: var(--bgbtnhover);
+.btn-popup-app:hover {
+    background-image: url("../Resources/Vectors/Calendar-Light.svg");
 }
 
 .btn-elimina-app {
     background-color: var(--bgwarning);
     box-shadow: var(--redshadow);
     border: 2px solid var(--borderwarning);
-    content: url("../Resources/Vectors/Delete.svg");
+    background-image: url("../Resources/Vectors/Delete.svg");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .btn-elimina-app:hover {
-    content: url("../Resources/Vectors/Delete_Light.svg");
+    background-image: url("../Resources/Vectors/Delete_Light.svg");
     background-color: var(--bgwarninghover);
 }
 
@@ -990,7 +1067,7 @@ details[open] > .contenuto-nascosto {
     margin-right: 0.25em;
 }
 
-#dia-appuntamento {
+dialog {
     margin: auto;
     border: none;
     padding: 3em;
@@ -999,16 +1076,16 @@ details[open] > .contenuto-nascosto {
     opacity: 0;
 }
 
-#dia-appuntamento::backdrop {
+dialog::backdrop {
     background-color: var(--popupbackdrop);
     opacity: 0;
 }
 
-#dia-appuntamento[open] {
+dialog[open] {
     opacity: 1;
 }
 
-#dia-appuntamento[open]::backdrop {
+dialog[open]::backdrop {
     opacity: 1;
 }
 
@@ -1059,6 +1136,130 @@ details[open] > .contenuto-nascosto {
 #btn-prenota-app {
     margin-top: 2.5em;
     margin: auto;
+}
+
+#benvenuto {
+    line-height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+}
+
+#benvenuto #ben-time {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#benvenuto p {
+    font-size: 1.25em;
+}
+
+#ben-date {
+    font-weight: bold;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#num-app::before {
+    content: "•";
+    font-size: 1.4em;
+    margin-right: 0.1em;
+    color: var(--txtimportant);
+    animation: blink 1.5s infinite;
+}
+
+#section-links {
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em
+}
+
+#section-links div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+#section-links div span {
+    background-color: var(--strongdecoration);
+    font-weight: bold;
+    color: var(--inverttxtcolor);
+    width: 2em;
+    height: 2em;
+    align-content: center;
+    justify-self: right;
+    text-align: center;
+    border-radius: 5em;
+}
+
+#section-links div a {
+    background-color: var(--bgbtn);
+    border: 2px solid var(--borderbtn);
+    font-weight: bold;
+    width: 25em;
+    color: var(--txtbtncolor);
+    padding: var(--generalpadding);
+    box-shadow: var(--greenshadow);
+    border-radius: 0.5em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#section-links div a:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor);
+}
+
+#section-links div a:before {
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.25em;
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 0.5em;
+    background-position: center;
+    transition: all 0.3s ease;
+}
+
+#cal-link::before {
+    background-image: url("../Resources/Vectors/Calendar.svg");
+}
+
+#cal-link:hover::before {
+    background-image: url("../Resources/Vectors/Calendar-Light.svg");
+}
+
+#ticket-link::before {
+    background-image: url("../Resources/Vectors/Heart.svg");
+}
+
+#ticket-link:hover::before {
+    background-image: url("../Resources/Vectors/Heart-Light.svg");
+}
+
+#proposte-link::before {
+    background-image: url("../Resources/Vectors/Question.svg");
+}
+
+#proposte-link:hover::before {
+    background-image: url("../Resources/Vectors/Question-Light.svg");
 }
 
 

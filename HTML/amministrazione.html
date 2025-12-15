@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Calendario: Amici per Sempre</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="...">
+    <meta name="keywords" content="...">
+
+    <link class="title-icon" rel="icon" href="../Resources/Favicon/favicon.ico" sizes="any" />
+    <link class="title-icon" rel="icon" href="../Resources/Favicon/icon.svg" type="image/svg+xml" />
+    <link class="title-icon" rel="apple-touch-icon" href="../Resources/Favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../Resources/Favicon/manifest.webmanifest" />
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
+
+    <script src="../JavaScript/global.js" defer></script>
+    <script src="../JavaScript/amministrazione.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body data-theme="light">
+    <header class="scrolled">
+        <div class="contenitore-header">
+            <h1>Rifugio Amici per Sempre</h1>
+
+            <nav id="menu">
+                <ul>
+                    <li lang="en"><a href="index.html">Home</a></li>
+                    <li><a href="#">Adotta</a></li>
+                    <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
+                </ul>
+            </nav>
+
+            <menu id="header-btns">
+                <button id="btn-theme" title="Cambio tema"></button>
+                <a id="btn-login" href="#" lang="en">Login</a>
+            </menu>
+
+            <button id="hamburger">
+                <span class="linea"></span>
+                <span class="linea"></span>
+                <span class="linea"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="contenitore">
+        <nav id="breadcrumb">
+            <p>Ti trovi in: Home → <span class="active-link">Amministrazione</span></p>
+        </nav>
+    </div>
+
+    <main>
+        <div class="contenitore">
+            <p class="titolo">Area amministrazione</p>
+
+            <section id="benvenuto">
+                <div>
+                    <p id="ben-time">Buongiorno</p>
+
+                    <p>Oggi è <span id="ben-date">00/00/0000</span></p>
+                    <p><span id="num-app">2</span> appuntamenti in programma</p>
+                </div>
+
+                <img src="../Resources/Vectors/DogHouse.svg" width="100px" height="100px">
+            </section>
+
+            <section id="section-links">
+                <div>
+                    <span id="cal-not">2</span>
+                    <a id="cal-link" href="calendario.html">Calendario</a>
+                </div>
+
+                <div>
+                    <span id="ticket-not">6</span>
+                    <a id="ticket-link" href="gestione-ticket.html">Richieste di adozione</a>
+                </div>
+
+                <div>
+                    <span id="proposte-not">1</span>
+                    <a id="proposte-link" href="#">Richieste di inserimento in rifugio</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="contenitore">
+            <section id="dati-footer">
+                <div id="dati-rifugio">
+                    <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
+                    <p>Ente del Terzo Settore iscritto al RUNTS (rep. 12345)</p>
+                    <p>Sede Legale: <a href="https://maps.app.goo.gl/4DNcs18vGaJqHiDB8" target="_blank" rel="noopener noreferrer">Via Trieste, 63, 35121 Padova (PD)</a></p>
+                    <p>C.F. 91022233344</p>
+                </div>
+
+                <div id="orari-rifugio">
+                    <p class="titolo-footer">I nostri orari</p>
+
+                    <dl id="tbl-orari">
+                        <dt>Lunedì - Venerdì</dt>
+                        <dd>8:30 - 19:30</dd>
+                        <dt>Sabato</dt>
+                        <dd>8:30 - 12:30</dd>
+                        <dt>Domenica</dt>
+                        <dd><span class="attention">Chiuso</span></dd>
+                    </dl>
+                </div>
+            </section>
+            
+            <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
+        </div>
+    </footer>
+
+    <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>
+</body>

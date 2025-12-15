@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   btnPopUp.forEach(btn => {
     btn.addEventListener("click", () => {
       const nome = btn.dataset.nomeRichiedente;
-      cliente.textContent = `Sig./ra. ${nome}`;
+      cliente.innerHTML = `${nome}`;
       
       dialogApp.showModal();
     });
