@@ -35,7 +35,7 @@ function backToTop() {
 
 function btnHamburgerClick() {
   const hamburger = document.getElementById("hamburger");
-  const nav = document.getElementById("menu");
+  const nav = document.getElementById("navbar");
 
   hamburger.addEventListener("click", function() {
     nav.classList.toggle("active");

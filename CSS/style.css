@@ -123,10 +123,7 @@ html {
 .contenitore,
 .contenitore-header {
     max-width: 1200px;
-    width: 100%;
     margin: 0 auto;
-    padding-left: 1em;
-    padding-right: 1em;
 }
 
 .contenitore-header {
@@ -168,20 +165,20 @@ header h1 {
     justify-self: start;
 }
 
-#menu {
+#navbar {
     font-size: 1.3em;
     margin: auto;
     justify-self: center;
 }
 
-#menu a {
+#navbar a {
     color: var(--txtcolor);
     text-decoration: none;
     position: relative;
     padding-bottom: 0.2em;
 }
 
-#menu a::after {
+#navbar a::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -194,11 +191,11 @@ header h1 {
     transition: transform 0.3s ease;
 }
 
-#menu a:hover::after {
+#navbar a:hover::after {
     transform: scaleX(1);
 }
 
-#menu ul {
+#navbar ul {
     list-style-type: none;
     display: flex;
     gap: 1.5em;
@@ -296,13 +293,13 @@ main {
 
 #section-title h1 {
     font-size: 3em;
-    line-height: 1.5em;
+    line-height: 1.25em;
 }
 
 #section-title p {
     margin: 1em;
     font-size: 1.6em;
-    line-height: 1em;
+    line-height: 1.25em;
 }
 
 #section-title ul {
@@ -356,6 +353,7 @@ main {
 #section-contatti h2 {
     margin-bottom: 1em;
     font-size: 2.25em;
+    line-height: 1.25em;
     text-align: center;
 }
 
@@ -365,7 +363,6 @@ main {
 
 #section-esperti ul {
     display: flex;
-    flex-wrap: wrap;
     margin: auto;
     width: 80%;
     text-align: center;
@@ -435,7 +432,6 @@ main {
 #section-dati ul {
     display: flex;
     width: 100%;
-    flex-wrap: wrap;
     text-align: center;
     list-style: none;
     gap: 2em;
@@ -524,7 +520,7 @@ main {
     width: 1.5em;
     height: 1.5em;
     bottom: 0;
-    right: 2em;
+    right: 0;
 }
 
 #btn-back-to-top {
@@ -691,7 +687,7 @@ footer {
 }
 
 #copyright {
-    margin-top: 1em;
+    margin: 1em auto 0 auto;
 }
 
 .titolo-footer {

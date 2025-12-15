@@ -2,7 +2,14 @@
     display: flex;
 }
 
-#menu {
+#contenitore-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navbar {
     position: absolute;
     top: 100%;
     left: 0;
@@ -14,18 +21,22 @@
     transition: right 0.5s ease;
 }
 
-#header-btns {
-    display: none;
+#navbar ul {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    gap: 0.75em;
 }
 
-#menu.active {
+#contenitore-header.active #navbar,
+#contenitore-header.acrive #header-btns {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
 }
 
 #hamburger.active .linea:nth-child(1) {
-    transform: translateY(0.5em) rotate(45deg);
+    transform: translateY(0.45em) rotate(45deg);
 }
 
 #hamburger.active .linea:nth-child(2) {
@@ -33,7 +44,7 @@
 }
 
 #hamburger.active .linea:nth-child(3) {
-    transform: translateY(-0.45em) rotate(-45deg);
+    transform: translateY(-0.5em) rotate(-45deg);
 }
 
 #section-title {
@@ -44,10 +55,45 @@
     flex-direction: column;
 }
 
-#img-volontari {
+#section-contatti iframe {
+    display: none;
+}
+
+#section-esperti ul {
+    flex-direction: column;
+}
+
+#section-esperti ul li figure img {
+    align-self: center;
+    width: 20em;
+    height: 17.5em;
+}
+
+#section-dati ul {
+    flex-direction: column;
+}
+
+#section-dati ul li {
+    width: 20em;
+    align-self: center;
+}
+
+#dati-footer {
+    flex-direction: column;
+}
+
+#dati-rifugio {
+    text-align: center;
+}
+
+#orari-rifugio {
     margin-top: 1em;
 }
 
-#section-contatti iframe {
-    display: none;
+.titolo-footer {
+    text-align: center;
+}
+
+#copyright {
+    width: 20em;
 }
