@@ -34,25 +34,45 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
 
   const dialogApp = document.getElementById("dia-appuntamento");
-  const cliente = document.getElementById("nome-cliente");
-  const btnChiudi = dialogApp.querySelector(".btn-close");
+  const dialogDel = document.getElementById("dia-cancellazione");
+
+  const btnChiudiApp = dialogApp.querySelector(".btn-close");
+  const btnChiudiDel = dialogDel.querySelector(".btn-close");
   
-  const btnPopUp = document.querySelectorAll(".btn-popup-app, .btn-modifica-app");
+  const btnPopUp = document.querySelectorAll(".btn-popup-app");
+  const btnDel = document.querySelectorAll(".btn-elimina-app");
 
   btnPopUp.forEach(btn => {
     btn.addEventListener("click", () => {
-      const nome = btn.dataset.nomeRichiedente;
-      cliente.innerHTML = `${nome}`;
+      dialogApp.querySelector(".nome-cliente").innerHTML = `${btn.dataset.nome}`;
       
       dialogApp.showModal();
+      body.classList.add("no-scroll");
     });
   });
 
-  const chiudiDialog = () => {
+  btnDel.forEach(btn => {
+    btn.addEventListener("click", () => {
+      dialogDel.querySelector(".nome-cliente").innerHTML = `${btn.dataset.nome}`;
+
+      dialogDel.showModal();
+      body.classList.add("no-scroll");
+    })
+  })
+
+  const chiudiDialogApp = () => {
     dialogApp.close();
+    body.classList.remove("no-scroll");
   };
 
-  btnChiudi.addEventListener("click", chiudiDialog);
+  const chiudiDialogDel = () => {
+    dialogDel.close();
+    body.classList.remove("no-scroll");
+  };
+
+  btnChiudiApp.addEventListener("click", chiudiDialogApp);
+  btnChiudiDel.addEventListener("click", chiudiDialogDel);
 });

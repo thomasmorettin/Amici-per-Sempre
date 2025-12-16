@@ -120,15 +120,15 @@ html {
     background-color: var(--bgcolor);
 }
 
-.contenitore,
-.contenitore-header {
+.contenitore-header,
+.contenitore-footer {
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .contenitore-header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -138,6 +138,10 @@ body {
     display: flex;
     flex-direction: column;
     color: var(--txtcolor);
+}
+
+body.no-scroll {
+    overflow: hidden;
 }
 
 header {
@@ -163,6 +167,15 @@ header h1 {
     line-height: 1.5em;
     width: 2.75em;
     justify-self: start;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bold-red {
+    color: var(--txtwarning);
+    font-weight: bold;
 }
 
 #navbar {
@@ -282,8 +295,10 @@ header h1 {
 
 main {
     flex: 1;
-    width: 100%;
+    width: calc(100% - 2em);
     position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 #section-title {
@@ -665,6 +680,8 @@ details.dtl-aperto .exp-freccia {
 }
 
 footer {
+    margin-top: 6em;
+    padding-top: 6em;
     padding: var(--generalpadding);
     box-shadow: var(--normalshadow);
     background-color: var(--bgbread);
@@ -909,6 +926,7 @@ footer {
     font-size: 3em;
     margin-right: 0.1em;
     padding-bottom: 0.05em;
+    animation: blink 1.5s infinite;
 }
 
 .contenuto-nascosto {
@@ -1105,7 +1123,8 @@ dialog[open]::backdrop {
     background-color: var(--bgbtnhover);
 }
 
-#dia-appuntamento > p {
+#dia-appuntamento,
+#dia-cancellazione {
     text-align: center;
 }
 
@@ -1129,9 +1148,35 @@ dialog[open]::backdrop {
     margin-right: 1em;
 }
 
-#btn-prenota-app {
-    margin-top: 2.5em;
-    margin: auto;
+#btn-prenota-app,
+#btn-cancella-app {
+    margin-top: 2em;
+}
+
+#btn-cancella-app {
+    background-color: var(--bgwarning);
+    color: var(--txtwarning);
+    border: 2px solid var(--borderwarning);
+    box-shadow: var(--redshadow);
+    padding: var(--generalpadding);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#btn-cancella-app:hover {
+    background-color: var(--bgwarninghover);
+    color: var(--inverttxtcolor);
+}
+
+#msg-warning {
+    margin-top: 1.5em;
+    align-items: center;
+    text-align: center;
+}
+
+#msg-warning::before {
+    content: url("../Resources/Vectors/Warning.svg");
+    margin-right: 1em;
 }
 
 #benvenuto {

@@ -85,8 +85,8 @@
                     </div>
 
                     <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
+                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
                     </div>
                 </div>
 
@@ -99,8 +99,8 @@
                     </div>
 
                     <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
+                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
                     </div>
                 </div>
 
@@ -113,8 +113,8 @@
                     </div>
 
                     <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
+                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
                     </div>
                 </div>
 
@@ -127,8 +127,8 @@
                     </div>
 
                     <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
+                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
                     </div>
                 </div>
 
@@ -146,8 +146,8 @@
                     </div>
 
                     <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
+                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
                     </div>
                 </div>
 
@@ -160,8 +160,8 @@
                     </div>
 
                     <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
+                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
                     </div>
                 </div>
 
@@ -179,8 +179,8 @@
                     </div>
 
                     <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                        <button class="btn-elimina-app" title="Elimina richiesta" data-nome-richiedente="Mario Rossi"></button>
+                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
+                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
                     </div>
                 </div>
 
@@ -222,14 +222,14 @@
 
     <dialog id="dia-appuntamento">
         <p class="titolo-dialog">Programma appuntamento</p>
-        <p>Sig/ra. <span id="nome-cliente">-</span></p>
+        <p>Sig/ra. <span class="nome-cliente">-</span></p>
 
         <button class="btn-close"></button>
 
         <form method="dialog">
             <div class="campi-input">
                 <label for="data-appuntamento">Data</label>
-                <input type="date" id="data-appuntamento" name="data" placeholder="gg/mm/aaaa" required>
+                <input type="date" id="data-appuntamento" name="data" required>
 
                 <label for="ora-appuntamento">Ora</label>
                 <input type="time" id="ora-appuntamento" name="ora" required>
@@ -240,11 +240,16 @@
     </dialog>
 
     <dialog id="dia-cancellazione">
-        <p class="titolo-dialog">Programma appuntamento</p>
-        <p>Sig/ra. <span ></span></p>
+        <p class="titolo-dialog">Cancella appuntamento</p>
+        <p>Sig/ra. <span class="nome-cliente"></span></p>
+
+        <div id="msg-warning">
+            <p><span class="bold-red">Attenzione</span>, si vuole eliminare l'appuntamento in giornata <span id="data-app" class="bold"></span> alle ore <span id="ora-app" class="bold"></span>.</p>
+            <p>L'appuntamento è riprenotabile alla pagina <a href="gestione-ticket.html">Gestione richieste</a>.</p>
+        </div>
 
         <button class="btn-close"></button>
 
-        <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
+        <button type="submit" id="btn-cancella-app">Cancella appuntamento</button>
     </dialog>
 </body>
