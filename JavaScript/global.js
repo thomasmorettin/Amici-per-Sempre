@@ -3,15 +3,6 @@ function loadPage() {
   document.getElementById("btn-back-to-top").classList.remove("visible");
 }
 
-function updateTitleIcon() {
-  const icnTitle = document.getElementsByClassName("title-icon")
-  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    icnTitle.href = "../Resources/Vectors/LogoRidotto_Light.svg";
-  } else {
-    icnTitle.href = "../Resources/Vectors/LogoRidotto.svg";
-  }
-}
-
 function pageScroll() {
   const header = document.querySelector("header");
   const backToTop = document.getElementById("btn-back-to-top");
@@ -48,9 +39,6 @@ function changeCopyright() {
 }
 
 loadPage();   // Funzione per modificare pagina al login. Se JavaScript non attivo, vengono mantenuti gli elementi del file HTML
-
-updateTitleIcon();    // Avvio della pagina web
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateTitleIcon);    // Aggiornamento automatico
 
 pageScroll();   // Modifica dello stile dell'header allo scorrimento della pagina e mostra il pulsante per ritornare in cima alla pagina
 
