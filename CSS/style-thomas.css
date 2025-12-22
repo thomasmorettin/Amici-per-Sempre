@@ -308,12 +308,17 @@ main {
 
 #section-title h1 {
     font-size: 3em;
-    line-height: 1.25em;
+    line-height: 1.25em;    
 }
 
-#section-title p {
-    margin: 1em;
-    font-size: 1.6em;
+#rifugio-spec {
+    margin-top: 0.5em;
+    font-size: 1.5em;
+}
+
+#slogan {
+    margin-top: 1em;
+    font-size: 2em;
     line-height: 1.25em;
 }
 
