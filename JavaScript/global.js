@@ -72,8 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
     root.classList.toggle("background");
 
     if (root.classList.contains("background")) {
+        btn.classList.remove("enabled");
         btn.title = "Rimuovi Sfondo";
     } else {
+        btn.classList.add("enabled");
         btn.title = "Ripristina Sfondo";
     }
   })

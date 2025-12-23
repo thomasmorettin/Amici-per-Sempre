@@ -4,7 +4,7 @@
     --inverttxtcolor: #FFF8E7;
     --bgcolor: #FFF8E7;
     --bgbread: #F2ECDB;
-    --bgdecoration: #F3D5C8;
+    --bgdecoration: #F6DFD5;
     --borderdecoration: #70402B;
     --strongdecoration: #70402B;
     --txtdecoration: #70402B;
@@ -238,10 +238,15 @@ header h1 {
     background-size: 2.25em;
     width: 3em;
     height: 3em;
-    transition: all 0.3s ease;
 }
 
 #btn-remove-bck:hover {
+    background-image: url("../Resources/Vectors/RemoveBackground-Light.svg");
+    background-color: var(--bgbtnhover);
+    box-shadow: var(--greenshadow);
+}
+
+#btn-remove-bck.enabled {
     background-image: url("../Resources/Vectors/RemoveBackground-Light.svg");
     background-color: var(--bgbtnhover);
     box-shadow: var(--greenshadow);
@@ -668,6 +673,7 @@ details.dtl-aperto .exp-freccia {
 
 #section-contatti {
     margin: 6em auto;
+    margin-bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
