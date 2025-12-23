@@ -81,6 +81,10 @@
     --formbgcolor: #dee6d6;  /* DA TESTARE */
 }
 
+html {
+    background-color: var(--bgcolor);
+}
+
 html, body {
     font-size: 100%;
     font-family: "Inter", sans-serif;
@@ -112,13 +116,12 @@ a:visited {
     color: var(--txtcolor);
 }
 
-html {
+html.background {
     background-image: url("../Resources/Vectors/Paws.svg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
-    background-color: var(--bgcolor);
 }
 
 .contenitore-header,
@@ -226,6 +229,24 @@ header h1 {
     justify-self: end;
 }
 
+#btn-remove-bck {
+    background-image: url("../Resources/Vectors/RemoveBackground.svg");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-size: 2.25em;
+    width: 3em;
+    height: 3em;
+    transition: all 0.3s ease;
+}
+
+#btn-remove-bck:hover {
+    background-image: url("../Resources/Vectors/RemoveBackground-Light.svg");
+    background-color: var(--bgbtnhover);
+    box-shadow: var(--greenshadow);
+}
+
 /* DA RIVEDERE */
 
 #hamburger {
@@ -256,7 +277,7 @@ header h1 {
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    background-size: 2em;
+    background-size: 1.75em;
     width: 3em;
     height: 3em;
     transition: all 0.3s ease;
@@ -546,6 +567,8 @@ main {
 
 #btn-back-to-top {
     background-image: url("../Resources/Vectors/UpArrow.svg");
+    opacity: 0;
+    visibility: hidden;
     background-size: 2.5em;
     background-repeat: no-repeat;
     background-position: center;
@@ -555,11 +578,10 @@ main {
     width: 3.5em;
     height: 3.5em;
     position: fixed;
-    bottom: 1em;
-    right: 1em;
     z-index: 2;
-    opacity: 0;
-    visibility: hidden;
+    right: 1em;
+    bottom: 1em;
+    transition: all 0.3s ease;
 }
 
 #btn-back-to-top.visible {

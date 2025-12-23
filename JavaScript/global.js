@@ -62,3 +62,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// Listener per rimozione/ripristino dello sfondo delle pagine
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("btn-remove-bck");
+  const root = document.documentElement;
+
+  btn.addEventListener("click", () => {
+    root.classList.toggle("background");
+
+    if (root.classList.contains("background")) {
+        btn.title = "Rimuovi Sfondo";
+    } else {
+        btn.title = "Ripristina Sfondo";
+    }
+  })
+});
