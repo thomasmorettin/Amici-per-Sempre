@@ -24,7 +24,7 @@ function backToTop() {
   window.scrollTo({top: 0, behavior: "smooth"});
 }
 
-function btnHamburgerClick() {
+/* function btnHamburgerClick() {
   const hamburger = document.getElementById("hamburger");
   const nav = document.getElementById("navbar");
 
@@ -32,7 +32,7 @@ function btnHamburgerClick() {
     nav.classList.toggle("active");
     hamburger.classList.toggle("active");
   })
-}
+} */
 
 function changeCopyright() {
   const year = document.getElementById("cop-year").innerHTML = new Date().getFullYear();
@@ -42,7 +42,7 @@ loadPage();   // Funzione per modificare pagina al login. Se JavaScript non atti
 
 pageScroll();   // Modifica dello stile dell'header allo scorrimento della pagina e mostra il pulsante per ritornare in cima alla pagina
 
-btnHamburgerClick();    // Click del menù hamburger in formato mobile
+// btnHamburgerClick();    // Click del menù hamburger in formato mobile
 
 changeCopyright();    // Cambio dell'anno di copyright in base all'anno corrente
 

@@ -306,6 +306,8 @@ header h1 {
 }
 
 #breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
     background-color: var(--bgbread);
     text-align: center;
     width: fit-content;
@@ -314,6 +316,17 @@ header h1 {
     margin: 0 auto;
     margin-top: 1em;
     padding: var(--generalpadding);
+}
+
+#breadcrumb ol {
+    margin-left: 0.25em;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#breadcrumb li:not(:first-child)::before {
+    content: " » ";
 }
 
 main {
