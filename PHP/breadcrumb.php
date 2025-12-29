@@ -1,25 +1,42 @@
 <?php
-const NOMI_PAG = [
-    "index.php" => [
-        "titolo" => "Home",
-        "padre" => null
-    ],
-
-    "adotta.php" => [
-        "titolo" => "Adotta",
-        "padre" => "index.php"
-    ],
-
-    "porta_in_adozione.php" => [
-        "titolo" => "Porta in adozione",
-        "padre" => "index.php"
-    ]
-];
+require_once dirname(__DIR__) . "/PHP/utils.php";
 
 function getCurrentPath() {
+    $nomiPag = [
+        "index.php" => [
+            "titolo" => "Home",
+            "padre" => null,
+            "url" => PROJECT_ROOT . "/"
+        ],
+
+        "adotta.php" => [
+            "titolo" => "Adotta",
+            "padre" => "index.php",
+            "url" => PROJECT_ROOT . "/"
+        ],
+
+        "porta_in_adozione.php" => [
+            "titolo" => "Porta in adozione",
+            "padre" => "index.php",
+            "url" => PROJECT_ROOT . "/"
+        ],
+
+        "amministrazione.php" => [
+            "titolo" => "Amministrazione",
+            "padre" => "index.php",
+            "url" => PROJECT_ROOT . "/"
+        ],
+
+        "calendario.php" => [
+            "titolo" => "Calendario",
+            "padre" => "amministrazione.php",
+            "url" => PROJECT_ROOT . "/amministrazione"
+        ]
+    ];
+
     $html = "";
     $file = basename($_SERVER["PHP_SELF"]);
-    $pagina = NOMI_PAG[$file];
+    $pagina = $nomiPag[$file];
     $percorso = [];
 
     if (!isset($pagina)) {
@@ -33,12 +50,12 @@ function getCurrentPath() {
     ];
 
     $padre = $pagina["padre"];
-    while ($padre && isset(NOMI_PAG[$padre])) {
-        $info = NOMI_PAG[$padre];
+    while ($padre && isset($nomiPag[$padre])) {
+        $info = $nomiPag[$padre];
 
-        array_shift($percorso, [
+        array_unshift($percorso, [
             "titolo" => $info["titolo"],
-            "url" => $padre
+            "url" => $info["url"]
         ]);
         $padre = $info["padre"];
     }

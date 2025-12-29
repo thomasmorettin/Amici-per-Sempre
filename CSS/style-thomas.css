@@ -131,8 +131,8 @@ html.background {
 }
 
 .contenitore-header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
 }
 
@@ -180,6 +180,10 @@ header h1 {
 .bold-red {
     color: var(--txtwarning);
     font-weight: bold;
+}
+
+.hidden {
+    display: none;
 }
 
 #navbar {
@@ -326,6 +330,8 @@ header h1 {
 }
 
 #breadcrumb li:not(:first-child)::before {
+    margin-left: 0.25em;
+    font-weight: normal;
     content: " » ";
 }
 
@@ -834,7 +840,21 @@ footer {
     font-weight: bold;
 }
 
-#btns-mesi button,
+#btns-mesi a {
+    text-decoration: none;
+    border-radius: 0.5em;
+    color: var(--txtbtncolor);
+    font-weight: bold;
+    background-color: var(--bgbtn);
+    transition: all 0.3s ease;
+}
+
+#btns-mesi a:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor);
+}
+
+#btns-mesi a,
 #btns-sett button {
     display: inline-flex;
     align-items: center;
@@ -851,6 +871,7 @@ footer {
     display: block;
     width: 2em;
     height: 2em;
+    transition: all 0.3s ease;
 }
 
 #btn-mese-succ::after {
@@ -859,6 +880,7 @@ footer {
     display: block;
     width: 2em;
     height: 2em;
+    transition: all 0.3s ease;
 }
 
 #btn-mese-succ:hover::after,

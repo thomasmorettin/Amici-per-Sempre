@@ -1,5 +1,5 @@
 <?php
-require_once "utils.php";
+require_once dirname(__DIR__) . "/PHP/utils.php";
 
 function getNavbarLinks() {
     $paginaCorr = basename($_SERVER["PHP_SELF"]);

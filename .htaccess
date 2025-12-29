@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /tec-web/
+
+# 1. Rimuovi index.php dall'URL (Redirect estetico)
+RewriteCond %{THE_REQUEST} /index\.php [NC]
+RewriteRule ^index\.php$ ./ [R=301,L]
+
+# 2. Rimuovi .php dagli altri file (Redirect estetico)
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteCond %{REQUEST_URI} !/index\.php$
+RewriteRule ^ /%1 [R=301,L]
+
+# 3. Mappa interna (se chiedo /calendario, servimi /calendario.php di nascosto)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]

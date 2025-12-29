@@ -1,12 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".btn-toggle");
+    const weeks = document.querySelectorAll("section");
 
     buttons.forEach(button => {
         button.addEventListener("click", function() {
             const selectBtn = document.querySelector(".btn-toggle.active");
-            selectBtn.classList.remove("active");
+            if (selectBtn) { selectBtn.classList.remove("active"); }
 
             this.classList.add("active");
+
+            weeks.forEach(week => {
+              week.classList.add("hidden");
+            });
+
+            const targetId = this.getAttribute("data-target");
+            const targetWeek = document.getElementById(targetId);
+            if (targetWeek) { targetWeek.classList.remove("hidden"); }
         });
     });
 });

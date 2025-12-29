@@ -1,255 +1,50 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <title>Calendario: Amici per Sempre</title>
+<main>
+    <p class="titolo">Calendario appuntamenti</p>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="...">
-    <meta name="keywords" content="...">
-
-    <link class="title-icon" rel="icon" href="../Resources/Favicon/favicon.ico" sizes="any" />
-    <link class="title-icon" rel="icon" href="../Resources/Favicon/icon.svg" type="image/svg+xml" />
-    <link class="title-icon" rel="apple-touch-icon" href="../Resources/Favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="../Resources/Favicon/manifest.webmanifest" />
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
-
-    <script src="../JavaScript/global.js" defer></script>
-    <script src="../JavaScript/calendario.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-</head>
-
-<body data-theme="light">
-    <header class="scrolled">
-        <div class="contenitore-header">
-            <h1>Rifugio Amici per Sempre</h1>
-
-            <nav id="navbar">
-                <ul>
-                    <li lang="en"><a href="index.html">Home</a></li>
-                    <li><a href="#">Adotta</a></li>
-                    <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
-                </ul>
-            </nav>
-
-            <menu id="header-btns">
-                <button id="btn-theme" title="Cambio tema"></button>
-                <a id="btn-login" href="#" lang="en">Login</a>
-            </menu>
-
-            <button id="hamburger">
-                <span class="linea"></span>
-                <span class="linea"></span>
-                <span class="linea"></span>
-            </button>
+    <div id="btns-flottanti">
+        <div id="btns-mesi">
+            <a id="btn-mese-prec" href="{{link-prev}}">Mese precedente</a>
+            <p>{{mese-anno}}</p>
+            <a id="btn-mese-succ" href="{{link-next}}">Mese successivo</a>
         </div>
-    </header>
 
-    <div class="contenitore">
-        <nav id="breadcrumb">
-            <p>Ti trovi in: Home → <a href="#">Amministrazione</a> → <span class="active-link" lang="en">Calendario</span></p>
-        </nav>
-
-        <main>
-            <p class="titolo">Calendario appuntamenti</p>
-
-            <div id="btns-flottanti">
-                <div id="btns-mesi">
-                    <button id="btn-mese-prec" title="Mese precedente">Mese precedente</button>
-                    <p>Dicembre 2025</p>
-                    <button id="btn-mese-succ" title="Mese successivo">Mese successivo</button>
-                </div>
-
-                <div id="btns-sett">
-                    <button class="btn-toggle active" title="Settimana 1">Settimana 1</button>
-                    <button class="btn-toggle" title="Settimana 2">Settimana 2</button>
-                    <button class="btn-toggle" title="Settimana 3">Settimana 3</button>
-                    <button class="btn-toggle" title="Settimana 4">Settimana 4</button>
-                    <button class="btn-toggle" title="Settimana 5">Settimana 5</button>
-                </div>
-            </div>
-
-            <section id="calendario">
-                <p class="giornata">LUN - 01</p>
-
-                <div class="cnt-adozione">
-                    <div class="linea"></div>
-                    <p class="orario">13:30</p>
-                    <div class="info">
-                        <p>Appuntamento per adottare "Willy"</p>
-                        <p>Sig./ra Mario Rossi</p>
-                    </div>
-
-                    <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
-                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
-                    </div>
-                </div>
-
-                <div class="cnt-presa-adozione">
-                    <div class="linea"></div>
-                    <p class="orario">14:30</p>
-                    <div class="info">
-                        <p>Appuntamento per valutare adozione di "Fido"</p>
-                        <p>Sig./ra Luigia Assunta</p>
-                    </div>
-
-                    <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
-                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
-                    </div>
-                </div>
-
-                <div class="cnt-adozione">
-                    <div class="linea"></div>
-                    <p class="orario">17:30</p>
-                    <div class="info">
-                        <p>Appuntamento per adottare "Willy"</p>
-                        <p>Sig./ra Mario Rossi</p>
-                    </div>
-
-                    <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
-                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
-                    </div>
-                </div>
-
-                <div class="cnt-adozione">
-                    <div class="linea"></div>
-                    <p class="orario">18:30</p>
-                    <div class="info">
-                        <p>Appuntamento per adottare "Willy"</p>
-                        <p>Sig./ra Mario Rossi</p>
-                    </div>
-
-                    <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
-                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
-                    </div>
-                </div>
-
-                <p class="giornata">MAR - 02</p>
-                <p>Nessun appuntamento per questa giornata.</p>
-
-                <p class="giornata">MER - 03</p>
-
-                <div class="cnt-adozione">
-                    <div class="linea"></div>
-                    <p class="orario">18:30</p>
-                    <div class="info">
-                        <p>Appuntamento per adottare "Willy"</p>
-                        <p>Sig./ra Mario Rossi</p>
-                    </div>
-
-                    <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
-                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
-                    </div>
-                </div>
-
-                <div class="cnt-adozione">
-                    <div class="linea"></div>
-                    <p class="orario">18:30</p>
-                    <div class="info">
-                        <p>Appuntamento per adottare "Willy"</p>
-                        <p>Sig./ra Mario Rossi</p>
-                    </div>
-
-                    <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
-                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
-                    </div>
-                </div>
-
-                <p class="giornata">GIO - 04</p>
-                <p>Nessun appuntamento per questa giornata.</p>
-
-                <p class="giornata">VEN - 05</p>
-
-                <div class="cnt-presa-adozione">
-                    <div class="linea"></div>
-                    <p class="orario">14:30</p>
-                    <div class="info">
-                        <p>Appuntamento per valutare adozione di "Fido"</p>
-                        <p>Sig./ra Luigia Assunta</p>
-                    </div>
-
-                    <div class="btn-gruppo">
-                        <button class="btn-popup-app" title="Modifica appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="2025-12-01"></button>
-                        <button class="btn-elimina-app" title="Elimina appuntamento" data-nome="Mario Rossi" data-ora="13:30" data-data="01/12/2025"></button>
-                    </div>
-                </div>
-
-                <p class="giornata">SAB - 06</p>
-                <p>Nessun appuntamento per questa giornata.</p>
-            </section>
-        </main>
+        <div id="btns-sett">
+            {{btns-sett}}
+        </div>
     </div>
 
-    <footer>
-        <div class="contenitore-footer">
-            <section id="dati-footer">
-                <div id="dati-rifugio">
-                    <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
-                    <p>Ente del Terzo Settore iscritto al RUNTS (rep. 12345)</p>
-                    <p>Sede Legale: <a href="https://maps.app.goo.gl/4DNcs18vGaJqHiDB8" target="_blank" rel="noopener noreferrer">Via Trieste, 63, 35121 Padova (PD)</a></p>
-                    <p>C.F. 91022233344</p>
-                </div>
+    {{calendario-appuntamenti}}
+</main>
 
-                <div id="orari-rifugio">
-                    <p class="titolo-footer">I nostri orari</p>
+<dialog id="dia-appuntamento">
+    <p class="titolo-dialog">Programma appuntamento</p>
+    <p>Sig/ra. <span class="nome-cliente">-</span></p>
 
-                    <dl id="tbl-orari">
-                        <dt>Lunedì - Venerdì</dt>
-                        <dd>8:30 - 19:30</dd>
-                        <dt>Sabato</dt>
-                        <dd>8:30 - 12:30</dd>
-                        <dt>Domenica</dt>
-                        <dd><span class="attention">Chiuso</span></dd>
-                    </dl>
-                </div>
-            </section>
-            
-            <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
-        </div>
-    </footer>
+    <button class="btn-close"></button>
 
-    <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>
+    <form method="dialog">
+        <div class="campi-input">
+            <label for="data-appuntamento">Data</label>
+            <input type="date" id="data-appuntamento" name="data" required>
 
-    <dialog id="dia-appuntamento">
-        <p class="titolo-dialog">Programma appuntamento</p>
-        <p>Sig/ra. <span class="nome-cliente">-</span></p>
-
-        <button class="btn-close"></button>
-
-        <form method="dialog">
-            <div class="campi-input">
-                <label for="data-appuntamento">Data</label>
-                <input type="date" id="data-appuntamento" name="data" required>
-
-                <label for="ora-appuntamento">Ora</label>
-                <input type="time" id="ora-appuntamento" name="ora" required>
-            </div>
-
-            <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
-        </form>
-    </dialog>
-
-    <dialog id="dia-cancellazione">
-        <p class="titolo-dialog">Cancella appuntamento</p>
-        <p>Sig/ra. <span class="nome-cliente"></span></p>
-
-        <div id="msg-warning">
-            <p><span class="bold-red">Attenzione</span>, si vuole eliminare l'appuntamento in giornata <span id="data-app" class="bold"></span> alle ore <span id="ora-app" class="bold"></span>.</p>
-            <p>L'appuntamento è riprenotabile alla pagina <a href="gestione-ticket.html">Gestione richieste</a>.</p>
+            <label for="ora-appuntamento">Ora</label>
+            <input type="time" id="ora-appuntamento" name="ora" required>
         </div>
 
-        <button class="btn-close"></button>
+        <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
+    </form>
+</dialog>
 
-        <button type="submit" id="btn-cancella-app">Cancella appuntamento</button>
-    </dialog>
-</body>
+<dialog id="dia-cancellazione">
+    <p class="titolo-dialog">Cancella appuntamento</p>
+    <p>Sig/ra. <span class="nome-cliente"></span></p>
+
+    <div id="msg-warning">
+        <p><span class="bold-red">Attenzione</span>, si vuole eliminare l'appuntamento in giornata <span id="data-app" class="bold"></span> alle ore <span id="ora-app" class="bold"></span>.</p>
+        <p>L'appuntamento è riprenotabile alla pagina <a href="gestione-ticket.html">Gestione richieste</a>.</p>
+    </div>
+
+    <button class="btn-close"></button>
+
+    <button type="submit" id="btn-cancella-app">Cancella appuntamento</button>
+</dialog>

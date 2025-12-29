@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . "/header.php";
-require_once __DIR__ . "/breadcrumb.php";
+require_once dirname(__DIR__) . "/PHP/header.php";
+require_once dirname(__DIR__) . "/PHP/breadcrumb.php";
 
 function buildTemplate() {
     $template = file_get_contents(__DIR__ . "/../HTML/template.html");
