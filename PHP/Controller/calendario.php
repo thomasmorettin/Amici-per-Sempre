@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__DIR__) . "/../PHP/utils.php";
-require_once dirname(__DIR__) . "/../PHP/Model/appuntamenti-calendario.php";
+require_once dirname(__DIR__) . "/Model/appuntamenti-calendario.php";
+use function Model\getAppTickets;
 
 $mese = isset($_GET["mese"]) ? (int)$_GET["mese"] : date("n");
 $anno = isset($_GET["anno"]) ? (int)$_GET["anno"] : date("Y");
