@@ -9,7 +9,8 @@ CREATE TABLE Utente (
 
 CREATE TABLE EntitaDatabile (
 	ID INT AUTO_INCREMENT PRIMARY KEY,
-	Note TEXT
+	Note TEXT,
+	DataRichiesta DATE NOT NULL DEFAULT (CURRENT_DATE()),
 );
 
 CREATE TABLE Calendario (

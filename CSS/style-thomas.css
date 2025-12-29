@@ -928,6 +928,8 @@ footer {
     margin: 0.5em;
     align-self: center;
     font-weight: bold;
+    text-align: center;
+    width: 4em;
 }
 
 .cnt-adozione,
@@ -1089,6 +1091,10 @@ details[open] > .contenuto-nascosto {
     border-radius: 0.5em;
     width: 3em;
     height: 3em;
+}
+
+.lista-settimana {
+    list-style-type: none;
 }
 
 .go-calendario {

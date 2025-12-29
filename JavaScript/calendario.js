@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".btn-toggle");
-    const weeks = document.querySelectorAll("section");
+    const weeks = document.querySelectorAll(".lista-settimana");
 
     buttons.forEach(button => {
         button.addEventListener("click", function() {

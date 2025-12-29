@@ -1,18 +1,20 @@
 <?php
 require_once dirname(__DIR__) . "/../PHP/utils.php";
 require_once dirname(__DIR__) . "/Model/appuntamenti-calendario.php";
-use function Model\getAppTickets;
+use function Model\getAppuntamenti;
 
 $mese = isset($_GET["mese"]) ? (int)$_GET["mese"] : date("n");
 $anno = isset($_GET["anno"]) ? (int)$_GET["anno"] : date("Y");
 
 // Normalizzazione dei parametri di anno e mese
 $ts = mktime(0, 0, 0, $mese, 1, $anno);
+$currentSett = 1;
+$today = date("j");
 $mese = date("n", $ts);
 $anno = date("Y", $ts);
 $giorniMese = date("t", $ts);
 
-$risDB = getAppTickets($mese, $anno);
+$risDB = getAppuntamenti($mese, $anno);
 
 $nomiMesi = [
     1 => "Gennaio",
@@ -61,20 +63,39 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
     if (date("N", $tsGiorno) != 7) {
         if (isset($risDB[$giorno])) {
             foreach ($risDB[$giorno] as $evento) {
-                $htmlEv .=
-                "<div class='cnt-adozione'>
-                    <div class='linea'></div>
-                    <p class='orario'>13:30</p>
-                    <div class='info'>
-                        <p>Appuntamento per adottare \"Willy\"</p>
-                        <p>Sig./ra Mario Rossi</p>
-                    </div>
+                if ($evento["Tipo"] === "Ticket") {
+                    $htmlEv .=
+                    "<li class='cnt-adozione'>
+                        <div class='linea'></div>
+                        <p class='orario'>{$evento['Ora']}</p>
+                        <div class='info'>
+                            <p>Appuntamento per adottare \"{$evento['NomeAnimale']}\"</p>
+                            <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
+                        </div>
 
-                    <div class='btn-gruppo'>
-                        <button class='btn-popup-app' title='Modifica appuntamento' data-nome='Mario Rossi' data-ora='13:30' data-data='2025-12-01'></button>
-                        <button class='btn-elimina-app' title='Elimina appuntamento' data-nome='Mario Rossi' data-ora='13:30' data-data='01/12/2025'></button>
-                    </div>
-                </div>";
+                        <div class='btn-gruppo'>
+                            <button class='btn-popup-app' title='Modifica appuntamento' data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}' data-ora='{$evento['Ora']}' data-data='{$anno}-{$mese}-{$evento['Giorno']}'></button>
+                            <button class='btn-elimina-app' title='Elimina appuntamento' data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}' data-ora='{$evento['Ora']}' data-data='{$evento['Giorno']}/{$mese}/{$anno}'></button>
+                        </div>
+                    </li>";
+                }
+
+                elseif ($evento["Tipo"] === "Request") {
+                    $htmlEv .=
+                    "<li class='cnt-presa-adozione'>
+                        <div class='linea'></div>
+                        <p class='orario'>{$evento['Ora']}</p>
+                        <div class='info'>
+                            <p>Appuntamento per valutare adozione per razza \"{$evento['Razza']}\"</p>
+                            <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
+                        </div>
+
+                        <div class='btn-gruppo'>
+                            <button class='btn-popup-app' title='Modifica appuntamento' data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}' data-ora='{$evento['Ora']}' data-data='{$anno}-{$mese}-{$evento['Giorno']}'></button>
+                            <button class='btn-elimina-app' title='Elimina appuntamento' data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}' data-ora='{$evento['Ora']}' data-data='{$evento['Giorno']}/{$mese}/{$anno}'></button>
+                        </div>
+                    </li>";
+                }
             }
         }
 
@@ -82,29 +103,32 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
             $htmlEv = "<p>Nessun appuntamento per questa giornata.</p>";
         }
 
+        if ($giorno == $today && $mese == date("n") && $anno == date("Y")) {
+            $currentSett = $numSett;
+        }
+
         $giornoPad = str_pad($giorno, 2, "0", STR_PAD_LEFT);
 
-        $htmlGiorno = "<p class='giornata'>$nomeGiorno - $giornoPad</p> $htmlEv";
+        $htmlGiorno = "<li><p class='giornata'>$nomeGiorno $giornoPad</p><ol>$htmlEv</ol></li>";
 
         if (!isset($settimane[$numSett])) { $settimane[$numSett] = ""; }
         $settimane[$numSett] .= $htmlGiorno;
     }
 
-    if (date("N", $tsGiorno) == 7 && $giorno < $giorniMese) { $numSett++; }
+    if (date("N", $tsGiorno) == 7 && $giorno < $giorniMese && $giorno > 1) { $numSett++; }
 }
 
 $htmlBtns = "";
 $htmlContent = "";
-$count = 1;
 
 foreach ($settimane as $num => $contenuto) {
-    $activeBtn = ($count === 1) ? "active" : "";
-    $activeCont = ($count === 1) ? "" : "hidden";
+    $isActive = ($num === $currentSett);
 
-    $htmlBtns .= "<button class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $count'>Settimana $count</button>";
-    $htmlContent .= "<section id='sett-$num' class='$activeCont'>$contenuto</section>";
+    $activeBtn = $isActive ? "active" : "";
+    $activeCont = $isActive ? "" : "hidden";
 
-    $count++;
+    $htmlBtns .= "<button class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num'>Settimana $num</button>";
+    $htmlContent .= "<ol id='sett-$num' class='lista-settimana $activeCont'>$contenuto</ol>";
 }
 
 $dati = [
