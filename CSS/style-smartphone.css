@@ -92,8 +92,19 @@
 
 .titolo-footer {
     text-align: center;
+    margin-top: 1em;
 }
 
 #copyright {
     width: 20em;
+}
+
+#dia-appuntamento,
+#dia-cancellazione {
+    margin: auto 1em;
+}
+
+#campi-input {
+    display: flex;
+    flex-direction: column;
 }

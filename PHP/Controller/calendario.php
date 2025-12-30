@@ -51,6 +51,7 @@ $nextAnno = date("Y", mktime(0, 0, 0, $mese + 1, 1, $anno));
 $linkPrev = PROJECT_ROOT . "/PHP/Controller/calendario.php?mese=$prevMese&anno=$prevAnno";
 $linkNext = PROJECT_ROOT . "/PHP/Controller/calendario.php?mese=$nextMese&anno=$nextAnno";
 
+$currentData = date("Y-m-d");
 $settimane = [];
 $numSett = 1;
 
@@ -59,41 +60,61 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
     $nomeGiorno = $nomiSett[(date("N", $tsGiorno))];
 
     $htmlEv = "";
+    $htmlBtns = "";
+    $htmlLinea = "<div class='linea'></div>";
 
     if (date("N", $tsGiorno) != 7) {
         if (isset($risDB[$giorno])) {
             foreach ($risDB[$giorno] as $evento) {
+                $dataApp = "$anno-" . str_pad($mese, 2, "0", STR_PAD_LEFT) . "-" . str_pad($giorno, 2, "0", STR_PAD_LEFT);
+                $dataDisplay = str_pad($giorno, 2, "0", STR_PAD_LEFT) . "/" . str_pad($mese, 2, "0", STR_PAD_LEFT) . "/$anno";
+
+                if ($dataApp >= $currentData) {
+                    $htmlBtns =
+                    "<div class='btn-gruppo'>
+                        <button class='btn-popup-app'
+                            title='Modifica appuntamento'
+                            data-id='{$evento['ID']}'
+                            data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}'
+                            data-ora='{$evento['Ora']}'
+                            data-data='{$dataApp}'>
+                        </button>
+                        <button class='btn-elimina-app'
+                            title='Elimina appuntamento'
+                            data-id='{$evento['ID']}'
+                            data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}'
+                            data-ora='{$evento['Ora']}'
+                            data-data='{$dataApp}'
+                            data-data-display='{$dataDisplay}'>
+                        </button>
+                    </div>";
+                } else { $htmlLinea = ""; }
+
                 if ($evento["Tipo"] === "Ticket") {
                     $htmlEv .=
                     "<li class='cnt-adozione'>
-                        <div class='linea'></div>
+                        {$htmlLinea}
                         <p class='orario'>{$evento['Ora']}</p>
                         <div class='info'>
                             <p>Appuntamento per adottare \"{$evento['NomeAnimale']}\"</p>
                             <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
                         </div>
 
-                        <div class='btn-gruppo'>
-                            <button class='btn-popup-app' title='Modifica appuntamento' data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}' data-ora='{$evento['Ora']}' data-data='{$anno}-{$mese}-{$evento['Giorno']}'></button>
-                            <button class='btn-elimina-app' title='Elimina appuntamento' data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}' data-ora='{$evento['Ora']}' data-data='{$evento['Giorno']}/{$mese}/{$anno}'></button>
-                        </div>
+                        {$htmlBtns}
                     </li>";
                 }
 
                 elseif ($evento["Tipo"] === "Request") {
                     $htmlEv .=
                     "<li class='cnt-presa-adozione'>
-                        <div class='linea'></div>
+                        {$htmlLinea}
                         <p class='orario'>{$evento['Ora']}</p>
                         <div class='info'>
                             <p>Appuntamento per valutare adozione per razza \"{$evento['Razza']}\"</p>
                             <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
                         </div>
 
-                        <div class='btn-gruppo'>
-                            <button class='btn-popup-app' title='Modifica appuntamento' data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}' data-ora='{$evento['Ora']}' data-data='{$anno}-{$mese}-{$evento['Giorno']}'></button>
-                            <button class='btn-elimina-app' title='Elimina appuntamento' data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}' data-ora='{$evento['Ora']}' data-data='{$evento['Giorno']}/{$mese}/{$anno}'></button>
-                        </div>
+                        {$htmlBtns}
                     </li>";
                 }
             }

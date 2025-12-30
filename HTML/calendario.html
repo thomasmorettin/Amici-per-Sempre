@@ -19,13 +19,16 @@
 </main>
 
 <dialog id="dia-appuntamento">
-    <p class="titolo-dialog">Programma appuntamento</p>
+    <p class="titolo-dialog">Riprogramma appuntamento</p>
+    <p id="msg-errore" class="bold-red hidden" role="alert">Errore: data anteriore ad oggi o orario non valido (8:30 - 19:30)</p>
     <p>Sig/ra. <span class="nome-cliente">-</span></p>
 
     <button class="btn-close"></button>
 
-    <form method="dialog">
+    <form action="{{root}}/PHP/Controller/modifica-appuntamento" method="POST">
         <div class="campi-input">
+            <input type="hidden" id="hidden-id" name="id">
+
             <label for="data-appuntamento">Data</label>
             <input type="date" id="data-appuntamento" name="data" required>
 
@@ -48,5 +51,11 @@
 
     <button class="btn-close"></button>
 
-    <button type="submit" id="btn-cancella-app">Cancella appuntamento</button>
+    <form action="{{root}}/PHP/Controller/elimina-appuntamento" method="POST">
+        <input type="hidden" id="hidden-id-del" name="id">
+        <input type="hidden" id="hidden-data-del" name="data">
+        <input type="hidden" id="hidden-ora-del" name="ora">
+
+        <button type="submit" id="btn-cancella-app">Cancella appuntamento</button>
+    </form>
 </dialog>

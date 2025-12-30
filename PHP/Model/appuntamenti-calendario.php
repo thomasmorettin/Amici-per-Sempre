@@ -16,7 +16,7 @@ function getAppuntamenti($mese, $anno) {
         $conn = $db->getConn();
 
         // QUERY CON PLACEHOLDER: appuntamenti da calendario (richieste di adozione)
-        $sqlTickets = "SELECT DAY(Data) AS Giorno, Ora, A.Nome AS NomeAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
+        $sqlTickets = "SELECT C.ID, DAY(Data) AS Giorno, Ora, A.Nome AS NomeAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
                 FROM Calendario C
                 JOIN Ticket T ON C.ID = T.ID
                 JOIN AnimaleRifugio A ON T.Animale = A.ID
@@ -26,7 +26,7 @@ function getAppuntamenti($mese, $anno) {
         $rawTickets = $db->exeQuery($sqlTickets, [$mese, $anno]);
 
         // QUERY CON PLACEHOLDER: appuntamenti da calendario (richieste per portare in adozione)
-        $sqlRequests = "SELECT DAY(Data) AS Giorno, Ora, A.Razza AS RazzaAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
+        $sqlRequests = "SELECT C.ID, DAY(Data) AS Giorno, Ora, A.Razza AS RazzaAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
                 FROM Calendario C
                 JOIN AnimaleEsterno A ON C.ID = A.ID
                 JOIN Persona P ON A.Proprietario = P.ID
@@ -40,6 +40,7 @@ function getAppuntamenti($mese, $anno) {
         if ($rawTickets) {
             foreach ($rawTickets as $row) {
                 $ris[] = [
+                    "ID" => $row["ID"],
                     "Tipo" => "Ticket",
                     "Ora" => sprintf("%02d:%02d", (int)substr($row["Ora"], 0, 2), (int)substr($row["Ora"], 3, 2)),
                     "NomeAnimale" => htmlspecialchars($row["NomeAnimale"], ENT_QUOTES, "UTF-8"),
@@ -54,6 +55,7 @@ function getAppuntamenti($mese, $anno) {
         if ($rawRequests) {
             foreach ($rawRequests as $row) {
                 $ris[] = [
+                    "ID" => $row["ID"],
                     "Tipo" => "Request",
                     "Ora" => sprintf("%02d:%02d", (int)substr($row["Ora"], 0, 2), (int)substr($row["Ora"], 3, 2)),
                     "Razza" => htmlspecialchars($row["RazzaAnimale"], ENT_QUOTES, "UTF-8"),
@@ -79,5 +81,52 @@ function getAppuntamenti($mese, $anno) {
 
         return $calendario;
     }
+}
+
+function updateAppuntamento($id, $data, $ora) {
+    $db = new DBAccess();
+    $connOk = $db->openConn();
+
+    $id = $id;
+    $data = $data;
+    $ora = $ora;
+
+    if ($connOk) {
+        $conn = $db->getConn();
+
+        // QUERY CON PLACEHOLDER: modifica appuntamento
+        $sql = "UPDATE Calendario
+                SET Data = ?, Ora = ?
+                WHERE ID = ?";
+        $result = $db->exeQuery($sql, [$data, $ora, $id]);
+
+        $db->closeConn();
+        return $result;
+    }
+
+    return false;
+}
+
+function deleteAppuntamento($id, $data, $ora) {
+    $db = new DBAccess();
+    $connOk = $db->openConn();
+
+    $id = $id;
+    $data = $data;
+    $ora = $ora;
+
+    if ($connOk) {
+        $conn = $db->getConn();
+
+        // QUERY CON PLACEHOLDER: elimina appuntamento
+        $sql = "DELETE FROM Calendario
+                WHERE ID = ? AND Data = ? AND Ora = ?";
+        $result = $db->exeQuery($sql, [$id, $data, $ora]);
+
+        $db->closeConn();
+        return $result;
+    }
+
+    return false;
 }
 ?>

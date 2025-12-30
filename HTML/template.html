@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" class="background">
+<html lang="it" class="set-background">
     <head>
         <title>{{current-page}}: Amici per Sempre</title>
 
@@ -19,9 +19,12 @@
 
         <!-- FILE DI STYLESHEET -->
         <link rel="stylesheet" href="{{root}}/CSS/style-thomas.css">
+        <link rel="stylesheet" href="{{root}}/CSS/style-niccolo.css">
+        <link rel="stylesheet" href="{{root}}/CSS/style-felix.css">
         <link rel="stylesheet" href="{{root}}/CSS/style-smartphone.css" media="screen and (max-width: 768px)">
 
         <!-- FILE DI JS -->
+        <script src="{{root}}/JavaScript/storage.js"></script>
         <script src="{{root}}/JavaScript/global.js" defer></script>
         <script src="{{root}}/JavaScript/{{current-js}}" defer></script>
 
@@ -31,10 +34,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
 
-    <body data-theme="light">
+    <body data-theme="light" {{data-page}}>
         {{header}}
 
         {{breadcrumb}}
+
+        <div id="toast-not" class="hidden" role="alert" tabindex="-1">
+            <p></p>
+        </div>
 
         {{main}}
 

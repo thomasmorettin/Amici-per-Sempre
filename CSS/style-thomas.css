@@ -116,7 +116,7 @@ a:visited {
     color: var(--txtcolor);
 }
 
-html.background {
+html.set-background {
     background-image: url("../Resources/Vectors/Paws.svg");
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -738,6 +738,7 @@ footer {
 }
 
 #link-utili {
+    margin-bottom: 1em;
     display: flex;
     justify-content: center;
     list-style-type: none;
@@ -826,6 +827,8 @@ footer {
 
 #btns-mesi {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1em;
     margin: auto;
     align-items: center;
@@ -890,6 +893,8 @@ footer {
 
 #btns-sett {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1em;
     align-items: center;
     margin: auto;
@@ -913,11 +918,10 @@ footer {
     padding: 0.5em;
     border-radius: 0.5em;
     width: 100%;
+    border: 2px solid var(--borderdecoration);
 }
 
 .linea {
-    content: "";
-    display: inline-block;
     border-radius: 0.5em;
     width: 0.3em;
     height: auto;
@@ -925,11 +929,9 @@ footer {
 }
 
 .orario {
-    margin: 0.5em;
-    align-self: center;
-    font-weight: bold;
-    text-align: center;
     width: 4em;
+    align-self: center;
+    text-align: center;
 }
 
 .cnt-adozione,
@@ -938,19 +940,12 @@ footer {
     margin: 0.5em auto;
 }
 
-.cnt-adozione .info,
-.cnt-presa-adozione .info {
-    margin-right: 1em;
-}
-
 .cnt-adozione .info {
     background-color: var(--bgdecoration);
-    border: 2px solid var(--borderdecoration);
 }
 
 .cnt-presa-adozione .info {
     background-color: var(--strongdecoration);
-    border: 2px solid var(--borderdecoration);
     color: var(--inverttxtcolor);
 }
 
@@ -1084,6 +1079,7 @@ details[open] > .contenuto-nascosto {
 .btn-gruppo {
     display: flex;
     align-items: center;
+    margin-left: 1em;
 }
 
 .btn-gruppo button {
@@ -1216,9 +1212,11 @@ dialog[open]::backdrop {
 #dia-appuntamento,
 #dia-cancellazione {
     text-align: center;
+    width: fit-content;
 }
 
 .titolo-dialog {
+    line-height: 1.25em;
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 0.25em;
@@ -1227,6 +1225,11 @@ dialog[open]::backdrop {
 #dia-appuntamento form {
     margin-top: 1.5em;
     text-align: center;
+}
+
+#campi-input {
+    display: flex;
+    flex-direction: row;
 }
 
 #dia-appuntamento form label {
@@ -1267,6 +1270,35 @@ dialog[open]::backdrop {
 #msg-warning::before {
     content: url("../Resources/Vectors/Warning.svg");
     margin-right: 1em;
+}
+
+#toast-not {
+    position: fixed;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: var(--generalpadding);
+    border-radius: 0.5em;
+    opacity: 1;
+}
+
+#toast-not:focus {
+    outline: none;
+}
+
+#toast-not.success {
+    background-color: var(--bgbtn);
+    color: var(--txtbtncolor);
+    border: 2px solid var(--borderbtn);
+    box-shadow: var(--greenshadow);
+}
+
+#toast-not.error {
+    background-color: var(--bgwarning);
+    color: var(--txtwarning);
+    border: 2px solid var(--borderwarning);
+    box-shadow: var(--redshadow);
 }
 
 #benvenuto {

@@ -68,15 +68,54 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("btn-remove-bck");
   const root = document.documentElement;
 
-  btn.addEventListener("click", () => {
-    root.classList.toggle("background");
+  const STORAGE_KEY = "backgroundRemoved";
+  if (localStorage.getItem(STORAGE_KEY) === "true") { updateBackgroundButton(true); }
+  else { updateBackgroundButton(false); }
 
-    if (root.classList.contains("background")) {
-        btn.classList.remove("enabled");
-        btn.title = "Rimuovi Sfondo";
-    } else {
-        btn.classList.add("enabled");
-        btn.title = "Ripristina Sfondo";
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(STORAGE_KEY) === "true") {
+      root.classList.add("set-background");
+      localStorage.setItem(STORAGE_KEY, "false");
+      updateBackgroundButton(false);
+    }
+
+    else {
+      root.classList.remove("set-background");
+      localStorage.setItem(STORAGE_KEY, "true");
+      updateBackgroundButton(true);
     }
   })
+
+  function updateBackgroundButton(flag) {
+    if (flag) {
+      btn.classList.add("enabled");
+      btn.setAttribute("title", "Ripristina Sfondo");
+    }
+
+    else {
+      btn.classList.remove("enabled");
+      btn.setAttribute("title", "Rimuovi Sfondo");
+    }
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+  const msg = body.dataset.toastMsg;
+  const type = body.dataset.toastType;
+
+  if (msg) {
+    const toast = document.getElementById("toast-not");
+    const toastMsg = toast.querySelector("p");
+
+    if (toast && toastMsg) {
+      toastMsg.innerHTML = msg;
+      toast.classList.remove("hidden");
+      toast.classList.add(type === "error" ? "error" : "success");
+      toast.focus();
+
+      setTimeout(() => {
+        toast.classList.add("hidden");}, 5000);
+    }
+  }
 });
