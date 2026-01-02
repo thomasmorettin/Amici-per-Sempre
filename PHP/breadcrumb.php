@@ -24,13 +24,13 @@ function getCurrentPath() {
         "amministrazione.php" => [
             "titolo" => "Amministrazione",
             "padre" => "index.php",
-            "url" => PROJECT_ROOT . "/"
+            "url" => PROJECT_ROOT . "/PHP/Controller/amministrazione"
         ],
 
         "calendario.php" => [
             "titolo" => "Calendario",
             "padre" => "amministrazione.php",
-            "url" => PROJECT_ROOT . "/amministrazione"
+            "url" => PROJECT_ROOT . "/PHP/Controller/calendario"
         ]
     ];
 

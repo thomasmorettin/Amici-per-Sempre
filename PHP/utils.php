@@ -45,7 +45,6 @@ function buildPage($file, $dati) {
         $template = str_replace($placeholder, $valore, $template);
     }
 
-    // return preg_replace("/\{\{.*?\}\}/", "", $template); // Rimuove eventuali placeholder non sostituiti
-    return $template;
+    return preg_replace("/\{\{.*?\}\}/", "", $template);        // Rimuove eventuali placeholder non sostituiti
 }
 ?>

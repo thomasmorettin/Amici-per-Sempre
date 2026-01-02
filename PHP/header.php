@@ -38,14 +38,25 @@ function getNavbarLinks() {
     return $menu;
 }
 
+function replaceLogo() {
+    $paginaCorr = basename($_SERVER["PHP_SELF"]);
+    $html = "<h1>Rifugio Amici per Sempre</h1>";
+
+    if ($paginaCorr !== "index.php") { $html = "<a href='{{root}}/index'><h1>Rifugio Amici per Sempre</h1></a>"; }
+
+    return $html;
+}
+
 function populatedNavbar() {
     $header = file_get_contents(__DIR__ . "/../HTML/header.html");
+
+    $header = str_replace("{{logo}}", replaceLogo(), $header);
 
     $menu = getNavbarLinks();
     foreach ($menu as $placeholder => $valore) {
         $header = str_replace($placeholder, $valore, $header);
     }
 
-    return preg_replace("/\{\{.*?\}\}/", "", $header);
+    return $header;
 }
 ?>
