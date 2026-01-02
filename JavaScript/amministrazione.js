@@ -18,7 +18,7 @@ function currentDate() {
 }
 
 function currentNumApp() {
-    const numApp = parseInt(document.getElementById("cal-not").innerHTML);
+    const numApp = parseInt(document.getElementById("cal-not").textContent.trim());
     const app = document.getElementById("app");
 
     (numApp == 1) ? app.innerHTML = "appuntamento" : null;

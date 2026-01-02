@@ -9,10 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id = isset($_POST["id"]) ? (int)$_POST["id"] : null;
     $data = isset($_POST["data"]) ? $_POST["data"] : null;
     $ora = isset($_POST["ora"]) ? $_POST["ora"] : null;
+    $oggi = date("Y-m-d");
 
     if ($id && $data && $ora) {
-        if ((int)substr($data, 0, 4) < 2023 || (int)substr($data, 0, 4) > 2100 ||
-            (int)substr($ora, 0, 2) < 8 || (int)substr($ora, 0, 2) > 19) {
+        if ($data < $oggi || $ora < "08:30" || $ora > "19:30") {
             $_SESSION['error'] = "Data non valida.";
             header("Location: " . PROJECT_ROOT . "/PHP/Controller/calendario.php");
             exit();

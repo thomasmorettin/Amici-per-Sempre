@@ -22,7 +22,7 @@ function getNumApp() {
         // Sanitizzazione dei dati
         if ($rawApp) {
             foreach ($rawApp as $row) {
-                $ris["num-app"] = (int)$row["NumAppuntamenti"];
+                $ris["NumApp"] = (int)$row["NumAppuntamenti"];
             }
         }
     }
@@ -41,7 +41,6 @@ function getNumAll() {
         // QUERY: numero di ticket non ancora calendarizzati
         $sqlTickets = "SELECT COUNT(*) AS NumTickets
                     FROM Ticket T
-                    JOIN EntitaDatabile E ON T.ID = E.ID
                     LEFT JOIN Calendario C ON T.ID = C.ID
                     WHERE C.ID IS NULL";
         $rawTickets = $db->exeQuery($sqlTickets, []);
@@ -49,7 +48,6 @@ function getNumAll() {
         // QUERY: numero di ticket non ancora calendarizzati
         $sqlRequests = "SELECT COUNT(*) AS NumRequests
                         FROM AnimaleEsterno A
-                        JOIN EntitaDatabile E ON A.ID = E.ID
                         LEFT JOIN Calendario C ON A.ID = C.ID
                         WHERE C.ID IS NULL";
         $rawRequests = $db->exeQuery($sqlRequests, []);
@@ -59,14 +57,14 @@ function getNumAll() {
         // Sanitizzazione dei dati
         if ($rawTickets) {
             foreach ($rawTickets as $row) {
-                $ris["num-tck"] = (int)$row["NumTickets"];
+                $ris["NumTck"] = (int)$row["NumTickets"];
             }
         }
 
         // Sanitizzazione dei dati
         if ($rawRequests) {
             foreach ($rawRequests as $row) {
-                $ris["num-req"] = (int)$row["NumRequests"];
+                $ris["NumReq"] = (int)$row["NumRequests"];
             }
         }
     }

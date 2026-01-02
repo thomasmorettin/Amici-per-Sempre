@@ -1,5 +1,6 @@
 CREATE TABLE Razza (
-	Nome VARCHAR(25) PRIMARY KEY
+	Nome VARCHAR(25) PRIMARY KEY,
+	Tipo ENUM ('Cane', 'Gatto') NOT NULL
 );
 
 CREATE TABLE Utente (
@@ -50,7 +51,7 @@ CREATE TABLE AnimaleEsterno (
 	Eta VARCHAR(25) NOT NULL,
 	Proprietario INT NOT NULL,
 	Razza VARCHAR(25) NOT NULL,
-	FOREIGN KEY (ID) REFERENCES EntitaDatabile(ID),
+	FOREIGN KEY (ID) REFERENCES EntitaDatabile(ID) ON DELETE CASCADE,
 	FOREIGN KEY (Proprietario) REFERENCES Persona(ID),
 	FOREIGN KEY (Razza) REFERENCES Razza(Nome)
 );
@@ -59,7 +60,7 @@ CREATE TABLE Ticket (
 	ID INT PRIMARY KEY,
 	Richiedente INT NOT NULL,
 	Animale INT NOT NULL,
-	FOREIGN KEY (ID) REFERENCES EntitaDatabile(ID),
+	FOREIGN KEY (ID) REFERENCES EntitaDatabile(ID) ON DELETE CASCADE,
 	FOREIGN KEY (Richiedente) REFERENCES Persona(ID),
 	FOREIGN KEY (Animale) REFERENCES AnimaleRifugio(ID)
 );

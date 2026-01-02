@@ -38,12 +38,13 @@ function buildPage($file, $dati) {
 
     $template = str_replace("{{data-page}}", getMsgSession(), $template);
     $template = str_replace("{{main}}", $main, $template);
-    $template = str_replace("{{root}}", PROJECT_ROOT, $template);
 
     // Popolamento dinamico dei placeholder
     foreach ($dati as $placeholder => $valore) {
         $template = str_replace($placeholder, $valore, $template);
     }
+
+    $template = str_replace("{{root}}", PROJECT_ROOT, $template);
 
     return preg_replace("/\{\{.*?\}\}/", "", $template);        // Rimuove eventuali placeholder non sostituiti
 }

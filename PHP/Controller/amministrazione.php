@@ -11,9 +11,9 @@ $dati = [
     "{{current-page}}" => "Amministrazione",
     "{{page-keywords}}" => "",
     "{{current-js}}" => "amministrazione.js",
-    "{{num-app}}" => isset($risAppDB["num-app"]) ? $risAppDB["num-app"] : 0,
-    "{{num-tck}}" => isset($risAllDB["num-tck"]) ? $risAllDB["num-tck"] : 0,
-    "{{num-req}}" => isset($risAllDB["num-req"]) ? $risAllDB["num-req"] : 0
+    "{{num-app}}" => isset($risAppDB["NumApp"]) ? $risAppDB["NumApp"] : 0,
+    "{{num-tck}}" => isset($risAllDB["NumTck"]) ? $risAllDB["NumTck"] : 0,
+    "{{num-req}}" => isset($risAllDB["NumReq"]) ? $risAllDB["NumReq"] : 0
 ];
 
 echo buildPage("amministrazione.html", $dati);

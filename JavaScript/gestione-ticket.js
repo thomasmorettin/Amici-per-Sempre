@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  currentNumRich();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -48,15 +50,36 @@ document.addEventListener('DOMContentLoaded', () => {
   btnPopUp.forEach(btn => {
     btn.addEventListener("click", () => {
       dialogApp.querySelector(".nome-cliente").innerHTML = `${btn.dataset.nome}`;
-      
+      document.getElementById("hidden-id").value = `${btn.dataset.id}`;
+
       dialogApp.showModal();
       body.classList.add("no-scroll");
     });
   });
 
+  dialogApp.addEventListener("submit", (e) => {
+    const data = document.getElementById("data-appuntamento").value;
+    const ora = document.getElementById("ora-appuntamento").value;
+
+    // Data corrente
+    const oggiObj = new Date();
+    const anno = oggiObj.getFullYear();
+    const mese = String(oggiObj.getMonth() + 1).padStart(2, '0');
+    const giorno = String(oggiObj.getDate()).padStart(2, '0');
+    
+    const currentData = `${anno}-${mese}-${giorno}`;
+
+    if (data < currentData || ora < "08:30" || ora > "19:30") {
+      e.preventDefault();
+      document.getElementById("msg-errore").classList.remove("hidden");
+    }
+  });
+
   btnDel.forEach(btn => {
     btn.addEventListener("click", () => {
       dialogDel.querySelector(".nome-cliente").innerHTML = `${btn.dataset.nome}`;
+
+      document.getElementById("hidden-id-del").value = `${btn.dataset.id}`;
 
       dialogDel.showModal();
       body.classList.add("no-scroll");
@@ -76,3 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
   btnChiudiApp.addEventListener("click", chiudiDialogApp);
   btnChiudiDel.addEventListener("click", chiudiDialogDel);
 });
+
+function currentNumRich() {
+  const numRich = document.querySelectorAll(".num-rich");
+  const status = document.querySelectorAll(".richieste");
+
+  numRich.forEach((num, index) => {
+    const currentStat = status[index];
+
+    (parseInt(num.textContent.trim()) == 1) ? currentStat.innerHTML = "nuova richiesta" : null;
+  });
+}
