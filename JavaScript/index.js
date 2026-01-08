@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  gestioneFAQs();
+})
+
+// Funzione per la gestione di apertura/chisura di tag details per le FAQs in homepage
+function gestioneFAQs() {
   const faq = document.querySelectorAll("#section-faqs details");
 
   faq.forEach(detail => {
@@ -14,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const animeChiusura = contenuto.animate({gridTemplateRows: ["1fr", "0fr"]}, {
           duration: 300,
           easing: "ease"
-        });
+        })
 
         animeChiusura.onfinish = () => {
           detail.removeAttribute("open");
-        };
+        }
 
       } else {    // È chiuso = si vuole aprire
         const faqArray = Array.from(faq);
@@ -31,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const closeOpenCont = openContenuto.animate({gridTemplateRows: ["1fr", "0fr"]}, {
             duration: 300,
             easing: "ease"
-          });
+          })
 
           closeOpenCont.onfinish = () => {
             openDetail.removeAttribute("open");
-          };
+          }
         }
 
         detail.classList.add("dtl-aperto");    // Permette animazione fluida della freccia
@@ -44,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
         contenuto.animate({gridTemplateRows: ["0fr", "1fr"]}, {
           duration: 300,
           easing: "ease"
-        });
+        })
       }
-    });
-  });
-});
+    })
+  })
+}

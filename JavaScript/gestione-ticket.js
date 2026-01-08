@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+  animaleDetails();
+  dialogsSettings();
+})
+
+// Funzione per apertura/chiusura del tag details per ciascun animale del rifugio
+function animaleDetails() {
   const details = document.querySelectorAll("details.dtl-animale");
 
   details.forEach(detail => {
@@ -14,38 +20,43 @@ document.addEventListener("DOMContentLoaded", () => {
         const animeChiusura = contenuto.animate({gridTemplateRows: ["1fr", "0fr"]}, {
           duration: 300,
           easing: "ease"
-        });
+        })
 
         animeChiusura.onfinish = () => {
           detail.removeAttribute("open");
-        };
+        }
 
-      } else {    // È chiuso = si vuole aprire
+      }
+      
+      else {    // È chiuso = si vuole aprire
         detail.classList.add("dtl-aperto");    // Permette animazione fluida della freccia
         detail.setAttribute("open", "");
         
         contenuto.animate({gridTemplateRows: ["0fr", "1fr"]}, {
           duration: 300,
           easing: "ease"
-        });
+        })
       }
-    });
-  });
+    })
+  })
 
   currentNumRich();
-});
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  const body = document.body;
-
-  const dialogApp = document.getElementById("dia-appuntamento");
-  const dialogDel = document.getElementById("dia-cancellazione");
-
-  const btnChiudiApp = dialogApp.querySelector(".btn-close");
-  const btnChiudiDel = dialogDel.querySelector(".btn-close");
+// Funzione per la gestione di tutti i dialog all'interno della pagina
+function dialogsSettings() {
+  const body = document.body();
   
+  updateDialog(body);
+  deleteDialog(body);
+  infoDialog(body);
+}
+
+// Funzione per la gestione del dialog di modifica dei dati dell'appuntamento
+function updateDialog(body) {
+  const dialogApp = document.getElementById("dia-appuntamento");
+  const btnChiudiApp = dialogApp.querySelector(".btn-close");
   const btnPopUp = document.querySelectorAll(".btn-popup-app");
-  const btnDel = document.querySelectorAll(".btn-elimina-app");
 
   btnPopUp.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -54,9 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       dialogApp.showModal();
       body.classList.add("no-scroll");
-    });
-  });
+    })
+  })
 
+  // Gestione dell'input nel caso errato
   dialogApp.addEventListener("submit", (e) => {
     const data = document.getElementById("data-appuntamento").value;
     const ora = document.getElementById("ora-appuntamento").value;
@@ -73,7 +85,21 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       document.getElementById("msg-errore").classList.remove("hidden");
     }
-  });
+  })
+
+  const chiudiDialogApp = () => {
+    dialogApp.close();
+    body.classList.remove("no-scroll");
+  }
+
+  btnChiudiApp.addEventListener("click", chiudiDialogApp);
+}
+
+// Funzione per la gestione del dialog di eliminazione del ticket
+function deleteDialog(body) {
+  const dialogDel = document.getElementById("dia-cancellazione");
+  const btnChiudiDel = dialogDel.querySelector(".btn-close");
+  const btnDel = document.querySelectorAll(".btn-elimina-app");
 
   btnDel.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -86,27 +112,49 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
-  const chiudiDialogApp = () => {
-    dialogApp.close();
-    body.classList.remove("no-scroll");
-  };
-
   const chiudiDialogDel = () => {
     dialogDel.close();
     body.classList.remove("no-scroll");
-  };
+  }
 
-  btnChiudiApp.addEventListener("click", chiudiDialogApp);
   btnChiudiDel.addEventListener("click", chiudiDialogDel);
-});
+}
 
+// Funzione per la gestione del dialog per eventuali informazioni sulla richiesta
+function infoDialog(body) {
+  const dialogInfo = document.getElementById("dia-info");
+  const btnChiudiInfo = dialogInfo.querySelector(".btn-close");
+  const btnInfo = document.querySelectorAll(".btn-info");
+
+  btnInfo.forEach(btn => {
+    btn.addEventListener("click", () => {
+      dialogInfo.querySelector(".nome-cliente").innerHTML = `${btn.dataset.nome}`;
+      document.getElementById("info-rich").innerHTML = `${btn.dataset.info}`;
+
+      dialogInfo.showModal();
+      body.classList.add("no-scroll");
+    })
+  })
+
+  const chiudiDialogInfo = () => {
+    dialogInfo.close();
+    body.classList.remove("no-scroll");
+  }
+
+  btnChiudiInfo.addEventListener("click", chiudiDialogInfo);
+}
+
+// Funzione per il calcolo del numero di richiedenti per ciascun animale
 function currentNumRich() {
   const numRich = document.querySelectorAll(".num-rich");
   const status = document.querySelectorAll(".richieste");
+  const line = document.querySelectorAll(".status-richieste");
 
   numRich.forEach((num, index) => {
     const currentStat = status[index];
-
     (parseInt(num.textContent.trim()) == 1) ? currentStat.innerHTML = "nuova richiesta" : null;
-  });
+
+    const currentLine = line[index];
+    (parseInt(num.textContent.trim()) == 0) ? currentLine.classList.add("no-dot") : null;
+  })
 }

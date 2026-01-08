@@ -16,8 +16,9 @@ function getAppuntamenti($mese, $anno) {
         $conn = $db->getConn();
 
         // QUERY CON PLACEHOLDER: appuntamenti da calendario (richieste di adozione)
-        $sqlTickets = "SELECT C.ID, DAY(Data) AS Giorno, Ora, A.Nome AS NomeAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
+        $sqlTickets = "SELECT C.ID, DAY(Data) AS Giorno, Ora, E.Note AS Info, A.Nome AS NomeAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
                 FROM Calendario C
+                JOIN EntitaDatabile E ON C.ID = E.ID
                 JOIN Ticket T ON C.ID = T.ID
                 JOIN AnimaleRifugio A ON T.Animale = A.ID
                 JOIN Persona P ON T.Richiedente = P.ID
@@ -26,8 +27,9 @@ function getAppuntamenti($mese, $anno) {
         $rawTickets = $db->exeQuery($sqlTickets, [$mese, $anno]);
 
         // QUERY CON PLACEHOLDER: appuntamenti da calendario (richieste per portare in adozione)
-        $sqlRequests = "SELECT C.ID, DAY(Data) AS Giorno, Ora, A.Razza AS RazzaAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
+        $sqlRequests = "SELECT C.ID, DAY(Data) AS Giorno, Ora, E.Note AS Info, A.Razza AS RazzaAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
                 FROM Calendario C
+                JOIN EntitaDatabile E ON C.ID = E.ID
                 JOIN AnimaleEsterno A ON C.ID = A.ID
                 JOIN Persona P ON A.Proprietario = P.ID
                 WHERE MONTH(Data) = ? AND YEAR(Data) = ?
@@ -43,6 +45,7 @@ function getAppuntamenti($mese, $anno) {
                     "ID" => $row["ID"],
                     "Tipo" => "Ticket",
                     "Ora" => sprintf("%02d:%02d", (int)substr($row["Ora"], 0, 2), (int)substr($row["Ora"], 3, 2)),
+                    "Info" => htmlspecialchars($row["Info"], ENT_QUOTES, "UTF-8"),
                     "NomeAnimale" => htmlspecialchars($row["NomeAnimale"], ENT_QUOTES, "UTF-8"),
                     "CognomeProprietario" => htmlspecialchars($row["CognomeProprietario"], ENT_QUOTES, "UTF-8"),
                     "NomeProprietario" => htmlspecialchars($row["NomeProprietario"], ENT_QUOTES, "UTF-8"),
@@ -58,6 +61,7 @@ function getAppuntamenti($mese, $anno) {
                     "ID" => $row["ID"],
                     "Tipo" => "Request",
                     "Ora" => sprintf("%02d:%02d", (int)substr($row["Ora"], 0, 2), (int)substr($row["Ora"], 3, 2)),
+                    "Info" => htmlspecialchars($row["Info"], ENT_QUOTES, "UTF-8"),
                     "Razza" => htmlspecialchars($row["RazzaAnimale"], ENT_QUOTES, "UTF-8"),
                     "CognomeProprietario" => htmlspecialchars($row["CognomeProprietario"], ENT_QUOTES, "UTF-8"),
                     "NomeProprietario" => htmlspecialchars($row["NomeProprietario"], ENT_QUOTES, "UTF-8"),

@@ -48,7 +48,7 @@ if (!empty($risDB)) {
                 $richDaGestire .=
                 "<li>
                     <dl>
-                        <dt>{$ticket["richiedente"]}</dt>
+                        <dt id='nome-rich'>{$ticket["richiedente"]}</dt>
                         <dd>
                             <dl class='cliente-info'>
                                 <dt>Data richiesta:</dt>
@@ -62,6 +62,7 @@ if (!empty($risDB)) {
                     </dl>
 
                     <div class='btn-gruppo'>
+                        <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'></button>
                         <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'></button>
                         <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'></button>
                     </div>
@@ -74,6 +75,9 @@ if (!empty($risDB)) {
         if (!empty($animale["gestite"])) {
             foreach ($animale["gestite"] as $ticket) {
                 $realFormat = (new DateTime($ticket["data"]))->format("d/m/Y");
+                $giorno = explode("-", $ticket["data"])[2];
+                $mese = explode("-", $ticket["data"])[1];
+                $anno = explode("-", $ticket["data"])[0];
 
                 $richGestite .=
                 "<li>
@@ -91,7 +95,10 @@ if (!empty($risDB)) {
                         </dd>
                     </dl>
 
-                    <a class='go-calendario' href='{{root}}/PHP/Controller/calendario'>Calendario</a>
+                    <div class='btn-gruppo'>
+                        <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'></button>
+                        <a class='go-calendario' href='{{root}}/PHP/Controller/calendario.php?mese={$mese}&anno={$anno}#g{$giorno}'>Calendario</a>
+                    </div>
                 </li>";
             }
         }

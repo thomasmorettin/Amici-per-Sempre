@@ -92,6 +92,10 @@ html, body {
     scroll-padding-top: 7.5em;
 }
 
+.scroll-padding {
+    scroll-padding-top: 15em;
+}
+
 button {
     border-radius: 0.5em;
     cursor: pointer;
@@ -1018,6 +1022,10 @@ footer {
     animation: blink 1.5s infinite;
 }
 
+.status-richieste.no-dot::before {
+    display: none;
+}
+
 .contenuto-nascosto {
     background-color: var(--bgcolor);
     display: grid;
@@ -1088,6 +1096,7 @@ details[open] > .contenuto-nascosto {
     display: flex;
     align-items: center;
     margin-left: 1em;
+    gap: 1em;
 }
 
 .btn-gruppo button {
@@ -1140,6 +1149,25 @@ details[open] > .contenuto-nascosto {
     background-image: url("../Resources/Vectors/Forward-Light.svg");
 }
 
+.btn-info {
+    background-color: var(--bgbtn);
+    box-shadow: var(--greenshadow);
+    border: 2px solid var(--borderbtn);
+    background-image: url("../Resources/Vectors/Info.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#nome-rich {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-info:hover {
+    background-image: url("../Resources/Vectors/Info-Light.svg");
+}
+
 .btn-popup-app {
     background-color: var(--bgbtn);
     box-shadow: var(--greenshadow);
@@ -1147,7 +1175,6 @@ details[open] > .contenuto-nascosto {
     background-image: url("../Resources/Vectors/Calendar.svg");
     background-repeat: no-repeat;
     background-position: center;
-    margin-right: 1em;
 }
 
 .btn-popup-app:hover {
@@ -1218,7 +1245,8 @@ dialog[open]::backdrop {
 }
 
 #dia-appuntamento,
-#dia-cancellazione {
+#dia-cancellazione,
+#dia-info {
     text-align: center;
     width: fit-content;
 }
@@ -1247,6 +1275,10 @@ dialog[open]::backdrop {
 
 #data-appuntamento {
     margin-right: 1em;
+}
+
+#info-rich {
+    margin-top: 1.5em;
 }
 
 #btn-prenota-app,
@@ -1350,6 +1382,10 @@ dialog[open]::backdrop {
     animation: blink 1.5s infinite;
 }
 
+#num-app.no-dot::before {
+    display: none;
+}
+
 #section-links {
     margin-top: 5em;
     display: flex;
@@ -1365,9 +1401,10 @@ dialog[open]::backdrop {
 }
 
 #section-links div span {
-    background-color: var(--strongdecoration);
+    background-color: var(--bgdecoration);
     font-weight: bold;
-    color: var(--inverttxtcolor);
+    color: var(--txtcolor);
+    border: 2px solid var(--borderdecoration);
     width: 2em;
     height: 2em;
     align-content: center;

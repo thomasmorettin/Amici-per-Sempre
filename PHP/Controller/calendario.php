@@ -72,6 +72,11 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
                 if ($dataApp >= $currentData) {
                     $htmlBtns =
                     "<div class='btn-gruppo'>
+                        <button class='btn-info'
+                            title='Note aggiuntive'
+                            data-info='{$evento['Info']}'
+                            data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}'>
+                        </button>
                         <button class='btn-popup-app'
                             title='Modifica appuntamento'
                             data-id='{$evento['ID']}'
@@ -106,7 +111,7 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
 
                 elseif ($evento["Tipo"] === "Request") {
                     $htmlEv .=
-                    "<li class='cnt-presa-adozione'>
+                    "<li class='cnt-presa-adozione' id='g{$giorno}'>
                         {$htmlLinea}
                         <p class='orario'>{$evento['Ora']}</p>
                         <div class='info'>
@@ -130,7 +135,7 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
 
         $giornoPad = str_pad($giorno, 2, "0", STR_PAD_LEFT);
 
-        $htmlGiorno = "<li><p class='giornata'>$nomeGiorno $giornoPad</p><ol>$htmlEv</ol></li>";
+        $htmlGiorno = "<li id='g{$giorno}'><p class='giornata'>$nomeGiorno $giornoPad</p><ol>$htmlEv</ol></li>";
 
         if (!isset($settimane[$numSett])) { $settimane[$numSett] = ""; }
         $settimane[$numSett] .= $htmlGiorno;

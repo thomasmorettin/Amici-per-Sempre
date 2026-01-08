@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", () => {
+  changeWelcome();
+  currentDate();
+  currentNumApp();
+})
+
+// Funzione per cambiare il saluto all'amministratore
 function changeWelcome() {
     const ora = new Date().getHours();
     const time = document.getElementById("ben-time");
@@ -7,6 +14,7 @@ function changeWelcome() {
     else { time.textContent = "Buonasera"; }
 }
 
+// Funzione per mostrare la data odierna formattata in modo accogliente
 function currentDate() {
     const data = new Date();
     const giorno = data.getDate();
@@ -17,15 +25,12 @@ function currentDate() {
     document.getElementById("ben-date").textContent = `${sett}` + " " + `${giorno}` + ", " + `${anno}`;
 }
 
+// Funzione per mostrare il pallino di notifica per uno o più appuntamenti odierni
 function currentNumApp() {
-    const numApp = parseInt(document.getElementById("cal-not").textContent.trim());
+    const not = document.getElementById("num-app");
+    const numApp = parseInt(not.textContent.trim());
     const app = document.getElementById("app");
 
     (numApp == 1) ? app.innerHTML = "appuntamento" : null;
+    (numApp == 0) ? not.classList.add("no-dot") : null;
 }
-
-changeWelcome();
-
-currentDate();
-
-currentNumApp();
