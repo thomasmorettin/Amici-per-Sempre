@@ -24,36 +24,68 @@
     --redshadow: 0 2px 10px rgba(150, 52, 40, 0.3);
     --normalshadow: 0 2px 10px rgba(51, 48, 45, 0.3);
 
-    --popupbackdrop: rgba(0, 0, 0, 0.75);
-
-    --generalpadding: 0.5em 1em 0.5em 1em; /* top, right, bottom, left */
+    --bgpaws: url("../Resources/Vectors/Paws-Light.svg");
+    --logo: url("../Resources/Vectors/Logo-Dark.svg");
 }
 
 [data-theme="dark"] {
-    --txtcolor: #D9D3C4;
-    --borderform: #D9D3C4;
-    --inverttxtcolor: #141312;
-    --bgcolor: #141312;
-    --bgbread: #181816;
-    --bgdecoration: #70402B;
-    --borderdecoration: #F3D5C8;
-    --strongdecoration: #F3D5C8;
-    --txtdecoration: #F3D5C8;
-    --bgbtn: #445D17;
-    --borderbtn: #DEE4D2;
-    --txtbtncolor: #DEE4D2;
-    --bgbtnhover: #DEE4D2;
-    --linkcolor: #2E799B;
-    --bgwarning: #963428;
-    --borderwarning: #EAD6D4;
-    --txtwarning: #EAD6D4;
+    /* --- SFONDI E TESTI --- */
+    /* Lo sfondo principale è una versione scurissima del tuo marrone originale */
+    --bgcolor: #1C1A19; 
+    
+    /* Le sezioni secondarie usano il tuo vecchio colore del testo (carbone caldo) */
+    --bgbread: #2A2725; 
+    
+    /* Il testo diventa il colore crema che usavi per lo sfondo (massima coerenza) */
+    --txtcolor: #FFF8E7; 
+    --inverttxtcolor: #1C1A19; /* Testo su pulsanti chiari */
 
-    --brownshadow: 0 rgba(243, 213, 200, 0.3);
-    --greenshadow: 0 rgba(222, 228, 210, 0.3);
-    --redshadow: 0 rgba(234, 214, 212, 0.3);
-    --normalshadow: 0 rgba(255, 248, 231, 0.3);
+    /* --- DECORAZIONI (Toni Ruggine/Marrone) --- */
+    /* Sfondo decorativo scuro, non più rosa pallido ma marrone cioccolato */
+    --bgdecoration: #3E2820; 
+    
+    /* I bordi e i testi decorativi devono "accendersi" su fondo scuro.
+       Ho schiarito il tuo #70402B in un terracotta più luminoso */
+    --borderdecoration: #A66D55;
+    --strongdecoration: #C4856C; 
+    --txtdecoration: #C4856C;
 
-    --generalpadding: 0.5em 1em 0.5em 1em; /* top, right, bottom, left */
+    /* --- BOTTONI E ACCENTI VERDI --- */
+    /* Il bottone ora ha lo sfondo scuro (il tuo vecchio verde scuro) */
+    --bgbtn: #2A3A10; 
+    
+    /* Il bordo diventa più chiaro per essere visibile */
+    --borderbtn: #6B8E23; 
+    
+    /* Il testo nel bottone diventa chiaro (il tuo vecchio background bottone) */
+    --txtbtncolor: #DEE4D2; 
+    
+    /* Hover leggermente più luminoso */
+    --bgbtnhover: #6B8E23; 
+    
+    /* Testo importante verde: schiarito per leggibilità (Salvia chiaro) */
+    --txtimportant: #6B8E23; 
+
+    /* --- LINK E WARNING --- */
+    /* Il blu deve essere più ciano/chiaro per non sparire */
+    --linkcolor: #69B0D1; 
+    
+    /* Warning: Sfondo rosso scuro, bordo/testo rosso chiaro */
+    --bgwarning: #3D1815; 
+    --borderwarning: #D46A5C;
+    --bgwarninghover: #5E2620;
+    --txtwarning: #EDAea6;
+
+    /* --- OMBRE --- */
+    /* Nel dark mode le ombre colorate si vedono poco. 
+       Meglio usare nero puro con opacità più alta per dare profondità */
+    --brownshadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    --greenshadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    --redshadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    --normalshadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+
+    --bgpaws: url("../Resources/Vectors/Paws-Dark.svg");
+    --logo: url("../Resources/Vectors/Logo-Light.svg");
 }
 
 * {
@@ -67,18 +99,8 @@
 }
 
 :root {
-    --txtcolor: #484340;
-    --bgcolor: #FFF8E7;
-    --bgbread: #F2ECDB;
-    --onhovercolor: #F2ECDB;
-    --bgsection: #FAE9E8;
-    --btnhovercolor: #B4C0A7;
-    --btncolor: #C8D5B9;
-    --btnbordercolor: #778873;      /* DA PRENDERE IN CONSIDERAZIONE PER ACCESSIBILITA' */
-    --bgheader: #F2ECDB;
-    --forminputhovercolor: #C8D5B9;  /* DA TESTARE */
-    --requiredcolor: #ff0000;
-    --formbgcolor: #dee6d6;  /* DA TESTARE */
+    --popupbackdrop: rgba(0, 0, 0, 0.75);
+    --generalpadding: 0.5em 1em 0.5em 1em; /* top, right, bottom, left */
 }
 
 html {
@@ -120,8 +142,12 @@ a:visited {
     color: var(--txtcolor);
 }
 
+img {
+    filter: blur(0.3px);
+}
+
 html.set-background {
-    background-image: url("../Resources/Vectors/Paws.svg");
+    background-image: var(--bgpaws);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center top;
@@ -157,7 +183,7 @@ header {
     top: 0;
     padding: var(--generalpadding);
     background-color: var(--bgcolor);
-    z-index: 2;
+    z-index: 1;
     transition: box-shadow 0.3s ease;
 }
 
@@ -166,7 +192,7 @@ header.scrolled {
 }
 
 header h1 {
-    background-image: url("../Resources/Vectors/Logo.svg");
+    background-image: var(--logo);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -606,7 +632,7 @@ main {
     width: 3.5em;
     height: 3.5em;
     position: fixed;
-    z-index: 2;
+    z-index: 1;
     right: 1em;
     bottom: 1em;
     transition: all 0.3s ease;
@@ -678,6 +704,7 @@ details.dtl-aperto .exp-freccia {
     display: grid;
     background-color: var(--bgcolor);
     grid-template-rows: 0fr;
+    overflow: hidden;
     transition: grid-template-rows 0.3s ease;
 }
 
@@ -686,12 +713,17 @@ details.dtl-aperto .exp-freccia {
 }
 
 #section-faqs details div div {
+    min-height: 0;
     padding: 1em;
-    overflow: hidden;
 }
 
 #section-faqs details div div p:not(:last-child) {
     margin-bottom: 0.5em;
+}
+
+#section-faqs details.is-closing > div {
+    grid-template-rows: 0fr;
+    opacity: 0;
 }
 
 #section-contatti {
@@ -1317,7 +1349,7 @@ dialog[open]::backdrop {
     bottom: 2em;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 9999;
+    z-index: 1;
     padding: var(--generalpadding);
     border-radius: 0.5em;
     opacity: 1;

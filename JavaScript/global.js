@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   pageScroll();
   backToTop();
   changeCopyright();
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 */
 function loadPage() {
   document.querySelector("header").classList.remove("scrolled");
-  document.documentElement.classList.add("set-background");
   document.getElementById("btn-remove-bck").classList.remove("hidden");
   document.getElementById("btn-theme").classList.remove("hidden");
 
@@ -27,19 +26,17 @@ function pageScroll() {
   const header = document.querySelector("header");
   const backToTop = document.getElementById("btn-back-to-top");
 
-  if (header && backToTop) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-        backToTop.classList.add("visible");
-      }
-      
-      else {
-        header.classList.remove("scrolled");
-        backToTop.classList.remove("visible");
-      }
-    })
-  }
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+      backToTop.classList.add("visible");
+    }
+    
+    else {
+      header.classList.remove("scrolled");
+      backToTop.classList.remove("visible");
+    }
+  })
 }
 
 // Funzione per tornare in cima
