@@ -39,6 +39,35 @@ function buildPage($file, $dati) {
     $template = str_replace("{{data-page}}", getMsgSession(), $template);
     $template = str_replace("{{main}}", $main, $template);
 
+    // Se è presente {{extra-js}} e contiene solo nomi di file, trasformali in tag <script>
+    if (isset($dati['{{extra-js}}'])) {
+        $extra = $dati['{{extra-js}}'];
+        if (!is_string($extra) && is_array($extra)) {
+            $items = $extra;
+        } else {
+            $items = preg_split('/[|,;\s]+/', trim((string)$extra));
+        }
+
+        // se la stringa non contiene già un tag <script>, genera i tag
+        $containsScriptTag = is_string($extra) && (stripos($extra, '<script') !== false);
+        if (!$containsScriptTag) {
+            $scripts = '';
+            foreach ($items as $it) {
+                $it = trim($it);
+                if ($it === '') continue;
+                // se è un URL assoluto
+                if (preg_match('#^https?://#i', $it)) {
+                    $scripts .= '<script src="' . $it . '" defer></script>' . "\n";
+                } else {
+                    // assicurati estensione .js
+                    if (!preg_match('/\.js$/i', $it)) $it .= '.js';
+                    $scripts .= '<script src="{{root}}/JavaScript/' . $it . '" defer></script>' . "\n";
+                }
+            }
+            $dati['{{extra-js}}'] = $scripts;
+        }
+    }
+
     // Popolamento dinamico dei placeholder
     foreach ($dati as $placeholder => $valore) {
         $template = str_replace($placeholder, $valore, $template);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" data-theme="dark">
+<html lang="it">
     <head>
         <title>{{current-page}}: Amici per Sempre</title>
 
@@ -17,26 +17,17 @@
         <meta name="apple-mobile-web-app-title" content="Amici per Sempre"/>
         <link rel="manifest" href="{{root}}/Resources/Favicon/site.webmanifest"/>
 
-        <link rel="icon" type="image/png" href="{{root}}/Resources/Favicon/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="{{root}}/Resources/Favicon/favicon.svg" />
-        <link rel="shortcut icon" href="{{root}}/Resources/Favicon/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="{{root}}/Resources/Favicon/apple-touch-icon.png" />
-        <meta name="apple-mobile-web-app-title" content="Amici Per Sempre" />
-        <link rel="manifest" href="{{root}}/Resources/Favicon/site.webmanifest" />
-
         <!-- FILE DI STYLESHEET -->
         <link rel="stylesheet" href="{{root}}/CSS/style-thomas.css">
         <link rel="stylesheet" href="{{root}}/CSS/style-niccolo.css">
         <link rel="stylesheet" href="{{root}}/CSS/style-felix.css">
-        <link rel="stylesheet" href="{{root}}/CSS/style-smartphone-t.css" media="screen and (max-width: 768px)">
-        <link rel="stylesheet" href="{{root}}/CSS/style-smartphone-n.css" media="screen and (max-width: 768px)">
-        <link rel="stylesheet" href="{{root}}/CSS/style-smartphone-f.css" media="screen and (max-width: 768px)">
+        <link rel="stylesheet" href="{{root}}/CSS/style-smartphone.css" media="screen and (max-width: 768px)">
 
         <!-- FILE DI JS -->
         <script src="{{root}}/JavaScript/storage.js"></script>
         <script src="{{root}}/JavaScript/global.js" defer></script>
+        <script src="{{root}}/JavaScript/pannello-filtri.js" defer></script>
         <script src="{{root}}/JavaScript/{{current-js}}" defer></script>
-        {{extra-js}}
 
         <!-- GOOGLE FONT: INTER -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +35,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
 
-    <body {{data-page}}>
+    <body data-theme="light" {{data-page}}>
         {{header}}
 
         {{breadcrumb}}
@@ -53,6 +44,7 @@
             <p></p>
         </output>
 
+        
         {{main}}
 
         {{footer}}
