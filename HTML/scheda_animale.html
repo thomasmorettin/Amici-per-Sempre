@@ -1,232 +1,153 @@
-<!DOCTYPE html>
-<html lang="it">
+<main>
+    <div id="scheda-con-visita">
+        <img src="[immagine]" alt="[alt_immagine]" class="animal-image">
 
-<head>
-    <title>Amici per Sempre: Scheda animale</title>
+        <div class="animal-info">
+            <h2 class="animal-name">[nome_animale]</h2>
+            <span class="status-badge">✓ Disponibile per Adozione</span>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="...">
-    <meta name="keywords" content="...">
-
-    <link class="title-icon" rel="icon" href="../Resources/Favicon/favicon.ico" sizes="any" />
-    <link class="title-icon" rel="icon" href="../Resources/Favicon/icon.svg" type="image/svg+xml" />
-    <link class="title-icon" rel="apple-touch-icon" href="../Resources/Favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="../Resources/Favicon/manifest.webmanifest" />
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
-
-    <script src="../JavaScript/global.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-</head>
-
-<body data-theme="light">
-    <header class="scrolled">
-        <div class="contenitore-header">
-            <h1>Rifugio Amici per Sempre</h1>
-
-            <nav id="navbar">
-                <ul>
-                    <li lang="en" class="active-link">Home</li>
-                    <li><a href="#">Adotta</a></li>
-                    <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
-                </ul>
-            </nav>
-
-            <menu id="header-btns">
-                <button id="btn-theme" title="Cambio tema"></button>
-                <a id="btn-login" href="#" lang="en">Login</a>
-            </menu>
-
-            <button id="hamburger">
-                <span class="linea"></span>
-                <span class="linea"></span>
-                <span class="linea"></span>
-            </button>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Specie</span>
+                    <span class="info-value">[specie]</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Razza</span>
+                    <span class="info-value">[razza]</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Età</span>
+                    <span class="info-value">[eta]</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Sesso</span>
+                    <span class="info-value">[sesso]</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Peso</span>
+                    <span class="info-value">[peso]</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Colore</span>
+                    <span class="info-value">[colore]</span>
+                </div>
+            </div>
         </div>
-    </header>
 
-    <div class="contenitore">
-        <main>
-            <nav id="breadcrumb">
-                <p>Ti trovi in: <span class="active-link" lang="en">Home</span></p>
-            </nav>
+        <div class="descriptions">
+            <h2 class="descriptions-title">La storia</h2>
+            <p>[storia]</p>
+        </div>
 
-            <div id="scheda-con-visita">
-                <img src="../Resources/Images/Corgi.jpg" alt="descrizione gatto " class="animal-image">
+        <div class="features">
+            <h2 class="features-title">Caratteristiche</h2>
+            <ul>
+                [caratteristiche_list]
+            </ul>
+        </div>
 
-                <div class="animal-info">
-                    <h2 class="animal-name">Luna</h2>
-                    <span class="status-badge">✓ Disponibile per Adozione</span>
+        <section id="chiedi-visita">
+            <div class="visita-header">
+                <span class="zampa-no-sfondo"></span>
+                <h2> Vuoi conoscere [nome_animale] di persona? </h2> 
+                <button id="btn-richiedi-visita" class="cta-button">
+                    Prenota Visita
+                </button>
+            </div>
 
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <span class="info-label">Specie</span>
-                            <span class="info-value">Gatto</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Razza</span>
-                            <span class="info-value">Europeo</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Età</span>
-                            <span class="info-value">2 anni</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Sesso</span>
-                            <span class="info-value">Femmina</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Peso</span>
-                            <span class="info-value">4 kg</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Colore</span>
-                            <span class="info-value">Grigio tigrato</span>
-                        </div>
+            <form class="appointment-form" method="POST" action="{{root}}/PHP/Controller/invia-richiesta-visita.php">
+                <input type="hidden" name="animale_id" value="[animale_id]">
+                
+                <div class="form-intro">
+                    <p>Lasciaci i tuoi contatti per fissare un appuntamento e conoscere [nome_animale] di persona. Durante la visita potrai vedere dove vive, fare tutte le domande e valutare se è l'animale giusto per te!</p>
+                </div>
+
+                <div class="form-row">
+                    <div class="single-form">
+                        <label for="nome">
+                            Nome <span class="required">*</span>
+                        </label>
+                        <input type="text" 
+                               id="nome" 
+                               name="nome" 
+                               required 
+                               placeholder="Il tuo nome"
+                               value="[val_nome]"
+                               aria-describedby="error-nome">
+                        <div id="error-nome" class="field-error hidden" role="alert"></div>
+                    </div>
+
+                    <div class="single-form">
+                        <label for="cognome">
+                            Cognome <span class="required">*</span>
+                        </label>
+                        <input type="text" 
+                               id="cognome" 
+                               name="cognome" 
+                               required 
+                               placeholder="Il tuo cognome"
+                               value="[val_cognome]"
+                               aria-describedby="error-cognome">
+                        <div id="error-cognome" class="field-error hidden" role="alert"></div>
+                    </div>        
+                </div>
+
+                <div class="form-row">
+                    <div class="single-form">
+                        <label for="email">
+                            Email <span class="required">*</span>
+                        </label>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               required 
+                               placeholder="tuaemail@esempio.it"
+                               value="[val_email]"
+                               aria-describedby="error-email">
+                        <div id="error-email" class="field-error hidden" role="alert"></div>
+                    </div>
+
+                    <div class="single-form">
+                        <label for="telefono">
+                            Telefono <span class="required">*</span>
+                        </label>
+                        <input type="tel" 
+                               id="telefono" 
+                               name="telefono" 
+                               required 
+                               placeholder="+39 123 456 7890"
+                               value="[val_telefono]"
+                               aria-describedby="error-telefono">
+                        <div id="error-telefono" class="field-error hidden" role="alert"></div>
                     </div>
                 </div>
 
-                <div class="descriptions">
-                    <h2 class="descriptions-title" > La storia </h2>
-                    <p> Gigi arrivò al centro adozioni come un uragano con i baffi: appena messo a terra, rovesciò una ciotola, spaventò una scopa e si arrampicò su un tiragraffi… dalla parte sbagliata. Passava le giornate combinando piccole catastrofi: si infilava nei sacchi dei croccantini, si addormentava nei posti più assurdi e miagolava ai visitatori come se vendesse aspirapolveri porta a porta.  I volontari dicevano sempre: «Gigi non è un gatto… è un evento.» E questa era la sua vita: caos, cadute e tanta, tanta simpatia. Ancora non lo sapeva, ma tutte quelle assurdità stavano solo aspettando la persona giusta che le avrebbe trovate… perfette..</p>
+                <div class="single-form-group">
+                    <label for="note">
+                        Note aggiuntive
+                    </label>
+                    <textarea id="note" 
+                              name="note" 
+                              placeholder="Eventuali informazioni aggiuntive che vuoi condividere...">[val_note]</textarea>
                 </div>
 
-                <div class="features">
-                    <h2 class="features-title"> Caratteristiche</h2>
-                    <ul>
-                        <li>Vaccinato</li>
-                        <li>Sverminato</li>
-                        <li>Microchippato</li>
-                        <li>Abituato alla lettiera</li>
-                    </ul>
+                <div class="privacy-policy">                  
+                    <label for="privacy">
+                        Acconsento al trattamento dei miei dati personali ai sensi della normativa vigente sulla privacy. <span class="required">*</span>
+                    </label>
+                    <input type="checkbox" 
+                           id="privacy" 
+                           name="privacy" 
+                           required
+                           aria-describedby="error-privacy">
+                    <div id="error-privacy" class="field-error hidden" role="alert"></div>
                 </div>
 
-                <section id="chiedi-visita">
-                    <h2>🐾 Voglio vedere Luna!</h2>
-                    <p>Compila il form sottostante per prenotare la tua visita</p>
-
-                    <form class="appointment-form"> 
-                        <div class="form-intro">
-                            <p>Lasciaci i tuoi contatti per fissare un appuntamento e conoscere Luna di persona. Durante la visita potrai vedere dove vive, fare tutte le domande e valutare se è l'animale giusto per te!</p>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="single-form">
-                                <label for="nome">
-                                    Nome <span class="required">*</span>
-                                </label>
-                                <input type="text" 
-                                       id="nome" 
-                                       name="nome" 
-                                       required 
-                                       placeholder="Il tuo nome">    
-                            </div>
-
-                            <div class="single-form">
-                                <label for="cognome">
-                                    Cognome <span class="required">*</span>
-                                </label>
-                                <input type="text" 
-                                       id="cognome" 
-                                       name="cognome" 
-                                       required 
-                                       placeholder="Il tuo cognome">    
-                            </div>        
-                        </div>
-
-                        <div class="form-row">
-                            <div class="single-form">
-                                <label for="email">
-                                    Email <span class="required">*</span>
-                                </label>
-                                <input type="email" 
-                                       id="email" 
-                                       name="email" 
-                                       required 
-                                       placeholder="tuaemail@esempio.it">
-                            </div>
-
-                            <div class="single-form">
-                                <label for="telefono">
-                                    Telefono <span class="required">*</span>
-                                </label>
-                                <input type="tel" 
-                                       id="telefono" 
-                                       name="telefono" 
-                                       required 
-                                       placeholder="+39 123 456 7890">
-                            </div>
-                        </div>
-
-                        <div class="single-form-group">
-                            <label for="note">
-                                Note aggiuntive
-                            </label>
-                            <textarea id="note" 
-                                      name="note" 
-                                      placeholder="Eventuali informazioni aggiuntive che vuoi condividere..."></textarea>
-                        </div>
-
-                        <div class="privacy-policy">                  
-                            <label for="privacy">
-                                Acconsento al trattamento dei miei dati personali ai sensi della normativa vigente sulla privacy. <span class="required">*</span>
-                            </label>
-                            <input type="checkbox" 
-                                   id="privacy" 
-                                   name="privacy" 
-                                   required>
-                        </div>
-
-                        <div class="">
-                            <button type="submit" class="submite-bt">
-                                📩 Invia Richiesta di Adozione
-                            </button>
-                        </div>
-
-                        <div class="success-message" id="successMessage">
-                            <h3>✅ Richiesta inviata con successo!</h3>
-                            <p>
-                                Grazie per il tuo interesse nell'adottare Luna. Il nostro team esaminerà 
-                                la tua richiesta e ti contatterà entro 48 ore per fissare un appuntamento.
-                            </p>
-                        </div>
-                    </form>
-                </section>
-            </div>
-        </main>
+                <button type="submit" class="submite-bt">
+                    <img src="../Resources/Vectors/send.svg" alt="" class="icon-send">
+                    Invia Richiesta di Adozione
+                </button>
+            </form>
+        </section>
     </div>
-
-    <footer>
-        <div class="contenitore">
-            <section id="dati-footer">
-                <div id="dati-rifugio">
-                    <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
-                    <p>Ente del Terzo Settore iscritto al RUNTS (rep. 12345)</p>
-                    <p>Sede Legale: <a href="https://maps.app.goo.gl/4DNcs18vGaJqHiDB8" target="_blank" rel="noopener noreferrer">Via Trieste, 63, 35121 Padova (PD)</a></p>
-                    <p>C.F. 91022233344</p>
-                </div>
-
-                <div id="orari-rifugio">
-                    <p class="titolo-footer">I nostri orari</p>
-
-                    <dl id="tbl-orari">
-                        <dt>Lunedì - Venerdì</dt>
-                        <dd>8:30 - 19:30</dd>
-                        <dt>Sabato</dt>
-                        <dd>8:30 - 12:30</dd>
-                        <dt>Domenica</dt>
-                        <dd><span class="attention">Chiuso</span></dd>
-                    </dl>
-                </div>
-            </section>
-
-            <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
-        </div>
-    </footer>
-</body>
-
-</html>
+</main>

@@ -1,66 +1,12 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <title>Adozione animali - Amici per sempre </title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="...">
-    <meta name="keywords" content="...">
-
-    <link class="title-icon" rel="icon" href="../Resources/Favicon/favicon.ico" sizes="any" />
-    <link class="title-icon" rel="icon" href="../Resources/Favicon/icon.svg" type="image/svg+xml" />
-    <link class="title-icon" rel="apple-touch-icon" href="../Resources/Favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="../Resources/Favicon/manifest.webmanifest" />
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
-
-    <script src="../JavaScript/global.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-</head>
-
-<body data-theme="light">
-    <header class="scrolled">
-        <div class="contenitore-header">
-            <h1>Rifugio Amici per Sempre</h1>
-
-            <nav id="navbar">
-                <ul>
-                    <li lang="en" class="active-link">Home</li>
-                    <li><a href="#">Adotta</a></li>
-                    <li><a href="porta_in_adozione.html">Porta in adozione</a></li>
-                </ul>
-            </nav>
-
-            <menu id="header-btns">
-                <button id="btn-theme" title="Cambio tema"></button>
-                <a id="btn-login" href="#" lang="en">Login</a>
-            </menu>
-
-            <button id="hamburger">
-                <span class="linea"></span>
-                <span class="linea"></span>
-                <span class="linea"></span>
-            </button>
-        </div>
-    </header>
-
-    <div class="contenitore">
-        <main>
-            <nav id="breadcrumb">
-                <p>Ti trovi in: <span class="active-link" lang="en">Home</span></p>
-            </nav>
+<main>
 
             <div class="hero">
-                <h2>Animali in Cerca di Casa</h2>
-                <p>Trova il tuo nuovo amico a quattro zampe</p>
+                <h2>Cerchi un cane o un gatto da adottare?</h2>
+                <p>Nel nostro rifugio a Padova puoi trovare cani e gatti in adozione di tutte le età e taglie.</p>
             </div>
 
             <div class="list-topbar">
-                <button id="filtra-btn" onclick="toggleFilter()">
+                <button id="filtra-btn" aria-label="Filtra cani e gatti per tipo, età e taglia">
                     Filtra
                 </button>
             </div>
@@ -68,12 +14,12 @@
             <section class="section-list">
                 <div class="filter-panel">
                     <div class="filter-content">
-                        <form>
+                        <form method="GET" action="[project_root]/adotta.php">
                             <div class="accordion">
                                 <div class="accordion-header">
                                     <div class="legend-left"></div>
                                     <div class="header">
-                                        <p> Tipo animale </p>
+                                        <p>Tipo animale</p>
                                         <span class="header-arrow"></span>
                                     </div>
                                     <div class="legend-right"></div>
@@ -81,8 +27,12 @@
                                 <div class="content">
                                     <div class="inner-content form-field">
                                         <div class="check-group">
-                                            <label for="cane"><input type="checkbox" name="tipo-animale" value="cane">Cane</label>
-                                            <label for="gatto"><input type="checkbox" name="tipo-animale" value="gatto">Gatto</label>
+                                            <label for="cane">
+                                                <input type="checkbox" id="cane" name="tipo[]" value="Cane" [checked_cane]>Cane
+                                            </label>
+                                            <label for="gatto">
+                                                <input type="checkbox" id="gatto" name="tipo[]" value="Gatto" [checked_gatto]>Gatto
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +41,7 @@
                                 <div class="accordion-header">
                                     <div class="legend-left"></div>
                                     <div class="header">
-                                        <p> Dati animale </p>
+                                        <p>Dati animale</p>
                                         <span class="header-arrow"></span>
                                     </div>
                                     <div class="legend-right"></div>
@@ -100,22 +50,25 @@
                                     <div class="inner-content">
                                         <div class="form-field">
                                             <label>Nome</label>
-                                            <input>
+                                            <input type="text" name="nome" value="[filter_nome]" placeholder="Cerca per nome">
                                         </div>
                                         <div class="form-field">
-                                            <label>Peso ( > kg )</label>
+                                            <label>Peso (> kg)</label>
                                             <div class="form-slider">
-                                                <input type="text">
-                                                <input type="range" min="1" max="100" value="50">
+                                                <input type="text" name="peso_display" value="[filter_peso]" readonly>
+                                                <input type="range" name="peso" min="1" max="100" value="[filter_peso]">
                                             </div>
                                         </div> 
                                         <div class="form-field">
-                                            <label>Età ( > )</label>
+                                            <label>Età (> anni)</label>
                                             <div class="form-slider">
-                                                <input type="text">
-                                                <input type="range" min="1" max="100" value="50">
+                                                <input type="text" name="eta_display" value="[filter_eta]" readonly>
+                                                <input type="range" name="eta" min="1" max="20" value="[filter_eta]">
                                             </div>
                                         </div>
+                                        <button type="submit">
+                                            Applica filtri
+                                        </button>
                                     </div>
                                 </div>
                             </div> 
@@ -128,146 +81,10 @@
                     <div class="list-panel">
                         <section id="animal-container">
                             <ul class="animal-list">
-                                <li class="animal-card">
-                                    <a href="scheda-animale.html?id=1">
-                                        <figure>
-                                            <img src="images/max.jpg" alt="">
-                                            <figcaption>
-                                                <h3>Max, cane meticcio</h3>
-                                                <p class="tipo">Cane</p>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </li>
-
-                                <li class="animal-card">
-                                    <a href="scheda-animale.html?id=2">
-                                        <figure>
-                                            <img src="images/luna.jpg" alt="">
-                                            <figcaption>
-                                                <h3>Luna, gatta tigratazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz</h3>
-                                                <p class="tipo">Gatto</p>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </li>
-
-                                <li class="animal-card">
-                                    <a href="scheda-animale.html?id=3">
-                                        <figure>
-                                            <img src="images/rocky.jpg" alt="">
-                                            <figcaption>
-                                                <h3>Rocky, cane pastore</h3>
-                                                <p class="tipo">Cane</p>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </li>
-
-                                <li class="animal-card">
-                                    <a href="scheda-animale.html?id=8">
-                                        <figure>
-                                            <img src="images/felix.jpg" alt="">
-                                            <figcaption>
-                                                <h3>Felix, gatto europeo</h3>
-                                                <p class="tipo">Gatto</p>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </li>
-
-                                <li class="animal-card">
-                                    <a href="scheda-animale.html?id=9">
-                                        <figure>
-                                            <img src="images/duke.jpg" alt="">
-                                            <figcaption>
-                                                <h3>Duke, cane boxer</h3>
-                                                <p class="tipo">Cane</p>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </li>
+                                [lista_animali]
                             </ul>
                         </section>
                     </div>
                 </div>
             </section>
-        </main>
-    </div>  
-
-    <footer>
-        <div class="contenitore">
-            <section id="dati-footer">
-                <div id="dati-rifugio">
-                    <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
-                    <p>Ente del Terzo Settore iscritto al RUNTS (rep. 12345)</p>
-                    <p>Sede Legale: <a href="https://maps.app.goo.gl/4DNcs18vGaJqHiDB8" target="_blank" rel="noopener noreferrer">Via Trieste, 63, 35121 Padova (PD)</a></p>
-                    <p>C.F. 91022233344</p>
-                </div>
-
-                <div id="orari-rifugio">
-                    <p class="titolo-footer">I nostri orari</p>
-
-                    <dl id="tbl-orari">
-                        <dt>Lunedì - Venerdì</dt>
-                        <dd>8:30 - 19:30</dd>
-                        <dt>Sabato</dt>
-                        <dd>8:30 - 12:30</dd>
-                        <dt>Domenica</dt>
-                        <dd><span class="attention">Chiuso</span></dd>
-                    </dl>
-                </div>
-            </section>
-            
-            <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
-        </div>
-    </footer>
-
-    <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>
-    
-    <script>
-        document.querySelectorAll('.accordion').forEach(acc => {
-            const header = acc.querySelector('.accordion-header');
-            const arrow = acc.querySelector('.header-arrow');
-            const panel = acc.querySelector('.content');
-
-            header.addEventListener('click', () => {
-                if (panel.classList.contains('open')) {
-                    // Closing
-                    panel.style.height = panel.scrollHeight + "px";
-                    panel.getBoundingClientRect(); // force reflow
-
-                    requestAnimationFrame(() => {
-                        panel.style.height = "0px";
-                    });
-                } else {
-                    // Opening
-                    panel.style.height = panel.scrollHeight + "px";
-                }
-
-                panel.classList.toggle('open');
-                arrow.classList.toggle('open');
-            });
-
-            panel.addEventListener('transitionend', () => {
-                if (panel.classList.contains('open')) {
-                    panel.style.height = "auto";
-                }
-            });
-        });
-
-        const div = document.getElementsByClassName("filter-panel")[0];
-        
-        function toggleFilter() {
-            div.classList.toggle("open");
-        }
-
-        document.querySelectorAll("fieldset.collapse legend.toggle").forEach(legend => {
-            legend.addEventListener("click", function () {
-                this.parentElement.classList.toggle("open");
-            });
-        });
-    </script>
-</body>
-
-</html>
+</main>

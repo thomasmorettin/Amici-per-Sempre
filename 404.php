@@ -1,0 +1,13 @@
+<?php
+require_once __DIR__ . "/PHP/utils.php";
+
+http_response_code(404);
+
+$dati = [
+    '{{current-page}}' => 'Errore 404',
+    '{{page-keywords}}' => 'errore, pagina non trovata, 404',
+    '{{current-js}}' => '',
+];
+
+echo buildPage("404.html", $dati);
+?>
