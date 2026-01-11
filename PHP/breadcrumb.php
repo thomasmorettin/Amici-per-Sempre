@@ -12,7 +12,7 @@ function getCurrentPath() {
         "adotta.php" => [
             "titolo" => "Adotta",
             "padre" => "index.php",
-            "url" => PROJECT_ROOT . "/"
+            "url" => PROJECT_ROOT . "/PHP/Controller/adotta"
         ],
 
         "porta_in_adozione.php" => [
@@ -37,6 +37,31 @@ function getCurrentPath() {
             "titolo" => "Gestione ticket",
             "padre" => "amministrazione.php",
             "url" => PROJECT_ROOT . "/PHP/Controller/gestione-ticket"
+        ],
+
+
+        "scheda_animale.php" => [
+            "titolo" => "Scheda Animale",
+            "padre" => "adotta.php",
+            "url" => PROJECT_ROOT . "/PHP/Controller/scheda_animale"
+        ],
+
+        "403.php" => [
+            "titolo" => "Errore 403",
+            "padre" => null,
+            "url" => PROJECT_ROOT . "/"
+        ],
+
+        "404.php" => [
+            "titolo" => "Errore 404",
+            "padre" => null,
+            "url" => PROJECT_ROOT . "/"
+        ],
+
+        "500.php" => [
+            "titolo" => "Errore 500",
+            "padre" => null,
+            "url" => PROJECT_ROOT . "/"
         ]
     ];
 

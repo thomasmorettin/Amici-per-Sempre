@@ -45,6 +45,18 @@
     max-width: 25em; 
 }
 
+@media (max-width: 1200px) {
+    .animal-card {
+        flex: 0 1 calc(50% - 2em);  /* 2 colonne */
+    }
+}
+
+@media (max-width: 768px) {
+    .animal-card {
+        flex: 0 1 100%;  /* 1 colonna */
+    }
+}
+
 .filter-panel.open ~ .list-vertical-panel .animal-card {
     flex: 0 1 calc(50% - 1em);
     max-width: none; /* Rimuove il limite e permette alle card di espandersi */
@@ -360,20 +372,54 @@
     background: var(--borderdecoration);
 }
 
-#chiedi-visita h2 {
+/* Header con flex */
+.visita-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 0.75em;
+}
+
+
+.visita-header h2 {
     font-size: 2em;
     color: var(--txtcolor);
     font-weight: 700;
-    margin-top: 0.3em;
-    align-items: center;
+    margin: 0.3em 0;
+}
+.zampa-no-sfondo {
+    background-image: url("../Resources/Images/zampa-no-sfondo.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 2em;
+    height: 2em;
+    flex-shrink: 0;
+}
+/* Bottone CTA a destra */
+.cta-button {
+    padding: 1em 2em;
+    background: var(--bgbtn);
+    color: var(--bgbtnhover);
+    border: 2px solid var(--borderbtn);
+    border-radius: 0.75em;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-#chiedi-visita p {
-    font-size: 1.1em;
-    color: var(--txtcolor);
-    opacity: 0.8;
-    margin-top: 0.3em;
-    margin-bottom: 2em;
+.cta-button:hover {
+    transform: translateY(-0.2em);
+    box-shadow: 0 0.6em 1.5em rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:active {
+    transform: translateY(0);
 }
 
 
@@ -391,23 +437,6 @@
     line-height: 1.7em;
     color: var(--txtcolor);
 }
-
-/* === FORM === */
-/*.appointment-form {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 0 2.5em;
-    border-radius: 1em;
-    backdrop-filter: blur(10px);
-}
-
-.appointment-form.active {
-    max-height: 5000px;
-    padding: 2.5em; /* padding completo quando aperto
-}
-*/
 
 .appointment-form {
     max-height: 0;
@@ -570,6 +599,43 @@
     cursor: pointer;
 }
 
+/* Errori specifici sotto i campi */
+.single-form input.error,
+.single-form textarea.error {
+    border-color: #f44336 !important;
+    background-color: #ffebee;
+    box-shadow: 0 0 0 0.2em rgba(244, 67, 54, 0.2);
+}
+
+.field-error {
+    color: #f44336;
+    font-size: 0.9em;
+    margin-top: 0.5em;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.3em;
+    font-weight: 500;
+}
+
+.field-error.hidden {
+    display: none;
+}
+
+.field-error::before {
+    content: "⚠️";
+    flex-shrink: 0;
+}
+
+/* Errore privacy */
+.privacy-policy.error {
+    border-color: #f44336;
+    background-color: #ffebee;
+}
+
+.privacy-policy.error label {
+    color: #c62828;
+}
+
 /* === SUBMIT BUTTON === */
 .submite-bt {
     width: 100%;
@@ -609,7 +675,14 @@
     transform: translateY(0);
 }
 
-/* === SUCCESS MESSAGE === */
+.icon-send {
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: middle;
+    margin-right: 0.5em;
+}
+
+/* === SUCCESS MESSAGE === 
 .success-message {
     display: none;
     background: linear-gradient(135deg, #d4edda, #c3e6cb);
@@ -635,7 +708,7 @@
 .success-message p {
     font-size: 1.05em;
     line-height: 1.7em;
-}
+}*/
 
 /* PAGINA ERRORE 403 */
 
