@@ -2,6 +2,7 @@
 namespace Controller;
 // Helper per il pannello filtri — restituisce HTML pronto da inserire
 
+// Recupera i filtri dalla request GET
 function getFiltriFromRequest(): array
 {
 	return [
@@ -17,11 +18,17 @@ function getFiltriFromRequest(): array
 }
 
 // Crea il pannello filtri in base a i tipi di filtri listati in $filtri
+// Inserire su $action l'URL di destinazione del form
+
+// Sezioni da mettere sull'array $filtri
+// SEZIONE "Tipo": Checkbox con "Cane" e "Gatto"
+// SEZIONE "Dati animale": Input per "Nome", Select per "Peso" e "Età"
+// SEZIONE "Dati persona": Input per "Nome", "Cognome", "Email" e "Telefono"
 function renderPannelloFiltri(?string $action, array $filtri = []): string
 {
     $sections = $filtri ?: ['Tipo', 'Dati animale', 'Dati persona'];
 
-    // valori correnti per popolare i campi (presa dalla request)
+    // Valori correnti per popolare i campi (presa dalla request)
     $values = getFiltriFromRequest();
     $selectedTipo = isset($values['tipo']) && is_array($values['tipo']) ? $values['tipo'] : [];
 
@@ -40,7 +47,6 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
 
 
     // Controlla se ci sono filtri che sono stati cambiati da quelli default
-
     $filtri_cambiati = count($selectedTipo);
     if ($nome !== '') $filtri_cambiati++;
     if ($peso !== '') $filtri_cambiati++;
@@ -167,6 +173,9 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
     return $html;
 }
 
+
+// Crea il pannello di controllo filtri (pulsanti Filtra e Ordina)
+// Di default il bottone "Ordina" non viene mostrato
 function renderPannelloControlloFiltri($ordina = false): string
 {
 

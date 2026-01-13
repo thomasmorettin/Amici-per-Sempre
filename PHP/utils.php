@@ -39,6 +39,8 @@ function buildPage($file, $dati) {
     $template = str_replace("{{data-page}}", getMsgSession(), $template);
     $template = str_replace("{{main}}", $main, $template);
 
+    // -- PARTE MODIFICATA DA NICCOLO' --
+
     // Se è presente {{extra-js}} e contiene solo nomi di file, trasformali in tag <script>
     if (isset($dati['{{extra-js}}'])) {
         $extra = $dati['{{extra-js}}'];
@@ -67,6 +69,8 @@ function buildPage($file, $dati) {
             $dati['{{extra-js}}'] = $scripts;
         }
     }
+
+    // -- FINE PARTE MODIFICATA DA NICCOLO' --
 
     // Popolamento dinamico dei placeholder
     foreach ($dati as $placeholder => $valore) {

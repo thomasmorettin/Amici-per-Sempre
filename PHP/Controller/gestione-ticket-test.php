@@ -9,6 +9,8 @@ use function Controller\renderPannelloControlloFiltri;
 $risDB = getAnimaliTck();
 $html = "";
 $oggi = date("Y-m-d");
+
+// Creazione del pannello dei filtri e quello di controllo
 $pannello_filtri_html = renderPannelloFiltri(PROJECT_ROOT . '/PHP/Controller/gestione-ticket-test.php', ['Tipo', 'Dati animale', 'Dati persona']);
 $pannello_controllo_filtri_html = renderPannelloControlloFiltri(true);
 
