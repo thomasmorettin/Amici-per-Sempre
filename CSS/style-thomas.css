@@ -128,11 +128,6 @@ button {
     transition: all 0.3s ease;
 }
 
-button:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-}
-
 a {
     color: var(--linkcolor);
     text-decoration: underline;
@@ -154,13 +149,13 @@ html.set-background {
     background-size: cover;
 }
 
-.contenitore-header,
-.contenitore-footer {
+#contenitore-header,
+#contenitore-footer {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.contenitore-header {
+#contenitore-header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
@@ -184,6 +179,7 @@ header {
     padding: var(--generalpadding);
     background-color: var(--bgcolor);
     z-index: 1;
+    height: fit-content;
     transition: box-shadow 0.3s ease;
 }
 
@@ -246,10 +242,6 @@ header h1 {
     transition: transform 0.3s ease;
 }
 
-#navbar a:hover::after {
-    transform: scaleX(1);
-}
-
 #navbar ul {
     list-style-type: none;
     display: flex;
@@ -261,10 +253,21 @@ header h1 {
     align-items: center;
     gap: 1em;
     justify-self: end;
+    height: fit-content;
+    margin-right: 0.25em;
 }
 
-#btn-remove-bck {
-    background-image: url("../Resources/Vectors/RemoveBackground.svg");
+#hamburger {
+    display: none;
+}
+
+#menu-wrapper {
+    display: contents;
+}
+
+#btn-remove-bck,
+#btn-theme,
+#btn-login {
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
@@ -272,75 +275,30 @@ header h1 {
     background-size: 2.25em;
     width: 3em;
     height: 3em;
+    transition: all 0.3s ease;
 }
 
-#btn-remove-bck:hover {
-    background-image: url("../Resources/Vectors/RemoveBackground-Light.svg");
-    background-color: var(--bgbtnhover);
-    box-shadow: var(--greenshadow);
+#btn-remove-bck {
+    background-size: 3em;
+    background-image: url("../Resources/Vectors/RemoveBackground.svg");
 }
 
 #btn-remove-bck.enabled {
     background-image: url("../Resources/Vectors/RemoveBackground-Light.svg");
-    background-color: var(--bgbtnhover);
-    box-shadow: var(--greenshadow);
 }
-
-/* DA RIVEDERE */
-
-#hamburger {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25em;
-    justify-self: end;
-    display: none;
-}
-
-#hamburger .linea {
-    display: block;
-    width: 1.5em;
-    height: 0.2em;
-    background-color: var(--txtcolor);
-    transition: all 0.3s ease;
-}
-
-/* DA RIVEDERE */
 
 #btn-theme {
     background-image: url("../Resources/Vectors/Moon.svg");
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    background-size: 1.75em;
-    width: 3em;
-    height: 3em;
-    transition: all 0.3s ease;
-}
-
-#btn-theme:hover {
-    background-image: url("../Resources/Vectors/Moon-Light.svg");
-    background-color: var(--bgbtnhover);
-    box-shadow: var(--greenshadow);
 }
 
 #btn-login {
-    content: url("../Resources/Vectors/Login.svg");
-    width: 2.25em;
-    height: 2.25em;
-    padding: 0.5em;
+    display: block;
+    background-image: url("../Resources/Vectors/Login.svg");
+    text-indent: -9999em;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0.85em;
     border-radius: 0.5em;
-    transition: all 0.3s ease;
-}
-
-#btn-login:hover {
-    content: url("../Resources/Vectors/Login-Light.svg");
-    background-color: var(--bgbtnhover);
-    box-shadow: var(--greenshadow);
 }
 
 #breadcrumb {
@@ -402,7 +360,9 @@ main {
     margin: 2.5em auto;
     width: fit-content;
     display: flex;
-    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3em;
     list-style-type: none;
 }
 
@@ -419,11 +379,6 @@ main {
     transition: all 0.3s ease;
 }
 
-#section-title a:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-}
-
 #section-chi-siamo {
     padding: 2em;
     border-radius: 0.5em;
@@ -432,9 +387,9 @@ main {
     border: 2px solid var(--borderdecoration);
 }
 
-#section-chi-siamo > div {
-    display: flex;
-    align-items: center;
+#descrizione-foto {
+    display: grid;
+    grid-template-columns: auto 1fr;
     gap: 1em;
 }
 
@@ -442,11 +397,7 @@ main {
     color: var(--txtimportant);
 }
 
-#section-chi-siamo h2,
-#section-esperti h2,
-#section-dati h2,
-#section-faqs h2,
-#section-contatti h2 {
+.section-subtitle {
     margin-bottom: 1em;
     font-size: 2.25em;
     line-height: 1.25em;
@@ -459,15 +410,18 @@ main {
 
 #section-esperti ul {
     display: flex;
-    margin: auto;
-    width: 80%;
+    flex-wrap: wrap;
     text-align: center;
     justify-content: center;
+    align-items: center;
     list-style: none;
     gap: 4em;
 }
 
 #section-esperti ul li {
+    flex-basis: 33%;
+    min-width: 17.5em;
+    max-width: 17.5em;
     transform: translateZ(0);
     flex: 1;
 }
@@ -477,10 +431,6 @@ main {
     flex-direction: column;
     height: 100%;
     transition: transform 0.3s ease;
-}
-
-#section-esperti figure:hover {
-    transform: scale(1.05) translateZ(0);
 }
 
 #section-esperti ul li figure img {
@@ -527,7 +477,8 @@ main {
 
 #section-dati ul {
     display: flex;
-    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
     text-align: center;
     list-style: none;
     gap: 2em;
@@ -536,7 +487,8 @@ main {
 #section-dati ul li {
     text-align: center;
     padding: 1em;
-    flex: 1;
+    flex-basis: 20%;
+    min-width: 15em;
     border-radius: 0.5em;
     background-color: var(--bgdecoration);
     border: 2px solid var(--borderdecoration);
@@ -544,10 +496,6 @@ main {
     box-shadow: var(--brownshadow);
     transform: translateZ(0);
     transition: transform 0.3s ease;
-}
-
-#section-dati ul li:hover {
-    transform: scale(1.05) translateZ(0);
 }
 
 #section-dati ul li figure img {
@@ -586,13 +534,14 @@ main {
     box-shadow: var(--brownshadow);
 }
 
-#descrizione-foto {
+#text-chi-siamo {
     display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
-#descrizione blockquote {
+#text-chi-siamo blockquote {
     font-size: 1.25em;
-    padding: 1em;
     position: relative;
     text-align: center;
     width: 20em;
@@ -601,22 +550,22 @@ main {
     font-style: italic;
 }
 
-#descrizione blockquote::before {
+#descrizione-foto blockquote::before {
     content: url("../Resources/Vectors/UpQuote.svg");
     position: absolute;
-    width: 1.5em;
-    height: 1.5em;
-    top: 0;
-    left: 0;
+    width: 1em;
+    height: 1em;
+    top: -0.25em;
+    left: -0.25em;
 }
 
-#descrizione blockquote::after {
+#descrizione-foto blockquote::after {
     content: url("../Resources/Vectors/DownQuote.svg");
     position: absolute;
-    width: 1.5em;
-    height: 1.5em;
-    bottom: 0;
-    right: 0;
+    width: 1em;
+    height: 1em;
+    bottom: -0.25em;
+    right: 1.75em;
 }
 
 #btn-back-to-top {
@@ -641,11 +590,6 @@ main {
 #btn-back-to-top.visible {
     opacity: 1;
     visibility: visible;
-}
-
-#btn-back-to-top:hover {
-    background-image: url("../Resources/Vectors/UpArrow-Light.svg");
-    background-color: var(--bgbtnhover);
 }
 
 details.summary-hovered {
@@ -679,21 +623,12 @@ details.summary-hovered {
 
 #section-faqs details::-webkit-details-marker { display: none; }     /* Per i motori di ricerca: Chrome e Safari */
 
-#section-faqs details summary:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-}
-
 .exp-freccia {
     content: url("../Resources/Vectors/UpArrow.svg");
     width: 1.5em;
     height: 1.5em;
     transition: transform 0.3s ease;
     transform: rotate(-180deg);
-}
-
-summary:hover .exp-freccia {
-    content: url("../Resources/Vectors/UpArrow-Light.svg");
 }
 
 details.dtl-aperto .exp-freccia {
@@ -892,11 +827,6 @@ footer {
     transition: all 0.3s ease;
 }
 
-#btns-mesi a:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-}
-
 #btns-mesi a,
 #btns-sett button {
     display: inline-flex;
@@ -924,11 +854,6 @@ footer {
     width: 2em;
     height: 2em;
     transition: all 0.3s ease;
-}
-
-#btn-mese-succ:hover::after,
-#btn-mese-prec:hover::before {
-    content: url("../Resources/Vectors/UpArrow-Light.svg");
 }
 
 #btns-sett {
@@ -1029,11 +954,6 @@ footer {
 }
 
 .dtl-animale::-webkit-details-marker { display: none; }     /* Per i motori di ricerca: Chrome e Safari */
-
-.dtl-animale summary:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-}
 
 .nome-animale {
     font-size: 1.25em;
@@ -1155,7 +1075,7 @@ details[open] > .contenuto-nascosto {
     transition: all 0.3s ease;
 }
 
-.go-calendario:before {
+.go-calendario::before {
     content: "";
     background-image: url("../Resources/Vectors/Forward.svg");
     background-repeat: no-repeat;
@@ -1170,15 +1090,6 @@ details[open] > .contenuto-nascosto {
 
 .go-calendario:visited {
     color: var(--txtbtncolor);
-}
-
-.go-calendario:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-}
-
-.go-calendario:hover:before {
-    background-image: url("../Resources/Vectors/Forward-Light.svg");
 }
 
 .btn-info {
@@ -1196,10 +1107,6 @@ details[open] > .contenuto-nascosto {
     gap: 0.5em;
 }
 
-.btn-info:hover {
-    background-image: url("../Resources/Vectors/Info-Light.svg");
-}
-
 .btn-popup-app {
     background-color: var(--bgbtn);
     box-shadow: var(--greenshadow);
@@ -1209,10 +1116,6 @@ details[open] > .contenuto-nascosto {
     background-position: center;
 }
 
-.btn-popup-app:hover {
-    background-image: url("../Resources/Vectors/Calendar-Light.svg");
-}
-
 .btn-elimina-app {
     background-color: var(--bgwarning);
     box-shadow: var(--redshadow);
@@ -1220,11 +1123,6 @@ details[open] > .contenuto-nascosto {
     background-image: url("../Resources/Vectors/Delete.svg");
     background-repeat: no-repeat;
     background-position: center;
-}
-
-.btn-elimina-app:hover {
-    background-image: url("../Resources/Vectors/Delete_Light.svg");
-    background-color: var(--bgwarninghover);
 }
 
 .cliente-info dt {
@@ -1269,11 +1167,6 @@ dialog[open]::backdrop {
     border-radius: 0.5em;
     width: 2em;
     height: 2em;
-}
-
-.btn-close:hover {
-    background-image: url("../Resources/Vectors/Cancel-Light.svg");
-    background-color: var(--bgbtnhover);
 }
 
 #dia-appuntamento,
@@ -1326,11 +1219,6 @@ dialog[open]::backdrop {
     padding: var(--generalpadding);
     font-weight: bold;
     font-size: 1.1em;
-}
-
-#btn-cancella-app:hover {
-    background-color: var(--bgwarninghover);
-    color: var(--inverttxtcolor);
 }
 
 #msg-warning {
@@ -1461,12 +1349,7 @@ dialog[open]::backdrop {
     transition: all 0.3s ease;
 }
 
-#section-links div a:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-}
-
-#section-links div a:before {
+#section-links div a::before {
     content: "";
     background-repeat: no-repeat;
     background-position: center;
@@ -1482,22 +1365,131 @@ dialog[open]::backdrop {
     background-image: url("../Resources/Vectors/Calendar.svg");
 }
 
-#cal-link:hover::before {
-    background-image: url("../Resources/Vectors/Calendar-Light.svg");
-}
-
 #ticket-link::before {
     background-image: url("../Resources/Vectors/Heart.svg");
-}
-
-#ticket-link:hover::before {
-    background-image: url("../Resources/Vectors/Heart-Light.svg");
 }
 
 #proposte-link::before {
     background-image: url("../Resources/Vectors/Question.svg");
 }
 
-#proposte-link:hover::before {
-    background-image: url("../Resources/Vectors/Question-Light.svg");
+@media (hover: hover) {
+    button:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
+    }
+
+    #navbar a:hover::after {
+        transform: scaleX(1);
+    }
+
+    #btn-remove-bck:hover,
+    #btn-theme:hover,
+    #btn-login:hover {
+        background-color: var(--bgbtnhover);
+        box-shadow: var(--greenshadow);
+    }
+
+    #btn-remove-bck:hover {
+        background-image: url("../Resources/Vectors/RemoveBackground-Light.svg");
+    }
+
+    #btn-theme:hover {
+        background-image: url("../Resources/Vectors/Moon-Light.svg");
+    }
+
+    #btn-login:hover {
+        background-image: url("../Resources/Vectors/Login-Light.svg");
+    }
+
+    #section-title a:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
+    }
+    
+    #section-esperti figure:hover {
+        transform: scale(1.05) translateZ(0);
+    }
+
+    #section-dati ul li:hover {
+        transform: scale(1.05) translateZ(0);
+    }
+
+    #btn-back-to-top:hover {
+        background-image: url("../Resources/Vectors/UpArrow-Light.svg");
+        background-color: var(--bgbtnhover);
+    }
+
+    #section-faqs details summary:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
+    }
+
+    summary:hover .exp-freccia {
+        content: url("../Resources/Vectors/UpArrow-Light.svg");
+    }
+
+    #btns-mesi a:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
+    }
+
+    #btn-mese-succ:hover::after,
+    #btn-mese-prec:hover::before {
+        content: url("../Resources/Vectors/UpArrow-Light.svg");
+    }
+
+    .dtl-animale summary:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
+    }
+
+    .go-calendario:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
+    }
+
+    .go-calendario:hover::before {
+        background-image: url("../Resources/Vectors/Forward-Light.svg");
+    }
+
+    .btn-info:hover {
+        background-image: url("../Resources/Vectors/Info-Light.svg");
+    }
+
+    .btn-popup-app:hover {
+        background-image: url("../Resources/Vectors/Calendar-Light.svg");
+    }
+
+    .btn-elimina-app:hover {
+        background-image: url("../Resources/Vectors/Delete_Light.svg");
+        background-color: var(--bgwarninghover);
+    }
+
+    .btn-close:hover {
+        background-image: url("../Resources/Vectors/Cancel-Light.svg");
+        background-color: var(--bgbtnhover);
+    }
+
+    #btn-cancella-app:hover {
+        background-color: var(--bgwarninghover);
+        color: var(--inverttxtcolor);
+    }
+
+    #section-links div a:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
+    }
+
+    #cal-link:hover::before {
+        background-image: url("../Resources/Vectors/Calendar-Light.svg");
+    }
+
+    #ticket-link:hover::before {
+        background-image: url("../Resources/Vectors/Heart-Light.svg");
+    }
+
+    #proposte-link:hover::before {
+        background-image: url("../Resources/Vectors/Question-Light.svg");
+    }
 }

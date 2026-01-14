@@ -8,11 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
   loadPage();   // Eseguita per ultima nel caso ci dovessero essere problemi in funzioni
 })
 
+function menuResponsive() {
+  document.getElementById("contenitore-header").classList.toggle("open");
+  document.getElementById("hamburger").classList.toggle("active");
+}
+
 /*
  * Funzione per il caricamento di elementi che altrimenti non verrebbero visualizzati
  * in caso di problematiche con JS (disabilitazione)
 */
 function loadPage() {
+  document.getElementById("contenitore-header").classList.remove("open");
   document.querySelector("header").classList.remove("scrolled");
   document.getElementById("btn-remove-bck").classList.remove("hidden");
   document.getElementById("btn-theme").classList.remove("hidden");
