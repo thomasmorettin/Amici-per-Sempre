@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function menuResponsive() {
   document.getElementById("contenitore-header").classList.toggle("open");
   document.getElementById("hamburger").classList.toggle("active");
+  document.querySelector("header").classList.toggle("scrolled");
 }
 
 /*
@@ -31,6 +32,7 @@ function loadPage() {
 function pageScroll() {
   const header = document.querySelector("header");
   const backToTop = document.getElementById("btn-back-to-top");
+  hamburger = document.getElementById("contenitore-header");
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
@@ -39,8 +41,10 @@ function pageScroll() {
     }
     
     else {
-      header.classList.remove("scrolled");
-      backToTop.classList.remove("visible");
+      if (header && !hamburger.classList.contains("open")) {
+        header.classList.remove("scrolled");
+        backToTop.classList.remove("visible");
+      }
     }
   })
 }

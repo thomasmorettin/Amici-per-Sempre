@@ -141,12 +141,26 @@ img {
     filter: blur(0.3px);
 }
 
-html.set-background {
+html::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    z-index: -1;
+    opacity: 0;
+    visibility: 0;
     background-image: var(--bgpaws);
-    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+html.set-background::before {
+    opacity: 1;
+    visibility: visible;
 }
 
 #contenitore-header,
@@ -253,7 +267,6 @@ header h1 {
     align-items: center;
     gap: 1em;
     justify-self: end;
-    height: fit-content;
     margin-right: 0.25em;
 }
 
@@ -261,7 +274,8 @@ header h1 {
     display: none;
 }
 
-#menu-wrapper {
+#menu-wrapper,
+#inner-menu {
     display: contents;
 }
 
@@ -272,23 +286,25 @@ header h1 {
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    background-size: 2.25em;
-    width: 3em;
-    height: 3em;
+    background-size: 2rem;
+    width: 2.75rem;
+    height: 2.75rem;
     transition: all 0.3s ease;
 }
 
 #btn-remove-bck {
-    background-size: 3em;
     background-image: url("../Resources/Vectors/RemoveBackground.svg");
 }
 
 #btn-remove-bck.enabled {
     background-image: url("../Resources/Vectors/RemoveBackground-Light.svg");
+    background-color: var(--bgbtnhover);
+    box-shadow: var(--greenshadow);
 }
 
 #btn-theme {
     background-image: url("../Resources/Vectors/Moon.svg");
+    background-size: 1.75rem;
 }
 
 #btn-login {
@@ -297,7 +313,6 @@ header h1 {
     text-indent: -9999em;
     white-space: nowrap;
     overflow: hidden;
-    font-size: 0.85em;
     border-radius: 0.5em;
 }
 
@@ -572,14 +587,14 @@ main {
     background-image: url("../Resources/Vectors/UpArrow.svg");
     opacity: 0;
     visibility: hidden;
-    background-size: 2.5em;
+    background-size: 2rem;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 0.5em;
     border: 2px solid var(--borderbtn);
     box-shadow: var(--greenshadow);
-    width: 3.5em;
-    height: 3.5em;
+    width: 2.75rem;
+    height: 2.75rem;
     position: fixed;
     z-index: 1;
     right: 1em;
