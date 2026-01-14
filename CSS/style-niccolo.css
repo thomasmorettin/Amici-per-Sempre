@@ -58,6 +58,7 @@
     height: 2px;
     width: 1em;
     border-radius: 0.5em;
+
 }
 
 .legend-right {
@@ -65,6 +66,7 @@
     height: 2px;
     flex: 1;
     border-radius: 0.5em;
+    transition: all 500ms ease;
 }
 
 .line {
@@ -316,28 +318,28 @@ form button:hover {
     color: var(--inverttxtcolor);
 }
 
-#filtra-btn::after {
+#filtra-btn::before {
     content: url("../Resources/Vectors/Filter.svg");
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
 }
 
-#filtra-btn:hover::after {
+#filtra-btn:hover::before {
     content: url("../Resources/Vectors/Filter-Light.svg");
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
 }
 
-#ordina-btn::after {
+#ordina-btn::before {
     content: url("../Resources/Vectors/Order.svg");
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
 }
 
-#ordina-btn:hover::after {
+#ordina-btn:hover::before {
     content: url("../Resources/Vectors/Order-Light.svg");
     display: inline-block;
     width: 1.5em;
@@ -613,4 +615,148 @@ form button:hover {
 #section-step-porta-adozione figcaption {
     flex: 1;
     margin-top: 2em;
+}
+
+.azioni-filtro {
+    display: flex;
+    gap: 0.5em;
+}
+
+.azioni-filtro #applica {
+    flex: 1;
+}
+
+.azioni-filtro #reset {
+    display: flex;
+    padding: 1em;
+    background-color: var(--bgwarning);
+    box-shadow: var(--redshadow);
+    border: 2px solid var(--borderwarning);
+    background-image: url("../Resources/Vectors/Delete.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.azioni-filtro #reset:hover {
+    background-color: var(--bgwarninghover);
+    background-image: url("../Resources/Vectors/Delete_Light.svg");
+}
+
+.flag-filtro {
+    background-color: var(--borderdecoration);
+    border: 1px solid var(--borderdecoration);
+    height: 1.1em;
+    width: 1.1em;
+    margin-right: 0.4em;
+    padding: 0.1em;
+    display: inline-flex;
+    border-radius: 0.4em;
+    color: var(--inverttxtcolor);
+    font-size: 1em;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 120ms ease;
+    will-change: opacity, transform;
+}
+
+.flag-filtro.show {
+    opacity: 1;
+
+}
+
+.flag-filtro.hidden {
+    opacity: 0;
+}
+
+.sort-container {
+  position: relative; /* Dice al menu: "Tu ti muovi rispetto a me" */
+  display: inline-block;
+}
+
+.sort-dropdown {
+  position: absolute; /* Esce dal flusso della pagina e non occupa spazio */
+  top: 100%;          /* Si posiziona esattamente sotto il bottone */
+  left: 0;
+  z-index: 1000;      /* Si assicura di stare sopra alle immagini dei cani */
+  
+  background-color: #f0f4e8; /* Colore crema come il tuo design */
+  border: 2px solid #4a5d23;
+  border-radius: 8px;
+  list-style: none;
+  padding: 10px;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  
+  display: none;      /* Nascosto di default */
+}
+
+.sort-container.open .sort-dropdown {
+  display: block;
+}
+
+.select-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* Centra orizzontalmente il contenuto */
+    flex: 1;
+    max-width: 20em;
+}
+
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    
+    background-color: var(--bgbtn);
+    color: var(--txtbtncolor);
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: var(--greenshadow);
+    border-radius: 0.5em;
+    border: 2px solid var(--borderbtn);
+    padding: var(--generalpadding);
+    
+    cursor: pointer;
+    width: 100%;
+    text-align: center; /* Centra il testo all'interno del select */
+}
+/* Effetto Hover */
+.custom-select:hover {
+    background-color: var(--borderbtn); /* O il colore che preferisci per l'hover */
+    color: var(--inverttxtcolor);
+}
+
+.info-richiesta-animale {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.richiesta-inserimento-info {
+    display: grid;
+    /* La prima colonna si adatta al contenuto, la seconda prende tutto il resto */
+    grid-template-columns: max-content 1fr;
+    column-gap: 0.6em; /* Spazio tra "Note:" e il testo */
+    row-gap: 0.1em;    /* Spazio tra le righe */
+}
+
+.richiesta-inserimento-info dt {
+    grid-column: 1;
+    font-weight: bold;
+}
+
+.richiesta-inserimento-info dd {
+    grid-column: 2;
+    margin: 0; /* Rimuove il margine predefinito dei browser */
+    word-break: break-word; /* Evita che parole lunghissime rompano il layout */
+}
+
+.spaziatore {
+    display: flex;
+    flex: 1;
+}
+
+.sezione-padrone {
+    display: flex;
+    flex-direction: column;
 }
