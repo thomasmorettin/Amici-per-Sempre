@@ -185,9 +185,13 @@ function renderPannelloControlloFiltri($ordina = false): string
         . '                   </button>';    
 
     if ($ordina) {
-        $html .= '            <button id="ordina-btn">'
-            . '                    Ordina'
-            . '               </button>';
+        $html .= '            <div class="select-wrapper" id="ordina-wrapper">'
+            . '                    <select class="custom-select" name="sort">'
+            . '                         <option value="razza">Ordina per: Nome</option>'
+            . '                         <option value="nome">Ordina per: Data richiesta</option>'
+            . '                         <option value="data">Ordina per: Data appuntamento</option>'
+            . '                    </select>'
+            . '               </div>';
     }
 
     $html .= '            </div>';
