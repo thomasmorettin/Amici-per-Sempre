@@ -1,7 +1,7 @@
 <?php
 namespace Model;
 
-require_once dirname(__DIR__) . "/PHP/db-access.php";
+require_once dirname(__DIR__) . "/db-access.php";
 use DB\DBAccess;
 
 /**

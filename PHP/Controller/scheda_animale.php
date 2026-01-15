@@ -1,7 +1,7 @@
-php<?php
-require_once dirname(__DIR__) . "/PHP/utils.php";
-require_once dirname(__DIR__) . "/PHP/breadcrumb.php";
-require_once dirname(__DIR__) . "/Model/Animale.php";
+<?php
+require_once dirname(__DIR__) . "/utils.php";
+require_once dirname(__DIR__) . "/breadcrumb.php";
+require_once dirname(__DIR__) . "/Model/animale.php";
 
 use function Model\getAnimaleById;
 
@@ -50,13 +50,12 @@ if (is_array($caratteristiche) && !empty($caratteristiche)) {
 // Il messaggio di successo viene gestito da getMsgSession() in utils.php
 // che popola automaticamente {{data-page}}
 
-// Recupera dati del formi di ricghiesta visita per ripopolamento
+// Recupera dati del formi di richiesta visita per ripopolamento
 $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
 unset($_SESSION['form_data']);
 
 // === ARRAY DATI PER buildPage() ===
 $dati = [
-    $dati = [
     '{{current-page}}'   => $nome,
     
     '{{page-keywords}}'  => "Amici per Sempre, 
@@ -66,10 +65,10 @@ $dati = [
                             $razza $colore adozione, 
                             $tipo in adozione Padova",
 
-    '{{current-js}}'     => '../JavaScript/richiesta-visita.js',
-    '{{header}}'         => file_get_contents(dirname(__DIR__) . "/HTML/header.html"),
+    '{{current-js}}'     => 'richiesta-visita.js',
+    '{{header}}'         => file_get_contents(dirname(__DIR__) . "/../HTML/header.html"),
     '{{breadcrumb}}'     => populatedBread(),
-    '{{footer}}'         => file_get_contents(dirname(__DIR__) . "/HTML/footer.html"),
+    '{{footer}}'         => file_get_contents(dirname(__DIR__) . "/../HTML/footer.html"),
     '[immagine]'         => $pthImg,
     '[alt_immagine]'     => "Foto di $nome",
     '[nome_animale]'     => $nome,
@@ -87,7 +86,6 @@ $dati = [
     '[val_email]'        => isset($form_data['email']) ? htmlspecialchars($form_data['email'], ENT_QUOTES, 'UTF-8') : '',
     '[val_telefono]'     => isset($form_data['telefono']) ? htmlspecialchars($form_data['telefono'], ENT_QUOTES, 'UTF-8') : '',
     '[val_note]'         => isset($form_data['note']) ? htmlspecialchars($form_data['note'], ENT_QUOTES, 'UTF-8') : ''
-];
 ];
 
 // === OUTPUT FINALE ===

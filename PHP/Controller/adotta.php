@@ -1,7 +1,8 @@
 <?php
-require_once dirname(__DIR__) . "/PHP/utils.php";
-require_once dirname(__DIR__) . "/PHP/breadcrumb.php";
+require_once dirname(__DIR__) . "/utils.php";
+require_once dirname(__DIR__) . "/breadcrumb.php";
 require_once dirname(__DIR__) . "/Model/Animale.php";
+require_once dirname(__DIR__) . "/Controller/pannello-filtri.php"; 
 
 use function Model\getAllAnimali;
 
@@ -11,8 +12,8 @@ ensure_session();
 $filtri = [
     'tipo' => isset($_GET['tipo']) ? $_GET['tipo'] : [],
     'nome' => isset($_GET['nome']) ? $_GET['nome'] : '',
-    'peso' => isset($_GET['peso']) ? (int)$_GET['peso'] : 0,
-    'eta'  => isset($_GET['eta'])  ? (int)$_GET['eta']  : 0
+    'peso' => isset($_GET['peso']) ? $_GET['peso'] : '',  
+    'eta'  => isset($_GET['eta'])  ? $_GET['eta']  : '' 
 ];
 
 // === RECUPERO ANIMALI TRAMITE MODEL ===
@@ -25,7 +26,7 @@ if (!empty($animali)) {
     foreach ($animali as $animale) {
         $lista_animali_html .= sprintf('
         <li class="animal-card">
-            <a href="%s/scheda_animale?id=%d">
+            <a href="%s/PHP/Controller/scheda_animale?id=%d">
                 <figure>
                     <img src="%s" alt="Foto di %s">
                     <figcaption>
@@ -52,9 +53,12 @@ if (!empty($animali)) {
     </li>';
 }
 
-// === GESTIONE CHECKBOX E VALORI FILTRI ===
-$checked_cane  = in_array('Cane', $filtri['tipo'])  ? 'checked' : '';
-$checked_gatto = in_array('Gatto', $filtri['tipo']) ? 'checked' : '';
+// === GENERAZIONE PANNELLO FILTRI 
+$pannello_controllo_html = Controller\renderPannelloControlloFiltri(false); // false = no bottone "Ordina"
+$pannello_filtri_html = Controller\renderPannelloFiltri(
+    PROJECT_ROOT . '/adotta',  // Action del form
+    ['Tipo', 'Dati animale']   // Solo queste 2 sezioni (senza "Dati persona")
+);
 
 // === ARRAY DATI PER buildPage() ===
 $dati = [
@@ -68,14 +72,12 @@ $dati = [
                             animali in adozione, 
                             rifugio animali Padova',
 
-    '{{current-js}}' => '../JavaScript/filtri-adotta.js',
+    '{{current-js}}' => 'pannello-filtri.js', 
     '[project_root]' => PROJECT_ROOT,
     '[lista_animali]' => $lista_animali_html,
-    '[checked_cane]' => $checked_cane,
-    '[checked_gatto]' => $checked_gatto,
-    '[filter_nome]' => htmlspecialchars($filtri['nome'], ENT_QUOTES, 'UTF-8'),
-    '[filter_peso]' => $filtri['peso'] > 0 ? $filtri['peso'] : 1,
-    '[filter_eta]' => $filtri['eta'] > 0 ? $filtri['eta'] : 1
+    '[pannello_controllo_filtri]' => $pannello_controllo_html, 
+    '[pannello_filtri]' => $pannello_filtri_html,              
+    
 ];
 
 // === OUTPUT FINALE ===

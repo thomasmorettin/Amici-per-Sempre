@@ -1,16 +1,17 @@
 <?php
-require_once dirname(__DIR__) . "/PHP/utils.php";
-require_once dirname(__DIR__) . "/Model/RichiestaVisita.php";
+require_once dirname(__DIR__) . "/utils.php";
+require_once dirname(__DIR__) . "/Model/richiesta-visita.php";
 
 use function Model\getPersonaByEmailOrTelefono;
 use function Model\createPersona;
-use function Model\richiestaVisitaExists;
-use function Model\createRichiestaVisita;
+use function Model\ticketExists;        
+use function Model\createTicket;        
 
 ensure_session();
 
 // === VERIFICA METODO POST ===
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+     $_SESSION['error'] = "🔴 DEBUG: Entrato nel primo IF - REQUEST_METHOD = " . $_SERVER['REQUEST_METHOD'] . " (non è POST!)";
     header("Location: " . PROJECT_ROOT . "/");
     exit;
 }
@@ -28,6 +29,7 @@ $privacy = isset($_POST['privacy']);
 $errori = [];
 
 if ($animale_id <= 0) {
+     $_SESSION['error'] = "🔴 DEBUG: Entrato nel secondo IF - animale_id = '$animale_id' (valore POST raw: '" . ($_POST['animale_id'] ?? 'NOT SET') . "')";
     header("Location: " . PROJECT_ROOT . "/");
     exit;
 }
@@ -79,9 +81,9 @@ if (!$privacy) {
 
 // === SE CI SONO ERRORI, TORNA INDIETRO ===
 if (!empty($errori)) {
-    $_SESSION['error'] = implode('<br>', $errori);  // ← Usa 'error' per il toast
+    $_SESSION['error'] = implode('<br>', $errori);
     $_SESSION['form_data'] = $_POST;
-    header("Location: " . PROJECT_ROOT . "/scheda_animale?id=" . $animale_id);
+    header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
     exit;
 }
 
@@ -96,31 +98,31 @@ if ($persona) {
     if (!$persona_id) {
         $_SESSION['error'] = "Errore durante la creazione dell'utente";
         $_SESSION['form_data'] = $_POST;
-        header("Location: " . PROJECT_ROOT . "/scheda_animale?id=" . $animale_id);
+        header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
         exit;
     }
 }
 
 // === STEP 2: VERIFICA TICKET DUPLICATO ===
-if (richiestaVisitaExists($persona_id, $animale_id)) {
+if (ticketExists($persona_id, $animale_id)) {  
     $_SESSION['error'] = "Hai già inviato una richiesta per questo animale";
     $_SESSION['form_data'] = $_POST;
-    header("Location: " . PROJECT_ROOT . "/scheda_animale?id=" . $animale_id);
+    header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
     exit;
 }
 
 // === STEP 3: CREA RICHIESTA ===
 $note_db = !empty($note) ? $note : null;
-$success = createRichiestaVisita($persona_id, $animale_id, $note_db);
+$success = createTicket($persona_id, $animale_id, $note_db); 
 
 if ($success) {
     unset($_SESSION['form_data']);
-    $_SESSION['success'] = "✅ Richiesta inviata con successo! Ti contatteremo entro 48 ore.";  
-    header("Location: " . PROJECT_ROOT . "/scheda_animale?id=" . $animale_id);
+    $_SESSION['success'] = "✅ Richiesta inviata con successo! Ti contatteremo entro 48 ore.";
+    header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
 } else {
     $_SESSION['error'] = "Errore durante l'invio della richiesta";
     $_SESSION['form_data'] = $_POST;
-    header("Location: " . PROJECT_ROOT . "/scheda_animale?id=" . $animale_id);
+    header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
 }
 
 exit;

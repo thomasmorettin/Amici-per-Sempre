@@ -179,7 +179,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
 function renderPannelloControlloFiltri($ordina = false): string
 {
 
-    $html .= '            <div class="list-topbar">'
+    $html = '            <div class="list-topbar">'
         . '                   <button id="filtra-btn">'
         . '                       Filtra'
         . '                   </button>';    
