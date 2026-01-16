@@ -5,7 +5,7 @@ CREATE TABLE Razza (
 
 CREATE TABLE Utente (
 	Nome VARCHAR(15) PRIMARY KEY,
-	Password VARCHAR(255) NOT NULL
+	PasswordHash VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE EntitaDatabile (
@@ -35,8 +35,8 @@ CREATE TABLE AnimaleRifugio (
 	Nome VARCHAR(25) NOT NULL,
 	Storia TEXT NOT NULL,
 	Sesso ENUM ('M', 'F') NOT NULL,
-	Peso FLOAT(2, 1) NOT NULL,
-	Eta FLOAT(2, 1) NOT NULL,
+	Peso FLOAT(3, 1) NOT NULL,
+	Eta FLOAT(3, 1) NOT NULL,
 	PthImg TEXT NOT NULL UNIQUE,
 	Colore VARCHAR(10) NOT NULL,
 	Caratteristiche JSON NOT NULL,
