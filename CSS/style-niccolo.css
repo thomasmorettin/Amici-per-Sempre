@@ -5,7 +5,12 @@
     text-align: center;
 }
 
-.required::before {
+
+.form-field label{
+    flex-direction: row;
+}
+
+.form-field:has(input:required) > label::before{
     content: "•";
     font-size: 1.4em;
     color: var(--txtwarning);
@@ -137,11 +142,41 @@
     margin: 3em auto;
 }
 
+#section-form-logout {
+    padding: 2em;
+    max-width: 25em;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#section-form-logout button {
+    background-color: var(--bgbtn);
+    color: var(--txtbtncolor);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.25em;
+    box-shadow: var(--greenshadow);
+    border-radius: 0.5em;
+    border: 2px solid var(--borderbtn);
+    padding: var(--generalpadding);
+    transition: all 0.3s ease;
+}
+
+#section-form-logout button:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor);
+}
+
 #section-form-porta-adozione form,
 #section-form-login form {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+}
+
+#section-form-logout form {
+    display: flex;
+    flex-direction: column;
 }
 
 label {
@@ -240,6 +275,13 @@ form button:hover {
     font-weight: bold;
 }
 
+.info-required p::before {
+    content: "•";
+    font-size: 1.4em;
+    color: var(--txtwarning);
+    margin-right: 0.2em;
+}
+
 .section-list {
     display: flex;
     flex-direction: row;
@@ -280,10 +322,9 @@ form button:hover {
 }
 
 .list-topbar {
-    border: 1px solid var(--borderdecoration);
+    border: 0px;
     border-radius: 0.5em;
-    background-color: var(--bgdecoration);
-    box-shadow: var(--brownshadow);
+    background-color: var(--bgbread);
     padding: 0.5em;
     display: flex;
     justify-content: center;

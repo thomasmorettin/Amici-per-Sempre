@@ -10,6 +10,11 @@ function ensure_session() {
     }
 }
 
+function is_logged_in() {
+    ensure_session();
+    return isset($_SESSION['loggato']);
+}
+
 function getMsgSession() {
     ensure_session();
     $dataMsg = "";

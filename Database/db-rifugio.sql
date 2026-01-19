@@ -5,7 +5,7 @@ CREATE TABLE Razza (
 
 CREATE TABLE Utente (
 	Nome VARCHAR(15) PRIMARY KEY,
-	Password VARCHAR(255) NOT NULL
+	PasswordHash VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE EntitaDatabile (

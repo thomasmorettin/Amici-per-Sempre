@@ -1,229 +1,149 @@
-<!DOCTYPE html>
-<html lang="it">
 
-<head>
-    <title>Amici per Sempre: Porta in adozione</title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="...">
-    <meta name="keywords" content="...">
-
-    <link class="title-icon" rel="icon" href="../Resources/Favicon/favicon.ico" sizes="any" />
-    <link class="title-icon" rel="icon" href="../Resources/Favicon/icon.svg" type="image/svg+xml" />
-    <link class="title-icon" rel="apple-touch-icon" href="../Resources/Favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="../Resources/Favicon/manifest.webmanifest" />
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/style-smartphone.css" media="screen and (max-width: 800px)">
-
-    <script src="../JavaScript/global.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-</head>
-
-<body data-theme="light">
-    <header class="scrolled">
-        <div class="contenitore-header">
-            <h1>Rifugio Amici per Sempre</h1>
-
-            <nav id="navbar">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Adotta</a></li>
-                    <li lang="en" class="active-link">Porta in adozione</li>
-                </ul>
-            </nav>
-
-            <menu id="header-btns">
-                <button id="btn-theme" title="Cambio tema"></button>
-                <a id="btn-login" href="login.html" lang="en">Login</a>
-            </menu>
-
-            <button id="hamburger">
-                <span class="linea"></span>
-                <span class="linea"></span>
-                <span class="linea"></span>
-            </button>
+<main>
+    <p class="titolo">Porta in adozione il tuo animale</p>
+    <p class="description">Puoi prenotare una visita con il centro compilando il form sottostante e portare il tuo cane o gatto per darlo in adozione. Dopo la prenotazione un operatore ti chiamerà entro 1 giorno lavorativo per accordarsi sul giorno e l'ora della visita.</p>
+    <section id="section-step-porta-adozione">
+        <ul>
+            <li>
+                <figure>
+                    <img src="../../Resources/Images/Survey.png" id="step-1">
+                    <figcaption>
+                        <p class="info-step"><span class="step-number">1</span> <strong>Compila</strong> il form con i tuoi dati e quelli del tuo animale</p>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="../../Resources/Images/Message Received.png" id="step-2">
+                    <figcaption>
+                        <p class="info-step"><span class="step-number">2</span> <strong>Accetta</strong> la email di conferma che sarà inviata dopo la compilazione</p>                            
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="../../Resources/Images/Receptionist.png" id="step-3">
+                    <figcaption>
+                        <p class="info-step"><span class="step-number">3</span> <strong>Attendi</strong> la chiamata di un operatore per accordarti dell'orario della visita</p>                           
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
+    </section>
+    <section id="section-form-porta-adozione">
+        <h2>Compila il form per prenotare una visita al centro di adozione</h2>
+        <div class="info-required">
+            <p>Campo obbligatorio</p>
         </div>
-    </header>
-
-    <div class="contenitore">
-        <nav id="breadcrumb">
-            <p>Ti trovi in: Home → <span class="active-link" lang="en">Porta in adozione</span></p>
-        </nav>
-        <main>
-            <p class="titolo">Porta in adozione il tuo animale</p>
-            <p class="description">Puoi prenotare una visita con il centro compilando il form sottostante e portare il tuo cane o gatto per darlo in adozione. Dopo la prenotazione un operatore ti chiamerà entro 1 giorno lavorativo per accordarsi sul giorno e l'ora della visita.</p>
-            <section id="section-step-porta-adozione">
-                <ul>
-                    <li>
-                        <figure>
-                            <img src="../Resources/Images/Survey.png" id="step-1">
-                            <figcaption>
-                                <p class="info-step"><span class="step-number">1</span> <strong>Compila</strong> il form con i tuoi dati e quelli del tuo animale</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <img src="../Resources/Images/Message Received.png" id="step-2">
-                            <figcaption>
-                                <p class="info-step"><span class="step-number">2</span> <strong>Accetta</strong> la email di conferma che sarà inviata dopo la compilazione</p>                            
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <img src="../Resources/Images/Receptionist.png" id="step-3">
-                            <figcaption>
-                                <p class="info-step"><span class="step-number">3</span> <strong>Attendi</strong> la chiamata di un operatore per accordarti dell'orario della visita</p>                           
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </section>
-            <section id="section-form-porta-adozione">
-                <h2>Compila il form per prenotare una visita al centro di adozione</h2>
-                <div class="info-required">
-                    <p><span class="required"></span> Campo obbligatorio</p>
+        <form id="form-porta-adozione" method="POST" action="{{root}}/PHP/Controller/invia-richiesta-porta-in-adozione" class="form-porta-adozione"> 
+            <div id="section-padrone">
+                <div class="section-legend">
+                    <div class="line"></div>
+                    <p>Dati del padrone</p>
+                    <div class="line"></div>
                 </div>
-                <form> 
-                    <div id="section-padrone">
-                        <div class="section-legend">
-                            <div class="line"></div>
-                            <p>Dati del padrone</p>
-                            <div class="line"></div>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk1" class="required">
-                                Nome
-                            </label>
-                            <input placeholder="Es: Mario" required>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk2" class="required">
-                                Cognome
-                            </label>
-                            <input placeholder="Es: Rossi" required>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk3" class="required">
-                                Email
-                            </label>
-                            <input placeholder="Es: mario.rossi@example.com" required>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk4" class="required" required>
-                                Numero di telefono
-                            </label>
-                            <div class="phone-input">
-                                <span class="phone-prefix">+39</span>
-                                <input class="phone-number" placeholder="Es: 123 456 7890" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="section-animale">
-                        <div class="section-legend">
-                            <div class="line"></div>
-                            <p>Dati dell'animale</p>
-                            <div class="line"></div>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk5" class="required">
-                                Tipo di animale
-                            </label>
-                            <div class="radio-group">
-                                <label for="cane"><input type="radio" name="tipo-animale" value="cane" required>Cane</label>
-                                <label for="gatto"><input type="radio" name="tipo-animale" value="gatto" required>Gatto</label>
-                            </div>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk6" class="required">
-                                Età (approssimativa)
-                            </label>
-                            <input placeholder="Es: 4 anni, 6 mesi, cucciolo, adulto, anziano..." required>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk8" class="required">
-                                Peso (approssimativo)
-                            </label>
-                            <input placeholder="Es: 5 kg, leggero, medio, pesante..." required>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk7" class="required">
-                                Razza
-                            </label>
-                            <input placeholder="Es: Labrador, Persiano, Ibrido..." list="races" required>
-                            <datalist id="races">
-                                <option value="Labrador">
-                                <option value="Golden Retriever">
-                                <option value="Bulldog">
-                                <option value="Beagle">
-                                <option value="Poodle">
-                                <option value="Siberian Husky">
-                                <option value="Dachshund">
-                                <option value="Boxer">
-                                <option value="Rottweiler">
-                                <option value="German Shepherd">
-                                <option value="Persiano">
-                                <option value="Siamese">
-                                <option value="Maine"></option>
-                            </datalist>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk9" class="required">
-                                Sesso
-                            </label>
-                            <div class="radio-group">
-                                <label for="maschio"><input type="radio" name="sesso" value="maschio" required>Maschio</label>
-                                <label for="femmina"><input type="radio" name="sesso" value="femmina" required>Femmina</label>
-                            </div>
-                        </div>
-                        <div class="form-field">
-                            <label for="idk10">
-                                Caratteristiche e comportamento
-                            </label>
-                            <textarea placeholder="Descrivi eventuali vaccini, comportamenti e altre caratteristiche..."></textarea>
-                        </div>
-                    </div>
-                    <div class="form-field">
-                        <button type="submit">Prenota visita</button>
-                    </div>
-                </form>
-            </section>
-        </main>
-    </div>
-    
-    <footer>
-        <div class="contenitore">
-            <section id="dati-footer">
-                <div id="dati-rifugio">
-                    <p class="titolo-footer">Rifugio Amici per Sempre ODV</p>
-                    <p>Ente del Terzo Settore iscritto al RUNTS (rep. 12345)</p>
-                    <p>Sede Legale: <a href="https://maps.app.goo.gl/4DNcs18vGaJqHiDB8" target="_blank" rel="noopener noreferrer">Via Trieste, 63, 35121 Padova (PD)</a></p>
-                    <p>C.F. 91022233344</p>
+                <div class="form-field">
+                    <label>
+                        Nome
+                    </label>
+                    <input placeholder="Es: Mario" name="nome" id="nome" aria-describedby="error-nome" value="[val_nome]" required>
+                    <div id="error-nome" class="field-error hidden" role="alert"></div>
                 </div>
-
-                <div id="orari-rifugio">
-                    <p class="titolo-footer">I nostri orari</p>
-
-                    <dl id="tbl-orari">
-                        <dt>Lunedì - Venerdì</dt>
-                        <dd>8:30 - 19:30</dd>
-                        <dt>Sabato</dt>
-                        <dd>8:30 - 12:30</dd>
-                        <dt>Domenica</dt>
-                        <dd><span class="attention">Chiuso</span></dd>
-                    </dl>
+                <div class="form-field">
+                    <label for="idk2">
+                        Cognome
+                    </label>
+                    <input placeholder="Es: Rossi" name="cognome" id="cognome" aria-describedby="error-cognome" value="[val_cognome]" required>
+                    <div id="error-cognome" class="field-error hidden" role="alert"></div>
                 </div>
-            </section>
-            
-            <p id="copyright">&copy; 2025 Rifugio Amici per Sempre - Tutti i diritti riservati</p>
-        </div>
-    </footer>
-
-    <button onclick="backToTop()" id="btn-back-to-top" title="Torna in cima" class="visible"></button>
-
-</body>
+                <div class="form-field">
+                    <label for="idk3">
+                        Email
+                    </label>
+                    <input placeholder="Es: mario.rossi@example.com" name="email" id="email" aria-describedby="error-email" value="[val_email]" required>
+                    <div id="error-email" class="field-error hidden" role="alert"></div>
+                </div>
+                <div class="form-field">
+                    <label for="idk4">
+                        Numero di telefono
+                    </label>
+                    <div class="phone-input">
+                        <span class="phone-prefix">+39</span>
+                        <input class="phone-number" placeholder="Es: 123 456 7890" name="telefono" id="telefono" aria-describedby="error-telefono" value="[val_telefono]" required>
+                    </div>
+                    <div id="error-telefono" class="field-error hidden" role="alert"></div>
+                </div>
+            </div>
+            <div id="section-animale">
+                <div class="section-legend">
+                    <div class="line"></div>
+                    <p>Dati dell'animale</p>
+                    <div class="line"></div>
+                </div>
+                <div class="form-field">
+                    <label for="idk5">
+                        Tipo di animale
+                    </label>
+                    <div class="radio-group" id="specie">
+                        [radio-buttons-specie]
+                    </div>
+                    <div id="error-specie" class="field-error hidden" role="alert"></div>
+                </div>
+                <div class="form-field">
+                    <label for="idk6">
+                        Età (approssimativa)
+                    </label>
+                    <input placeholder="Es: 4 anni, 6 mesi, cucciolo, adulto, anziano..." name="eta" id="eta" aria-describedby="error-eta" value="[val_eta]" required>
+                    <div id="error-eta" class="field-error hidden" role="alert"></div>
+                </div>
+                <div class="form-field">
+                    <label for="idk8">
+                        Peso (approssimativo)
+                    </label>
+                    <input placeholder="Es: 5 kg, leggero, medio, pesante..." name="peso" id="peso" aria-describedby="error-peso" value="[val_peso]" required> 
+                    <div id="error-peso" class="field-error hidden" role="alert"></div>
+                </div>
+                <div class="form-field">
+                    <label for="idk7">
+                        Razza
+                    </label>
+                    <input placeholder="Es: Labrador, Persiano, Ibrido..." name="razza" id="razza" aria-describedby="error-razza" list="races" value="[val_razza]" required>
+                    <datalist id="races">
+                        <option value="Labrador">
+                        <option value="Golden Retriever">
+                        <option value="Bulldog">
+                        <option value="Beagle">
+                        <option value="Poodle">
+                        <option value="Siberian Husky">
+                        <option value="Dachshund">
+                        <option value="Boxer">
+                        <option value="Rottweiler">
+                        <option value="German Shepherd">
+                        <option value="Persiano">
+                        <option value="Siamese">
+                        <option value="Maine"></option>
+                    </datalist>
+                    <div id="error-razza" class="field-error hidden" role="alert"></div>
+                </div>
+                <div class="form-field">
+                    <label for="idk9">
+                        Sesso
+                    </label>
+                    <div class="radio-group" id="sesso">
+                        [radio-buttons-sesso]
+                    </div>
+                    <div id="error-sesso" class="field-error hidden" role="alert"></div>
+                </div>
+                <div class="form-field">
+                    <label for="idk10">
+                        Caratteristiche e comportamento
+                    </label>
+                    <textarea placeholder="Descrivi eventuali vaccini, comportamenti e altre caratteristiche..." id="dettagli" value="[val_dettagli]"></textarea>
+                </div>
+            </div>
+            <div class="form-field">
+                <button type="submit">Prenota visita</button>
+            </div>
+        </form>
+    </section>
+</main>

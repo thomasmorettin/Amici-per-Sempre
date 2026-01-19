@@ -68,10 +68,10 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         $html .= '            <div class="accordion">'
             . '                <div class="accordion-header">'
             . '                    <div class="legend-left"></div>'
-            . '                    <div class="header">'
+            . '                    <button class="header">'
             . '                        <p>Tipo animale</p>'
             . '                        <span class="header-arrow"></span>'
-            . '                    </div>'
+            . '                    </button>'
             . '                    <div class="legend-right"></div>'
             . '                </div>'
             . '                <div class="content">'
@@ -93,10 +93,10 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         $html .= '            <div class="accordion">'
             . '                <div class="accordion-header">'
             . '                    <div class="legend-left"></div>'
-            . '                    <div class="header">'
+            . '                    <button class="header">'
             . '                        <p>Dati animale</p>'
             . '                        <span class="header-arrow"></span>'
-            . '                    </div>'
+            . '                    </button>'
             . '                    <div class="legend-right"></div>'
             . '                </div>'
             . '                <div class="content">'
@@ -136,10 +136,10 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         $html .= '             <div class="accordion">'
             . '                 <div class="accordion-header">'
             . '                    <div class="legend-left"></div>'
-            . '                     <div class="header">'
+            . '                     <button class="header">'
             . '                        <p> Dati persona </p>'
             . '                        <span class="header-arrow"></span>'
-            . '                    </div>'
+            . '                    </button>'
             . '                    <div class="legend-right"></div>'
             . '                </div>'
             . '                <div class="content">'
@@ -185,9 +185,13 @@ function renderPannelloControlloFiltri($ordina = false): string
         . '                   </button>';    
 
     if ($ordina) {
-        $html .= '            <button id="ordina-btn">'
-            . '                    Ordina'
-            . '               </button>';
+        $html .= '            <div class="select-wrapper" id="ordina-wrapper">'
+            . '                    <select class="custom-select" name="sort">'
+            . '                         <option value="razza">Ordina per: Nome</option>'
+            . '                         <option value="nome">Ordina per: Data richiesta</option>'
+            . '                         <option value="data">Ordina per: Data appuntamento</option>'
+            . '                    </select>'
+            . '               </div>';
     }
 
     $html .= '            </div>';
