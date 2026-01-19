@@ -2,11 +2,11 @@
     <div id="contenitore-header" class="open">
         {{logo}}
 
-        <div id="hamburger" onclick="menuResponsive()">
+        <button id="hamburger" onclick="menuResponsive()">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
 
         <div id="menu-wrapper">
             <div id="inner-menu">
@@ -18,10 +18,25 @@
                     </ul>
                 </nav>
 
-                <menu id="header-btns">
-                    <button id="btn-remove-bck" title="Rimuovi sfondo" class="hidden"></button>
-                    <button id="btn-theme" title="Cambio tema" class="hidden"></button>
-                    <a id="btn-login" href="#" lang="en">Login</a>
+                <menu class="header-btns">
+                    <button id="btn-remove-bck" title="Rimuovi sfondo" class="hidden">
+                        <svg>
+                            <use href="{{root}}/Resources/icons.svg#remove-bck"></use>
+                        </svg>
+                    </button>
+                    <button id="btn-theme" title="Cambio tema" class="hidden">
+                        <svg id="moon-icon">
+                            <use href="{{root}}/Resources/icons.svg#moon"></use>
+                        </svg>
+                        <svg id="sun-icon">
+                            <use href="{{root}}/Resources/icons.svg#sun"></use>
+                        </svg>
+                    </button>
+                    <a class="btn-link" href="#" lang="en">
+                        <svg>
+                            <use href="{{root}}/Resources/icons.svg#login"></use>
+                        </svg>
+                    </a>
                 </menu>
             </div>
         </div>

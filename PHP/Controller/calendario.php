@@ -61,7 +61,7 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
 
     $htmlEv = "";
     $htmlBtns = "";
-    $htmlLinea = "<div class='linea'></div>";
+    $noApp = false;
 
     if (date("N", $tsGiorno) != 7) {
         if (isset($risDB[$giorno])) {
@@ -71,7 +71,7 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
 
                 if ($dataApp >= $currentData) {
                     $htmlBtns =
-                    "<div class='btn-gruppo'>
+                    "<menu class='btn-gruppo-cal'>
                         <button class='btn-info'
                             title='Note aggiuntive'
                             data-info='{$evento['Info']}'
@@ -92,34 +92,46 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
                             data-data='{$dataApp}'
                             data-data-display='{$dataDisplay}'>
                         </button>
-                    </div>";
+                    </menu>";
                 } else { $htmlLinea = ""; }
 
                 if ($evento["Tipo"] === "Ticket") {
                     $htmlEv .=
                     "<li class='cnt-adozione'>
-                        {$htmlLinea}
-                        <p class='orario'>{$evento['Ora']}</p>
-                        <div class='info'>
-                            <p>Appuntamento per adottare \"{$evento['NomeAnimale']}\"</p>
-                            <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
-                        </div>
+                        <div class='linea'></div>
 
-                        {$htmlBtns}
+                        <div class='cnt-info-btns'>
+                            <div class='appuntamento'>
+                                <p class='orario'>{$evento['Ora']}</p>
+
+                                <div class='info'>
+                                    <p>Appuntamento adozione \"{$evento['NomeAnimale']}\"</p>
+                                    <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
+                                </div>
+                            </div>
+
+                            {$htmlBtns}
+                        </div>
                     </li>";
                 }
 
                 elseif ($evento["Tipo"] === "Request") {
                     $htmlEv .=
                     "<li class='cnt-presa-adozione' id='g{$giorno}'>
-                        {$htmlLinea}
-                        <p class='orario'>{$evento['Ora']}</p>
-                        <div class='info'>
-                            <p>Appuntamento per valutare adozione per razza \"{$evento['Razza']}\"</p>
-                            <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
-                        </div>
+                        <div class='linea'></div>
 
-                        {$htmlBtns}
+                        <div class='cnt-info-btns'>
+                            <div class='appuntamento'>
+                                <p class='orario'>{$evento['Ora']}</p>
+
+                                <div class='info'>
+                                    <p>Appuntamento per valutare adozione per razza \"{$evento['Razza']}\"</p>
+                                    <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
+                                </div>
+                            </div>
+
+                            {$htmlBtns}
+                        </div>
                     </li>";
                 }
             }
@@ -127,6 +139,7 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
 
         else {
             $htmlEv = "<p>Nessun appuntamento per questa giornata.</p>";
+            $noApp = true;
         }
 
         if ($giorno == $today && $mese == date("n") && $anno == date("Y")) {
@@ -135,7 +148,8 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
 
         $giornoPad = str_pad($giorno, 2, "0", STR_PAD_LEFT);
 
-        $htmlGiorno = "<li id='g{$giorno}'><p class='giornata'>$nomeGiorno $giornoPad</p><ol>$htmlEv</ol></li>";
+        if ($noApp) { $htmlGiorno = "<li id='g{$giorno}'><p class='giornata'>$nomeGiorno $giornoPad</p>$htmlEv</li>"; }
+        else { $htmlGiorno = "<li id='g{$giorno}'><p class='giornata'>$nomeGiorno $giornoPad</p><ol>$htmlEv</ol></li>"; }
 
         if (!isset($settimane[$numSett])) { $settimane[$numSett] = ""; }
         $settimane[$numSett] .= $htmlGiorno;
@@ -153,7 +167,7 @@ foreach ($settimane as $num => $contenuto) {
     $activeBtn = $isActive ? "active" : "";
     $activeCont = $isActive ? "" : "hidden";
 
-    $htmlBtns .= "<button class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num'>Settimana $num</button>";
+    $htmlBtns .= "<button class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num'><span class='abbr'>Settimana&nbsp</span>$num</button>";
     $htmlContent .= "<ol id='sett-$num' class='lista-settimana $activeCont'>$contenuto</ol>";
 }
 

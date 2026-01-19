@@ -36,7 +36,7 @@ CREATE TABLE AnimaleRifugio (
 	Storia TEXT NOT NULL,
 	Sesso ENUM ('M', 'F') NOT NULL,
 	Peso FLOAT(2, 1) NOT NULL,
-	Eta FLOAT(2, 1) NOT NULL,
+	Eta FLOAT(2, 2) NOT NULL,
 	PthImg TEXT NOT NULL UNIQUE,
 	Colore VARCHAR(10) NOT NULL,
 	Caratteristiche JSON NOT NULL,

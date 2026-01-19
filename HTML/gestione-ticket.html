@@ -23,14 +23,18 @@
     <button class="btn-close"></button>
 
     <form action="{{root}}/PHP/Controller/aggiungi-appuntamento" method="POST">
-        <div class="campi-input">
+        <div id="campi-input">
             <input type="hidden" id="hidden-id" name="id">
 
-            <label for="data-appuntamento">Data</label>
-            <input type="date" id="data-appuntamento" name="data" required>
+            <div>
+                <label for="data-appuntamento">Data</label>
+                <input type="date" id="data-appuntamento" name="data" required>
+            </div>
 
-            <label for="ora-appuntamento">Ora</label>
-            <input type="time" id="ora-appuntamento" name="ora" required>
+            <div>
+                <label for="ora-appuntamento">Ora</label>
+                <input type="time" id="ora-appuntamento" name="ora" required>
+            </div>
         </div>
 
         <button type="submit" id="btn-prenota-app">Salva appuntamento</button>

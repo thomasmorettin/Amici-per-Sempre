@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   changeCopyright();
   cleanDetails();
   backgroundSetting();
+  themeSetting();
   toast();
   loadPage();   // Eseguita per ultima nel caso ci dovessero essere problemi in funzioni
 })
@@ -41,7 +42,7 @@ function pageScroll() {
     }
     
     else {
-      if (header && !hamburger.classList.contains("open")) {
+      if (!window.innerWidth < 768) {
         header.classList.remove("scrolled");
         backToTop.classList.remove("visible");
       }
@@ -111,6 +112,42 @@ function backgroundSetting() {
     else {
       btn.classList.remove("enabled");
       btn.setAttribute("title", "Rimuovi Sfondo");
+    }
+  }
+}
+
+// Funzione per cambio di tema chiaro/scuro all'interno del sito
+function themeSetting() {
+  const btn = document.getElementById("btn-theme");
+  const root = document.documentElement;
+
+  const STORAGE_KEY = "themeDark";
+  if (localStorage.getItem(STORAGE_KEY) == "true") { updateButton(true); }
+  else { updateButton(); }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(STORAGE_KEY) == "true") {
+      root.dataset.theme = "light";
+      localStorage.setItem(STORAGE_KEY, "false");
+      updateButton(false);
+    }
+
+    else {
+      root.dataset.theme = "dark";
+      localStorage.setItem(STORAGE_KEY, "true");
+      updateButton(true);
+    }
+  })
+
+  function updateButton(flag) {
+    if (flag) {
+      btn.classList.add("light");
+      btn.setAttribute("title", "Tema chiaro");
+    }
+
+    else {
+      btn.classList.remove("light");
+      btn.setAttribute("title", "Tema scuro");
     }
   }
 }

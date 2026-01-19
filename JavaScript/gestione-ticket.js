@@ -45,7 +45,7 @@ function animaleDetails() {
 
 // Funzione per la gestione di tutti i dialog all'interno della pagina
 function dialogsSettings() {
-  const body = document.body();
+  const body = document.body;
   
   updateDialog(body);
   deleteDialog(body);
@@ -72,6 +72,7 @@ function updateDialog(body) {
   dialogApp.addEventListener("submit", (e) => {
     const data = document.getElementById("data-appuntamento").value;
     const ora = document.getElementById("ora-appuntamento").value;
+    const domenica = new Date(data);
 
     // Data corrente
     const oggiObj = new Date();
@@ -81,9 +82,15 @@ function updateDialog(body) {
     
     const currentData = `${anno}-${mese}-${giorno}`;
 
-    if (data < currentData || ora < "08:30" || ora > "19:30") {
+    if (domenica.getDay() == 0) {
       e.preventDefault();
+      document.getElementById("msg-errore").innerHTML = "Non si può selezionare una domenica.";
       document.getElementById("msg-errore").classList.remove("hidden");
+    } else {
+      if (data < currentData || ora < "08:30" || ora > "19:30") {
+        e.preventDefault();
+        document.getElementById("msg-errore").classList.remove("hidden");
+      }
     }
   })
 

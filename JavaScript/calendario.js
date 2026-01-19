@@ -30,7 +30,7 @@ function toggleWeeks() {
 
 // Funzione per la gestione di tutti i dialog all'interno della pagina
 function dialogsSettings() {
-  const body = document.body();
+  const body = document.body;
   
   updateDialog(body);
   deleteDialog(body);

@@ -1,6 +1,6 @@
 <main>
     <div class="contenitore">
-        <p class="titolo">Area amministrazione</p>
+        <p class="titolo">Area amministrativa</p>
 
         <section id="benvenuto">
             <div>
@@ -10,24 +10,26 @@
                 <p><span id="num-app">{{num-app}}</span> <span id="app">appuntamenti</span> in programma</p>
             </div>
 
-            <img src="{{root}}/Resources/Vectors/DogHouse.svg" width="100px" height="100px">
+            <div id="dog-house"></div>
         </section>
 
         <section id="section-links">
-            <div>
-                <span id="cal-not">{{num-app}}</span>
-                <a id="cal-link" href="{{root}}/PHP/Controller/calendario">Calendario</a>
-            </div>
+            <ul>
+                <li>
+                    <span id="cal-not">{{num-app}}</span>
+                    <a id="cal-link" href="{{root}}/amministrazione/calendario">Calendario</a>
+                </li>
 
-            <div>
-                <span id="ticket-not">{{num-tck}}</span>
-                <a id="ticket-link" href="{{root}}/PHP/Controller/gestione-ticket">Richieste di adozione</a>
-            </div>
+                <li>
+                    <span id="ticket-not">{{num-tck}}</span>
+                    <a id="ticket-link" href="{{root}}/amministrazione/gestione-ticket">Richieste di adozione</a>
+                </li>
 
-            <div>
-                <span id="proposte-not">{{num-req}}</span>
-                <a id="proposte-link" href="#">Richieste di inserimento in rifugio</a>
-            </div>
+                <li>
+                    <span id="proposte-not">{{num-req}}</span>
+                    <a id="proposte-link" href="#">Richieste di inserimento</a>
+                </li>
+            </ul>
         </section>
     </div>
 </main>

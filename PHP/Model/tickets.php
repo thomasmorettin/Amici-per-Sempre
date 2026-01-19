@@ -5,26 +5,27 @@ use DB\DBAccess;
 
 function getAnimaliTck() {
     $db = new DBAccess();
-    $connOk = $db->openConn();
     $animali = [];
 
+    // QUERY: animali del rifugio
+    $sql = "SELECT A.ID AS IDAnimale, A.Nome AS NomeAnimale, A.Razza AS RazzaAnimale, A.PthImg AS ImgAnimale,
+            R.Tipo AS TipoAnimale,
+            T.ID AS IDTicket,
+            E.Note AS Info, E.DataRichiesta AS DataRich,
+            P.Nome AS NomeRich, P.Cognome AS CognomeRich, P.Email AS EmailRich, P.Telefono AS TelRich,
+            C.ID AS IDCalendario, C.Data AS DataApp, C.Ora AS OraApp
+            FROM AnimaleRifugio A
+            JOIN Razza R ON A.Razza = R.Nome
+            LEFT JOIN Ticket T ON A.ID = T.Animale
+            LEFT JOIN EntitaDatabile E ON T.ID = E.ID
+            LEFT JOIN Persona P ON T.Richiedente = P.ID
+            LEFT JOIN Calendario C ON T.ID = C.ID
+            ORDER BY A.Nome ASC, C.Data DESC";
+
+    $connOk = $db->openConn();
     if ($connOk) {
         $conn = $db->getConn();
 
-        // QUERY: animali del rifugio
-        $sql = "SELECT A.ID AS IDAnimale, A.Nome AS NomeAnimale, A.Razza AS RazzaAnimale, A.PthImg AS ImgAnimale,
-                R.Tipo AS TipoAnimale,
-                T.ID AS IDTicket,
-                E.Note AS Info, E.DataRichiesta AS DataRich,
-                P.Nome AS NomeRich, P.Cognome AS CognomeRich, P.Email AS EmailRich, P.Telefono AS TelRich,
-                C.ID AS IDCalendario, C.Data AS DataApp, C.Ora AS OraApp
-                FROM AnimaleRifugio A
-                JOIN Razza R ON A.Razza = R.Nome
-                LEFT JOIN Ticket T ON A.ID = T.Animale
-                LEFT JOIN EntitaDatabile E ON T.ID = E.ID
-                LEFT JOIN Persona P ON T.Richiedente = P.ID
-                LEFT JOIN Calendario C ON T.ID = C.ID
-                ORDER BY A.Nome ASC, C.Data DESC";
         $rawAnimali = $db->exeQuery($sql, []);
 
         $db->closeConn();
@@ -79,18 +80,19 @@ function getAnimaliTck() {
 
 function addAppuntamento($id, $data, $ora) {
     $db = new DBAccess();
-    $connOk = $db->openConn();
 
     $id = $id;
     $data = $data;
     $ora = $ora;
 
+    // QUERY CON PLACEHOLDER: inserimento appuntamento
+    $sql = "INSERT INTO Calendario (ID, Data, Ora)
+            VALUES (?, ?, ?)";
+
+    $connOk = $db->openConn();
     if ($connOk) {
         $conn = $db->getConn();
 
-        // QUERY CON PLACEHOLDER: inserimento appuntamento
-        $sql = "INSERT INTO Calendario (ID, Data, Ora)
-                VALUES (?, ?, ?)";
         $result = $db->exeQuery($sql, [$id, $data, $ora]);
 
         $db->closeConn();
@@ -102,15 +104,16 @@ function addAppuntamento($id, $data, $ora) {
 
 function deleteRichiesta($id) {
     $db = new DBAccess();
-    $connOk = $db->openConn();
 
     $id = $id;
 
+    // QUERY CON PLACEHOLDER: eliminazione della richiesta di adozione
+    $sql = "DELETE FROM EntitaDatabile WHERE ID = ?";
+
+    $connOk = $db->openConn();
     if ($connOk) {
         $conn = $db->getConn();
 
-        // QUERY CON PLACEHOLDER: eliminazione della richiesta di adozione
-        $sql = "DELETE FROM EntitaDatabile WHERE ID = ?";
         $result = $db->exeQuery($sql, [$id]);
 
         $db->closeConn();

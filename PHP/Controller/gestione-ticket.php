@@ -61,11 +61,11 @@ if (!empty($risDB)) {
                         </dd>
                     </dl>
 
-                    <div class='btn-gruppo'>
+                    <menu class='btn-gruppo'>
                         <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'></button>
                         <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'></button>
                         <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'></button>
-                    </div>
+                    </menu>
                 </li>";
             }
         }
@@ -95,10 +95,10 @@ if (!empty($risDB)) {
                         </dd>
                     </dl>
 
-                    <div class='btn-gruppo'>
+                    <menu class='btn-gruppo'>
                         <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'></button>
-                        <a class='go-calendario' href='{{root}}/PHP/Controller/calendario.php?mese={$mese}&anno={$anno}#g{$giorno}'>Calendario</a>
-                    </div>
+                        <a class='go-calendario' href='{{root}}/amministrazione/calendario?mese={$mese}&anno={$anno}#g{$giorno}'>Calendario</a>
+                    </menu>
                 </li>";
             }
         }
@@ -109,12 +109,14 @@ if (!empty($risDB)) {
         "<li>
             <details class='dtl-animale'>
             <summary>
-                <img src='{{root}}/Resources/Animali/{$animale["infoAnimale"]["foto"]}' class='img-animale'>
+                <div class='info-animale'>
+                    <img src='{{root}}/Resources/Animali/{$animale["infoAnimale"]["foto"]}' class='img-animale'>
 
-                <div>
-                    <p class='nome-animale'>{$animale["infoAnimale"]["nome"]}</p>
-                    <p>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</p>
-                    <p class='status-richieste'><span class='num-rich'>{$numRich}</span>&nbsp<span class='richieste'>nuove richieste</span></p>
+                    <div>
+                        <p class='nome-animale'>{$animale["infoAnimale"]["nome"]}</p>
+                        <p class='dettagli-animale'>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</p>
+                        <p class='status-richieste'><span class='num-rich'>{$numRich}</span>&nbsp<span class='richieste'>nuove richieste</span></p>
+                    </div>
                 </div>
 
                 <div class='exp-freccia'></div>

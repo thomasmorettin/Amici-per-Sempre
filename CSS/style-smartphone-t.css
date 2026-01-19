@@ -2,35 +2,44 @@
     --bgpaws: url("../Resources/Vectors/Paws-SmartphoneLight.svg");
 }
 
+[data-theme="dark"] {
+    --bgpaws: url("../Resources/Vectors/Paws-SmartphoneDark.svg")
+}
+
 #hamburger {
     display: flex;
-    cursor: pointer;
+    background-color: transparent;
+    border: none;
     flex-direction: column;
-    gap: 0.25em;
-    padding: 0.5em;
-    margin-right: 0.25em;
-    border-radius: 0.5em;
-    transition: all 0.3s ease;
+    gap: 0.3rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
 }
 
 #hamburger span {
-    width: 1.5em;
-    height: 0.25em;
+    width: 1.5rem;
+    height: 0.2rem;
     border-radius: 1em;
     background-color: var(--txtcolor);
     display: block;
-    transition: all 0.3s ease;
+}
+
+#hamburger span:not(:nth-child(2)) {
+    transition: transform 0.3s ease;
 }
 
 #navbar ul {
     flex-direction: column;
     text-align: center;
     margin: 0 auto;
+    margin-top: 0.5em;
     gap: 1em;
 }
 
-#header-btns {
-    margin: 0 auto;
+.header-btns {
+    margin: 0;
+    justify-content: center;
 }
 
 #menu-wrapper {
@@ -48,11 +57,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
     gap: 1.5em;
     min-height: 0;
-    opacity: 1;
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
@@ -71,12 +78,13 @@
 
 #contenitore-header {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
     align-items: center;
 }
 
 #hamburger.active span:first-child {
-    transform: translateY(0.5em) rotate(45deg);
+    transform: translateY(0.5rem) rotate(45deg);
 }
 
 #hamburger.active span:nth-child(2) {
@@ -84,7 +92,7 @@
 }
 
 #hamburger.active span:last-child{
-    transform: translateY(-0.5em) rotate(-45deg);
+    transform: translateY(-0.5rem) rotate(-45deg);
 }
 
 #section-title {
@@ -100,11 +108,12 @@
 }
 
 #descrizione-foto blockquote {
+    margin-left: 0.25em;
     width: 100%;
 }
 
 #descrizione-foto blockquote::before {
-    left: -0.25em;
+    left: -0.5em;
 }
 
 #img-volontari {
@@ -134,20 +143,20 @@
 }
 
 #dati-rifugio {
+    margin: 1.5rem 0 1.5rem 0;
     text-align: center;
 }
 
 #orari-rifugio {
-    margin-top: 1em;
+    margin: 1.5rem 0 1.5rem 0;
 }
 
 .titolo-footer {
     text-align: center;
-    margin-top: 1em;
 }
 
 #copyright {
-    width: 20em;
+    width: 15rem;
 }
 
 #dia-appuntamento,
@@ -158,4 +167,70 @@
 #campi-input {
     display: flex;
     flex-direction: column;
+}
+
+#dog-house {
+    display: none;
+}
+
+#benvenuto {
+    text-align: center;
+}
+
+#btns-mesi a span {
+    display: none;
+}
+
+.contenuto-nascosto > div {
+    flex-direction: column;
+}
+
+.cnt-info-btns {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-gruppo {
+    width: 100%;
+}
+
+.btn-gruppo-cal {
+    width: auto;
+}
+
+.btn-gruppo {
+    margin-top: 1em;
+    margin-left: 0;
+    justify-content: center;
+}
+
+.btn-gruppo-cal {
+    margin-top: 1em;
+}
+
+.btn-gruppo button,
+.btn-gruppo-cal button {
+    flex: 1;
+}
+
+.btn-gruppo .go-calendario {
+    width: 57%;
+}
+
+.dettagli-animale {
+    display: none;
+}
+
+.dtl-animale .img-animale {
+    height: 5em;
+}
+
+.abbr {
+    display: none;
+}
+
+#btns-mesi a,
+#btns-sett button {
+    width: 2.75rem;
+    padding: 0;
 }

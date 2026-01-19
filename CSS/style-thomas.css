@@ -29,78 +29,102 @@
 }
 
 [data-theme="dark"] {
-    /* --- SFONDI E TESTI --- */
-    /* Lo sfondo principale è una versione scurissima del tuo marrone originale */
-    --bgcolor: #1C1A19; 
-    
-    /* Le sezioni secondarie usano il tuo vecchio colore del testo (carbone caldo) */
-    --bgbread: #2A2725; 
-    
-    /* Il testo diventa il colore crema che usavi per lo sfondo (massima coerenza) */
-    --txtcolor: #FFF8E7; 
-    --inverttxtcolor: #1C1A19; /* Testo su pulsanti chiari */
+    --txtcolor: #E6E0D8;
+    --borderform: #E6E0D8;
+    --inverttxtcolor: #1C1A19;
+    --bgcolor: #1C1A19;
+    --bgbread: #221F1E;
+    --bgdecoration: #3D2922;
+    --borderdecoration: #C39E8E;
+    --strongdecoration: #C39E8E;
+    --txtdecoration: #C39E8E;
+    --bgbtn: #2A3315;
+    --borderbtn: #8FA668;
+    --txtbtncolor: #8FA668;
+    --bgbtnhover: #8FA668;
+    --txtimportant: #8FA668;
+    --linkcolor: #7BC2E0;
+    --bgwarning: #3D1C19;
+    --borderwarning: #CF7A72;
+    --bgwarninghover: #3D1C19;
+    --txtwarning: #E89E96;
 
-    /* --- DECORAZIONI (Toni Ruggine/Marrone) --- */
-    /* Sfondo decorativo scuro, non più rosa pallido ma marrone cioccolato */
-    --bgdecoration: #3E2820; 
-    
-    /* I bordi e i testi decorativi devono "accendersi" su fondo scuro.
-       Ho schiarito il tuo #70402B in un terracotta più luminoso */
-    --borderdecoration: #A66D55;
-    --strongdecoration: #C4856C; 
-    --txtdecoration: #C4856C;
-
-    /* --- BOTTONI E ACCENTI VERDI --- */
-    /* Il bottone ora ha lo sfondo scuro (il tuo vecchio verde scuro) */
-    --bgbtn: #2A3A10; 
-    
-    /* Il bordo diventa più chiaro per essere visibile */
-    --borderbtn: #6B8E23; 
-    
-    /* Il testo nel bottone diventa chiaro (il tuo vecchio background bottone) */
-    --txtbtncolor: #DEE4D2; 
-    
-    /* Hover leggermente più luminoso */
-    --bgbtnhover: #6B8E23; 
-    
-    /* Testo importante verde: schiarito per leggibilità (Salvia chiaro) */
-    --txtimportant: #6B8E23; 
-
-    /* --- LINK E WARNING --- */
-    /* Il blu deve essere più ciano/chiaro per non sparire */
-    --linkcolor: #69B0D1; 
-    
-    /* Warning: Sfondo rosso scuro, bordo/testo rosso chiaro */
-    --bgwarning: #3D1815; 
-    --borderwarning: #D46A5C;
-    --bgwarninghover: #5E2620;
-    --txtwarning: #EDAea6;
-
-    /* --- OMBRE --- */
-    /* Nel dark mode le ombre colorate si vedono poco. 
-       Meglio usare nero puro con opacità più alta per dare profondità */
-    --brownshadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    --greenshadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    --redshadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-    --normalshadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    --brownshadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --greenshadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --redshadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --normalshadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 
     --bgpaws: url("../Resources/Vectors/Paws-Dark.svg");
     --logo: url("../Resources/Vectors/Logo-Light.svg");
 }
 
-* {
-    padding: 0em;
-    margin: 0em;
-}
-
-*::selection {
-    background-color: var(--txtcolor);
-    color: var(--bgcolor);
-}
-
 :root {
     --popupbackdrop: rgba(0, 0, 0, 0.75);
-    --generalpadding: 0.5em 1em 0.5em 1em; /* top, right, bottom, left */
+    --generalpadding: 0.25rem 1rem 0.25rem 1rem; /* top, right, bottom, left */
+    --squarepadding: 0.25rem 0.25rem;
+    --generalbtnborder: 0.15rem solid var(--borderbtn);
+    --generaloutline: 0.15rem solid var(--linkcolor);
+    --squarewidth: 2.75rem;
+    --generalradius: 0.5rem;
+}
+
+* {
+    padding: 0rem;
+    margin: 0rem;
+}
+
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: var(--generaloutline);
+    outline-offset: 0.2rem;
+}
+
+details > summary:focus {
+    outline: none;
+}
+
+details:has(summary:focus-visible) {
+    outline: var(--generaloutline);
+    outline-offset: 0.2rem;
+}
+
+.btn-link svg,
+.btn-link:visited svg,
+button svg,
+details summary svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+}
+
+.btn-link,
+.btn-link:visited,
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    height: 2.75rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1.5rem;
+    padding: var(--generalpadding);
+    background-color: var(--bgbtn);
+    border: var(--generalbtnborder);
+    border-radius: var(--generalradius);
+    box-shadow: var(--greenshadow);
+    color: var(--txtbtncolor);
+    fill: var(--txtbtncolor);
+    box-sizing: content-box;
+
+    transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
 }
 
 html {
@@ -110,35 +134,23 @@ html {
 html, body {
     font-size: 100%;
     font-family: "Inter", sans-serif;
-    line-height: 1.5em;
-    scroll-padding-top: 7.5em;
+    line-height: 1.5rem;
+    scroll-padding-top: 7.5rem;
 }
 
 .scroll-padding {
-    scroll-padding-top: 15em;
-}
-
-button {
-    border-radius: 0.5em;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: "Inter", serif;
-    color: var(--txtbtncolor);
-    background-color: var(--bgbtn);
-    transition: all 0.3s ease;
+    scroll-padding-top: 15rem;
 }
 
 a {
     color: var(--linkcolor);
     text-decoration: underline;
+    text-underline-offset: 0.15rem;
+    border-radius: var(--generalradius);
 }
 
 a:visited {
     color: var(--txtcolor);
-}
-
-img {
-    filter: blur(0.3px);
 }
 
 html::before {
@@ -173,6 +185,11 @@ html.set-background::before {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
+    padding: 1rem 0 1rem 0;
+}
+
+#contenitore-footer {
+    padding: 1rem 1rem 1rem 1rem;
 }
 
 body {
@@ -190,7 +207,7 @@ body.no-scroll {
 header {
     position: sticky;
     top: 0;
-    padding: var(--generalpadding);
+    padding: 0 1rem 0 1rem;
     background-color: var(--bgcolor);
     z-index: 1;
     height: fit-content;
@@ -231,7 +248,7 @@ header h1 {
 }
 
 #navbar {
-    font-size: 1.3em;
+    font-size: 1.4rem;
     margin: auto;
     justify-self: center;
 }
@@ -240,7 +257,7 @@ header h1 {
     color: var(--txtcolor);
     text-decoration: none;
     position: relative;
-    padding-bottom: 0.2em;
+    padding-bottom: 0.15rem;
 }
 
 #navbar a::after {
@@ -249,7 +266,7 @@ header h1 {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 0.05rem;
     background-color: var(--txtcolor);
     transform: scaleX(0);
     transform-origin: center;
@@ -262,16 +279,54 @@ header h1 {
     gap: 1.5em;
 }
 
-#header-btns {
+.header-btns {
     display: flex;
     align-items: center;
     gap: 1em;
     justify-self: end;
-    margin-right: 0.25em;
+    margin-right: 0.5rem;
+}
+
+.header-btns a,
+.header-btns a:visited,
+.header-btns button {
+    width: var(--squarewidth);
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: var(--squarepadding);
+    fill: var(--txtcolor);
+}
+
+#btn-theme svg {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+#btn-theme.light svg {
+    width: inherit;
+    height: inherit;
+}
+
+#btn-theme #moon-icon {
+    display: block;
+}
+
+#btn-theme #sun-icon {
+    display: none;
+}
+
+#btn-theme.light #moon-icon {
+    display: none;
+}
+
+#btn-theme.light #sun-icon {
+    display: block;
 }
 
 #hamburger {
     display: none;
+    box-shadow: none;
 }
 
 #menu-wrapper,
@@ -279,61 +334,27 @@ header h1 {
     display: contents;
 }
 
-#btn-remove-bck,
-#btn-theme,
-#btn-login {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    background-size: 2rem;
-    width: 2.75rem;
-    height: 2.75rem;
-    transition: all 0.3s ease;
-}
-
-#btn-remove-bck {
-    background-image: url("../Resources/Vectors/RemoveBackground.svg");
-}
-
 #btn-remove-bck.enabled {
-    background-image: url("../Resources/Vectors/RemoveBackground-Light.svg");
+    fill: var(--inverttxtcolor);
     background-color: var(--bgbtnhover);
     box-shadow: var(--greenshadow);
 }
 
-#btn-theme {
-    background-image: url("../Resources/Vectors/Moon.svg");
-    background-size: 1.75rem;
-}
-
-#btn-login {
-    display: block;
-    background-image: url("../Resources/Vectors/Login.svg");
-    text-indent: -9999em;
-    white-space: nowrap;
-    overflow: hidden;
-    border-radius: 0.5em;
-}
-
 #breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
     background-color: var(--bgbread);
-    text-align: center;
     width: fit-content;
-    font-size: 1.1em;
-    border-radius: 0.5em;
-    margin: 0 auto;
-    margin-top: 1em;
+    margin: 1rem 1rem;
+    align-self: center;
+    border-radius: var(--generalradius);
     padding: var(--generalpadding);
 }
 
 #breadcrumb ol {
-    margin-left: 0.25em;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 
 #breadcrumb li:not(:first-child)::before {
@@ -344,14 +365,14 @@ header h1 {
 
 main {
     flex: 1;
-    width: calc(100% - 2em);
+    width: calc(100% - 2rem);
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 #section-title {
-    margin: 6em auto;
+    margin: 6rem auto;
     text-align: center;
 }
 
@@ -382,16 +403,7 @@ main {
 }
 
 #section-title a {
-    background-color: var(--bgbtn);
-    color: var(--txtbtncolor);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.25em;
-    box-shadow: var(--greenshadow);
-    border-radius: 0.5em;
-    border: 2px solid var(--borderbtn);
-    padding: var(--generalpadding);
-    transition: all 0.3s ease;
 }
 
 #section-chi-siamo {
@@ -565,41 +577,34 @@ main {
     font-style: italic;
 }
 
-#descrizione-foto blockquote::before {
-    content: url("../Resources/Vectors/UpQuote.svg");
+#up-quote {
     position: absolute;
     width: 1em;
     height: 1em;
     top: -0.25em;
     left: -0.25em;
+    fill: var(--txtdecoration);
 }
 
-#descrizione-foto blockquote::after {
-    content: url("../Resources/Vectors/DownQuote.svg");
+#down-quote {
     position: absolute;
     width: 1em;
     height: 1em;
     bottom: -0.25em;
     right: 1.75em;
+    fill: var(--txtdecoration);
 }
 
 #btn-back-to-top {
-    background-image: url("../Resources/Vectors/UpArrow.svg");
     opacity: 0;
+    padding: var(--squarepadding);
+    width: var(--squarewidth);
     visibility: hidden;
-    background-size: 2rem;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 0.5em;
-    border: 2px solid var(--borderbtn);
-    box-shadow: var(--greenshadow);
-    width: 2.75rem;
-    height: 2.75rem;
     position: fixed;
     z-index: 1;
-    right: 1em;
-    bottom: 1em;
-    transition: all 0.3s ease;
+    right: 1rem;
+    bottom: 1rem;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
 }
 
 #btn-back-to-top.visible {
@@ -611,16 +616,16 @@ details.summary-hovered {
     background-color: var(--bgbtnhover);
 }
 
-#section-faqs details {
-    border-radius: 0.5em;
+details {
+    border-radius: var(--generalradius);
     overflow: hidden;
-    margin-bottom: 1em;
-    border: 2px solid var(--borderbtn);
+    margin-bottom: 1rem;
+    border: var(--generalbtnborder);
     box-shadow: var(--greenshadow);
 }
 
-#section-faqs details summary {
-    font-size: 1.1em;
+details summary {
+    font-size: 1.1rem;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -629,51 +634,50 @@ details.summary-hovered {
     justify-content: space-between;
     background-color: var(--bgbtn);
     color: var(--txtbtncolor);
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 #section-faqs details summary p {
     flex: 1;
 }
 
-#section-faqs details::-webkit-details-marker { display: none; }     /* Per i motori di ricerca: Chrome e Safari */
+details::-webkit-details-marker { display: none; }     /* Per i motori di ricerca: Chrome e Safari */
 
 .exp-freccia {
-    content: url("../Resources/Vectors/UpArrow.svg");
-    width: 1.5em;
-    height: 1.5em;
-    transition: transform 0.3s ease;
     transform: rotate(-180deg);
+    fill: var(--txtbtncolor);
+    transition: transform 0.3s ease;
 }
 
-details.dtl-aperto .exp-freccia {
+details.is-expanded .exp-freccia {
     transform: rotate(0deg);
 }
 
-#section-faqs details > div {
+.faq-answer {
     display: grid;
     background-color: var(--bgcolor);
     grid-template-rows: 0fr;
-    overflow: hidden;
     transition: grid-template-rows 0.3s ease;
 }
 
-#section-faqs details[open] > div {
+#section-faqs details.is-expanded .faq-answer {
     grid-template-rows: 1fr;
 }
 
-#section-faqs details div div {
-    min-height: 0;
-    padding: 1em;
+.faq-answer > div {
+    overflow: hidden;
 }
 
-#section-faqs details div div p:not(:last-child) {
-    margin-bottom: 0.5em;
+.faq-answer div p {
+    margin: 0em 1em 0.5em 1em;
 }
 
-#section-faqs details.is-closing > div {
-    grid-template-rows: 0fr;
-    opacity: 0;
+.faq-answer div p:first-child {
+    margin-top: 1em;
+}
+
+.faq-answer div p:last-child {
+    margin-bottom: 1em;
 }
 
 #section-contatti {
@@ -713,15 +717,15 @@ details.dtl-aperto .exp-freccia {
     gap: 1em;
 }
 
-#socials img {
-    width: 2.5em;
-    height: 2.5em;
+#socials a {
+    background-color: transparent;
+    border: none;
+    padding: var(--squarepadding);
+    box-shadow: none;
 }
 
 footer {
     margin-top: 6em;
-    padding-top: 6em;
-    padding: var(--generalpadding);
     box-shadow: var(--normalshadow);
     background-color: var(--bgbread);
     text-align: center;
@@ -798,7 +802,7 @@ footer {
     font-weight: bold;
     line-height: 1.25em;
     text-align: center;
-    margin: 1em;
+    margin: 3rem auto;
 }
 
 #btns-flottanti {
@@ -848,6 +852,7 @@ footer {
     align-items: center;
     justify-content: center;
     font-size: 1em;
+    height: 2.75rem;
     border: 2px solid var(--borderbtn);
     box-shadow: var(--greenshadow);
     padding: var(--generalpadding);
@@ -855,19 +860,17 @@ footer {
 
 #btn-mese-prec::before {
     content: url("../Resources/Vectors/UpArrow.svg");
+    width: 1.75em;
+    height: 1.75em;
     transform: rotate(270deg);
-    display: block;
-    width: 2em;
-    height: 2em;
     transition: all 0.3s ease;
 }
 
 #btn-mese-succ::after {
     content: url("../Resources/Vectors/UpArrow.svg");
     transform: rotate(90deg);
-    display: block;
-    width: 2em;
-    height: 2em;
+    width: 1.75em;
+    height: 1.75em;
     transition: all 0.3s ease;
 }
 
@@ -901,19 +904,25 @@ footer {
     box-shadow: var(--brownshadow);
     padding: 0.5em;
     border-radius: 0.5em;
+    height: fit-content;
     width: 100%;
     border: 2px solid var(--borderdecoration);
 }
 
 .linea {
-    border-radius: 0.5em;
-    width: 0.3em;
-    height: auto;
+    border-radius: 5em;
+    width: 0.2em;
     background-color: var(--strongdecoration);
 }
 
+.cnt-info-btns {
+    display: contents;
+    width: 100%;
+}
+
 .orario {
-    width: 4em;
+    margin: 0 1em;
+    font-weight: bold;
     align-self: center;
     text-align: center;
 }
@@ -922,15 +931,18 @@ footer {
 .cnt-presa-adozione {
     display: flex;
     margin: 0.5em auto;
+    height: fit-content;
 }
 
 .cnt-adozione .info {
     background-color: var(--bgdecoration);
+    align-self: center;
 }
 
 .cnt-presa-adozione .info {
     background-color: var(--strongdecoration);
     color: var(--inverttxtcolor);
+    align-self: center;
 }
 
 .dtl-animale {
@@ -957,9 +969,15 @@ footer {
     height: 7.5em;
     width: auto;
     border-radius: 0.5em;
+    object-fit: cover;
+    object-position: center top;
 }
 
-.dtl-animale summary div {
+.info-animale {
+    display: contents;
+}
+
+.info-animale div {
     flex: 1;
     margin-left: 1em;
 }
@@ -967,8 +985,6 @@ footer {
 .dtl-animale .exp-freccia {
     flex: 0;
 }
-
-.dtl-animale::-webkit-details-marker { display: none; }     /* Per i motori di ricerca: Chrome e Safari */
 
 .nome-animale {
     font-size: 1.25em;
@@ -1047,6 +1063,7 @@ details[open] > .contenuto-nascosto {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .contenuto-nascosto section > ul li:not(:last-child) {
@@ -1059,18 +1076,25 @@ details[open] > .contenuto-nascosto {
     flex: 1;
 }
 
-.btn-gruppo {
+.appuntamento {
+    display: flex;
+    flex: 1;
+}
+
+.btn-gruppo,
+.btn-gruppo-cal {
     display: flex;
     align-items: center;
     margin-left: 1em;
     gap: 1em;
 }
 
-.btn-gruppo button {
+.btn-gruppo button,
+.btn-gruppo-cal button {
     padding: 0.5em;
     border-radius: 0.5em;
-    width: 3em;
-    height: 3em;
+    width: 2.75rem;
+    height: 2.75rem;
 }
 
 .lista-settimana {
@@ -1087,6 +1111,7 @@ details[open] > .contenuto-nascosto {
     text-decoration: none;
     display: flex;
     align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
 }
 
@@ -1109,6 +1134,7 @@ details[open] > .contenuto-nascosto {
 
 .btn-info {
     background-color: var(--bgbtn);
+    font-size: 1em;
     box-shadow: var(--greenshadow);
     border: 2px solid var(--borderbtn);
     background-image: url("../Resources/Vectors/Info.svg");
@@ -1148,7 +1174,8 @@ details[open] > .contenuto-nascosto {
 }
 
 dialog {
-    margin: auto;
+    margin: auto 1em;
+    justify-self: center;
     border: none;
     padding: 3em;
     background-color: var(--bgcolor);
@@ -1173,15 +1200,14 @@ dialog[open]::backdrop {
     background-image: url("../Resources/Vectors/Cancel.svg");
     background-position: center;
     background-repeat: no-repeat;
-    background-color: var(--bgbtn);
-    border: 2px solid var(--borderbtn);
-    box-shadow: var(--greenshadow);
+    background-color: transparent;
+    border: none;
     position: absolute;
     top: 1em;
     right: 1em;
     border-radius: 0.5em;
-    width: 2em;
-    height: 2em;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 #dia-appuntamento,
@@ -1205,16 +1231,17 @@ dialog[open]::backdrop {
 
 #campi-input {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+#campi-input div {
+    align-items: center;
 }
 
 #dia-appuntamento form label {
     font-weight: bold;
     margin-right: 0.5em;
-}
-
-#data-appuntamento {
-    margin-right: 1em;
 }
 
 #info-rich {
@@ -1249,6 +1276,7 @@ dialog[open]::backdrop {
 
 #toast-not {
     position: fixed;
+    width: max-content;
     bottom: 2em;
     left: 50%;
     transform: translateX(-50%);
@@ -1284,9 +1312,16 @@ dialog[open]::backdrop {
     gap: 5em;
 }
 
+#dog-house {
+    content: url("../Resources/Vectors/DogHouse.svg");
+    width: 6em;
+    height: 6em;
+}
+
 #benvenuto #ben-time {
     font-weight: bold;
     font-size: 2em;
+    margin-bottom: 0.5em;
 }
 
 #benvenuto p {
@@ -1321,38 +1356,40 @@ dialog[open]::backdrop {
     display: none;
 }
 
-#section-links {
+#section-links ul {
+    margin: 0 auto;
     margin-top: 5em;
     display: flex;
     flex-direction: column;
-    gap: 1em
+    gap: 1em;
+    width: fit-content;
 }
 
-#section-links div {
+#section-links li {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
 }
 
-#section-links div span {
+#section-links li span {
+    width: 2em;
+    height: 2em;
     background-color: var(--bgdecoration);
     font-weight: bold;
     color: var(--txtcolor);
     border: 2px solid var(--borderdecoration);
-    width: 2em;
-    height: 2em;
     align-content: center;
     justify-self: right;
     text-align: center;
-    border-radius: 5em;
+    border-radius: 10em;
 }
 
-#section-links div a {
+#section-links li a {
     background-color: var(--bgbtn);
     border: 2px solid var(--borderbtn);
     font-weight: bold;
-    width: 25em;
+    flex: 1;
     color: var(--txtbtncolor);
     padding: var(--generalpadding);
     box-shadow: var(--greenshadow);
@@ -1364,13 +1401,13 @@ dialog[open]::backdrop {
     transition: all 0.3s ease;
 }
 
-#section-links div a::before {
+#section-links li a::before {
     content: "";
     background-repeat: no-repeat;
     background-position: center;
     background-size: 1.25em;
-    width: 1.25em;
-    height: 1.25em;
+    width: 1.5em;
+    height: 1.5em;
     margin-right: 0.5em;
     background-position: center;
     transition: all 0.3s ease;
@@ -1389,37 +1426,20 @@ dialog[open]::backdrop {
 }
 
 @media (hover: hover) {
+    .btn-link:hover,
+    .btn-link:visited:hover,
     button:hover {
         background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
+        fill: var(--inverttxtcolor);
+    }
+
+    #socials a:hover {
+        fill: var(--txtbtncolor);
     }
 
     #navbar a:hover::after {
         transform: scaleX(1);
-    }
-
-    #btn-remove-bck:hover,
-    #btn-theme:hover,
-    #btn-login:hover {
-        background-color: var(--bgbtnhover);
-        box-shadow: var(--greenshadow);
-    }
-
-    #btn-remove-bck:hover {
-        background-image: url("../Resources/Vectors/RemoveBackground-Light.svg");
-    }
-
-    #btn-theme:hover {
-        background-image: url("../Resources/Vectors/Moon-Light.svg");
-    }
-
-    #btn-login:hover {
-        background-image: url("../Resources/Vectors/Login-Light.svg");
-    }
-
-    #section-title a:hover {
-        background-color: var(--bgbtnhover);
-        color: var(--inverttxtcolor);
     }
     
     #section-esperti figure:hover {
@@ -1430,23 +1450,13 @@ dialog[open]::backdrop {
         transform: scale(1.05) translateZ(0);
     }
 
-    #btn-back-to-top:hover {
-        background-image: url("../Resources/Vectors/UpArrow-Light.svg");
-        background-color: var(--bgbtnhover);
-    }
-
-    #section-faqs details summary:hover {
+    details summary:hover {
         background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
     }
 
     summary:hover .exp-freccia {
-        content: url("../Resources/Vectors/UpArrow-Light.svg");
-    }
-
-    #btns-mesi a:hover {
-        background-color: var(--bgbtnhover);
-        color: var(--inverttxtcolor);
+        fill: var(--inverttxtcolor);
     }
 
     #btn-mese-succ:hover::after,
@@ -1482,8 +1492,7 @@ dialog[open]::backdrop {
     }
 
     .btn-close:hover {
-        background-image: url("../Resources/Vectors/Cancel-Light.svg");
-        background-color: var(--bgbtnhover);
+        background-color: transparent;
     }
 
     #btn-cancella-app:hover {
@@ -1491,7 +1500,7 @@ dialog[open]::backdrop {
         color: var(--inverttxtcolor);
     }
 
-    #section-links div a:hover {
+    #section-links li a:hover {
         background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
     }
@@ -1506,5 +1515,9 @@ dialog[open]::backdrop {
 
     #proposte-link:hover::before {
         background-image: url("../Resources/Vectors/Question-Light.svg");
+    }
+
+    #hamburger:hover {
+        background-color: transparent;
     }
 }

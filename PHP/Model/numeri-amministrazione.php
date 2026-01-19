@@ -5,16 +5,17 @@ use DB\DBAccess;
 
 function getNumApp() {
     $db = new DBAccess();
-    $connOk = $db->openConn();
     $ris = [];
 
+    // QUERY: numero di appuntamenti odierni
+    $sql = "SELECT COUNT(*) AS NumAppuntamenti
+            FROM Calendario
+            WHERE Data = CURDATE()";
+
+    $connOk = $db->openConn();
     if ($connOk) {
         $conn = $db->getConn();
 
-        // QUERY: numero di appuntamenti odierni
-        $sql = "SELECT COUNT(*) AS NumAppuntamenti
-                FROM Calendario
-                WHERE Data = CURDATE()";
         $rawApp = $db->exeQuery($sql, []);
 
         $db->closeConn();
@@ -32,24 +33,25 @@ function getNumApp() {
 
 function getNumAll() {
     $db = new DBAccess();
-    $connOk = $db->openConn();
     $ris = [];
 
+    // QUERY: numero di ticket non ancora calendarizzati
+    $sqlTickets = "SELECT COUNT(*) AS NumTickets
+                FROM Ticket T
+                LEFT JOIN Calendario C ON T.ID = C.ID
+                WHERE C.ID IS NULL";
+
+    // QUERY: numero di ticket non ancora calendarizzati
+    $sqlRequests = "SELECT COUNT(*) AS NumRequests
+                    FROM AnimaleEsterno A
+                    LEFT JOIN Calendario C ON A.ID = C.ID
+                    WHERE C.ID IS NULL";
+
+    $connOk = $db->openConn();
     if ($connOk) {
         $conn = $db->getConn();
 
-        // QUERY: numero di ticket non ancora calendarizzati
-        $sqlTickets = "SELECT COUNT(*) AS NumTickets
-                    FROM Ticket T
-                    LEFT JOIN Calendario C ON T.ID = C.ID
-                    WHERE C.ID IS NULL";
         $rawTickets = $db->exeQuery($sqlTickets, []);
-
-        // QUERY: numero di ticket non ancora calendarizzati
-        $sqlRequests = "SELECT COUNT(*) AS NumRequests
-                        FROM AnimaleEsterno A
-                        LEFT JOIN Calendario C ON A.ID = C.ID
-                        WHERE C.ID IS NULL";
         $rawRequests = $db->exeQuery($sqlRequests, []);
 
         $db->closeConn();

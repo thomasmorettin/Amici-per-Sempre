@@ -1,55 +1,49 @@
 document.addEventListener("DOMContentLoaded", () => {
+  loadIndex();
   gestioneFAQs();
 })
 
+// Funzione per inizializzazione dell'apertura di tutti i dettagli delle FAQs in homepage
+function loadIndex() {
+  const allFaqs = document.querySelectorAll("#section-faqs details");
+  allFaqs.forEach(detail => { detail.removeAttribute("open", ""); });
+}
+
 // Funzione per la gestione di apertura/chisura di tag details per le FAQs in homepage
 function gestioneFAQs() {
-  const faq = document.querySelectorAll("#section-faqs details");
+  const allFaqs = document.querySelectorAll("#section-faqs details");
 
-  faq.forEach(detail => {
+  allFaqs.forEach(detail => {
     const summary = detail.querySelector("summary");
-    const contenuto = detail.querySelector("details > div");
+    const contenuto = detail.querySelector(".faq-answer");
 
     summary.addEventListener("click", (event) => {
       event.preventDefault();   // Prevenzione dell'azione di default
 
-      if (detail.open) {    // È aperto = si vuole chiudere
-        detail.classList.remove("dtl-aperto");    // Permette animazione fluida della freccia
-
-        const animeChiusura = contenuto.animate({gridTemplateRows: ["1fr", "0fr"]}, {
-          duration: 300,
-          easing: "ease"
-        })
-
-        animeChiusura.onfinish = () => {
-          detail.removeAttribute("open");
-        }
-
-      } else {    // È chiuso = si vuole aprire
-        const faqArray = Array.from(faq);
-        const openDetail = faqArray.find(detail => detail.hasAttribute("open"));
-
-        if (openDetail) {
-            const openContenuto = openDetail.querySelector("details > div");
-            openDetail.classList.remove("dtl-aperto");    // Permette animazione fluida della freccia
-
-            const closeOpenCont = openContenuto.animate({gridTemplateRows: ["1fr", "0fr"]}, {
-            duration: 300,
-            easing: "ease"
-          })
-
-          closeOpenCont.onfinish = () => {
-            openDetail.removeAttribute("open");
-          }
-        }
-
-        detail.classList.add("dtl-aperto");    // Permette animazione fluida della freccia
-        detail.setAttribute("open", "");
+      if (detail.classList.contains("is-expanded")) {    // È aperto = si vuole chiudere
+        detail.classList.remove("is-expanded");    // Permette animazione fluida della freccia
         
-        contenuto.animate({gridTemplateRows: ["0fr", "1fr"]}, {
-          duration: 300,
-          easing: "ease"
-        })
+        contenuto.addEventListener("transitionend", () => {
+          if (!detail.classList.contains("is-expanded")) { detail.removeAttribute("open", ""); }
+        }, { once: true } );
+      }
+      
+      else {    // È chiuso = si vuole aprire
+        allFaqs.forEach(faq => {
+          if (faq != detail && faq.classList.contains("is-expanded")) {
+            faq.classList.remove("is-expanded");    // Permette animazione fluida della freccia
+            faq.querySelector(".faq-answer").addEventListener("transitionend", () => {
+              if (!faq.classList.contains("is-expanded")) { faq.removeAttribute("open"); }
+            }, { once: true } );
+          }
+        });
+
+        detail.setAttribute("open", "");   // Necessario per il calcolo delle dimensioni
+        detail.classList.add("is-expanded");
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => { detail.classList.add("is-expanded"); });
+        });
       }
     })
   })

@@ -3,9 +3,9 @@
 
     <div id="btns-flottanti">
         <div id="btns-mesi">
-            <a id="btn-mese-prec" href="{{link-prev}}">Mese precedente</a>
+            <a id="btn-mese-prec" href="{{link-prev}}"><span class='abbr'>Mese precedente</span></a>
             <p>{{mese-anno}}</p>
-            <a id="btn-mese-succ" href="{{link-next}}">Mese successivo</a>
+            <a id="btn-mese-succ" href="{{link-next}}"><span class='abbr'>Mese successivo</span></a>
         </div>
 
         <div id="btns-sett">
@@ -35,14 +35,18 @@
     <button class="btn-close"></button>
 
     <form action="{{root}}/PHP/Controller/modifica-appuntamento" method="POST">
-        <div class="campi-input">
+        <div id="campi-input">
             <input type="hidden" id="hidden-id" name="id">
 
-            <label for="data-appuntamento">Data</label>
-            <input type="date" id="data-appuntamento" name="data" required>
+            <div>
+                <label for="data-appuntamento">Data</label>
+                <input type="date" id="data-appuntamento" name="data" required>
+            </div>
 
-            <label for="ora-appuntamento">Ora</label>
-            <input type="time" id="ora-appuntamento" name="ora" required>
+            <div>
+                <label for="ora-appuntamento">Ora</label>
+                <input type="time" id="ora-appuntamento" name="ora" required>
+            </div>
         </div>
 
         <button type="submit" id="btn-prenota-app">Salva appuntamento</button>

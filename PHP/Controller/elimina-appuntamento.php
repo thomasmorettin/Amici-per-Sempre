@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($id && $data && $ora) {
         if (deleteAppuntamento($id, $data, $ora)) {
             $_SESSION['success'] = "Appuntamento eliminato con successo.";
-            header("Location: " . PROJECT_ROOT . "/PHP/Controller/calendario.php");
+            header("Location: " . PROJECT_ROOT . "/calendario");
             exit();
         } 
         
