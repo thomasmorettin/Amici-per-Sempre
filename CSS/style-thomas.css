@@ -628,6 +628,7 @@ details summary {
     font-size: 1.1rem;
     font-weight: bold;
     display: flex;
+    min-height: 2.75rem;
     align-items: center;
     padding: var(--generalpadding);
     cursor: pointer;
