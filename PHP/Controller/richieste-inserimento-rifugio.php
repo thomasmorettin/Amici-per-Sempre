@@ -2,19 +2,20 @@
 require_once dirname(__DIR__) . "/../PHP/utils.php";
 require_once dirname(__DIR__) . "/Model/tickets.php";
 require_once dirname(__DIR__) . "/Controller/pannello-filtri.php";
-use function Model\getAnimaliTck;
+use function Model\getAnimaliEsterniTck;
 use function Controller\renderPannelloFiltri;
 use function Controller\renderPannelloControlloFiltri;
 
-$risDB = getAnimaliTck();
+$risDB = getAnimaliEsterniTck();
 $html = "";
 $oggi = date("Y-m-d");
 
 // Creazione del pannello dei filtri e quello di controllo
 $pannello_filtri_html = renderPannelloFiltri(PROJECT_ROOT . '/PHP/Controller/richieste-inserimento-rifugio.php', ['Tipo', 'Dati animale', 'Dati persona']);
-$pannello_controllo_filtri_html = renderPannelloControlloFiltri(true);
+$pannello_controllo_filtri_html = renderPannelloControlloFiltri(true, true);
 
 if (!empty($risDB)) {
+    /*
     usort($risDB, function($a, $b) {
         $countA = count($a["daGestire"]);
         $countB = count($b["daGestire"]);
@@ -23,11 +24,10 @@ if (!empty($risDB)) {
 
         return strcasecmp($a["info"]["nome"], $b["info"]["nome"]);
     });
+    */
 
     foreach ($risDB as $id => $animale) {
-        $richDaGestire = "";
-        $richGestite = "";
-        $numRich = (string)count($animale["daGestire"]);
+        /*
 
         if (!empty($animale["daGestire"])) {
             // Ordinamento delle richieste da gestire (crescente)
@@ -112,16 +112,22 @@ if (!empty($risDB)) {
 
         else { $richGestite = "<p>Non ci sono richieste già gestite.</p>"; }
 
+        */
+
+        if(!$animale["gestito"]) {
+            $msgGestito = "Da gestire";
+        } else {
+            $msgGestito = "Gestito";
+        }
+
         $html .=
-        "<li>
+        "
             <details class='dtl-animale'>
             <summary>
-                <img src='{{root}}/Resources/Animali/{$animale["infoAnimale"]["foto"]}' class='img-animale'>
-
                 <div>
-                    <p class='nome-animale'>{$animale["infoAnimale"]["nome"]}</p>
-                    <p>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</p>
-                    <p class='status-richieste'><span class='num-rich'>{$numRich}</span>&nbsp<span class='richieste'>nuove richieste</span></p>
+                    <p class='info-richiesta-animale'>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</p>
+                    <p>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</p>
+                    <p class='status-richieste'>$msgGestito</p>
                 </div>
 
                 <div class='exp-freccia'></div>
@@ -133,7 +139,7 @@ if (!empty($risDB)) {
                         <p class='titolo-richieste'>Richieste da gestire:</p>
 
                         <ul>
-                            {$richDaGestire}
+                            memly
                         </ul>
                     </section>
 
@@ -141,13 +147,12 @@ if (!empty($risDB)) {
                         <p>Richieste gestite:</p>
 
                         <ul>
-                            {$richGestite}
+                            fortnite
                         </ul>
                     </section>
                 </div>
             </div>
-        </details>
-    </li>";
+        </details>";
     }
 }
 

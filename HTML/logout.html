@@ -1,11 +1,15 @@
 <main>
-    <p class="titolo">Accedi</p>
-    <p class="description">Hai già eseguito l'accesso. Clicca sul pulsante qui sotto per effettuare il logout dal sistema.</p>
+    <p class="titolo">Esci</p>
     <section id="section-form-logout">
+        <h2>Conferma uscita dall'accout di amministrazione</h2>
         <form id="form-logout" method="POST" action="{{root}}/PHP/Controller/avvia-logout"> 
+            <div class="section-legend">
+            <div class="line"></div>
+            </div>
             <div class="form-field">
-                <button type="submit">Esci</button>
+                <button type="submit">Logout</button>
             </div>
         </form>
+        <a id="amministrazione-link" href="{{root}}/PHP/Controller/amministrazione">Torna all'area di amministrazione</a>
     </section>
 </main>

@@ -78,6 +78,80 @@ function getAnimaliTck() {
     return $animali;
 }
 
+function getAnimaliEsterniTck() {
+    $db = new DBAccess();
+    $connOk = $db->openConn();
+    $animali = [];
+
+    if ($connOk) {
+        $conn = $db->getConn();
+
+        // QUERY: animali esterni al rifugio
+        $sql = "SELECT E.ID AS IDAnimale, E.Razza AS RazzaAnimale, R.Tipo AS TipoAnimale,
+                ED.Note AS Info, ED.DataRichiesta AS DataRich,
+                P.Nome AS NomeRich, P.Cognome AS CognomeRich, P.Email AS EmailRich, P.Telefono AS TelRich,
+                C.ID AS IDCalendario, C.Data AS DataApp, C.Ora AS OraApp
+                FROM AnimaleEsterno E
+                JOIN Razza R ON E.Razza = R.Nome
+                LEFT JOIN EntitaDatabile ED ON E.ID = ED.ID
+                LEFT JOIN Persona P ON E.Proprietario = P.ID
+                LEFT JOIN Calendario C ON ED.ID = C.ID
+                ORDER BY ED.DataRichiesta DESC, C.Data DESC";
+        $rawAnimaliEsterni = $db->exeQuery($sql, []);
+
+        $db->closeConn();
+
+        // Sanitizzazione e riorganizzazione dei dati, sia ticket avviati che anche calendarizzati
+        if ($rawAnimaliEsterni) {
+
+            $animali["DEBUG"] = [
+                "infoAnimale" => [
+                    "id" => "DEBUG",
+                    "tipo" => "DEBUG_TIPO",
+                    "razza" => "DEBUG_RAZZA"
+                ],
+                "padrone" => [
+                    "nome" => "DEBUG NOME",
+                    "cognome" => "DEBUG COGNOME",
+                    "email" => "debug@email.it",
+                    "telefono" => "0000000000"
+                ],
+                "gestito" => false
+            ];
+            
+            foreach ($rawAnimaliEsterni as $row) {
+                $idAnimaleEsterno = $row["IDAnimale"];
+
+                $animali[$idAnimaleEsterno] = [
+                    "infoAnimale" => [
+                        "id" => $row["IDAnimale"],
+                        "tipo" => htmlspecialchars($row["TipoAnimale"], ENT_QUOTES, "UTF-8"),
+                        "razza" => htmlspecialchars($row["RazzaAnimale"], ENT_QUOTES, "UTF-8")
+                    ],
+
+                    "padrone" => [
+                        "nome" => htmlspecialchars($row["NomeRich"] . " " . $row["CognomeRich"], ENT_QUOTES, "UTF-8"),
+                        "cognome" => htmlspecialchars($row["CognomeRich"], ENT_QUOTES, "UTF-8"),
+                        "email" => htmlspecialchars($row["EmailRich"], ENT_QUOTES, "UTF-8"),
+                        "telefono" => htmlspecialchars($row["TelRich"], ENT_QUOTES, "UTF-8")
+                    ],
+                ];
+
+                if ($row["IDCalendario"]) {
+                    $animali[$idAnimaleEsterno]["gestito"] = true;
+                    $animali[$idAnimaleEsterno]["data"] = $row["DataApp"];
+                    $animali[$idAnimaleEsterno]["ora"] = sprintf("%02d:%02d", (int)substr($row["OraApp"], 0, 2), (int)substr($row["OraApp"], 3, 2));
+              
+                } else {
+                    $animali[$idAnimaleEsterno]["gestito"] = false;
+                }
+            }
+        }
+    }
+
+    return $animali;
+}
+
 function addAppuntamento($id, $data, $ora) {
     $db = new DBAccess();
 

@@ -144,27 +144,19 @@
 
 #section-form-logout {
     padding: 2em;
-    max-width: 25em;
-    text-align: center;
-    margin: 0 auto;
-}
-
-#section-form-logout button {
-    background-color: var(--bgbtn);
-    color: var(--txtbtncolor);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.25em;
-    box-shadow: var(--greenshadow);
     border-radius: 0.5em;
-    border: 2px solid var(--borderbtn);
-    padding: var(--generalpadding);
-    transition: all 0.3s ease;
+    box-shadow: var(--normalshadow);
+    background-color: var(--bgcolor);
+    border: 2px solid var(--borderform);
+    max-width: 25em;
+    margin: 3em auto;
 }
 
-#section-form-logout button:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
+#section-form-logout h2 {
+    text-align: center;
+    color: var(--txtcolor);
+    margin-bottom: 1em;
+    font-weight: normal;
 }
 
 #section-form-porta-adozione form,
@@ -177,6 +169,7 @@
 #section-form-logout form {
     display: flex;
     flex-direction: column;
+    gap: 1.5em;
 }
 
 label {
@@ -226,6 +219,33 @@ form button:hover {
     color: var(--inverttxtcolor);
 }
 
+form select {
+    font-family: "Inter", serif;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    padding: 10px 40px 10px 10px; /* spazio per la freccia */
+    border: 2px solid var(--txtcolor);
+    border-radius: 5px;
+    background: var(--bgbread); /* colore di sfondo simile all’immagine */
+    appearance: none; /* rimuove la freccia di default */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+form select::after {
+  content: "▼"; /* o puoi usare un'immagine */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #4a6f1b; /* verde simile all’immagine */
+  font-size: 12px;
+}
+
+
 .radio-group {
     flex-direction: row;
     display: flex;
@@ -235,6 +255,7 @@ form button:hover {
 .radio-group label {
     display: flex;
     align-items: center;
+    margin-bottom: 0;
 }
 
 .radio-group input[type="radio"] {
@@ -324,11 +345,12 @@ form button:hover {
 .list-topbar {
     border: 0px;
     border-radius: 0.5em;
-    background-color: var(--bgbread);
+    background-color: var(--bgcolor);
+    border: 2px solid var(--txtcolor);
     padding: 0.5em;
     display: flex;
     justify-content: center;
-    gap: 1em;
+    gap: 0.5em;
     position: sticky;
     top: 7em;
     z-index: 20;
@@ -346,7 +368,7 @@ form button:hover {
     padding: var(--generalpadding);
     transition: background-color 0.3s ease;
     flex: 1;
-    max-width: 20em;
+    max-width: 5em;
 
     display: inline-flex;
     align-items: center;
@@ -357,20 +379,6 @@ form button:hover {
 .list-topbar button:hover {
     background-color: var(--bgbtnhover);
     color: var(--inverttxtcolor);
-}
-
-#filtra-btn::before {
-    content: url("../Resources/Vectors/Filter.svg");
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-}
-
-#filtra-btn:hover::before {
-    content: url("../Resources/Vectors/Filter-Light.svg");
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
 }
 
 #ordina-btn::before {
@@ -442,6 +450,7 @@ form button:hover {
 .check-group label {
     display: flex;
     align-items: center;
+    margin-bottom: 0;
 }
 
 .accordion .content {
@@ -668,14 +677,13 @@ form button:hover {
 }
 
 .azioni-filtro #reset {
-    display: flex;
-    padding: 1em;
+    min-width: 2em;
     background-color: var(--bgwarning);
     box-shadow: var(--redshadow);
     border: 2px solid var(--borderwarning);
     background-image: url("../Resources/Vectors/Delete.svg");
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
 }
 
 .azioni-filtro #reset:hover {
@@ -800,4 +808,121 @@ form button:hover {
 .sezione-padrone {
     display: flex;
     flex-direction: column;
+}
+
+#btn-logout,
+#btn-amministrazione
+{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-size: 2rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    transition: all 0.3s ease;
+}
+
+#btn-amministrazione:hover,
+#btn-logout:hover {
+    background-color: var(--bgbtnhover);
+    box-shadow: var(--greenshadow);
+}
+
+#btn-logout {
+    display: block;
+    background-image: url("../Resources/Vectors/Logout.svg");
+    text-indent: -9999em;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 0.5em;
+}
+
+#btn-amministrazione {
+    display: block;
+    background-image: url("../Resources/Vectors/Wrench.svg");
+    text-indent: -9999em;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 0.5em;
+}
+
+#btn-logout:hover {
+    background-image: url("../Resources/Vectors/Logout-Light.svg");
+}
+
+#btn-amministrazione:hover {
+    background-image: url("../Resources/Vectors/Wrench-Light.svg");
+}
+
+#form-logout button {
+    background-color: var(--bgwarning);
+    color: var(--txtwarning);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: var(--redshadow);
+    border-radius: 0.5em;
+    border: 2px solid var(--borderwarning);
+    padding: var(--generalpadding);
+    transition: background-color 0.3s ease;
+}
+
+#form-logout button:hover {
+    background-color: var(--bgwarninghover);
+    color: var(--inverttxtcolor);
+}
+
+#amministrazione-link {
+    display: flex;
+    background-color: var(--bgbtn);
+    color: var(--txtbtncolor);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 1.5em;
+    box-shadow: var(--greenshadow);
+    border-radius: 0.5em;
+    border: 2px solid var(--borderbtn);
+    padding: var(--generalpadding);
+    transition: background-color 0.3s ease;
+    justify-content: center;
+    text-align: center;
+}
+
+#amministrazione-link:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor);
+}
+
+#ricerca {
+    display: flex;
+    flex: 1;
+}
+
+#form-ricerca{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 0.5rem;
+}
+
+.list-topbar svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+#clear-ricerca {
+    background-color: var(--bgwarning);
+    color: var(--txtwarning);
+    box-shadow: var(--redshadow);
+    border: 2px solid var(--borderwarning);
+    fill: var(--txtwarning);
+}
+
+#clear-ricerca:hover {
+    background-color: var(--bgwarninghover);
+    fill: var(--inverttxtcolor);
+    color: var(--inverttxtcolor);
 }

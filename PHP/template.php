@@ -8,11 +8,13 @@ function buildTemplate() {
     $header = populatedNavbar();
     $breadcrumb = populatedBread();
     $footer = file_get_contents(__DIR__ . "/../HTML/footer.html");
+    $accountBtn = getAccountButton();
 
     $layout = [
         "{{header}}" => $header,
         "{{breadcrumb}}" => $breadcrumb,
-        "{{footer}}" => $footer
+        "{{footer}}" => $footer,
+        "{{btn-account}}" => $accountBtn
     ];
 
     foreach ($layout as $placeholder => $valore) {

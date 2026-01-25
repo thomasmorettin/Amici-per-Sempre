@@ -68,7 +68,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         $html .= '            <div class="accordion">'
             . '                <div class="accordion-header">'
             . '                    <div class="legend-left"></div>'
-            . '                    <button class="header">'
+            . '                    <button type="button" class="header">'
             . '                        <p>Tipo animale</p>'
             . '                        <span class="header-arrow"></span>'
             . '                    </button>'
@@ -93,7 +93,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         $html .= '            <div class="accordion">'
             . '                <div class="accordion-header">'
             . '                    <div class="legend-left"></div>'
-            . '                    <button class="header">'
+            . '                    <button type="button" class="header">'
             . '                        <p>Dati animale</p>'
             . '                        <span class="header-arrow"></span>'
             . '                    </button>'
@@ -136,7 +136,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         $html .= '             <div class="accordion">'
             . '                 <div class="accordion-header">'
             . '                    <div class="legend-left"></div>'
-            . '                     <button class="header">'
+            . '                     <button type="button" class="header">'
             . '                        <p> Dati persona </p>'
             . '                        <span class="header-arrow"></span>'
             . '                    </button>'
@@ -176,14 +176,31 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
 
 // Crea il pannello di controllo filtri (pulsanti Filtra e Ordina)
 // Di default il bottone "Ordina" non viene mostrato
-function renderPannelloControlloFiltri($ordina = false): string
+function renderPannelloControlloFiltri($ricerca = false, $ordina = false): string
 {
 
     $html = '            <div class="list-topbar">'
         . '                   <button id="filtra-btn">'
-        . '                       Filtra'
+        . '                       <svg>'
+        . '                           <use href="{{root}}/Resources/icons.svg#filter"></use>'
+        . '                       </svg>Filtra'
         . '                   </button>';    
 
+    if ($ricerca) {
+        $html .= '          <form id="form-ricerca" method="GET" action="">'
+        . '                    <input type="ricerca" id="ricerca" name="ricerca" placeholder="Ricerca">'
+        . '                    <button id="avvia-ricerca" title="Avvia ricerca" type="submit">'
+        . '                       <svg>'
+        . '                         <use href="{{root}}/Resources/icons.svg#search"></use>'
+        . '                       </svg>Cerca'
+        . '                    </button>'
+        . '                    <button id="clear-ricerca" title="Azzerra ricerca" type="reset">'
+        . '                       <svg>'
+        . '                         <use href="{{root}}/Resources/icons.svg#delete"></use>'
+        . '                       </svg>Azzera'
+        . '                    </button>'
+        . '                 </form>';
+    }
     if ($ordina) {
         $html .= '            <div class="select-wrapper" id="ordina-wrapper">'
             . '                    <select class="custom-select" name="sort">'
