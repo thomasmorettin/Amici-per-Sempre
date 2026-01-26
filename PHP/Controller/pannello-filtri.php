@@ -176,7 +176,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
 
 // Crea il pannello di controllo filtri (pulsanti Filtra e Ordina)
 // Di default il bottone "Ordina" non viene mostrato
-function renderPannelloControlloFiltri($ricerca = false, $ordina = false): string
+function renderPannelloControlloFiltri($ricerca = false): string
 {
 
     $html = '            <div class="list-topbar">'
@@ -200,15 +200,6 @@ function renderPannelloControlloFiltri($ricerca = false, $ordina = false): strin
         . '                       </svg>Azzera'
         . '                    </button>'
         . '                 </form>';
-    }
-    if ($ordina) {
-        $html .= '            <div class="select-wrapper" id="ordina-wrapper">'
-            . '                    <select class="custom-select" name="sort">'
-            . '                         <option value="razza">Ordina per: Nome</option>'
-            . '                         <option value="nome">Ordina per: Data richiesta</option>'
-            . '                         <option value="data">Ordina per: Data appuntamento</option>'
-            . '                    </select>'
-            . '               </div>';
     }
 
     $html .= '            </div>';

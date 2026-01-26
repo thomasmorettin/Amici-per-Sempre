@@ -12,7 +12,7 @@ $oggi = date("Y-m-d");
 
 // Creazione del pannello dei filtri e quello di controllo
 $pannello_filtri_html = renderPannelloFiltri(PROJECT_ROOT . '/PHP/Controller/richieste-inserimento-rifugio.php', ['Tipo', 'Dati animale', 'Dati persona']);
-$pannello_controllo_filtri_html = renderPannelloControlloFiltri(true, true);
+$pannello_controllo_filtri_html = renderPannelloControlloFiltri(true);
 
 if (!empty($risDB)) {
     /*
@@ -139,7 +139,7 @@ if (!empty($risDB)) {
                         <p class='titolo-richieste'>Richieste da gestire:</p>
 
                         <ul>
-                            memly
+                            meml
                         </ul>
                     </section>
 

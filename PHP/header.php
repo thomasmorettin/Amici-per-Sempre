@@ -62,10 +62,18 @@ function populatedNavbar() {
 
 function getAccountButton() {
     if(is_logged_in()) {
-        return '<a id="btn-amministrazione" href="{{root}}/PHP/Controller/amministrazione" title="Area amministrazione" lang="en">Area amministrazione</a>
-                <a id="btn-logout" href="{{root}}/PHP/Controller/login" title="Logout" lang="en">Logout</a>';
+        return '    <a class="btn-link" href="{{root}}/amministrazione" lang="en">
+                        <svg>
+                            <use href="{{root}}/Resources/icons.svg#wrench"></use>
+                        </svg>
+                    </a>
+                    <a class="btn-link" href="{{root}}/login" lang="en">
+                        <svg>
+                            <use href="{{root}}/Resources/icons.svg#logout"></use>
+                        </svg>
+                    </a>';
     } else {
-        return '    <a class="btn-link" href="#" lang="en">
+        return '    <a class="btn-link" href="{{root}}/login" lang="en">
                         <svg>
                             <use href="{{root}}/Resources/icons.svg#login"></use>
                         </svg>
