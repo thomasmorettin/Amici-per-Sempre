@@ -1,0 +1,73 @@
+\documentclass[a4paper,10pt]{article}
+
+% ---------------- PACCHETTI ----------------
+\usepackage[utf8]{inputenc}       % encoding
+\usepackage[T1]{fontenc}          % font encoding
+\usepackage[italian]{babel}       % lingua italiana
+\usepackage{graphicx}             % immagini
+\usepackage{amsmath, amssymb}     % matematica
+\usepackage{listings}             % codice sorgente
+\usepackage{xcolor}               % colori
+\usepackage{hyperref}             % link cliccabili
+\usepackage{geometry}             % margini pagina
+\usepackage{mdframed}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\geometry{margin=2.5cm}
+
+\newmdenv[linecolor=black,linewidth=0.5pt,backgroundcolor=gray!10]{defbox}
+\newmdenv[linecolor=black,linewidth=0.5pt,backgroundcolor=white!10]{citabox}
+
+% ---------------- DOCUMENTO ----------------
+\begin{document}
+	
+	\begin{titlepage}
+		\centering
+		\vspace*{\fill}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=2.5]{Resources/logo.pdf}
+		\end{figure}
+		\vspace{1cm}
+		
+		{\huge \textbf{Rifugio per adozione animali}}\\[0.5cm]
+		{\Huge \textbf{\url{http://localhost/}}}\\[1.5cm]
+		
+		\rule{\textwidth}{0.5pt}\\[0.5cm] % linea orizzontale elegante
+		{\LARGE Relazione tecnica}\\[0.1cm]
+		\rule{\textwidth}{0.5pt}\\[2cm]
+		
+		\begin{flushright}
+			{\Large \textbf{Università degli Studi di Padova}} \\[0.1cm]
+			{\Large \textbf{L.T. in Informatica}} \\[0.1cm]
+			{\Large \textbf{A.A. 2025/26}} \\[0.5cm]
+		\end{flushright}
+		
+		\begin{flushleft}
+			\textbf{2111001 (Referente)} Thomas Morettin (\href{mailto:thomas.morettin@studenti.unipd.it}{thomas.morettin@studenti.unipd.it}) \\
+			\textbf{2111935} Felician Mario Necsulescu (\href{mailto:felicianmario.necsulescu@studenti.unipd.it}{felicianmario.necsulescu@studenti.unipd.it}) \\
+			\textbf{2111947} Niccolò Feltrin (\href{mailto:niccolo.feltrin@studenti.unipd.it}{niccolo.feltrin@studenti.unipd.it}) \\ [0.5cm]
+			\textbf{Data} 01.02.2026 \\
+			\textbf{Corso} Tecnologie Web \\
+			\textbf{\hspace*{0.5cm}Cod.} SCP4065581 \\
+		\end{flushleft}
+		\vspace{1cm}
+		
+		{\Large \textbf{Credenziali di accesso al sito}}
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{lcc}
+				\toprule
+				\textbf{Ruolo} & \textbf{Username} & \textbf{Password} \\
+				\midrule
+				Amministratore & admin & admin
+			\end{tabular}
+		\end{table}
+		\vspace*{\fill}
+	\end{titlepage}
+	\tableofcontents
+	\clearpage
+	
+	\section{Introduzione}
+\end{document}
