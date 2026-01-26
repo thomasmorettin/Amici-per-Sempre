@@ -5,7 +5,8 @@ http_response_code(500);
 
 $dati = [
     '{{current-page}}' => 'Errore 500',
-    '{{page-keywords}}' => 'errore, errore interno del server, 500',
+    '{{page-description}}' => "",
+    '{{page-keywords}}' => 'amici per sempre, errore, errore interno del server, 500',
     '{{current-js}}' => '',
 ];
 

@@ -1,61 +1,61 @@
 <main>
     <div id="scheda-con-visita">
-        <img src="[immagine]" alt="[alt_immagine]" class="animal-image">
+        <img src="[immagine]" alt="" class="animal-image">
 
         <div class="animal-info">
             <h2 class="animal-name">[nome_animale]</h2>
             <span class="status-badge">✓ Disponibile per Adozione</span>
 
-            <div class="info-grid">
+            <dl class="info-grid">
                 <div class="info-item">
-                    <span class="info-label">Specie</span>
-                    <span class="info-value">[specie]</span>
+                    <dt class="info-label">Specie</dt>
+                    <dd class="info-value">[specie]</dd>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Razza</span>
-                    <span class="info-value">[razza]</span>
+                    <dt class="info-label">Razza</dt>
+                    <dd class="info-value">[razza]</dd>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Età</span>
-                    <span class="info-value">[eta]</span>
+                    <dt class="info-label">Età</dt>
+                    <dd class="info-value">[eta]</dd>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Sesso</span>
-                    <span class="info-value">[sesso]</span>
+                    <dt class="info-label">Sesso</dt>
+                    <dd class="info-value">[sesso]</dd>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Peso</span>
-                    <span class="info-value">[peso]</span>
+                    <dt class="info-label">Peso</dt>
+                    <dd class="info-value">[peso]</dd>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Colore</span>
-                    <span class="info-value">[colore]</span>
+                    <dt class="info-label">Colore</dt>
+                    <dd class="info-value">[colore]</dd>
                 </div>
-            </div>
+            </dl>
         </div>
 
         <div class="descriptions">
-            <h2 class="descriptions-title">La storia</h2>
+            <h3 class="descriptions-title">La storia</h3>
             <p>[storia]</p>
         </div>
 
         <div class="features">
-            <h2 class="features-title">Caratteristiche</h2>
+            <h3 class="features-title">Caratteristiche</h3>
             <ul>
                 [caratteristiche_list]
             </ul>
         </div>
 
-        <section id="chiedi-visita">
+        <section id="chiedi-visita" aria-labelledby="visita-heading">
             <div class="visita-header">
-                <span class="zampa-no-sfondo"></span>
-                <h2> Vuoi conoscere [nome_animale] di persona? </h2> 
-                <button id="btn-richiedi-visita" class="cta-button">
+                <span class="zampa-no-sfondo" aria-hidden="true"></span>
+                <h3 id="visita-heading"> Vuoi conoscere [nome_animale] di persona? </h3> 
+                <button id="btn-richiedi-visita" class="cta-button" aria-expanded="false" aria-controls="appointment-form" >
                     Prenota Visita
                 </button>
             </div>
 
-            <form class="appointment-form" method="POST" action="{{root}}/PHP/Controller/invia-richiesta-visita">
+            <form id="appointment-form" method="POST" action="{{root}}/PHP/Controller/invia-richiesta-visita">
                 <input type="hidden" name="animale_id" value="[animale_id]">
                 
                 <div class="form-intro">
@@ -71,10 +71,11 @@
                                id="nome" 
                                name="nome" 
                                required 
-                               placeholder="Il tuo nome"
+                               placeholder="Mario"
                                value="[val_nome]"
                                aria-describedby="error-nome">
-                        <div id="error-nome" class="field-error hidden" role="alert"></div>
+                            <!--autocomplete="off" -->
+                        <div id="error-nome" class="field-error hidden" role="alert" aria-atomic="true"></div>
                     </div>
 
                     <div class="single-form">
@@ -88,7 +89,7 @@
                                placeholder="Il tuo cognome"
                                value="[val_cognome]"
                                aria-describedby="error-cognome">
-                        <div id="error-cognome" class="field-error hidden" role="alert"></div>
+                        <div id="error-cognome" class="field-error hidden" role="alert" aria-atomic="true"></div>
                     </div>        
                 </div>
 
@@ -104,7 +105,7 @@
                                placeholder="tuaemail@esempio.it"
                                value="[val_email]"
                                aria-describedby="error-email">
-                        <div id="error-email" class="field-error hidden" role="alert"></div>
+                        <div id="error-email" class="field-error hidden" role="alert" aria-atomic="true"></div>
                     </div>
 
                     <div class="single-form">
@@ -118,7 +119,7 @@
                                placeholder="+39 123 456 7890"
                                value="[val_telefono]"
                                aria-describedby="error-telefono">
-                        <div id="error-telefono" class="field-error hidden" role="alert"></div>
+                        <div id="error-telefono" class="field-error hidden" role="alert" aria-atomic="true"></div>
                     </div>
                 </div>
 

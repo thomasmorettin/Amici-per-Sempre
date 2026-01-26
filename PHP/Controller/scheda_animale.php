@@ -57,11 +57,10 @@ unset($_SESSION['form_data']);
 // === ARRAY DATI PER buildPage() ===
 $dati = [
     '{{current-page}}'   => $nome,
-    
+    '{{page-description}}' => "",
     '{{page-keywords}}'  => "Amici per Sempre, 
                             $razza in adozione Padova, 
-                            $tipo in adozione, 
-                            adottare $razza Padova,  
+                            $tipo in adozione,   
                             $razza $colore adozione, 
                             $tipo in adozione Padova",
 
@@ -70,7 +69,7 @@ $dati = [
     '{{breadcrumb}}'     => populatedBread(),
     '{{footer}}'         => file_get_contents(dirname(__DIR__) . "/../HTML/footer.html"),
     '[immagine]'         => $pthImg,
-    '[alt_immagine]'     => "Foto di $nome",
+   // '[alt_immagine]'     => "Foto di $nome",
     '[nome_animale]'     => $nome,
     '[specie]'           => $tipo,
     '[razza]'            => $razza,
@@ -80,6 +79,7 @@ $dati = [
     '[colore]'           => $colore,
     '[storia]'           => nl2br($storia),
     '[caratteristiche_list]' => $caratteristiche_html,
+    '[nome_animale]'     => $nome,
     '[animale_id]'       => $animale_id,
     '[val_nome]'         => isset($form_data['nome']) ? htmlspecialchars($form_data['nome'], ENT_QUOTES, 'UTF-8') : '',
     '[val_cognome]'      => isset($form_data['cognome']) ? htmlspecialchars($form_data['cognome'], ENT_QUOTES, 'UTF-8') : '',

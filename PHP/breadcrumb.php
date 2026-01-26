@@ -46,8 +46,8 @@ function getCurrentPath() {
             "url" => PROJECT_ROOT . "/PHP/Controller/scheda_animale"
         ],
 
-        "403.php" => [
-            "titolo" => "Errore 403",
+        "401.php" => [
+            "titolo" => "Errore 401",
             "padre" => null,
             "url" => PROJECT_ROOT . "/"
         ],

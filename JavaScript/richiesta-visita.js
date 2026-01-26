@@ -1,30 +1,72 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('.appointment-form');
+    const form = document.getElementById('appointment-form');
     const btnRichiestaVisita = document.getElementById('btn-richiedi-visita');
     
     if (!form) return;
     
-    // Toggle form
+    // ========================================
+    // GESTIONE APERTURA/CHIUSURA FORM + ACCESSIBILITÀ
+    // ========================================
+    
+    // Imposta aria-expanded iniziale
+    if (btnRichiestaVisita) {
+        btnRichiestaVisita.setAttribute('aria-expanded', 'false');
+    }
+    
+    // Funzione per aprire/chiudere il form
+    function toggleForm() {
+        const isOpen = form.classList.contains('active');
+        
+        if (isOpen) {
+            // CHIUDI il form
+            form.classList.remove('active');
+            btnRichiestaVisita.textContent = 'Prenota visita';
+            btnRichiestaVisita.setAttribute('aria-expanded', 'false');
+            
+            // Riporta il focus sul bottone
+            btnRichiestaVisita.focus();
+            
+        } else {
+            // APRI il form
+            form.classList.add('active');
+            btnRichiestaVisita.textContent = 'Chiudi form';
+            btnRichiestaVisita.setAttribute('aria-expanded', 'true');
+            
+            // Focus sul primo campo
+            setTimeout(() => {
+                const firstInput = document.getElementById('nome');
+                if (firstInput) {
+                    firstInput.focus();
+                }
+            }, 100);
+        }
+    }
+    
+    // Toggle form al click (Enter e Spazio funzionano già nativamente su <button>)
     if (btnRichiestaVisita) {
         btnRichiestaVisita.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            if (form.classList.contains('active')) {
-                form.classList.remove('active');
-                this.textContent = 'Prenota Visita';
-            } else {
-                form.classList.add('active');
-                this.textContent = 'Chiudi Form';
-                setTimeout(() => {
-                    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
+            toggleForm();
         });
     } else {
+        // Se non c'è il bottone, mostra il form direttamente
         form.classList.add('active');
     }
     
-    // Elementi del form
+    // Chiudi il form con ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && form.classList.contains('active')) {
+            form.classList.remove('active');
+            btnRichiestaVisita.textContent = 'Prenota Visita';
+            btnRichiestaVisita.setAttribute('aria-expanded', 'false');
+            btnRichiestaVisita.focus();
+        }
+    });
+    
+    // ========================================
+    // ELEMENTI DEL FORM
+    // ========================================
+    
     const nomeInput = document.getElementById('nome');
     const cognomeInput = document.getElementById('cognome');
     const emailInput = document.getElementById('email');
@@ -38,7 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorTelefono = document.getElementById('error-telefono');
     const errorPrivacy = document.getElementById('error-privacy');
     
-    // === FUNZIONI DI VALIDAZIONE ===
+    // ========================================
+    // FUNZIONI DI VALIDAZIONE
+    // ========================================
     
     function validaNome(input) {
         const valore = input.value.trim();
@@ -93,12 +137,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
     }
     
-    // === MOSTRA/NASCONDI ERRORI (PURISTA) ===
+    // ========================================
+    // MOSTRA/NASCONDI ERRORI CON ARIA
+    // ========================================
     
     function mostraErroreCampo(input, errorDiv, messaggio) {
         if (messaggio) {
             input.classList.add('error');
-            input.setAttribute('aria-invalid', 'true');
+            input.setAttribute('aria-invalid', 'true');  // ARIA: campo non valido
             errorDiv.textContent = messaggio;
             errorDiv.classList.remove('hidden');
         } else {
@@ -108,12 +154,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function rimuoviErroreCampo(input, errorDiv) {
         input.classList.remove('error');
-        input.removeAttribute('aria-invalid');
+        input.removeAttribute('aria-invalid');  // ARIA: campo valido
         errorDiv.textContent = '';
         errorDiv.classList.add('hidden');
     }
     
-    // === VALIDAZIONE AL SUBMIT ===
+    // ========================================
+    // VALIDAZIONE AL SUBMIT
+    // ========================================
     
     form.addEventListener('submit', function(e) {
         let haErrori = false;
@@ -169,17 +217,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (haErrori) {
             e.preventDefault();
             
-            // Scroll al primo errore
+            // Focus sul primo errore
             if (primoErrore) {
-                primoErrore.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                setTimeout(() => {
-                    primoErrore.focus();
-                }, 500);
+                primoErrore.focus();
             }
         }
     });
     
-    // === VALIDAZIONE IN TEMPO REALE (blur/input) ===
+    // ========================================
+    // VALIDAZIONE IN TEMPO REALE (blur/input)
+    // ========================================
     
     nomeInput.addEventListener('blur', function() {
         const errore = validaNome(this);
@@ -238,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // === FORMATTAZIONE AUTOMATICA TELEFONO ===
+    // FORMATTAZIONE AUTOMATICA TELEFONO
     
     telefonoInput.addEventListener('input', function() {
         let valore = this.value;

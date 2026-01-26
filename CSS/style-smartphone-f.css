@@ -1,9 +1,4 @@
-main {
-        padding: 0.5em;
-        padding-bottom: 2em;
-    }
-/* 
-========================================
+/*=======================================
    HERO SECTION
    ======================================== */
 
@@ -50,24 +45,39 @@ main {
 }
 
 /* ========================================
+   LIST VERTICAL PANEL
+   ======================================== */
+
+.list-vertical-panel {
+    margin-top: 0.3em;
+    margin-left:0.5em;
+    margin-right:1.2em;
+    margin-bottom:0.5em;  /* ← AGGIUNTO */
+}
+
+/* ========================================
    ANIMAL LIST & CARDS
    ======================================== */
 
 .animal-list {
-    grid-template-columns: 1fr;
-    gap: 0.75em;
-}
-
-.animal-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
     width: 100%;
 }
 
+
 .animal-card {
-        flex: 0 1 100%;  /* 1 colonna */
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;  /* Non crescere né rimpicciolirsi */
+    margin: 0;  /* Rimuovi margini */
 }
 
 .animal-card figure {
     border-radius: 0.75em;
+    margin: 0;  /* IMPORTANTE: rimuovi margini dal figure */
 }
 
 .animal-card img {
@@ -75,6 +85,7 @@ main {
     min-height: 12.5em;      
     object-fit: cover;
     width: 100%;
+    display: block;  /* Rimuove spazi bianchi sotto l'immagine */
 }
 
 .animal-card figcaption {
@@ -91,7 +102,6 @@ main {
     font-size: 0.85em;
 }
 
-
 /*//////////////////////////////////////////*/
 
 /* ========================================
@@ -100,16 +110,20 @@ main {
 
 #scheda-con-visita {
     padding: 0.5em;
+    display: block; /* rimuove eventuali flex/grid dal desktop */
+    box-sizing: border-box;  
 }
 
 /* Immagine animale - RIDOTTA */
 .animal-image {
     width: 100%;
-    max-height: 12em;        
-    min-height: 12em;        
+    max-height: 14.5em;        
+    min-height: 14.5em;        
     object-fit: cover;
     border-radius: 1em;
     margin-bottom: 1em;
+    display: block;  
+
 }
 
 /* Info animale */
@@ -117,7 +131,10 @@ main {
     padding: 1em;
     margin-bottom: 1em;
     border-radius: 1em;
-    background: var(--bg-secondary, rgba(255, 255, 255, 0.3));
+    width: 100%;  
+    min-width: 0; 
+    box-sizing: border-box;
+    display: block; 
 }
 
 .animal-name {
@@ -135,6 +152,7 @@ main {
 
 /* Grid info - 2 colonne su mobile */
 .info-grid {
+    display: grid;  /* AGGIUNGI - forza grid esplicitamente */
     grid-template-columns: 1fr 1fr;
     gap: 0.6em;              
     margin-top: 0.5em;
@@ -143,36 +161,32 @@ main {
 .info-item {
     padding: 0.6em;          
     border-radius: 0.5em;
-    background: var(--bg-item, rgba(255, 255, 255, 0.5));
+    display: block;  
 }
 
 .info-label {
     font-size: 0.7em;        
     margin-bottom: 0.2em;
-    text-transform: uppercase;
     opacity: 0.8;
     display: block;
 }
 
 .info-value {
     font-size: 0.9em;        
-    font-weight: 600;
     display: block;
 }
 
-/* Descrizioni - PIÙ COMPATTE */
 .descriptions,
 .features {
     padding: 1em;
     margin-bottom: 1em;
     border-radius: 1em;
-    background: var(--bg-secondary, rgba(255, 255, 255, 0.3));
 }
 
 .descriptions-title,
 .features-title {
     font-size: 1.3em;       
-    margin-bottom: 0.6em;
+    margin-bottom: 0.8em;
 }
 
 .descriptions p {
@@ -181,13 +195,14 @@ main {
 }
 
 .features ul {
-    padding-left: 1.3em;     
+    padding-left: 1em;     
 }
 
-.features li {
-    font-size: 0.9em;        
+.features ul li {
+    font-size: 0.9em;  
+    padding:0.9em 0.5em;      
     margin-bottom: 0.4em;    
-    line-height: 1.5;
+    line-height: 1.2;
 }
 
 /* ========================================
@@ -195,8 +210,7 @@ main {
    ======================================== */
 
 #chiedi-visita {
-    padding: 0.5em;
-    margin-top: 1em;
+    padding: 1em;
 }
 
 /* Header visita - STACK VERTICALE */
@@ -204,15 +218,15 @@ main {
     flex-direction: column;
     text-align: center;
     padding: 1em;
-    gap: 0.75em;
+    gap: 1em;
 }
 
 .zampa-no-sfondo {
-    width: 2em;
-    height: 2em;
+    width: 3.5em;
+    height: 3.5em;
 }
 
-.visita-header h2 {
+.visita-header h3 {
     font-size: 1.3em;
     margin: 0;
     line-height: 1.4;
@@ -220,8 +234,8 @@ main {
 }
 
 .cta-button {
-    width: 100%;
-    padding: 0.75em 1em;
+    width: 80%;
+    padding: 0.6em 1em;
     font-size: 1em;
 }
 
@@ -229,55 +243,86 @@ main {
    FORM RICHIESTA VISITA - MOBILE
    ======================================== */
 
-.appointment-form {
-    padding: 1em;
+
+#appointment-form {
+    padding: 1.5em;
+}
+
+#appointment-form.active {
+    padding: 1.5em;
 }
 
 .form-intro p {
     font-size: 0.9em;
     line-height: 1.6;
-    margin-bottom: 1em;
+    margin-bottom: 0.7em;
 }
 
 /* Form rows - STACK VERTICALE */
 .form-row {
+    display: flex;  /* AGGIUNGI */
     flex-direction: column;
     gap: 1em;
 }
 
 .single-form {
     width: 100%;
+    display: flex;  /* AGGIUNGI */
+    flex-direction: column;  /* AGGIUNGI */
 }
 
 .single-form label {
     font-size: 0.95em;
     margin-bottom: 0.5em;
+    display: block;  /* AGGIUNGI - forza il label a capo */
 }
 
 .single-form input,
 .single-form textarea {
     font-size: 0.95em;
     padding: 0.75em;
+    width: 100%;  
+    box-sizing: border-box;  
+}
+
+.single-form input:focus {
+    box-shadow: 0 0 0 0.2em rgba(180, 192, 167, 0.3), 0 0.25em 0.75em rgba(0, 0, 0, 0.12);
 }
 
 .single-form-group {
     margin-bottom: 1em;
+    margin-top: 1.5em;  /* AGGIUNGI - spazio sopra per separare dal campo precedente */
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .single-form-group label {
     font-size: 0.95em;
     margin-bottom: 0.5em;
+    display: block;
+    position: static;  /* AGGIUNGI - rimuove il position absolute del desktop */
+    top: auto;  /* AGGIUNGI - reset proprietà desktop */
+    left: auto;  /* AGGIUNGI - reset proprietà desktop */
+    opacity: 1;  /* AGGIUNGI - rimuove opacità */
+    pointer-events: auto;  /* AGGIUNGI - riabilita gli eventi */
+    background: transparent;  /* AGGIUNGI */
+    padding: 0;  /* AGGIUNGI - rimuove padding desktop */
 }
 
 .single-form-group textarea {
     min-height: 8em;
     font-size: 0.95em;
-    padding: 0.75em;
+    padding: 0.75em;  /* CAMBIA - padding normale, non quello con spazio per label floating */
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Privacy */
+/* Privacy - CON WRAP PER ERRORE */
 .privacy-policy {
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;  /* AGGIUNTO: permette al contenuto di andare a capo */
     align-items: flex-start;
     gap: 0.75em;
     margin: 1em 0;
@@ -291,16 +336,52 @@ main {
 .privacy-policy label {
     font-size: 0.85em;
     line-height: 1.5;
+    flex: 1;  /* AGGIUNTO: fa occupare lo spazio restante */
+}
+
+/* Messaggio di errore - occupa tutta la riga */
+.privacy-policy #error-privacy,
+.privacy-policy .field-error {
+    flex-basis: 100%;  /* AGGIUNTO: forza a occupare tutta la larghezza */
+    width: 100%;
+    margin-top: 0.5em;
 }
 
 /* Bottone submit */
 .submite-bt {
     width: 100%;
-    padding: 0.75em 1em;
-    font-size: 0.95em;
+    padding: 2em 1em;  /* CAMBIA da 0.75em a 1em - aumenta altezza */
+    font-size: 1em;  /* CAMBIA da 0.95em a 1.05em - testo più grande */
+    font-weight: 700;  /* AGGIUNGI - testo in grassetto */
+    box-sizing: border-box;
+    margin-top: 0.5em;  /* AGGIUNGI - spazio sopra per separarlo dalla privacy */
 }
 
-.icon-send {
-    width: 1.2em;
-    height: 1.2em;
+.errore h2 {
+        font-size: 1.25em;
+}
+
+.errore .pet-images img {
+        max-width: 100%;
+        height:12em;
+}
+
+.errore .messaggio-errore p {
+        font-size: 1.1em;
+}
+
+.errore .messaggio-errore a {
+        padding: 0.8em 1.4em;
+        min-width: 8em;
+        font-size: 0.9em;
+}
+
+    /* Per la pagina 404 */
+.error-code .digit {
+        font-size: 6em;
+}
+
+.error-code .dog-circle {
+        width: 6em;
+        height: 6em;
 }

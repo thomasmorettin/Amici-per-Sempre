@@ -11,7 +11,6 @@ ensure_session();
 
 // === VERIFICA METODO POST ===
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-     $_SESSION['error'] = "🔴 DEBUG: Entrato nel primo IF - REQUEST_METHOD = " . $_SERVER['REQUEST_METHOD'] . " (non è POST!)";
     header("Location: " . PROJECT_ROOT . "/");
     exit;
 }
@@ -28,9 +27,8 @@ $privacy = isset($_POST['privacy']);
 // === VALIDAZIONE DATI ===
 $errori = [];
 
-if ($animale_id <= 0) {
-     $_SESSION['error'] = "🔴 DEBUG: Entrato nel secondo IF - animale_id = '$animale_id' (valore POST raw: '" . ($_POST['animale_id'] ?? 'NOT SET') . "')";
-    header("Location: " . PROJECT_ROOT . "/");
+if ($animale_id <= 0) { 
+     header("Location: " . PROJECT_ROOT . "/");
     exit;
 }
 
