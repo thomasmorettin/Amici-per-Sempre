@@ -1,0 +1,12 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^7.0",
+        "pelago/emogrifier": "^8.2"
+    },
+
+    "config": {
+        "platform": {
+            "php": "8.2" 
+        }
+    }
+}

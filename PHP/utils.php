@@ -1,5 +1,10 @@
 <?php
 require_once dirname(__DIR__) . "/PHP/template.php";
+require_once dirname(__DIR__) . "/PHP/vendor/autoload.php";
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use Pelago\Emogrifier\CssInliner;
 
 const PROJECT_ROOT = "/tec-web";
 
@@ -85,5 +90,54 @@ function buildPage($file, $dati) {
     $template = str_replace("{{root}}", PROJECT_ROOT, $template);
 
     return preg_replace("/\{\{.*?\}\}/", "", $template);        // Rimuove eventuali placeholder non sostituiti
+}
+
+// Funzione per il parsing del CSS all'interno dei tag inline de HTML
+function parserEmailCSS($html) {
+    $css = file_get_contents(__DIR__ . "/../CSS/style-email.css");
+
+    try {
+        return CssInliner::fromHtml($html)->inlineCss($css)->render();
+    }
+    
+    catch (Exception $e) {
+        return $html;
+    }
+}
+
+// Funzione per l'invio della mail automatica all'utente
+function sendEmail($destinatario, $nomeUser) {
+    $mail = new PHPMailer(true);
+
+    $html = file_get_contents(__DIR__ . "/../HTML/Email/request-mail.html");
+    $body = parserEmailCSS($html);
+
+    $body = str_replace("{{root}}", PROJECT_ROOT, $body);
+    $body = str_replace("{{nome-utente}}", $nomeUser, $body);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host       = "smtp.gmail.com";
+        $mail->SMTPAuth   = true;
+        $mail->Username   = "rifugio.amicipersempre@gmail.com";     // Indirizzo email del rifugio
+        $mail->Password   = "omph ykmh izuj wwlr";      // Password apposita per l'applicazione -> connessione all'indirizzo di posta
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        $mail->setFrom("rifugio.amicipersempre@gmail.com", "Rifugio Amici per Sempre");
+        $mail->addAddress($destinatario);
+        $mail->isHTML(true);
+
+        $mail->Subject = "Richiesta al Rifugio Amici per Sempre";
+        $mail->Body = $body;
+
+        $mail->send();
+
+        return true;
+    }
+
+    catch (Expection $e) {
+        return false;
+    }
 }
 ?>

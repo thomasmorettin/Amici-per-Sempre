@@ -642,6 +642,10 @@ details summary {
     flex: 1;
 }
 
+#section-faqs ul {
+    list-style-type: none;
+}
+
 details::-webkit-details-marker { display: none; }     /* Per i motori di ricerca: Chrome e Safari */
 
 .exp-freccia {

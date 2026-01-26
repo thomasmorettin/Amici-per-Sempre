@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.background {
+    width: 100%;
+}
+
+.wrapper {
+    width: 600px;
+}
+
+.decorazione {
+    text-align: center;
+}
+
+.logo {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #445D17;
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.nome {
+    font-weight: bold;
+}
+
+.par-uni {
+    margin: 0;
+}
+
+.firma {
+    font-style: italic;
+}
+
+.warning {
+    font-weight: bold;
+    color: #963428;
+    margin-bottom: 2rem;
+}
+
+.contatti {
+    border-top: 2px solid #445D17;
+    padding-top: 0.25rem;
+    text-align: center;
+}
+
+.contatti dl {
+    text-align: center;
+}
+
+.tit-rifugio {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+dl, dd, dt {
+    margin: 0;
+    padding: 0;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    width: 100%;
+}
+
+dd:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    color: inherit;
+}
