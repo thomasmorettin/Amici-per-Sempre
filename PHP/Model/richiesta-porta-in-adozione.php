@@ -91,7 +91,7 @@ function createRichiestaInserimentoAnimale($persona_id, $note, $specie, $peso, $
         $result_animale = $db->exeQuery($query_animale, [$entita_id, $sesso, $peso, $eta, $persona_id, $razza]);
         
         $db->closeConn();
-        
+
         return $result_animale === true;
     }
     

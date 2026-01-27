@@ -138,6 +138,9 @@ function gestioneAccordion() {
         const header = acc.querySelector('.accordion-header');
         const arrow = acc.querySelector('.header-arrow');
         const panel = acc.querySelector('.content');
+        const button = acc.querySelectorAll('button')[0];
+
+        panel.inert = true;
 
         header.addEventListener('click', () => {
 
@@ -151,10 +154,15 @@ function gestioneAccordion() {
                 panel.style.height = "0px";
                 });
 
+                panel.inert = true;
+                button.setAttribute('aria-expanded', 'false');
+
             } else {
 
                 // Opening
                 panel.style.height = panel.scrollHeight + "px";
+                panel.inert = false;
+                button.setAttribute('aria-expanded', 'true');
             }
 
             panel.classList.toggle('open');

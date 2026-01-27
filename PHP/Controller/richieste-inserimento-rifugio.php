@@ -115,9 +115,9 @@ if (!empty($risDB)) {
         */
 
         if(!$animale["gestito"]) {
-            $msgGestito = "Da gestire";
+            $msgGestito = "<p class='status-da-gestire'>Da gestire</p>";
         } else {
-            $msgGestito = "Gestito";
+            $msgGestito = "<p class='status-gestito'>Gestito</p>";
         }
 
         $html .=
@@ -127,7 +127,7 @@ if (!empty($risDB)) {
                 <div>
                     <p class='info-richiesta-animale'>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</p>
                     <p>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</p>
-                    <p class='status-richieste'>$msgGestito</p>
+                    $msgGestito
                 </div>
 
                 <div class='exp-freccia'></div>
@@ -135,21 +135,60 @@ if (!empty($risDB)) {
 
             <div class='contenuto-nascosto'>
                 <div>       <!-- Con il solo scopo di rendere più fluida la dissolvenza della scheda -->
-                    <section>
-                        <p class='titolo-richieste'>Richieste da gestire:</p>
-
-                        <ul>
-                            meml
-                        </ul>
+                    <section class='sezione-padrone'>
+                        <p>Info padrone</p>
+                        <dl class='richiesta-inserimento-info'>
+                            <dt>Nome completo:</dt>
+                            <dd>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</dd>
+                            <dt>Data richiesta:</dt>
+                            <dd>{$animale["dataRichiesta"]}</dd>
+                            <dt>E-mail:</dt>
+                            <dd><a href='mailto:{$animale["padrone"]["email"]}'>{$animale["padrone"]["email"]}</a></dd>
+                            <dt>Telefono:</dt>
+                            <dd><a href='tel:{$animale["padrone"]["telefono"]}'>+39 {$animale["padrone"]["telefono"]}</a></dd>
+                        </dl>
+                        <div class='spaziatore'></div>
                     </section>
 
                     <section>
-                        <p>Richieste gestite:</p>
+                        <p>Info animale</p>
+                        <dl class='richiesta-inserimento-info'>
+                            <dt>Tipo:</dt>
+                            <dd>{$animale["infoAnimale"]["tipo"]}</dd>
+                            <dt>Razza:</dt>
+                            <dd>{$animale["infoAnimale"]["razza"]}</dd>
+                            <dt>Sesso:</dt>
+                            <dd>{$animale["infoAnimale"]["sesso"]}</dd>
+                            <dt>Età:</dt>
+                            <dd>{$animale["infoAnimale"]["eta"]}</dd>
+                            <dt>Peso</dt>
+                            <dd>{$animale["infoAnimale"]["peso"]}</dd>
+                            <dt>Note:</dt>
+                            <dd>{$animale["infoAnimale"]["info"]}</dd>
+                        </dl>
+                    </section>";
 
-                        <ul>
-                            fortnite
-                        </ul>
-                    </section>
+        if(!$animale["gestito"]) {
+            $html .= 
+            "   
+                <menu class='btn-gruppo-v'>
+                    <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$animale["infoAnimale"]["id"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'></button>
+                    <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$animale["infoAnimale"]["id"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'></button>
+                </menu>";
+        } else {
+            $realFormat = (new DateTime($animale["data"]))->format("d/m/Y");
+            $giorno = explode("-", $animale["data"])[2];
+            $mese = explode("-", $animale["data"])[1];
+            $anno = explode("-", $animale["data"])[0];
+            $html .=
+            "   
+                <menu class='btn-gruppo-v'>
+                    <a class='go-calendario' href='{{root}}/amministrazione/calendario?mese={$mese}&anno={$anno}#g{$giorno}'>Calendario</a>
+                </menu>";
+        }
+
+        $html .=
+        "
                 </div>
             </div>
         </details>";
@@ -161,7 +200,7 @@ else { $html = "<p class='center bold'>Nessun animale presente nel Rifugio.</p>"
 $dati = [
     "{{current-page}}" => "Richieste Inserimento Rifugio",
     "{{page-keywords}}" => "",
-    "{{current-js}}" => "gestione-ticket.js",
+    "{{current-js}}" => "richieste-inserimento-rifugio.js",
     "{{extra-js}}" => "pannello-filtri.js",
     "{{lista-animali}}" => $html,
     "{{pannello-filtri}}" => $pannello_filtri_html,

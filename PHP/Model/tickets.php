@@ -87,8 +87,8 @@ function getAnimaliEsterniTck() {
         $conn = $db->getConn();
 
         // QUERY: animali esterni al rifugio
-        $sql = "SELECT E.ID AS IDAnimale, E.Razza AS RazzaAnimale, R.Tipo AS TipoAnimale,
-                ED.Note AS Info, ED.DataRichiesta AS DataRich,
+        $sql = "SELECT E.ID AS IDAnimale, E.Razza AS RazzaAnimale, R.Tipo AS TipoAnimale, E.Eta AS EtaAnimale,
+                E.Peso AS PesoAnimale, E.Sesso AS SessoAnimale, ED.Note AS Info, ED.DataRichiesta AS DataRich,
                 P.Nome AS NomeRich, P.Cognome AS CognomeRich, P.Email AS EmailRich, P.Telefono AS TelRich,
                 C.ID AS IDCalendario, C.Data AS DataApp, C.Ora AS OraApp
                 FROM AnimaleEsterno E
@@ -103,21 +103,6 @@ function getAnimaliEsterniTck() {
 
         // Sanitizzazione e riorganizzazione dei dati, sia ticket avviati che anche calendarizzati
         if ($rawAnimaliEsterni) {
-
-            $animali["DEBUG"] = [
-                "infoAnimale" => [
-                    "id" => "DEBUG",
-                    "tipo" => "DEBUG_TIPO",
-                    "razza" => "DEBUG_RAZZA"
-                ],
-                "padrone" => [
-                    "nome" => "DEBUG NOME",
-                    "cognome" => "DEBUG COGNOME",
-                    "email" => "debug@email.it",
-                    "telefono" => "0000000000"
-                ],
-                "gestito" => false
-            ];
             
             foreach ($rawAnimaliEsterni as $row) {
                 $idAnimaleEsterno = $row["IDAnimale"];
@@ -126,15 +111,21 @@ function getAnimaliEsterniTck() {
                     "infoAnimale" => [
                         "id" => $row["IDAnimale"],
                         "tipo" => htmlspecialchars($row["TipoAnimale"], ENT_QUOTES, "UTF-8"),
-                        "razza" => htmlspecialchars($row["RazzaAnimale"], ENT_QUOTES, "UTF-8")
+                        "razza" => htmlspecialchars($row["RazzaAnimale"], ENT_QUOTES, "UTF-8"),
+                        "eta" => htmlspecialchars($row["EtaAnimale"], ENT_QUOTES, "UTF-8"),
+                        "peso" => htmlspecialchars($row["PesoAnimale"], ENT_QUOTES, "UTF-8"),
+                        "sesso" => (htmlspecialchars($row["SessoAnimale"], ENT_QUOTES, "UTF-8") == "M" ? "Maschio" : "Femmina"),
+                        "info" => htmlspecialchars($row["Info"], ENT_QUOTES, "UTF-8"),
                     ],
 
                     "padrone" => [
-                        "nome" => htmlspecialchars($row["NomeRich"] . " " . $row["CognomeRich"], ENT_QUOTES, "UTF-8"),
+                        "nome" => htmlspecialchars($row["NomeRich"]),
                         "cognome" => htmlspecialchars($row["CognomeRich"], ENT_QUOTES, "UTF-8"),
                         "email" => htmlspecialchars($row["EmailRich"], ENT_QUOTES, "UTF-8"),
                         "telefono" => htmlspecialchars($row["TelRich"], ENT_QUOTES, "UTF-8")
                     ],
+
+                    "dataRichiesta" => $row["DataRich"]
                 ];
 
                 if ($row["IDCalendario"]) {

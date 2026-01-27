@@ -6,11 +6,11 @@ ensure_session();
 $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
 // unset($_SESSION['form_data']);
 
-$radio_buttons_sesso = '<label for="maschio"><input type="radio" name="sesso" value="m" id="sesso-maschio" aria-describedby="error-sesso" required' . ((isset($form_data['sesso']) && $form_data['sesso'] === "m") ? 'checked' : '') . '>Maschio</label>
-                        <label for="femmina"><input type="radio" name="sesso" value="f" id="sesso-femmina" aria-describedby="error-sesso" required "' . ((isset($form_data['sesso']) && $form_data['sesso'] === "f") ? 'checked' : '') . '>Femmina</label>';
+$radio_buttons_sesso = '<label for="sesso-maschio"><input type="radio" name="sesso" value="m" id="sesso-maschio" aria-describedby="error-sesso" required' . ((isset($form_data['sesso']) && $form_data['sesso'] === "m") ? 'checked' : '') . '>Maschio</label>
+                        <label for="sesso-femmina"><input type="radio" name="sesso" value="f" id="sesso-femmina" aria-describedby="error-sesso" required' . ((isset($form_data['sesso']) && $form_data['sesso'] === "f") ? 'checked' : '') . '>Femmina</label>';
 
-$radio_buttons_specie = '<label for="cane"><input type="radio" name="specie" id="specie-cane" aria-describedby="error-specie" value="cane" required' . ((isset($form_data['specie']) && $form_data['specie'] === "cane") ? 'checked' : '') . '>Cane</label>
-                        <label for="gatto"><input type="radio" name="specie" id="specie-gatto" aria-describedby="error-specie" value="gatto" required' . ((isset($form_data['specie']) && $form_data['specie'] === "gatto") ? 'checked' : '') . '>Gatto</label>';
+$radio_buttons_specie = '<label for="specie-cane"><input type="radio" name="specie" id="specie-cane" aria-describedby="error-specie" value="cane" required' . ((isset($form_data['specie']) && $form_data['specie'] === "cane") ? 'checked' : '') . '>Cane</label>
+                        <label for="specie-gatto"><input type="radio" name="specie" id="specie-gatto" aria-describedby="error-specie" value="gatto" required' . ((isset($form_data['specie']) && $form_data['specie'] === "gatto") ? 'checked' : '') . '>Gatto</label>';
 
 $dati = [
     "{{current-page}}" => "Porta in Adozione",

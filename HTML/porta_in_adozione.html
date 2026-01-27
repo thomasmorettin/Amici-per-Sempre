@@ -43,28 +43,28 @@
                     <div class="line"></div>
                 </div>
                 <div class="form-field">
-                    <label>
+                    <label for="nome">
                         Nome
                     </label>
                     <input placeholder="Es: Mario" name="nome" id="nome" aria-describedby="error-nome" value="[val_nome]" required>
                     <div id="error-nome" class="field-error hidden" role="alert"></div>
                 </div>
                 <div class="form-field">
-                    <label for="idk2">
+                    <label for="cognome">
                         Cognome
                     </label>
                     <input placeholder="Es: Rossi" name="cognome" id="cognome" aria-describedby="error-cognome" value="[val_cognome]" required>
                     <div id="error-cognome" class="field-error hidden" role="alert"></div>
                 </div>
                 <div class="form-field">
-                    <label for="idk3">
+                    <label for="email">
                         Email
                     </label>
                     <input placeholder="Es: mario.rossi@example.com" name="email" id="email" aria-describedby="error-email" value="[val_email]" required>
                     <div id="error-email" class="field-error hidden" role="alert"></div>
                 </div>
                 <div class="form-field">
-                    <label for="idk4">
+                    <label for="telefono">
                         Numero di telefono
                     </label>
                     <div class="phone-input">
@@ -81,7 +81,7 @@
                     <div class="line"></div>
                 </div>
                 <div class="form-field">
-                    <label for="idk5">
+                    <label>
                         Tipo di animale
                     </label>
                     <div class="radio-group" id="specie">
@@ -90,43 +90,35 @@
                     <div id="error-specie" class="field-error hidden" role="alert"></div>
                 </div>
                 <div class="form-field">
-                    <label for="idk6">
+                    <label for="eta">
                         Età (approssimativa)
                     </label>
                     <input placeholder="Es: 4 anni, 6 mesi, cucciolo, adulto, anziano..." name="eta" id="eta" aria-describedby="error-eta" value="[val_eta]" required>
                     <div id="error-eta" class="field-error hidden" role="alert"></div>
                 </div>
                 <div class="form-field">
-                    <label for="idk8">
+                    <label for="peso">
                         Peso (approssimativo)
                     </label>
                     <input placeholder="Es: 5 kg, leggero, medio, pesante..." name="peso" id="peso" aria-describedby="error-peso" value="[val_peso]" required> 
                     <div id="error-peso" class="field-error hidden" role="alert"></div>
                 </div>
                 <div class="form-field">
-                    <label for="idk7">
+                    <label for="razza">
                         Razza
                     </label>
-                    <input placeholder="Es: Labrador, Persiano, Ibrido..." name="razza" id="razza" aria-describedby="error-razza" list="races" value="[val_razza]" required>
-                    <datalist id="races">
-                        <option value="Labrador">
-                        <option value="Golden Retriever">
-                        <option value="Bulldog">
-                        <option value="Beagle">
-                        <option value="Poodle">
-                        <option value="Siberian Husky">
-                        <option value="Dachshund">
-                        <option value="Boxer">
-                        <option value="Rottweiler">
-                        <option value="German Shepherd">
-                        <option value="Persiano">
-                        <option value="Siamese">
-                        <option value="Maine"></option>
-                    </datalist>
+                    <div class="select-custom">
+                        <select name="razza" id="razza" aria-describedby="error-razza" required>
+                            <option value="">Seleziona il tipo di animale</option>
+                        </select>
+                        <svg>
+                            <use href="{{root}}/Resources/icons.svg#arrow"></use>
+                        </svg>
+                    </div>
                     <div id="error-razza" class="field-error hidden" role="alert"></div>
                 </div>
                 <div class="form-field">
-                    <label for="idk9">
+                    <label>
                         Sesso
                     </label>
                     <div class="radio-group" id="sesso">
@@ -135,10 +127,10 @@
                     <div id="error-sesso" class="field-error hidden" role="alert"></div>
                 </div>
                 <div class="form-field">
-                    <label for="idk10">
+                    <label for="dettagli">
                         Caratteristiche e comportamento
                     </label>
-                    <textarea placeholder="Descrivi eventuali vaccini, comportamenti e altre caratteristiche..." id="dettagli" value="[val_dettagli]"></textarea>
+                    <textarea placeholder="Descrivi eventuali vaccini, comportamenti e altre caratteristiche..." id="dettagli"></textarea>
                 </div>
             </div>
             <div class="form-field">

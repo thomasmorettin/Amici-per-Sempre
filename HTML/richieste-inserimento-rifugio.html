@@ -1,159 +1,55 @@
-
 <main>
     <p class="titolo">Richieste inserimento animali in rifugio</p>
     {{pannello-controllo-filtri}}
     <section class="section-list">
         {{pannello-filtri}}
-
         <div class="list-vertical-panel">
             <div class="list-panel">
                 {{lista-animali}}
-                <!--
-                <details class="dtl-animale">
-                    <summary>
-                        <div>
-                            <p class="info-richiesta-animale">Cane - Corgi</p>
-                            <p>Mario Rossi</p>
-                            <p class="status-richieste">Da gestire</p>
-                        </div>
+            </div>
+        </div>
+    </section>
+</main>
 
-                        <div class="exp-freccia"></div>
-                    </summary>
+<dialog id="dia-appuntamento">
+    <p class="titolo-dialog">Programma appuntamento</p>
+    <p>Sig/ra. <span class="nome-cliente"></span></p>
+    <p id="msg-errore" class="bold-red hidden" role="alert">Errore: data anteriore ad oggi o orario non valido (8:30 - 19:30)</p>
 
-                    <div class="contenuto-nascosto">
-                        <div>
-                            <section class="sezione-padrone">
-                                <p>Info padrone</p>
+    <button class="btn-close"></button>
 
-                                <ul>
-                                    <li>
-                                        <dl>
-                                            <dd>
-                                                <dl class="richiesta-inserimento-info">
-                                                    <dt>Nome completo:</dt>
-                                                    <dd>Mario Rossi</dd>
-                                                    <dt>Data richiesta:</dt>
-                                                    <dd>25/11/2025</dd>
-                                                    <dt>E-mail:</dt>
-                                                    <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
-                                                    <dt>Telefono:</dt>
-                                                    <dd><a href="tel:3400562945">3400562945</a></dd>
-                                                </dl>
-                                            </dd>
-                                        </dl>
-                                    </li>
-                                </ul>
-                                <div class="spaziatore"></div>
-                                <div class="btn-gruppo">
-                                    <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                    <button class="btn-elimina-app" title="Elimina appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                </div>
-                            </section>
+    <form action="{{root}}/PHP/Controller/aggiungi-appuntamento" method="POST">
+        <div id="campi-input">
+            <input type="hidden" id="hidden-id" name="id">
 
-                            <section>
-                                <p>Info animale</p>
+            <div>
+                <label for="data-appuntamento">Data</label>
+                <input type="date" id="data-appuntamento" name="data" required>
+            </div>
 
-                                <ul>
-                                    <li>
-                                        <dl>
-                                            <dd>
-                                                <dl class="richiesta-inserimento-info">
-                                                    <dt>Tipo:</dt>
-                                                    <dd>Cane</dd>
-                                                    <dt>Razza:</dt>
-                                                    <dd>Corgi</dd>
-                                                    <dt>Sesso:</dt>
-                                                    <dd>Maschio</dd>
-                                                    <dt>Età:</dt>
-                                                    <dd>3 anni</dd>
-                                                    <dt>Peso</dt>
-                                                    <dd>5 chili</dd>
-                                                    <dt>Note:</dt>
-                                                    <dd>Vaccinato, soffre di alzheimer (non so come scriverlo)</dd>
-                                                </dl>
-                                            </dd>
-                                        </dl>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                </details>
-
-                                        <details class="dtl-animale">
-                    <summary>
-                        <div>
-                            <p class="info-richiesta-animale">Cane - Corgi</p>
-                            <p>Mario Rossi</p>
-                            <p class="status-richieste">Da gestire</p>
-                        </div>
-
-                        <div class="exp-freccia"></div>
-                    </summary>
-
-                    <div class="contenuto-nascosto">
-                        <div>
-                            <section class="sezione-padrone">
-                                <p>Info padrone</p>
-
-                                <ul>
-                                    <li>
-                                        <dl>
-                                            <dd>
-                                                <dl class="richiesta-inserimento-info">
-                                                    <dt>Nome completo:</dt>
-                                                    <dd>Mario Rossi</dd>
-                                                    <dt>Data richiesta:</dt>
-                                                    <dd>25/11/2025</dd>
-                                                    <dt>E-mail:</dt>
-                                                    <dd><a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></dd>
-                                                    <dt>Telefono:</dt>
-                                                    <dd><a href="tel:3400562945">3400562945</a></dd>
-                                                </dl>
-                                            </dd>
-                                        </dl>
-                                    </li>
-                                </ul>
-                                <div class="spaziatore"></div>
-                                <div class="btn-gruppo">
-                                    <button class="btn-popup-app" title="Prenota appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                    <button class="btn-elimina-app" title="Elimina appuntamento" data-nome-richiedente="Mario Rossi"></button>
-                                </div>
-                            </section>
-
-                            <section>
-                                <p>Info animale</p>
-
-                                <ul>
-                                    <li>
-                                        <dl>
-                                            <dd>
-                                                <dl class="richiesta-inserimento-info">
-                                                    <dt>Tipo:</dt>
-                                                    <dd>Cane</dd>
-                                                    <dt>Razza:</dt>
-                                                    <dd>Corgi</dd>
-                                                    <dt>Sesso:</dt>
-                                                    <dd>Maschio</dd>
-                                                    <dt>Età:</dt>
-                                                    <dd>3 anni</dd>
-                                                    <dt>Peso</dt>
-                                                    <dd>5 chili</dd>
-                                                    <dt>Note:</dt>
-                                                    <dd>Vaccinato, soffre di alzheimer (non so come scriverlo)</dd>
-                                                </dl>
-                                            </dd>
-                                        </dl>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                </details>
-                -->
+            <div>
+                <label for="ora-appuntamento">Ora</label>
+                <input type="time" id="ora-appuntamento" name="ora" required>
             </div>
         </div>
 
-    </section>
+        <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
+    </form>
+</dialog>
 
-</main>
+<dialog id="dia-cancellazione">
+    <p class="titolo-dialog">Elimina richiesta</p>
+    <p>Sig/ra. <span class="nome-cliente"></span></p>
+
+    <div id="msg-warning">
+        <p><span class="bold-red">Attenzione</span>, si sta per eliminare definitivamente la richiesta dell'utente.</p>
+        <p class="bold">L'azione è irreversibile.</p>
+    </div>
+
+    <button class="btn-close"></button>
+
+    <form action="{{root}}/PHP/Controller/elimina-richiesta" method="POST">
+        <input type="hidden" id="hidden-id-del" name="id">
+        <button type="submit" id="btn-cancella-app">Elimina richiesta</button>
+    </form>
+</dialog>

@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.form-porta-adozione');
-
     if (!form) return;
 
     // Elementi del form
@@ -319,3 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
         this.value = valore;
     });
 });
+
+function mappaTipoARazza() {
+    // Da fare
+}

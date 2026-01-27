@@ -15,10 +15,16 @@ function getCurrentPath() {
             "url" => PROJECT_ROOT . "/PHP/Controller/adotta"
         ],
 
-        "porta_in_adozione.php" => [
+        "porta-in-adozione.php" => [
             "titolo" => "Porta in adozione",
             "padre" => "index.php",
             "url" => PROJECT_ROOT . "/"
+        ],
+
+        "login.php" => [
+            "titolo" => "Login",
+            "padre" => "index.php",
+            "url" => PROJECT_ROOT . "/PHP/Controller/login"
         ],
 
         "amministrazione.php" => [
@@ -39,6 +45,11 @@ function getCurrentPath() {
             "url" => PROJECT_ROOT . "/gestione-ticket"
         ],
 
+        "richieste-inserimento-rifugio.php" => [
+            "titolo" => "Richieste inserimento rifugio",
+            "padre" => "amministrazione.php",
+            "url" => PROJECT_ROOT . "/richieste-inserimento-rifugio"
+        ],
 
         "scheda_animale.php" => [
             "titolo" => "Scheda Animale",
