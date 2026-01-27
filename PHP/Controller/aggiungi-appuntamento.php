@@ -14,13 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($id && $data && $ora) {
         if ($data < $oggi || $ora < "08:30" || $ora > "19:30") {
             $_SESSION['error'] = "Data non valida.";
-            header("Location: " . PROJECT_ROOT . "/gestione-ticket");
+            header("Location: " . PROJECT_ROOT . "/amministrazione/gestione-ticket");
             exit();
         }
 
         elseif (addAppuntamento($id, $data, $ora)) {
             $_SESSION['success'] = "Appuntamento inserito con successo.";
-            header("Location: " . PROJECT_ROOT . "/gestione-ticket");
+            header("Location: " . PROJECT_ROOT . "/amministrazione/gestione-ticket");
             exit();
         } 
         

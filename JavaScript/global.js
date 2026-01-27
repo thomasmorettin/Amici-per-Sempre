@@ -33,7 +33,6 @@ function loadPage() {
 function pageScroll() {
   const header = document.querySelector("header");
   const backToTop = document.getElementById("btn-back-to-top");
-  hamburger = document.getElementById("contenitore-header");
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
@@ -160,7 +159,7 @@ function toast() {
 
   if (msg) {
     const toast = document.getElementById("toast-not");
-    const toastMsg = toast.querySelector("p");
+    const toastMsg = toast.querySelector("span");
 
     if (toast && toastMsg) {
       toastMsg.innerHTML = msg;

@@ -10,7 +10,11 @@
     <p class="titolo-dialog">Eventuali note del richiedente</p>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
 
-    <button class="btn-close"></button>
+    <button class="btn-close">
+        <svg>
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
 
     <p id="info-rich"></p>
 </dialog>
@@ -20,7 +24,11 @@
     <p>Sig/ra. <span class="nome-cliente"></span></p>
     <p id="msg-errore" class="bold-red hidden" role="alert">Errore: data anteriore ad oggi o orario non valido (8:30 - 19:30)</p>
 
-    <button class="btn-close"></button>
+    <button class="btn-close">
+        <svg>
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
 
     <form action="{{root}}/PHP/Controller/aggiungi-appuntamento" method="POST">
         <div id="campi-input">
@@ -50,7 +58,11 @@
         <p class="bold">L'azione è irreversibile.</p>
     </div>
 
-    <button class="btn-close"></button>
+    <button class="btn-close">
+        <svg>
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
 
     <form action="{{root}}/PHP/Controller/elimina-richiesta" method="POST">
         <input type="hidden" id="hidden-id-del" name="id">

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   toggleWeeks();
   dialogsSettings();
-  pageScroll();
+  btnsScroll();
   hashGiorno();
 })
 
@@ -59,6 +59,7 @@ function updateDialog(body) {
   dialogApp.addEventListener("submit", (e) => {
     const data = document.getElementById("data-appuntamento").value;
     const ora = document.getElementById("ora-appuntamento").value;
+    const domenica = new Date(data);
 
     // Data corrente
     const oggiObj = new Date();
@@ -68,9 +69,15 @@ function updateDialog(body) {
     
     const currentData = `${anno}-${mese}-${giorno}`;
 
-    if (data < currentData || ora < "08:30" || ora > "19:30") {
+    if (domenica.getDay() == 0) {
       e.preventDefault();
+      document.getElementById("msg-errore").innerHTML = "Non si può selezionare una domenica.";
       document.getElementById("msg-errore").classList.remove("hidden");
+    } else {
+      if (data < currentData || ora < "08:30" || ora > "19:30") {
+        e.preventDefault();
+        document.getElementById("msg-errore").classList.remove("hidden");
+      }
     }
   })
 
@@ -136,7 +143,7 @@ function infoDialog(body) {
 }
 
 // Funzione per l'ancoraggio del pannello di comandi on-top
-function pageScroll() {
+function btnsScroll() {
   const floating = document.getElementById("btns-flottanti");
 
   if (floating) {

@@ -11,8 +11,9 @@ RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteCond %{REQUEST_URI} !/index\.php$
 RewriteRule ^ /%1 [R=301,L]
 
-#3. Mappatura per "adotta.php"
+#3. Mappatura per "adotta.php" e "porta-in-adozione.php"
 RewriteRule ^adotta/?$ PHP/Controller/adotta.php [L,QSA]
+RewriteRule ^porta-in-adozione/?$ PHP/Controller/porta-in-adozione.php [L,QSA]
 
 # 4. Mappatura della cartella di amministrazione
 # CASO A: scrittura di ".../amministrazione"
@@ -25,3 +26,6 @@ RewriteRule ^amministrazione/(.+)$ PHP/Controller/$1.php [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+)$ $1.php [L,QSA]
+
+# 6. Pagina inesistente
+ErrorDocument 404 /tec-web/404.php

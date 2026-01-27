@@ -42,7 +42,7 @@ function replaceLogo() {
     $paginaCorr = basename($_SERVER["PHP_SELF"]);
     $html = "<h1>Rifugio Amici per Sempre</h1>";
 
-    if ($paginaCorr !== "index.php") { $html = "<a href='{{root}}/index'><h1>Rifugio Amici per Sempre</h1></a>"; }
+    if ($paginaCorr !== "index.php") { $html = "<a id='link-logo' href='{{root}}/index'><h1>Rifugio Amici per Sempre</h1></a>"; }
 
     return $html;
 }

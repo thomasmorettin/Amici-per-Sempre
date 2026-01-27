@@ -48,8 +48,8 @@ $nextMese = date("n", mktime(0, 0, 0, $mese + 1, 1, $anno));
 $nextAnno = date("Y", mktime(0, 0, 0, $mese + 1, 1, $anno));
 
 // Link per la navigazione del calendario
-$linkPrev = PROJECT_ROOT . "/PHP/Controller/calendario.php?mese=$prevMese&anno=$prevAnno";
-$linkNext = PROJECT_ROOT . "/PHP/Controller/calendario.php?mese=$nextMese&anno=$nextAnno";
+$linkPrev = PROJECT_ROOT . "/amministrazione/calendario.php?mese=$prevMese&anno=$prevAnno";
+$linkNext = PROJECT_ROOT . "/amministrazione/calendario.php?mese=$nextMese&anno=$nextAnno";
 
 $currentData = date("Y-m-d");
 $settimane = [];
@@ -76,6 +76,9 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
                             title='Note aggiuntive'
                             data-info='{$evento['Info']}'
                             data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}'>
+                            <svg>
+                                <use href='{{root}}/Resources/icons.svg#info'></use>
+                            </svg>
                         </button>
                         <button class='btn-popup-app'
                             title='Modifica appuntamento'
@@ -83,6 +86,9 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
                             data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}'
                             data-ora='{$evento['Ora']}'
                             data-data='{$dataApp}'>
+                            <svg>
+                                <use href='{{root}}/Resources/icons.svg#calendario'></use>
+                            </svg>
                         </button>
                         <button class='btn-elimina-app'
                             title='Elimina appuntamento'
@@ -91,6 +97,9 @@ for ($giorno = 1; $giorno <= $giorniMese; $giorno++) {
                             data-ora='{$evento['Ora']}'
                             data-data='{$dataApp}'
                             data-data-display='{$dataDisplay}'>
+                            <svg>
+                                <use href='{{root}}/Resources/icons.svg#delete'></use>
+                            </svg>
                         </button>
                     </menu>";
                 } else { $htmlLinea = ""; }
@@ -167,7 +176,7 @@ foreach ($settimane as $num => $contenuto) {
     $activeBtn = $isActive ? "active" : "";
     $activeCont = $isActive ? "" : "hidden";
 
-    $htmlBtns .= "<button class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num'><span class='abbr'>Settimana&nbsp</span>$num</button>";
+    $htmlBtns .= "<button class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num'><span class='abbr'>Settimana</span>$num</button>";
     $htmlContent .= "<ol id='sett-$num' class='lista-settimana $activeCont'>$contenuto</ol>";
 }
 

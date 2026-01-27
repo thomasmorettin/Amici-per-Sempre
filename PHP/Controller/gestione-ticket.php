@@ -62,9 +62,21 @@ if (!empty($risDB)) {
                     </dl>
 
                     <menu class='btn-gruppo'>
-                        <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'></button>
-                        <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'></button>
-                        <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'></button>
+                        <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'>
+                            <svg>
+                                <use href='{{root}}/Resources/icons.svg#info'></use>
+                            </svg>
+                        </button>
+                        <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'>
+                            <svg>
+                                <use href='{{root}}/Resources/icons.svg#calendario'></use>
+                            </svg>
+                        </button>
+                        <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'>
+                            <svg>
+                                <use href='{{root}}/Resources/icons.svg#delete'></use>
+                            </svg>
+                        </button>
                     </menu>
                 </li>";
             }
@@ -96,8 +108,17 @@ if (!empty($risDB)) {
                     </dl>
 
                     <menu class='btn-gruppo'>
-                        <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'></button>
-                        <a class='go-calendario' href='{{root}}/amministrazione/calendario?mese={$mese}&anno={$anno}#g{$giorno}'>Calendario</a>
+                        <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'>
+                            <svg>
+                                <use href='{{root}}/Resources/icons.svg#info'></use>
+                            </svg>
+                        </button>
+                        <a class='go-calendario btn-link' href='{{root}}/amministrazione/calendario?mese={$mese}&anno={$anno}#g{$giorno}'>
+                            <svg>
+                                <use href='{{root}}/Resources/icons.svg#forward'></use>
+                            </svg>
+                            <span>Calendario</span>
+                        </a>
                     </menu>
                 </li>";
             }
@@ -119,7 +140,9 @@ if (!empty($risDB)) {
                     </div>
                 </div>
 
-                <div class='exp-freccia'></div>
+                <svg class='exp-freccia'>
+                    <use href='{{root}}/Resources/icons.svg#arrow'></use>
+                </svg>
             </summary>
 
             <div class='contenuto-nascosto'>

@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($id && deleteRichiesta($id)) {
         $_SESSION['success'] = "Richiesta eliminata con successo.";
-        header("Location: " . PROJECT_ROOT . "/gestione-ticket");
+        header("Location: " . PROJECT_ROOT . "/amministrazione/gestione-ticket");
         exit();
     }
 
