@@ -65,7 +65,7 @@
     --generalbtnborder: 0.15rem solid var(--borderbtn);
     --warningbtnborder: 0.15rem solid var(--borderwarning);
     --generaloutline: 0.15rem solid var(--linkcolor);
-    --squarewidth: 2.75rem;
+    --squarewidth: 2.25rem;
     --generalradius: 0.5rem;
 }
 
@@ -101,8 +101,8 @@ details:has(summary:focus-visible) {
 .btn-link:visited svg,
 button svg,
 details summary svg {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2rem;
+    height: 2rem;
     display: block;
 }
 
@@ -115,7 +115,7 @@ button {
     gap: 0.5rem;
 
     width: auto;
-    height: 2.75rem;
+    height: 2.25rem;
     font-size: 1.25rem;
     font-weight: bold;
     font-family: inherit;
@@ -310,13 +310,8 @@ header h1 {
 }
 
 #btn-theme svg {
-    width: 2.25rem;
-    height: 2.25rem;
-}
-
-#btn-theme.light svg {
-    width: inherit;
-    height: inherit;
+    width: 1.85rem;
+    height: 1.85rem;
 }
 
 #btn-theme #moon-icon {
@@ -640,7 +635,7 @@ details summary {
     font-size: 1.1rem;
     font-weight: bold;
     display: flex;
-    min-height: 2.75rem;
+    min-height: 2.25rem;
     align-items: center;
     padding: var(--generalpadding);
     cursor: pointer;

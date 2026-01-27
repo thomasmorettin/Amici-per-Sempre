@@ -21,7 +21,7 @@ function getNavbarLinks() {
         ],
 
         [
-            "file" => "porta_in_adozione.php",
+            "file" => "porta-in-adozione.php",
             "url" => PROJECT_ROOT . "/porta-in-adozione",
             "testo" => "Porta in adozione",
             "placeholder" => "{{link-porta-adozione}}"

@@ -15,7 +15,7 @@ function animaleDetails() {
       event.preventDefault();   // Prevenzione dell'azione di default
 
       if (detail.open) {    // È aperto = si vuole chiudere
-        detail.classList.remove("dtl-aperto");    // Permette animazione fluida della freccia
+        detail.classList.remove("is-expanded");    // Permette animazione fluida della freccia
 
         const animeChiusura = contenuto.animate({gridTemplateRows: ["1fr", "0fr"]}, {
           duration: 300,
@@ -29,7 +29,7 @@ function animaleDetails() {
       }
       
       else {    // È chiuso = si vuole aprire
-        detail.classList.add("dtl-aperto");    // Permette animazione fluida della freccia
+        detail.classList.add("is-expanded");    // Permette animazione fluida della freccia
         detail.setAttribute("open", "");
         
         contenuto.animate({gridTemplateRows: ["0fr", "1fr"]}, {

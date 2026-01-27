@@ -29,3 +29,4 @@ RewriteRule ^(.+)$ $1.php [L,QSA]
 
 # 6. Pagina inesistente
 ErrorDocument 404 /tec-web/404.php
+ErrorDocument 500 /tec-web/500.php
