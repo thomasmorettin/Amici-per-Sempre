@@ -3,9 +3,17 @@
 
     <div id="btns-flottanti">
         <div id="btns-mesi">
-            <a id="btn-mese-prec" href="{{link-prev}}"><span class='abbr'>Mese precedente</span></a>
+            <a id="btn-mese-prec" class="btn-link" href="{{link-prev}}">
+                <svg>
+                    <use href="{{root}}/Resources/icons.svg#arrow"></use>
+                </svg>
+            </a>
             <p>{{mese-anno}}</p>
-            <a id="btn-mese-succ" href="{{link-next}}"><span class='abbr'>Mese successivo</span></a>
+            <a id="btn-mese-succ" class="btn-link" href="{{link-next}}">
+                <svg>
+                    <use href="{{root}}/Resources/icons.svg#arrow"></use>
+                </svg>
+            </a>
         </div>
 
         <div id="btns-sett">
@@ -22,7 +30,11 @@
     <p class="titolo-dialog">Eventuali note del richiedente</p>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
 
-    <button class="btn-close"></button>
+    <button class="btn-close">
+        <svg>
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
 
     <p id="info-rich"></p>
 </dialog>
@@ -32,7 +44,11 @@
     <p>Sig/ra. <span class="nome-cliente"></span></p>
     <p id="msg-errore" class="bold-red hidden" role="alert">Errore: data anteriore ad oggi o orario non valido (8:30 - 19:30)</p>
 
-    <button class="btn-close"></button>
+    <button class="btn-close">
+        <svg>
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
 
     <form action="{{root}}/PHP/Controller/modifica-appuntamento" method="POST">
         <div id="campi-input">
@@ -59,10 +75,14 @@
 
     <div id="msg-warning">
         <p><span class="bold-red">Attenzione</span>, si vuole eliminare l'appuntamento in giornata <span id="data-app" class="bold"></span> alle ore <span id="ora-app" class="bold"></span>.</p>
-        <p>L'appuntamento è riprenotabile alla pagina <a href="gestione-ticket.html">Gestione richieste</a>.</p>
+        <p>L'appuntamento è riprenotabile alla pagina <a href="{{root}}/amministrazione/gestione-ticket.php">Gestione richieste</a>.</p>
     </div>
 
-    <button class="btn-close"></button>
+    <button class="btn-close">
+        <svg>
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
 
     <form action="{{root}}/PHP/Controller/elimina-appuntamento" method="POST">
         <input type="hidden" id="hidden-id-del" name="id">

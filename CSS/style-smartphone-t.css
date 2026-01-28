@@ -229,8 +229,7 @@
     display: none;
 }
 
-#btns-mesi a,
 #btns-sett button {
-    width: 2.75rem;
-    padding: 0;
+    width: var(--squarewidth);
+    padding: var(--squarepadding);
 }

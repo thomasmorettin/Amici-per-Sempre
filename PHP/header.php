@@ -21,7 +21,7 @@ function getNavbarLinks() {
         ],
 
         [
-            "file" => "porta_in_adozione.php",
+            "file" => "porta-in-adozione.php",
             "url" => PROJECT_ROOT . "/porta-in-adozione",
             "testo" => "Porta in adozione",
             "placeholder" => "{{link-porta-adozione}}"
@@ -42,7 +42,7 @@ function replaceLogo() {
     $paginaCorr = basename($_SERVER["PHP_SELF"]);
     $html = "<h1>Rifugio Amici per Sempre</h1>";
 
-    if ($paginaCorr !== "index.php") { $html = "<a href='{{root}}/index'><h1>Rifugio Amici per Sempre</h1></a>"; }
+    if ($paginaCorr !== "index.php") { $html = "<a id='link-logo' href='{{root}}/index'><h1>Rifugio Amici per Sempre</h1></a>"; }
 
     return $html;
 }

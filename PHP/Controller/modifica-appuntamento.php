@@ -14,13 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($id && $data && $ora) {
         if ($data < $oggi || $ora < "08:30" || $ora > "19:30") {
             $_SESSION['error'] = "Data non valida.";
-            header("Location: " . PROJECT_ROOT . "/calendario");
+            header("Location: " . PROJECT_ROOT . "/amministrazione/calendario");
             exit();
         }
 
         elseif (updateAppuntamento($id, $data, $ora)) {
             $_SESSION['success'] = "Appuntamento aggiornato con successo.";
-            header("Location: " . PROJECT_ROOT . "/calendario");
+            header("Location: " . PROJECT_ROOT . "/amministrazione/calendario");
             exit();
         } 
         

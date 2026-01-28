@@ -13,6 +13,7 @@ RewriteRule ^ /%1 [R=301,L]
 
 #3.1 Mappatura per "adotta.php"
 RewriteRule ^adotta/?$ PHP/Controller/adotta.php [L,QSA]
+RewriteRule ^porta-in-adozione/?$ PHP/Controller/porta-in-adozione.php [L,QSA]
 
 #3.2 Mappatura per "porta-in-adozione.php"
 RewriteRule ^porta-in-adozione/?$ PHP/Controller/porta-in-adozione.php [L,QSA]
@@ -32,6 +33,10 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+)$ $1.php [L,QSA]
 
-# 6. Mappa la richiesta ajax delle razze dal porta-in-adozione
+# 7. Mappa la richiesta ajax delle razze dal porta-in-adozione
 RewriteRule ^PHP/Controller/razze-json/?$ PHP/Model/razze-json.php [L,QSA]
 RewriteRule ^razze-json/?$ PHP/Model/razze-json.php [L,QSA]
+
+# 6. Pagina inesistente
+ErrorDocument 404 /tec-web/404.php
+ErrorDocument 500 /tec-web/500.php

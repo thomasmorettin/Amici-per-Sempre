@@ -29,8 +29,8 @@
 }
 
 [data-theme="dark"] {
-    --txtcolor: #E6E0D8;
-    --borderform: #E6E0D8;
+    --txtcolor: #EAE5DF;
+    --borderform: #EAE5DF;
     --inverttxtcolor: #1C1A19;
     --bgcolor: #1C1A19;
     --bgbread: #221F1E;
@@ -43,11 +43,11 @@
     --txtbtncolor: #8FA668;
     --bgbtnhover: #8FA668;
     --txtimportant: #8FA668;
-    --linkcolor: #7BC2E0;
+    --linkcolor: #498AA8;
     --bgwarning: #3D1C19;
-    --borderwarning: #CF7A72;
+    --borderwarning: #D48780;
     --bgwarninghover: #3D1C19;
-    --txtwarning: #E89E96;
+    --txtwarning: #D48780;
 
     --brownshadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     --greenshadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -63,14 +63,20 @@
     --generalpadding: 0.25rem 1rem 0.25rem 1rem; /* top, right, bottom, left */
     --squarepadding: 0.25rem 0.25rem;
     --generalbtnborder: 0.15rem solid var(--borderbtn);
+    --warningbtnborder: 0.15rem solid var(--borderwarning);
     --generaloutline: 0.15rem solid var(--linkcolor);
-    --squarewidth: 2.75rem;
+    --squarewidth: 2.25rem;
     --generalradius: 0.5rem;
 }
 
 * {
     padding: 0rem;
     margin: 0rem;
+}
+
+*::selection {
+    background-color: var(--txtcolor);
+    color: var(--bgcolor);
 }
 
 *:focus {
@@ -95,8 +101,8 @@ details:has(summary:focus-visible) {
 .btn-link:visited svg,
 button svg,
 details summary svg {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
     display: block;
 }
 
@@ -106,9 +112,10 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
 
     width: auto;
-    height: 2.75rem;
+    height: 2.25rem;
     font-size: 1.25rem;
     font-weight: bold;
     font-family: inherit;
@@ -218,6 +225,10 @@ header.scrolled {
     box-shadow: var(--normalshadow);
 }
 
+#link-logo {
+    width: fit-content;
+}
+
 header h1 {
     background-image: var(--logo);
     background-repeat: no-repeat;
@@ -299,13 +310,8 @@ header h1 {
 }
 
 #btn-theme svg {
-    width: 2.25rem;
-    height: 2.25rem;
-}
-
-#btn-theme.light svg {
-    width: inherit;
-    height: inherit;
+    width: 1.85rem;
+    height: 1.85rem;
 }
 
 #btn-theme #moon-icon {
@@ -377,7 +383,7 @@ main {
 }
 
 #section-title h1 {
-    font-size: 3em;
+    font-size: 3rem;
     line-height: 1.25em;    
 }
 
@@ -542,6 +548,7 @@ main {
     margin-top: 0.5em;
     flex: 1;
     display: flex;
+    font-weight: bold;
     flex-direction: column;
     justify-content: center;
 }
@@ -628,7 +635,7 @@ details summary {
     font-size: 1.1rem;
     font-weight: bold;
     display: flex;
-    min-height: 2.75rem;
+    min-height: 2.25rem;
     align-items: center;
     padding: var(--generalpadding);
     cursor: pointer;
@@ -638,7 +645,7 @@ details summary {
     transition: background-color 0.3s ease;
 }
 
-#section-faqs details summary p {
+#section-faqs details summary span {
     flex: 1;
 }
 
@@ -815,7 +822,7 @@ footer {
     margin: auto;
     position: sticky;
     top: 7em;
-    padding: var(--generalpadding);
+    padding: var(--squarepadding);
     transition: all 0.3s ease;
 }
 
@@ -831,52 +838,27 @@ footer {
     gap: 1em;
     margin: auto;
     align-items: center;
-    width: fit-content;
 }
 
 #btns-mesi p {
     background-color: var(--bgbread);
     padding: var(--generalpadding);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     font-size: 1.2em;
     font-weight: bold;
 }
 
 #btns-mesi a {
-    text-decoration: none;
-    border-radius: 0.5em;
-    color: var(--txtbtncolor);
-    font-weight: bold;
-    background-color: var(--bgbtn);
-    transition: all 0.3s ease;
+    width: var(--squarewidth);
+    padding: var(--squarepadding);
 }
 
-#btns-mesi a,
-#btns-sett button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1em;
-    height: 2.75rem;
-    border: 2px solid var(--borderbtn);
-    box-shadow: var(--greenshadow);
-    padding: var(--generalpadding);
-}
-
-#btn-mese-prec::before {
-    content: url("../Resources/Vectors/UpArrow.svg");
-    width: 1.75em;
-    height: 1.75em;
+#btn-mese-prec svg {
     transform: rotate(270deg);
-    transition: all 0.3s ease;
 }
 
-#btn-mese-succ::after {
-    content: url("../Resources/Vectors/UpArrow.svg");
+#btn-mese-succ svg {
     transform: rotate(90deg);
-    width: 1.75em;
-    height: 1.75em;
-    transition: all 0.3s ease;
 }
 
 #btns-sett {
@@ -987,10 +969,6 @@ footer {
     margin-left: 1em;
 }
 
-.dtl-animale .exp-freccia {
-    flex: 0;
-}
-
 .nome-animale {
     font-size: 1.25em;
     font-weight: bold;
@@ -1096,55 +1074,12 @@ details[open] > .contenuto-nascosto {
 
 .btn-gruppo button,
 .btn-gruppo-cal button {
-    padding: 0.5em;
-    border-radius: 0.5em;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: var(--squarewidth);
+    padding: var(--squarepadding);
 }
 
 .lista-settimana {
     list-style-type: none;
-}
-
-.go-calendario {
-    background-color: var(--bgbtn);
-    border: 2px solid var(--borderbtn);
-    font-weight: bold;
-    color: var(--txtbtncolor);
-    padding: var(--generalpadding);
-    border-radius: 0.5em;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.go-calendario::before {
-    content: "";
-    background-image: url("../Resources/Vectors/Forward.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 1.25em;
-    width: 1.25em;
-    height: 1.25em;
-    margin-right: 0.5em;
-    background-position: center;
-    transition: all 0.3s ease;
-}
-
-.go-calendario:visited {
-    color: var(--txtbtncolor);
-}
-
-.btn-info {
-    background-color: var(--bgbtn);
-    font-size: 1em;
-    box-shadow: var(--greenshadow);
-    border: 2px solid var(--borderbtn);
-    background-image: url("../Resources/Vectors/Info.svg");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 #nome-rich {
@@ -1153,22 +1088,11 @@ details[open] > .contenuto-nascosto {
     gap: 0.5em;
 }
 
-.btn-popup-app {
-    background-color: var(--bgbtn);
-    box-shadow: var(--greenshadow);
-    border: 2px solid var(--borderbtn);
-    background-image: url("../Resources/Vectors/Calendar.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 .btn-elimina-app {
     background-color: var(--bgwarning);
     box-shadow: var(--redshadow);
-    border: 2px solid var(--borderwarning);
-    background-image: url("../Resources/Vectors/Delete.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+    border: var(--warningbtnborder);
+    fill: var(--txtwarning);
 }
 
 .cliente-info dt {
@@ -1188,6 +1112,10 @@ dialog {
     opacity: 0;
 }
 
+dialog p {
+    color: var(--txtcolor);
+}
+
 dialog::backdrop {
     background-color: var(--popupbackdrop);
     opacity: 0;
@@ -1202,17 +1130,15 @@ dialog[open]::backdrop {
 }
 
 .btn-close {
-    background-image: url("../Resources/Vectors/Cancel.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
     position: absolute;
-    top: 1em;
-    right: 1em;
-    border-radius: 0.5em;
-    width: 1.5rem;
+    top: 1rem;
+    right: 1rem;
     height: 1.5rem;
+    width: 1.5rem;
+    padding: var(--squarepadding);
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
 }
 
 #dia-appuntamento,
@@ -1223,6 +1149,7 @@ dialog[open]::backdrop {
 }
 
 .titolo-dialog {
+    margin-top: 1rem;
     line-height: 1.25em;
     font-size: 1.5em;
     font-weight: bold;
@@ -1274,11 +1201,6 @@ dialog[open]::backdrop {
     text-align: center;
 }
 
-#msg-warning::before {
-    content: url("../Resources/Vectors/Warning.svg");
-    margin-right: 1em;
-}
-
 #toast-not {
     position: fixed;
     width: max-content;
@@ -1318,9 +1240,9 @@ dialog[open]::backdrop {
 }
 
 #dog-house {
-    content: url("../Resources/Vectors/DogHouse.svg");
-    width: 6em;
-    height: 6em;
+    fill: var(--txtimportant);
+    width: 8rem;
+    height: 8rem;
 }
 
 #benvenuto #ben-time {
@@ -1377,7 +1299,7 @@ dialog[open]::backdrop {
     gap: 1em;
 }
 
-#section-links li span {
+#section-links li > span {
     width: 2em;
     height: 2em;
     background-color: var(--bgdecoration);
@@ -1390,44 +1312,8 @@ dialog[open]::backdrop {
     border-radius: 10em;
 }
 
-#section-links li a {
-    background-color: var(--bgbtn);
-    border: 2px solid var(--borderbtn);
-    font-weight: bold;
+#section-links ul li a {
     flex: 1;
-    color: var(--txtbtncolor);
-    padding: var(--generalpadding);
-    box-shadow: var(--greenshadow);
-    border-radius: 0.5em;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-#section-links li a::before {
-    content: "";
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 1.25em;
-    width: 1.5em;
-    height: 1.5em;
-    margin-right: 0.5em;
-    background-position: center;
-    transition: all 0.3s ease;
-}
-
-#cal-link::before {
-    background-image: url("../Resources/Vectors/Calendar.svg");
-}
-
-#ticket-link::before {
-    background-image: url("../Resources/Vectors/Heart.svg");
-}
-
-#proposte-link::before {
-    background-image: url("../Resources/Vectors/Question.svg");
 }
 
 @media (hover: hover) {
@@ -1464,11 +1350,6 @@ dialog[open]::backdrop {
         fill: var(--inverttxtcolor);
     }
 
-    #btn-mese-succ:hover::after,
-    #btn-mese-prec:hover::before {
-        content: url("../Resources/Vectors/UpArrow-Light.svg");
-    }
-
     .dtl-animale summary:hover {
         background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
@@ -1483,21 +1364,14 @@ dialog[open]::backdrop {
         background-image: url("../Resources/Vectors/Forward-Light.svg");
     }
 
-    .btn-info:hover {
-        background-image: url("../Resources/Vectors/Info-Light.svg");
-    }
-
-    .btn-popup-app:hover {
-        background-image: url("../Resources/Vectors/Calendar-Light.svg");
+    .btn-close:hover {
+        background-color: transparent;
+        fill: var(--txtbtncolor);
     }
 
     .btn-elimina-app:hover {
-        background-image: url("../Resources/Vectors/Delete_Light.svg");
         background-color: var(--bgwarninghover);
-    }
-
-    .btn-close:hover {
-        background-color: transparent;
+        fill: var(--inverttxtcolor);
     }
 
     #btn-cancella-app:hover {
@@ -1508,18 +1382,6 @@ dialog[open]::backdrop {
     #section-links li a:hover {
         background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
-    }
-
-    #cal-link:hover::before {
-        background-image: url("../Resources/Vectors/Calendar-Light.svg");
-    }
-
-    #ticket-link:hover::before {
-        background-image: url("../Resources/Vectors/Heart-Light.svg");
-    }
-
-    #proposte-link:hover::before {
-        background-image: url("../Resources/Vectors/Question-Light.svg");
     }
 
     #hamburger:hover {

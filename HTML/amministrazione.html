@@ -10,24 +10,39 @@
                 <p><span id="num-app">{{num-app}}</span> <span id="app">appuntamenti</span> in programma</p>
             </div>
 
-            <div id="dog-house"></div>
+            <svg id="dog-house">
+                <use href="{{root}}/Resources/icons.svg#dog-house"></use>
+            </svg>
         </section>
 
         <section id="section-links">
             <ul>
                 <li>
                     <span id="cal-not">{{num-app}}</span>
-                    <a id="cal-link" href="{{root}}/amministrazione/calendario">Calendario</a>
+                    <a class="btn-link" href="{{root}}/amministrazione/calendario">
+                        <svg>
+                            <use href="{{root}}/Resources/icons.svg#calendario"></use>
+                        </svg>
+                        <span>Calendario</span>
+                    </a>
                 </li>
 
                 <li>
                     <span id="ticket-not">{{num-tck}}</span>
-                    <a id="ticket-link" href="{{root}}/amministrazione/gestione-ticket">Richieste di adozione</a>
+                    <a class="btn-link" href="{{root}}/amministrazione/gestione-ticket">
+                        <svg>
+                            <use href="{{root}}/Resources/icons.svg#cuore"></use>
+                        </svg>
+                        <span>Richieste adozione</span>
+                    </a>
                 </li>
 
                 <li>
                     <span id="proposte-not">{{num-req}}</span>
-                    <a id="proposte-link" href="{{root}}/amministrazione/richieste-inserimento-rifugio">Richieste di inserimento</a>
+                    <a class="btn-link" href="#"><svg>
+                            <use href="{{root}}/Resources/icons.svg#domanda"></use>
+                        </svg>
+                        <span>Richieste inserimento</span></a>
                 </li>
             </ul>
         </section>

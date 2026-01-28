@@ -21,7 +21,7 @@ function getAppuntamenti($mese, $anno) {
             WHERE MONTH(Data) = ? AND YEAR(Data) = ?
             ORDER BY C.Data, C.Ora";
 
-            // QUERY CON PLACEHOLDER: appuntamenti da calendario (richieste per portare in adozione)
+    // QUERY CON PLACEHOLDER: appuntamenti da calendario (richieste per portare in adozione)
     $sqlRequests = "SELECT C.ID, DAY(Data) AS Giorno, Ora, E.Note AS Info, A.Razza AS RazzaAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
             FROM Calendario C
             JOIN EntitaDatabile E ON C.ID = E.ID
