@@ -42,9 +42,24 @@ function gestioneFormFiltri() {
 
         const formData = new FormData(this);
 
-        for (let key of formData.keys()) {
-            urlParams.delete(key);
-        }
+        // IMPORTANTE: rimuovi TUTTI i parametri del form (anche checkbox)
+        const formFields = new FormData(this);
+        const allFieldNames = new Set();
+        
+        // Raccogli TUTTI i nomi dei campi (anche non-checked)
+        this.querySelectorAll('input, select, textarea').forEach(field => {
+            if (field.name) {
+                // Rimuovi [] per gestire array
+                const cleanName = field.name.replace('[]', '');
+                allFieldNames.add(cleanName);
+            }
+        });
+        
+        // Rimuovi dall'URL tutti i parametri del form
+        allFieldNames.forEach(name => {
+            urlParams.delete(name);
+            urlParams.delete(name + '[]'); // Rimuovi anche versione array
+        });
 
         for (let [key, value] of formData.entries()) {
             if (value.trim() !== '') {
@@ -84,11 +99,6 @@ function isControlActive(el) {
     if (type === 'checkbox' || type === 'radio') return el.checked;
     if (tag === 'select') {
         if (el.value === '' || el.value == null) return false;
-        const min = el.getAttribute('min');
-        if (min !== null) return Number(el.value) > Number(min);
-        const def = el.getAttribute('data-default');
-        if (def !== null) return String(el.value) !== def;
-        if (!isNaN(Number(el.value))) return Number(el.value) > 1;
         return String(el.value).trim() !== '';
     }
     if (type === 'range') {

@@ -175,7 +175,7 @@ if (is_logged_in()) {
 
     else { $html = "<p class='center bold'>Nessun animale presente nel Rifugio.</p>"; }
 
-    $pannelloControllo = renderPannelloControlloFiltri(false); // Il pulsante di ordina non viene mostrato
+    $pannelloControllo = renderPannelloControlloFiltri(true); // Il pulsante di ordina non viene mostrato
     $pannelloFiltri = renderPannelloFiltri(PROJECT_ROOT . "/amministrazione/gestione-ticket.php", ["Tipo", "Dati persona"]);
 
     $dati = [

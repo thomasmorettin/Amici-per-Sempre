@@ -2,11 +2,15 @@
     <p class="titolo">Richieste per gli animali</p>
 
     {{pannello-controllo-filtri}}
-    {{pannello-filtri}}
+    <section class="section-list">
+        {{pannello-filtri}}
+        <div class="list-vertical-panel">
+            <ul id="lst-animali">
+                {{lista-animali}}
+            </ul>
+        </div>
+    </section>
 
-    <ul id="lst-animali">
-        {{lista-animali}}
-    </ul>
 </main>
 
 <dialog id="dia-info">
