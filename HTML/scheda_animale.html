@@ -62,7 +62,7 @@
                         <use href="{{root}}/Resources/icons.svg#zampa"></use>
                 </svg>
                 <h3 id="visita-heading"> Vuoi conoscere [nome_animale] di persona? </h3> 
-                <button id="btn-richiedi-visita" class="cta-button" aria-expanded="false" aria-controls="appointment-form" >
+                <button id="btn-richiedi-visita" class="cfr-button" aria-expanded="false" aria-controls="appointment-form" >
                     Prenota Visita
                 </button>
             </div>
@@ -72,6 +72,10 @@
                 
                 <div class="form-intro">
                     <p>Lasciaci i tuoi contatti per fissare un appuntamento e conoscere [nome_animale] di persona. Durante la visita potrai vedere dove vive, fare tutte le domande e valutare se è l'animale giusto per te!</p>
+                </div>
+
+                <div class="info-required">
+                    <p>Campo obbligatorio</p>
                 </div>
 
                 <div class="form-row">
@@ -85,6 +89,7 @@
                                required 
                                placeholder="Mario"
                                value="[val_nome]"
+                               autocomplete="off"
                                aria-describedby="error-nome">
                             <!--autocomplete="off" -->
                         <div id="error-nome" class="field-error hidden" role="alert" aria-atomic="true"></div>
@@ -98,8 +103,9 @@
                                id="cognome" 
                                name="cognome" 
                                required 
-                               placeholder="Il tuo cognome"
+                               placeholder="Rossi"
                                value="[val_cognome]"
+                               autocomplete="off"
                                aria-describedby="error-cognome">
                         <div id="error-cognome" class="field-error hidden" role="alert" aria-atomic="true"></div>
                     </div>        
@@ -116,6 +122,7 @@
                                required 
                                placeholder="tuaemail@esempio.it"
                                value="[val_email]"
+                               autocomplete="off"
                                aria-describedby="error-email">
                         <div id="error-email" class="field-error hidden" role="alert" aria-atomic="true"></div>
                     </div>
@@ -130,6 +137,7 @@
                                required 
                                placeholder="+39 123 456 7890"
                                value="[val_telefono]"
+                               autocomplete="off"
                                aria-describedby="error-telefono">
                         <div id="error-telefono" class="field-error hidden" role="alert" aria-atomic="true"></div>
                     </div>
@@ -144,20 +152,8 @@
                               placeholder="Eventuali informazioni aggiuntive che vuoi condividere...">[val_note]</textarea>
                 </div>
 
-                <div class="privacy-policy">                  
-                    <label for="privacy">
-                        Acconsento al trattamento dei miei dati personali ai sensi della normativa vigente sulla privacy. 
-                    </label>
-                    <input type="checkbox" 
-                           id="privacy" 
-                           name="privacy" 
-                           required
-                           aria-describedby="error-privacy">
-                    <div id="error-privacy" class="field-error hidden" role="alert"></div>
-                </div>
-
                 <button type="submit" class="submite-bt">
-                    Invia richiesta di visita
+                    Invia richiesta 
                 </button>
             </form>
         </section>

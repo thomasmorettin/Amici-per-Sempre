@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /tec-web/
+RewriteBase /Amici-per-Sempre/
 
 # 1. Rimuovi index.php dall'URL (Redirect estetico)
 RewriteCond %{THE_REQUEST} /index\.php [NC]

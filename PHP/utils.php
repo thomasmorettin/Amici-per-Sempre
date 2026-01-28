@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Pelago\Emogrifier\CssInliner;
 
-const PROJECT_ROOT = "/tec-web";
+const PROJECT_ROOT = "/Amici-per-Sempre";
 
 // Funzione per l'avvio della sessione se non già avviata
 function ensure_session() {
