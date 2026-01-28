@@ -85,8 +85,7 @@ if (!empty($animali)) {
 $pannello_controllo_html = Controller\renderPannelloControlloFiltri(false); // false = no bottone "Ordina"
 $pannello_filtri_html = Controller\renderPannelloFiltri(
     PROJECT_ROOT . '/adotta',  // Action del form
-    ['Tipo', 'Dati animale', 'Razze']   /
-);
+    ['Tipo', 'Dati animale', 'Razze']  );
 
 // === ARRAY DATI PER buildPage() ===
 $dati = [
