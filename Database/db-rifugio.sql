@@ -1,5 +1,6 @@
 CREATE TABLE Razza (
 	Nome VARCHAR(25) PRIMARY KEY,
+	Lingua CHAR(2) NOT NULL DEFAULT 'it',
 	Tipo ENUM ('Cane', 'Gatto') NOT NULL
 );
 
@@ -35,8 +36,8 @@ CREATE TABLE AnimaleRifugio (
 	Nome VARCHAR(25) NOT NULL,
 	Storia TEXT NOT NULL,
 	Sesso ENUM ('M', 'F') NOT NULL,
-	Peso FLOAT(2, 1) NOT NULL,
-	Eta FLOAT(2, 2) NOT NULL,
+	Peso FLOAT(3, 1) NOT NULL,
+	Eta FLOAT(4, 2) NOT NULL,
 	PthImg TEXT NOT NULL UNIQUE,
 	Colore VARCHAR(10) NOT NULL,
 	Caratteristiche JSON NOT NULL,

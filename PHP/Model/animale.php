@@ -6,7 +6,7 @@ use DB\DBAccess;
 
 // Ottieni un singolo animale per ID
 function getAnimaleById($id) {
-    $query = "SELECT ar.*, r.Tipo
+    $query = "SELECT ar.*, r.Tipo, r.Lingua AS LinguaRazza
               FROM AnimaleRifugio ar
               JOIN Razza r ON ar.Razza = r.Nome
               WHERE ar.ID = ?";
@@ -27,7 +27,7 @@ function getAnimaleById($id) {
 // Ottieni tutti gli animali con filtri opzionali
 function getAllAnimali($filtri = []) {
     
-    $query = "SELECT ar.*, r.Tipo, r.Nome AS NomeRazza
+    $query = "SELECT ar.*, r.Tipo, r.Nome AS NomeRazza, r.Lingua AS LinguaRazza
               FROM AnimaleRifugio ar
               JOIN Razza r ON ar.Razza = r.Nome";
     

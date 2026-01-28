@@ -8,20 +8,6 @@ use function Model\getAllAnimali;
 
 ensure_session();
 
-// === LISTA RAZZE INGLESI ===
-$razze_inglesi = [
-    'Labrador',
-    'Golden Retriever',
-    'Beagle',
-    'Bulldog',
-    'Chihuahua',
-    'Maine Coon',
-    'Ragdoll',
-    'Sphynx',
-    'British Shorthair',
-    'Scottish Fold'
-];
-
 // === GESTIONE FILTRI ===
 $filtri = [
     'tipo' => isset($_GET['tipo']) ? $_GET['tipo'] : [],
@@ -36,11 +22,12 @@ $count = count($animali);
 
 // === GENERAZIONE HTML LISTA ANIMALI ===
 $lista_animali_html = '';
+$contatore_html = '';
 
 if (!empty($animali)) {
     // conteggio 
-    $lista_animali_html .= sprintf(
-        '<p class="animali-trovati">%d %s %s</p>',
+    $contatore_html = sprintf(
+        '<p class="animali-trovati" role="status">%d %s %s</p>',
         $count,
         $count === 1 ? 'animale' : 'animali',
         $count === 1 ? 'trovato' : 'trovati'
@@ -54,8 +41,10 @@ if (!empty($animali)) {
         $colore = htmlspecialchars($animale['Colore'], ENT_QUOTES, 'UTF-8');
         $tipo_lower = strtolower($tipo);
         
-        // Determina se la razza è in inglese
-        $lang_razza = in_array($animale['NomeRazza'], $razze_inglesi) ? ' lang="en"' : '';
+        // Usa il campo Lingua dal database 
+        $lang_razza = ($animale['LinguaRazza'] !== 'it') 
+            ? ' lang="' . htmlspecialchars($animale['LinguaRazza'], ENT_QUOTES, 'UTF-8') . '"' 
+            : '';
 
         // aria-label per il link
         $aria_label = sprintf(
@@ -89,11 +78,7 @@ if (!empty($animali)) {
         );
     }
 } else {
-    $lista_animali_html = '
-    <li class="no-results" role="status">
-        <p>Nessun animale trovato con i filtri selezionati.</p>
-        <p><a href="' . PROJECT_ROOT . '/adotta">Rimuovi i filtri</a></p>
-    </li>';
+    $contatore_html = '<p class="animali-nontrovati" role="status">Nessun animale trovato con i filtri selezionati.</p>';
 }
 
 // === GENERAZIONE PANNELLO FILTRI 
@@ -117,6 +102,7 @@ $dati = [
 
     '{{current-js}}' => 'pannello-filtri.js', 
     '[project_root]' => PROJECT_ROOT,
+    '[contatore_animali]' => $contatore_html,
     '[lista_animali]' => $lista_animali_html,
     '[pannello_controllo_filtri]' => $pannello_controllo_html, 
     '[pannello_filtri]' => $pannello_filtri_html,              

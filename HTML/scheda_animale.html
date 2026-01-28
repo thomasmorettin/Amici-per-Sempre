@@ -13,7 +13,7 @@
                 </div>
                 <div class="info-item">
                     <dt class="info-label">Razza</dt>
-                    <dd class="info-value">[razza]</dd>
+                    <dd class="info-value"><span[lang_razza]>[razza]</span></dd>
                 </div>
                 <div class="info-item">
                     <dt class="info-label">Età</dt>
@@ -35,12 +35,22 @@
         </div>
 
         <div class="descriptions">
+          <div class="title-container">
+            <svg id="book" aria-hidden="true">
+                        <use href="{{root}}/Resources/icons.svg#book"></use>
+            </svg>
             <h3 class="descriptions-title">La storia</h3>
+          </div>
             <p>[storia]</p>
         </div>
 
         <div class="features">
+            <div class="title-container">
+            <svg id="star" aria-hidden="true">
+                        <use href="{{root}}/Resources/icons.svg#star"></use>
+            </svg>
             <h3 class="features-title">Caratteristiche</h3>
+            </div>
             <ul>
                 [caratteristiche_list]
             </ul>
@@ -48,7 +58,9 @@
 
         <section id="chiedi-visita" aria-labelledby="visita-heading">
             <div class="visita-header">
-                <span class="zampa-no-sfondo" aria-hidden="true"></span>
+                <svg id="zampa" aria-hidden="true">
+                        <use href="{{root}}/Resources/icons.svg#zampa"></use>
+                </svg>
                 <h3 id="visita-heading"> Vuoi conoscere [nome_animale] di persona? </h3> 
                 <button id="btn-richiedi-visita" class="cta-button" aria-expanded="false" aria-controls="appointment-form" >
                     Prenota Visita

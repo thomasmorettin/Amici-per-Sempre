@@ -5,7 +5,7 @@ http_response_code(404);
 
 $dati = [
     '{{current-page}}' => 'Errore 404',
-    '{{page-description}}' => "",
+    '{{page-description}}' => '',
     '{{page-keywords}}' => 'amici per sempre, errore, pagina non trovata, 404',
     '{{current-js}}' => '',
 ];

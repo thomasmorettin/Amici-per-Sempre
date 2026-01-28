@@ -33,6 +33,10 @@ $sesso_completo = $animale['Sesso'] === 'M' ? 'Maschio' : 'Femmina';
 $peso = htmlspecialchars($animale['Peso'], ENT_QUOTES, 'UTF-8');
 $storia = htmlspecialchars($animale['Storia'], ENT_QUOTES, 'UTF-8');
 $pthImg = htmlspecialchars($animale['PthImg'], ENT_QUOTES, 'UTF-8');
+// Determina la lingua della razza
+$lingua_razza = ($animale['LinguaRazza'] !== 'it') 
+    ? ' lang="' . htmlspecialchars($animale['LinguaRazza'], ENT_QUOTES, 'UTF-8') . '"' 
+    : '';
 
 // Gestione caratteristiche
 $caratteristiche = json_decode($animale['Caratteristiche'], true);
@@ -69,9 +73,9 @@ $dati = [
     '{{breadcrumb}}'     => populatedBread(),
     '{{footer}}'         => file_get_contents(dirname(__DIR__) . "/../HTML/footer.html"),
     '[immagine]'         => $pthImg,
-   // '[alt_immagine]'     => "Foto di $nome",
     '[nome_animale]'     => $nome,
     '[specie]'           => $tipo,
+    '[lang_razza]'       => $lingua_razza, 
     '[razza]'            => $razza,
     '[eta]'              => $eta,
     '[sesso]'            => $sesso_completo,
