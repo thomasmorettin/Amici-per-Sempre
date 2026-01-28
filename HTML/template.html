@@ -6,8 +6,16 @@
         <!-- META TAGS -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content='Il Rifugio "Amici per Sempre" è la miglior associazione per adottare e portare in adozione cani e gatti nella provincia di Padova'>
+        <meta name="description" content="{{page-description}}">
         <meta name="keywords" content="{{page-keywords}}">
+
+        <!-- SOCIAL SEO -->
+        <meta property="og:title" content="Adotta, o porta in adozione, un amico al Rifugio Amici per Sempre - Padova">
+        <meta property="og:description" content="Non lasciarli soli. Scopri i cani e i gatti in cerca di casa e le loro storie.">
+        <meta property="og:image" content="{{root}}/Resources/Images/Operatori.jpg">
+        <meta property="og:url" content="{{root}}">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="it_IT">
 
         <!-- ICON PER TAB -->
         <link rel="icon" type="image/png" href="{{root}}/Resources/Favicon/favicon-96x96.png" sizes="96x96">
@@ -26,6 +34,7 @@
         <link rel="stylesheet" href="{{root}}/CSS/style-smartphone-f.css" media="screen and (max-width: 768px)">
 
         <!-- FILE DI JS -->
+        <script>const PROJECT_ROOT = "{{root}}";</script>
         <script src="{{root}}/JavaScript/storage.js"></script>
         <script src="{{root}}/JavaScript/global.js" defer></script>
         <script src="{{root}}/JavaScript/{{current-js}}" defer></script>
