@@ -39,8 +39,10 @@ const faq = {
     }]
 };
 
+{
 // Creazione ed iniezione dello script all'interno del tag <head>
 const script = document.createElement("script");
 script.type = "application/ld+json";
 script.text = JSON.stringify(faq);
 document.head.appendChild(script);
+}

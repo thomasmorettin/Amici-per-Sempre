@@ -11,10 +11,13 @@
 }
 
 .form-field:has(input:required) > label::before,
-.form-field:has(select:required) > label::before{
+.form-field:has(select:required) > label::before, 
+dialog .form-field:has(input:required) > label::before,
+dialog .form-field:has(select:required) > label::before {
     content: "•";
     font-size: 1.4em;
     color: var(--txtwarning);
+    margin-right: 0.2em;
 }
 
 #section-form-porta-adozione {
@@ -184,7 +187,7 @@ textarea {
     padding: 0.5em;
     font-size: 1.1em;
     border: 2px solid var(--txtcolor);
-    border-radius: 0.25em;
+    border-radius: var(--generalradius);
     font-family: "Inter", serif;
     color: var(--txtcolor);
     background-color: var(--bgbread);

@@ -46,7 +46,7 @@
     --linkcolor: #498AA8;
     --bgwarning: #3D1C19;
     --borderwarning: #D48780;
-    --bgwarninghover: #3D1C19;
+    --bgwarninghover: #D48780;
     --txtwarning: #D48780;
 
     --brownshadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -101,8 +101,8 @@ details:has(summary:focus-visible) {
 .btn-link:visited svg,
 button svg,
 details summary svg {
-    width: 2rem;
-    height: 2rem;
+    width: 1.75rem;
+    height: 1.75rem;
     display: block;
 }
 
@@ -293,7 +293,7 @@ header h1 {
 .header-btns {
     display: flex;
     align-items: center;
-    gap: 1em;
+    gap: 1rem;
     justify-self: end;
     margin-right: 0.5rem;
 }
@@ -1102,6 +1102,10 @@ details[open] > .contenuto-nascosto {
     margin-right: 0.25em;
 }
 
+.cliente-info dd {
+    margin-left: 0.5rem;
+}
+
 dialog {
     margin: auto 1em;
     justify-self: center;
@@ -1110,6 +1114,10 @@ dialog {
     background-color: var(--bgcolor);
     border-radius: 0.5em;
     opacity: 0;
+}
+
+dialog form {
+    color: var(--txtcolor);
 }
 
 dialog p {
@@ -1146,6 +1154,22 @@ dialog[open]::backdrop {
 #dia-info {
     text-align: center;
     width: fit-content;
+}
+
+.info-richieste {
+    margin-top: 1rem;
+    justify-content: center;
+    display: flex;
+    font-size: 1.1em;
+    color: var(--txtwarning);
+    font-weight: bold;
+}
+
+.info-richieste p::before {
+    content: "•";
+    font-size: 1.4em;
+    color: var(--txtwarning);
+    margin-right: 0.2em;
 }
 
 .titolo-dialog {
