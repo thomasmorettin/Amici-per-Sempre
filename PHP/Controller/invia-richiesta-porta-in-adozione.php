@@ -135,7 +135,7 @@ if (!empty($errori)) {
 $persona = getPersonaByEmailOrTelefono($email, $telefono);
 
 // Crea la persona se non esiste
-if (!$persona) {
+if (!$persona || empty($persona)) {
     $persona_id = createPersona($nome, $cognome, $email, $telefono);
 } else {
     $persona_id = $persona['ID'];
@@ -145,12 +145,11 @@ if (!$persona) {
 $successo = createRichiestaInserimentoAnimale($persona_id, "hi", $specie, $peso, $razza, $eta, $sesso);
 
 if ($successo) {
-    $_SESSION['success'] = "La richiesta di inserimento animale è stata inviata con successo. Riceverai una email di conferma e le informazioni per i prossimi passi.";
+    $_SESSION['success'] = "La richiesta di inserimento animale è stata inviata con successo. Riceverai una email di conferma e le informazioni per i prossimi passi." . $persona_id;
     // sendEmail($email, $nome);  // BE CAREFUL
     header("Location: " . PROJECT_ROOT . "/PHP/Controller/porta-in-adozione");
     exit;
 } else {
-    debug_log("Errore durante la creazione della richiesta di inserimento animale per la persona ID: $persona_id");
     $_SESSION['error'] = "Si è verificato un errore durante l'invio della richiesta. Riprova più tardi.";
     header("Location: " . PROJECT_ROOT . "/PHP/Controller/porta-in-adozione");
     exit;

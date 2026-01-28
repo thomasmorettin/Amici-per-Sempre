@@ -14,7 +14,7 @@ $radio_buttons_specie = '<label for="specie-cane"><input type="radio" name="spec
 
 $dati = [
     "{{current-page}}" => "Porta in Adozione",
-    "{{page-keywords}}" => "",
+    "{{page-keywords}}" => "Amici per Sempre, Porta in Adozione, porta in adozione cane, porta in adozione gatto, porta in adozione animale, dona animale, dona cane, dona gatto",
     "{{current-js}}" => "porta-in-adozione.js",
     "[val_nome]"         => isset($form_data['nome']) ? htmlspecialchars($form_data['nome'], ENT_QUOTES, 'UTF-8') : '',
     "[val_cognome]"      => isset($form_data['cognome']) ? htmlspecialchars($form_data['cognome'], ENT_QUOTES, 'UTF-8') : '',

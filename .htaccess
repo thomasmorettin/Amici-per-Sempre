@@ -31,3 +31,7 @@ RewriteRule ^amministrazione/(.+)$ PHP/Controller/$1.php [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+)$ $1.php [L,QSA]
+
+# 6. Mappa la richiesta ajax delle razze dal porta-in-adozione
+RewriteRule ^PHP/Controller/razze-json/?$ PHP/Model/razze-json.php [L,QSA]
+RewriteRule ^razze-json/?$ PHP/Model/razze-json.php [L,QSA]

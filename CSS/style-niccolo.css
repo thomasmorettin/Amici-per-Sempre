@@ -10,7 +10,8 @@
     flex-direction: row;
 }
 
-.form-field:has(input:required) > label::before{
+.form-field:has(input:required) > label::before,
+.form-field:has(select:required) > label::before{
     content: "•";
     font-size: 1.4em;
     color: var(--txtwarning);
@@ -449,21 +450,40 @@ form select::after {
     background-color: var(--bgcolor);
 }
 
+.check-group label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
 .check-group input[type="checkbox"] {
+    position: relative;
     appearance: none;
     -webkit-appearance: none;
     border: 2px solid var(--borderbtn);
     background-color: var(--bgbtn);
     cursor: pointer;
-    padding: 0;
     width: 1.5em;
     height: 1.5em;
-    margin-right: 0.4em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     transition: 0.3s ease;
+}
+
+.check-group input[type="checkbox"]:checked ~ svg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.check-group svg {
+    position: absolute;
+    left: 0.3em;
+    width: 1.1em;
+    height: 1.1em;
+    fill: var(--bgbtn);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.1s ease;
+    pointer-events: none;
 }
 
 .check-group input[type="checkbox"]:hover {
@@ -473,10 +493,6 @@ form select::after {
 .check-group input[type="checkbox"]:checked {
     background-color: var(--bgbtnhover);
     box-shadow: var(--greenshadow);
-    background-image: url("../Resources/Vectors/Check.svg");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
 }
 
 .check-group {

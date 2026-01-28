@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    gestioneCaricamentoRazze();
     const form = document.querySelector('.form-porta-adozione');
     if (!form) return;
 
@@ -319,6 +320,60 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function mappaTipoARazza() {
-    // Da fare
+async function richiediRazze(tipo) {
+    if (tipo !== "cane" && tipo !== "gatto") {
+        return null;
+    }
+
+    tipo = (tipo === "cane" ? "Cane" : "Gatto");
+    
+    try {
+        const response = await fetch("razze-json?tipo=" + tipo);
+        if (!response.ok) {
+            return null;
+        }
+
+        const result = await response.json();
+        return result["razze"];
+    } catch (error) {
+        console.error(error.message);
+        return null;
+    }
+
+}
+
+function ripopulaSelect(selectID, opzioni, razza) {
+    const select = document.getElementById(selectID);
+
+    select.innerHTML = '';
+
+    const optDefault = document.createElement('option');
+    optDefault.value = "";
+    optDefault.textContent = "Seleziona razza per " + razza;
+    select.appendChild(optDefault);
+
+    opzioni.forEach(opzione => {
+        const opt = document.createElement('option');
+        opt.value = opzione;
+        opt.textContent = opzione;
+        select.appendChild(opt);
+    })
+}
+
+function gestioneCaricamentoRazze() {
+    const radioSpecie = document.querySelectorAll('input[name="specie"]');
+
+    radioSpecie.forEach(radio => {
+        radio.addEventListener('change', () => {
+            richiediRazze(radio.value)
+              .then(razze => {
+                if (razze !== null) {
+                    ripopulaSelect('razza', razze, radio.value);
+                } else {
+                    console.error("Errore nel fetch delle razze");
+                }
+              })
+              .catch(err => console.error("Error imprevisto:", err));
+        });
+    });
 }

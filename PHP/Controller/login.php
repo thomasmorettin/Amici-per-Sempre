@@ -9,7 +9,10 @@ if( is_logged_in() ) {
     $dati = [
         "{{current-page}}" => "Logout",
         "{{page-keywords}}" => "logout, utente, amministratore",
-        "{{current-js}}" => "logout.js"
+        "{{current-js}}" => "logout.js",
+        '{{page-keywords}}' => 'Amici per Sempre,
+                        logout, 
+                        esci'
     ];
 
     echo buildPage("logout.html", $dati);
@@ -20,7 +23,11 @@ if( is_logged_in() ) {
 $dati = [
     "{{current-page}}" => "Login",
     "{{page-keywords}}" => "login, accesso, utente, amministratore",
-    "{{current-js}}" => "login.js"
+    "{{current-js}}" => "login.js",
+    '{{page-keywords}}' => 'Amici per Sempre,
+                        login, 
+                        accedi, 
+                        area di accesso'
 ];
 
 echo buildPage("login.html", $dati);

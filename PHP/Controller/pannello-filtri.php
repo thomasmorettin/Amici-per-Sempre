@@ -1,5 +1,9 @@
 <?php
 namespace Controller;
+
+require_once dirname(__DIR__) . '\Model\razze.php';
+use function Model\getRazze;
+
 // Helper per il pannello filtri — restituisce HTML pronto da inserire
 
 // Recupera i filtri dalla request GET
@@ -58,7 +62,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
 
     $html = '<div class="filter-panel">'
         . '    <div class="filter-content">'
-        . '        <form method="GET" action="' . htmlspecialchars($action, ENT_QUOTES) . '">'
+        . '        <form method="GET" action="' . htmlspecialchars($action, ENT_QUOTES) . '" id="form-filtri">'
         . '            <div class="azioni-filtro">'
         . '                <button type="submit" id="applica">Applica ' . $filtri_cambiati . ' filtri</button>'
         . '                <button type="reset" id="reset"></button>'
@@ -79,9 +83,11 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        <div class="check-group">'
             . '                            <label for="cane">'
             . '                                <input type="checkbox" id="cane" name="tipo[]" value="Cane" ' . $checked_cane . '>Cane'
+            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
             . '                            </label>'
             . '                            <label for="gatto">'
             . '                                <input type="checkbox" id="gatto" name="tipo[]" value="Gatto" ' . $checked_gatto . '>Gatto'
+            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
             . '                            </label>'
             . '                        </div>'
             . '                    </div>'
@@ -107,25 +113,35 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        </div>'
             . '                        <div class="form-field">'
             . '                            <label>Peso</label>'
-            . '                             <select name="peso">'
-            . '                                <option value="" ' . ($peso == "" ? 'selected' : '') . '>Qualsiasi</option>'
-            . '                                <option value="-5" ' . ($peso == "-5" ? 'selected' : '') . '>Molto piccolo (Meno di 5 kg)</option>'
-            . '                                <option value="5-10" ' . ($peso == "5-10" ? 'selected' : '') . '>Piccolo (Da 5 a 10 kg)</option>'
-            . '                                <option value="11-25" ' . ($peso == "11-25" ? 'selected' : '') . '>Medio (Da 11 a 25 kg)</option>'
-            . '                                <option value="26-50" ' . ($peso == "26-50" ? 'selected' : '') . '>Grande (Da 26 a 50 kg)</option>'
-            . '                                <option value="51+" ' . ($peso == "51+" ? 'selected' : '') . '>Molto grande (51 kg o più)</option>'
-            . '                             </select>'
+            . '                            <div class="select-custom">'
+            . '                                <select name="peso" id="peso">'
+            . '                                    <option value="" ' . ($peso == "" ? 'selected' : '') . '>Qualsiasi</option>'
+            . '                                    <option value="-5" ' . ($peso == "-5" ? 'selected' : '') . '>Molto piccolo (Meno di 5 kg)</option>'
+            . '                                    <option value="5-10" ' . ($peso == "5-10" ? 'selected' : '') . '>Piccolo (Da 5 a 10 kg)</option>'
+            . '                                    <option value="11-25" ' . ($peso == "11-25" ? 'selected' : '') . '>Medio (Da 11 a 25 kg)</option>'
+            . '                                    <option value="26-50" ' . ($peso == "26-50" ? 'selected' : '') . '>Grande (Da 26 a 50 kg)</option>'
+            . '                                    <option value="51+" ' . ($peso == "51+" ? 'selected' : '') . '>Molto grande (51 kg o più)</option>'
+            . '                                </select>'
+            . '                                <svg>'
+            . '                                    <use href="{{root}}/Resources/icons.svg#arrow"></use>'
+            . '                                </svg>'
+            . '                            </div>'
             . '                        </div>'
             . '                        <div class="form-field">'
             . '                            <label>Età</label>'
-            . '                             <select name="eta">'
-            . '                                <option value="" ' . ($eta == "" ? 'selected' : '') . '>Qualsiasi</option>'
-            . '                                <option value="-4" ' . ($eta == "-4" ? 'selected' : '') . '>Cucciolo (Meno di 4 mesi)</option>'
-            . '                                <option value="4-1" ' . ($eta == "4-1" ? 'selected' : '') . '>Piccolo (Da 5 mesi ad 1 anno)</option>'
-            . '                                <option value="1-4" ' . ($eta == "1-4" ? 'selected' : '') . '>Giovane (Da 1 a 4 anni)</option>'
-            . '                                <option value="4-10" ' . ($eta == "4-10" ? 'selected' : '') . '>Adulto (Da 4 a 10 anni)</option>'
-            . '                                <option value="10+" ' . ($eta == "10+" ? 'selected' : '') . '>Anziano (10 anni o più)</option>'
-            . '                             </select>'
+            . '                            <div class="select-custom">'
+            . '                                    <select name="eta" id="eta">'
+            . '                                    <option value="" ' . ($eta == "" ? 'selected' : '') . '>Qualsiasi</option>'
+            . '                                    <option value="-4" ' . ($eta == "-4" ? 'selected' : '') . '>Cucciolo (Meno di 4 mesi)</option>'
+            . '                                    <option value="4-1" ' . ($eta == "4-1" ? 'selected' : '') . '>Piccolo (Da 5 mesi ad 1 anno)</option>'
+            . '                                    <option value="1-4" ' . ($eta == "1-4" ? 'selected' : '') . '>Giovane (Da 1 a 4 anni)</option>'
+            . '                                    <option value="4-10" ' . ($eta == "4-10" ? 'selected' : '') . '>Adulto (Da 4 a 10 anni)</option>'
+            . '                                    <option value="10+" ' . ($eta == "10+" ? 'selected' : '') . '>Anziano (10 anni o più)</option>'
+            . '                                </select>'
+            . '                                <svg>'
+            . '                                    <use href="{{root}}/Resources/icons.svg#arrow"></use>'
+            . '                                </svg>'
+            . '                            </div>'
             . '                        </div>'
             . '                    </div>'
             . '                </div>'
@@ -144,7 +160,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                </div>'
             . '                <div class="content">'
             . '                    <div class="inner-content">'
-            . '                         <div class="form-field">'
+            . '                        <div class="form-field">'
             . '                            <label>Nome</label>'
             . '                            <input type="text" name="nome_persona" value="' . $nome_persona . '" placeholder="Es: Mario">'
             . '                        </div>'
@@ -159,6 +175,62 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        <div class="form-field">'
             . '                            <label>Telefono</label>'
             . '                            <input type="tel" name="telefono" value="' . $telefono . '" placeholder="Es: 1234567890">'
+            . '                        </div>'
+            . '                    </div>'
+            . '                </div>'
+            . '            </div>';
+    }
+
+    if (in_array('Razze', $sections, true)) {
+        $razze = getRazze();
+
+        $razze_cane = "";
+        $razze_gatto = "";
+
+        foreach ($razze["Cane"] as $razza_cane) {
+            $razze_cane .= '               <label for="' . $razza_cane . '">'
+            . '                                <input type="checkbox" id="' . $razza_cane .'" name="razza[]" value="' . $razza_cane .'" ' . "chk" . '>' . $razza_cane
+            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                            </label>';
+        }
+
+        foreach ($razze["Gatto"] as $razza_gatto) {
+            $razze_gatto .= '               <label for="' . $razza_gatto . '">'
+            . '                                <input type="checkbox" id="' . $razza_gatto .'" name="razza[]" value="' . $razza_gatto .'" ' . "chk" . '>' . $razza_gatto
+            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                            </label>';
+        }
+
+        $html .= '             <div class="accordion">'
+            . '                 <div class="accordion-header">'
+            . '                    <div class="legend-left"></div>'
+            . '                     <button type="button" class="header" aria-expanded="false">'
+            . '                        Razze cane'
+            . '                        <span class="header-arrow"></span>'
+            . '                    </button>'
+            . '                    <div class="legend-right"></div>'
+            . '                </div>'
+            . '                <div class="content">'
+            . '                    <div class="inner-content form-field">'
+            . '                        <div class="check-group">'
+            .                              $razze_cane
+            . '                        </div>'
+            . '                    </div>'
+            . '                </div>'
+            . '             </div>'
+            . '             <div class="accordion">'
+            . '                 <div class="accordion-header">'
+            . '                    <div class="legend-left"></div>'
+            . '                     <button type="button" class="header" aria-expanded="false">'
+            . '                        Razze gatto'
+            . '                        <span class="header-arrow"></span>'
+            . '                    </button>'
+            . '                    <div class="legend-right"></div>'
+            . '                </div>'
+            . '                <div class="content">'
+            . '                    <div class="inner-content form-field">'
+            . '                        <div class="check-group">'
+            .                              $razze_gatto
             . '                        </div>'
             . '                    </div>'
             . '                </div>'

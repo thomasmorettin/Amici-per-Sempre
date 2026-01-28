@@ -4,7 +4,57 @@ document.addEventListener("DOMContentLoaded", () => {
     contaFiltri();
     gestioneBottonePannelloFiltri();
     updateSectionFlags();
+    gestioneRicerca();
+    gestioneFormFiltri();
 })
+
+function gestioneRicerca() {
+    const formRicerca = document.getElementById('form-ricerca');
+
+    formRicerca.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const formData = new FormData(this);
+
+        for (let key of formData.keys()) {
+            urlParams.delete(key);
+        }
+
+        for (let [key, value] of formData.entries()) {
+            if (value.trim() !== '') {
+                urlParams.append(key, value);
+            }
+        }
+
+        window.location.href = '?' + urlParams.toString();
+    });
+}
+
+function gestioneFormFiltri() {
+    const formRicerca = document.getElementById('form-filtri');
+
+    formRicerca.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const formData = new FormData(this);
+
+        for (let key of formData.keys()) {
+            urlParams.delete(key);
+        }
+
+        for (let [key, value] of formData.entries()) {
+            if (value.trim() !== '') {
+                urlParams.append(key, value);
+            }
+        }
+
+        window.location.href = '?' + urlParams.toString();
+    });
+}
 
 // Aggiorna contatori e badge (usata sia da listeners locali che da delegati)
 function refreshFilterUI() {
