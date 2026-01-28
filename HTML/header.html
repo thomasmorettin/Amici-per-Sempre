@@ -2,7 +2,7 @@
     <div id="contenitore-header" class="open">
         {{logo}}
 
-        <button id="hamburger" onclick="menuResponsive()">
+        <button id="hamburger" onclick="menuResponsive()" aria-label="apri menù di navigazione" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -10,7 +10,7 @@
 
         <div id="menu-wrapper">
             <div id="inner-menu">
-                <nav id="navbar">
+                <nav id="navbar" aria-label="menù principale">
                     <ul>
                         <li>{{link-home}}</li>
                         <li>{{link-adotta}}</li>
@@ -19,12 +19,12 @@
                 </nav>
 
                 <div class="header-btns">
-                    <button id="btn-remove-bck" title="Rimuovi sfondo" class="hidden">
+                    <button id="btn-remove-bck" title="Rimuovi sfondo" class="hidden" aria-hidden="true">
                         <svg>
                             <use href="{{root}}/Resources/icons.svg#remove-bck"></use>
                         </svg>
                     </button>
-                    <button id="btn-theme" title="Cambio tema" class="hidden">
+                    <button id="btn-theme" title="Cambio tema" class="hidden" aria-hidden="true">
                         <svg id="moon-icon">
                             <use href="{{root}}/Resources/icons.svg#moon"></use>
                         </svg>

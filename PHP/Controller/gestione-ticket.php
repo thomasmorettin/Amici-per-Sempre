@@ -7,7 +7,7 @@ use function Controller\renderPannelloFiltri;
 use function Controller\renderPannelloControlloFiltri;
 use function Controller\getFiltriFromRequest;
 
-//if (is_logged_in()) {
+if (is_logged_in()) {
     $risDB = getAnimaliTck(getFiltriFromRequest());
     $html = "";
     $oggi = date("Y-m-d");
@@ -190,5 +190,5 @@ use function Controller\getFiltriFromRequest;
     ];
 
     echo buildPage("gestione-ticket.html", $dati);
-//} else { header("Location: " . PROJECT_ROOT . "/401.php"); }
+} else { header("Location: " . PROJECT_ROOT . "/401.php"); }
 ?>

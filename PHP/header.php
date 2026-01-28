@@ -29,7 +29,7 @@ function getNavbarLinks() {
     ];
 
     foreach ($links as $voce) {
-        if ($voce["file"] === $paginaCorr) { $html = "<span class='bold'>{$voce['testo']}</span>"; }
+        if ($voce["file"] === $paginaCorr) { $html = "<span class='bold' aria-current='page'>{$voce['testo']}</span>"; }
         else { $html = "<a href='{$voce['url']}'>{$voce['testo']}</a>"; }
 
         $menu[$voce["placeholder"]] = $html;
@@ -62,19 +62,19 @@ function populatedNavbar() {
 
 function getAccountButton() {
     if(is_logged_in()) {
-        return '    <a class="btn-link" href="{{root}}/amministrazione" lang="en">
-                        <svg>
+        return '    <a class="btn-link" href="{{root}}/amministrazione" aria-label="area amministrativa">
+                        <svg aria-hidden="true">
                             <use href="{{root}}/Resources/icons.svg#wrench"></use>
                         </svg>
                     </a>
-                    <a class="btn-link" href="{{root}}/login" lang="en">
-                        <svg>
+                    <a class="btn-link" href="{{root}}/login" lang="en" aria-label="logout ad area riservata">
+                        <svg aria-hidden="true">
                             <use href="{{root}}/Resources/icons.svg#logout"></use>
                         </svg>
                     </a>';
     } else {
-        return '    <a class="btn-link" href="{{root}}/login" lang="en">
-                        <svg>
+        return '    <a class="btn-link" href="{{root}}/login" lang="en" aria-label="login ad area riservata">
+                        <svg aria-hidden="true">
                             <use href="{{root}}/Resources/icons.svg#login"></use>
                         </svg>
                     </a>';
