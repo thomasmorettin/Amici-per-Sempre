@@ -46,7 +46,7 @@
     --linkcolor: #498AA8;
     --bgwarning: #3D1C19;
     --borderwarning: #D48780;
-    --bgwarninghover: #3D1C19;
+    --bgwarninghover: #D48780;
     --txtwarning: #D48780;
 
     --brownshadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -101,8 +101,8 @@ details:has(summary:focus-visible) {
 .btn-link:visited svg,
 button svg,
 details summary svg {
-    width: 2rem;
-    height: 2rem;
+    width: 1.75rem;
+    height: 1.75rem;
     display: block;
 }
 
@@ -293,7 +293,7 @@ header h1 {
 .header-btns {
     display: flex;
     align-items: center;
-    gap: 1em;
+    gap: 1rem;
     justify-self: end;
     margin-right: 0.5rem;
 }
@@ -307,6 +307,12 @@ header h1 {
     box-shadow: none;
     padding: var(--squarepadding);
     fill: var(--txtcolor);
+}
+
+.header-btns a svg,
+.header-btns button svg {
+    width: 2rem;
+    height: 2rem;
 }
 
 #btn-theme svg {
@@ -404,7 +410,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3em;
+    gap: 3rem;
     list-style-type: none;
 }
 
@@ -658,6 +664,7 @@ details::-webkit-details-marker { display: none; }     /* Per i motori di ricerc
 .exp-freccia {
     transform: rotate(-180deg);
     fill: var(--txtbtncolor);
+    margin-left: 0.5rem;
     transition: transform 0.3s ease;
 }
 
@@ -732,8 +739,14 @@ details.is-expanded .exp-freccia {
 #socials a {
     background-color: transparent;
     border: none;
+    width: var(--squarewidth);
     padding: var(--squarepadding);
     box-shadow: none;
+}
+
+#socials a svg {
+    width: 3rem;
+    height: 3rem;
 }
 
 footer {
@@ -1102,6 +1115,10 @@ details[open] > .contenuto-nascosto {
     margin-right: 0.25em;
 }
 
+.cliente-info dd {
+    margin-left: 0.5rem;
+}
+
 dialog {
     margin: auto 1em;
     justify-self: center;
@@ -1110,6 +1127,10 @@ dialog {
     background-color: var(--bgcolor);
     border-radius: 0.5em;
     opacity: 0;
+}
+
+dialog form {
+    color: var(--txtcolor);
 }
 
 dialog p {
@@ -1146,6 +1167,22 @@ dialog[open]::backdrop {
 #dia-info {
     text-align: center;
     width: fit-content;
+}
+
+.info-richieste {
+    margin-top: 1rem;
+    justify-content: center;
+    display: flex;
+    font-size: 1.1em;
+    color: var(--txtwarning);
+    font-weight: bold;
+}
+
+.info-richieste p::before {
+    content: "•";
+    font-size: 1.4em;
+    color: var(--txtwarning);
+    margin-right: 0.2em;
 }
 
 .titolo-dialog {
@@ -1350,20 +1387,6 @@ dialog[open]::backdrop {
         fill: var(--inverttxtcolor);
     }
 
-    .dtl-animale summary:hover {
-        background-color: var(--bgbtnhover);
-        color: var(--inverttxtcolor);
-    }
-
-    .go-calendario:hover {
-        background-color: var(--bgbtnhover);
-        color: var(--inverttxtcolor);
-    }
-
-    .go-calendario:hover::before {
-        background-image: url("../Resources/Vectors/Forward-Light.svg");
-    }
-
     .btn-close:hover {
         background-color: transparent;
         fill: var(--txtbtncolor);
@@ -1376,11 +1399,6 @@ dialog[open]::backdrop {
 
     #btn-cancella-app:hover {
         background-color: var(--bgwarninghover);
-        color: var(--inverttxtcolor);
-    }
-
-    #section-links li a:hover {
-        background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
     }
 

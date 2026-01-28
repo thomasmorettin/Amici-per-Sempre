@@ -5,9 +5,10 @@ require_once dirname(__DIR__) . "/Controller/pannello-filtri.php";
 use function Model\getAnimaliTck;
 use function Controller\renderPannelloFiltri;
 use function Controller\renderPannelloControlloFiltri;
+use function Controller\getFiltriFromRequest;
 
 if (is_logged_in()) {
-    $risDB = getAnimaliTck();
+    $risDB = getAnimaliTck(getFiltriFromRequest());
     $html = "";
     $oggi = date("Y-m-d");
 
@@ -173,7 +174,7 @@ if (is_logged_in()) {
         }
     }
 
-    else { $html = "<p class='center bold'>Nessun animale presente nel Rifugio.</p>"; }
+    else { $html = "<p class='center bold'>Nessun animale corrisponde alla ricerca.</p>"; }
 
     $pannelloControllo = renderPannelloControlloFiltri(true); // Il pulsante di ordina non viene mostrato
     $pannelloFiltri = renderPannelloFiltri(PROJECT_ROOT . "/amministrazione/gestione-ticket.php", ["Tipo", "Dati persona"]);

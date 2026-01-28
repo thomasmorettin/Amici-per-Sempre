@@ -10,9 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function menuResponsive() {
+  const hamburger = document.getElementById("hamburger");
+
   document.getElementById("contenitore-header").classList.toggle("open");
-  document.getElementById("hamburger").classList.toggle("active");
+  hamburger.classList.toggle("active");
   document.querySelector("header").classList.toggle("scrolled");
+
+  if (hamburger.getAttribute("aria-expanded") === "true") {
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "apri menù di navigazione");
+  } else {
+    hamburger.setAttribute("aria-expanded", "true");
+    hamburger.setAttribute("aria-label", "chiudi menù di navigazione");
+  }
 }
 
 /*
