@@ -33,4 +33,5 @@ function currentNumApp() {
 
     (numApp == 1) ? app.innerHTML = "appuntamento" : null;
     (numApp == 0) ? not.classList.add("no-dot") : null;
+    (numApp > 0) ? document.getElementById("polite-app").setAttribute("aria-live", "polite") : null;
 }

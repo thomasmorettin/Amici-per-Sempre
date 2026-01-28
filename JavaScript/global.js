@@ -101,12 +101,14 @@ function backgroundSetting() {
   btn.addEventListener("click", () => {
     if (localStorage.getItem(STORAGE_KEY) == "true") {
       root.classList.add("set-background");
+      btn.setAttribute("aria-label", "reimposta immagine di sfondo");
       localStorage.setItem(STORAGE_KEY, "false");
       updateBackgroundButton(false);
     }
 
     else {
       root.classList.remove("set-background");
+      btn.setAttribute("aria-label", "rimuovi immagine di sfondo");
       localStorage.setItem(STORAGE_KEY, "true");
       updateBackgroundButton(true);
     }
@@ -137,12 +139,14 @@ function themeSetting() {
   btn.addEventListener("click", () => {
     if (localStorage.getItem(STORAGE_KEY) == "true") {
       root.dataset.theme = "light";
+      btn.setAttribute("aria-label", "imposta tema chiaro");
       localStorage.setItem(STORAGE_KEY, "false");
       updateButton(false);
     }
 
     else {
       root.dataset.theme = "dark";
+      btn.setAttribute("aria-label", "imposta tema scuro");
       localStorage.setItem(STORAGE_KEY, "true");
       updateButton(true);
     }
