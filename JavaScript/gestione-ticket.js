@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   animaleDetails();
   dialogsSettings();
+  checkInput();
 })
 
 // Funzione per apertura/chiusura del tag details per ciascun animale del rifugio
@@ -52,6 +53,81 @@ function dialogsSettings() {
   infoDialog(body);
 }
 
+// Funzione per il controllo degli input
+function checkInput() {
+  const form = document.getElementById("frm-app");
+  const data = document.getElementById("data-appuntamento");
+  const ora = document.getElementById("ora-appuntamento");
+  const error = document.querySelector(".field-error");
+
+  function validaForm() {
+    let errors = [];
+    const oggi = new Date();
+    oggi.setHours(0, 0, 0, 0);
+
+    // Reset stili
+    data.classList.remove("error");
+    ora.classList.remove("error");
+
+    // Controllo di obbligatorietà
+    if (data.value === "") {
+      data.classList.add("error");
+      errors.push("La data è obbligatoria.");
+    }
+
+    if (ora.value === "") {
+      ora.classList.add("error");
+      errors.push("L'ora è obbligatoria.");
+    }
+
+    // Controllo di data (passata/domenica)
+    if (data.value !== "") {
+      const dataIn = new Date(data.value);
+
+      if (dataIn < oggi) {
+        data.classList.add("error");
+        errors.push("La data non può essere passata.");
+      }
+
+      if (dataIn.getDay() === 0) {
+        data.classList.add("error");
+        errors.push("La data non può essere una domenica.");
+      }
+    }
+
+    // Controllo dell'ora
+    if (ora.value) {
+        if (ora.value < "08:30" || ora.value > "19:30") {
+            ora.classList.add("error");
+            errors.push("L'orario consentito è: 08:30 - 19:30.");
+        }
+    }
+
+    // Mostra il primo errore trovato o nasconde il messaggio
+    if (errors.length > 0) {
+      error.textContent = errors[0];
+      error.classList.remove("hidden");
+      return false;     // Form non valido
+    } else {
+      error.classList.add("hidden");
+      return true;    // Form valido
+    }
+  }
+
+  // Event listeners
+  data.addEventListener("input", validaForm);
+  ora.addEventListener("input", validaForm);
+
+  data.addEventListener("blur", validaForm);
+  ora.addEventListener("blur", validaForm);
+
+  form.addEventListener("submit", function(e) {
+    const check = validaForm();
+
+    if (!check) { e.preventDefault(); }
+  })
+}
+
 // Funzione per la gestione del dialog di modifica dei dati dell'appuntamento
 function updateDialog(body) {
   const dialogApp = document.getElementById("dia-appuntamento");
@@ -66,32 +142,6 @@ function updateDialog(body) {
       dialogApp.showModal();
       body.classList.add("no-scroll");
     })
-  })
-
-  // Gestione dell'input nel caso errato
-  dialogApp.addEventListener("submit", (e) => {
-    const data = document.getElementById("data-appuntamento").value;
-    const ora = document.getElementById("ora-appuntamento").value;
-    const domenica = new Date(data);
-
-    // Data corrente
-    const oggiObj = new Date();
-    const anno = oggiObj.getFullYear();
-    const mese = String(oggiObj.getMonth() + 1).padStart(2, '0');
-    const giorno = String(oggiObj.getDate()).padStart(2, '0');
-    
-    const currentData = `${anno}-${mese}-${giorno}`;
-
-    if (domenica.getDay() == 0) {
-      e.preventDefault();
-      document.getElementById("msg-errore").innerHTML = "Non si può selezionare una domenica.";
-      document.getElementById("msg-errore").classList.remove("hidden");
-    } else {
-      if (data < currentData || ora < "08:30" || ora > "19:30") {
-        e.preventDefault();
-        document.getElementById("msg-errore").classList.remove("hidden");
-      }
-    }
   })
 
   const chiudiDialogApp = () => {

@@ -62,9 +62,10 @@
     --popupbackdrop: rgba(0, 0, 0, 0.75);
     --generalpadding: 0.25rem 1rem 0.25rem 1rem; /* top, right, bottom, left */
     --squarepadding: 0.25rem 0.25rem;
-    --generalbtnborder: 0.15rem solid var(--borderbtn);
-    --warningbtnborder: 0.15rem solid var(--borderwarning);
-    --generaloutline: 0.15rem solid var(--linkcolor);
+    --generalbtnborder: 2px solid var(--borderbtn);
+    --warningbtnborder: 2px solid var(--borderwarning);
+    --generalborder: 2px solid var(var(--borderform));
+    --generaloutline: 2px solid var(--linkcolor);
     --squarewidth: 2.25rem;
     --generalradius: 0.5rem;
 }
@@ -1148,17 +1149,18 @@ dialog {
     margin: auto 1em;
     justify-self: center;
     border: none;
+    color: var(--txtcolor);
     padding: 3em;
     background-color: var(--bgcolor);
     border-radius: 0.5em;
     opacity: 0;
 }
 
-dialog form {
-    color: var(--txtcolor);
+dialog .field-error {
+    justify-content: center;
 }
 
-dialog p {
+dialog form {
     color: var(--txtcolor);
 }
 
@@ -1173,6 +1175,11 @@ dialog[open] {
 
 dialog[open]::backdrop {
     opacity: 1;
+}
+
+input.error {
+    border: var(--warningbtnborder);
+    box-shadow: var(--redshadow);
 }
 
 .btn-close {
@@ -1194,20 +1201,9 @@ dialog[open]::backdrop {
     width: fit-content;
 }
 
-.info-richieste {
-    margin-top: 1rem;
+dialog .info-required {
+    margin-top: 0.5rem;
     justify-content: center;
-    display: flex;
-    font-size: 1.1em;
-    color: var(--txtwarning);
-    font-weight: bold;
-}
-
-.info-richieste p::before {
-    content: "•";
-    font-size: 1.4em;
-    color: var(--txtwarning);
-    margin-right: 0.2em;
 }
 
 .titolo-dialog {
