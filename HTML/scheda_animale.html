@@ -4,7 +4,7 @@
 
         <div class="animal-info">
             <h2 class="animal-name">[nome_animale]</h2>
-            <span class="status-badge">✓ Disponibile per Adozione</span>
+            <span class="status-badge"> <span aria-hidden="true">✓</span> Disponibile per Adozione</span>
 
             <dl class="info-grid">
                 <div class="info-item">
@@ -74,7 +74,7 @@
                     <p>Lasciaci i tuoi contatti per fissare un appuntamento e conoscere [nome_animale] di persona. Durante la visita potrai vedere dove vive, fare tutte le domande e valutare se è l'animale giusto per te!</p>
                 </div>
 
-                <div class="info-required">
+                <div class="info-required" aria-hidden="true">
                     <p>Campo obbligatorio</p>
                 </div>
 
@@ -91,7 +91,6 @@
                                value="[val_nome]"
                                autocomplete="off"
                                aria-describedby="error-nome">
-                            <!--autocomplete="off" -->
                         <div id="error-nome" class="field-error hidden" role="alert" aria-atomic="true"></div>
                     </div>
 

@@ -80,9 +80,6 @@ if (is_array($caratteristiche) && !empty($caratteristiche)) {
     $caratteristiche_html = '<li>Nessuna caratteristica specificata</li>';
 }
 
-// === GESTIONE MESSAGGI PER TOAST ===
-// Il messaggio di successo viene gestito da getMsgSession() in utils.php
-// che popola automaticamente {{data-page}}
 
 // Recupera dati del formi di richiesta visita per ripopolamento
 $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
@@ -91,7 +88,7 @@ unset($_SESSION['form_data']);
 // === ARRAY DATI PER buildPage() ===
 $dati = [
     '{{current-page}}'   => $nome,
-    '{{page-description}}' => "",
+    '{{page-description}}' => "Adotta un $tipo di razza $razza in cerca di famiglia. Prenota una visita gratuita al rifugio Amici per Sempre di Padova.",
     '{{page-keywords}}'  => "Amici per Sempre, 
                             $razza in adozione Padova, 
                             $tipo in adozione,   
