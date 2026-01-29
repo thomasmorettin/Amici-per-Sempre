@@ -45,14 +45,14 @@ function createPersona($nome, $cognome, $email, $telefono) {
 }
 
 // Crea un nuovo animale esterno
-function createAnimaleEsterno($animale_id, $persona_id, $specie, $peso, $razza, $eta, $sesso) {
+function createAnimaleEsterno($animale_id, $persona_id, $peso, $razza, $eta, $sesso) {
     $query = "INSERT INTO AnimaleEsterno (ID, Sesso, Peso, Eta, Proprietario, Razza) VALUES (?, ?, ?, ?, ?, ?)";
 
     $db = new DBAccess();
     $connOk = $db->openConn();
 
     if ($connOk) {
-        $result = $db->exeQuery($query, [$id, $sesso, $peso, $eta, $persona_id, $razza]);
+        $result = $db->exeQuery($query, [$animale_id, $sesso, $peso, $eta, $persona_id, $razza]);
         
         if ($result) {
             $animale_id = $db->getConn()->insert_id;
@@ -67,7 +67,7 @@ function createAnimaleEsterno($animale_id, $persona_id, $specie, $peso, $razza, 
 }
 
 // Crea una nuova richiesta di inserimento animale (EntitaDatabaile + AnimaleEsterno)
-function createRichiestaInserimentoAnimale($persona_id, $note, $specie, $peso, $razza, $eta, $sesso) {
+function createRichiestaInserimentoAnimale($persona_id, $note, $peso, $razza, $eta, $sesso) {
     $query_entita = "INSERT INTO EntitaDatabile (Note) VALUES (?)";
     $query_animale = "INSERT INTO AnimaleEsterno (ID, Sesso, Peso, Eta, Proprietario, Razza) VALUES (?, ?, ?, ?, ?, ?)";
 

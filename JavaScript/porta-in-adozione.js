@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const etaInput = document.getElementById('eta');
     const sessoInput = document.getElementById('sesso');
     const pesoInput = document.getElementById('peso');
-    const dettagliInput = document.getElementById('dettagli');
 
     // Recupera i div errore 
     const errorNome = document.getElementById('error-nome');

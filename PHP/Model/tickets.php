@@ -96,7 +96,10 @@ function getAnimaliEsterniTck() {
                 LEFT JOIN EntitaDatabile ED ON E.ID = ED.ID
                 LEFT JOIN Persona P ON E.Proprietario = P.ID
                 LEFT JOIN Calendario C ON ED.ID = C.ID
-                ORDER BY ED.DataRichiesta DESC, C.Data DESC";
+                WHERE (C.Data > CURRENT_DATE OR (C.Data = CURRENT_DATE AND C.Ora >= CURRENT_TIME) OR C.Data IS NULL)
+                ORDER BY 
+                CASE WHEN C.Data IS NULL THEN 0 ELSE 1 END,
+                ED.DataRichiesta DESC";
         $rawAnimaliEsterni = $db->exeQuery($sql, []);
 
         $db->closeConn();

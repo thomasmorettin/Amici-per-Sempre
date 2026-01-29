@@ -6,10 +6,54 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSectionFlags();
     gestioneRicerca();
     gestioneFormFiltri();
+    setupPosizionePanel();
+    window.addEventListener('resize', setupPosizionePanel);
+    chiusuraPopup();
 })
+
+function setupPosizionePanel() {
+    const isMobile = window.innerWidth <= 768;
+    const form = document.getElementById('form-filtri');
+    const sidepanel = document.getElementById('side-panel');
+    const popup = document.getElementById('popup-panel');
+
+    const filter_content_side = sidepanel.querySelector('.filter-content');
+    const filter_content_popup = popup.querySelector('.filter-content');
+
+    if (isMobile) {
+        if (sidepanel.classList.contains('open')) {
+            sidepanel.classList.toggle('open');
+        }
+        filter_content_popup.appendChild(form);
+        popup.classList.add('active');
+        sidepanel.classList.remove('active');
+    } else {
+        if (popup.classList.contains('open')) {
+            document.body.classList.remove("no-scroll");
+            popup.classList.toggle('open');
+            popup.close();
+        }
+        filter_content_side.appendChild(form);
+        sidepanel.classList.add('active');
+        popup.classList.remove('active');
+    }
+}
+
+function chiusuraPopup() {
+    const popup = document.getElementById('popup-panel');
+    const btnChiudiPopup = popup.querySelector(".btn-close");
+
+    btnChiudiPopup.addEventListener("click", () => {
+        popup.close();
+        document.body.classList.remove("no-scroll");
+    });
+}
 
 function gestioneRicerca() {
     const formRicerca = document.getElementById('form-ricerca');
+
+    if(!formRicerca)
+        return;
 
     formRicerca.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -196,7 +240,7 @@ function hideAndRemoveBadge(el) {
 function gestioneAccordion() {
     document.querySelectorAll('.accordion').forEach(acc => {
         const header = acc.querySelector('.accordion-header');
-        const arrow = acc.querySelector('.header-arrow');
+        const arrow = header.querySelector('svg');
         const panel = acc.querySelector('.content');
         const button = acc.querySelectorAll('button')[0];
 
@@ -239,8 +283,8 @@ function gestioneAccordion() {
 
 function gestioneBottonePannelloFiltri() {
     const filtraBtn = document.getElementById('filtra-btn');
+    
     if (filtraBtn) {
-        console.debug('gestioneBottonePannelloFiltri: trovato #filtra-btn, attacco handler');
         filtraBtn.addEventListener('click', (e) => {
             console.debug('filtra-btn click ricevuto');
             toggleFilter(e);
@@ -251,14 +295,22 @@ function gestioneBottonePannelloFiltri() {
 }
 
 function toggleFilter() {
-    const div = document.querySelector(".filter-panel");
-    if (!div) {
-        console.warn('toggleFilter: .filter-panel non trovato');
-        return;
+    if (window.innerWidth <= 786) {
+        const pannello = document.getElementById("popup-panel");
+        if (!pannello) {
+            return;
+        }
+        pannello.showModal();
+        pannello.classList.toggle("open");
+        document.body.classList.add("no-scroll");
+    } else {
+        const pannello = document.getElementById("side-panel");
+        if (!pannello) {
+            console.warn('toggleFilter: .filter-panel non trovato');
+            return;
+        }
+        pannello.classList.toggle("open");
     }
-    console.debug('toggleFilter: prima classList=', Array.from(div.classList));
-    div.classList.toggle("open");
-    console.debug('toggleFilter: dopo classList=', Array.from(div.classList));
 }
 
 

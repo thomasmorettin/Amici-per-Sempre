@@ -11,6 +11,7 @@ function getFiltriFromRequest(): array
 {
 	return [
 		'tipo' => isset($_GET['tipo']) ? (array)$_GET['tipo'] : [],
+        'sesso' => isset($_GET['sesso']) ? (array)$_GET['sesso'] : [],
         'razza_cane' => isset($_GET['razza_cane']) ? (array)$_GET['razza_cane'] : [],
         'razza_gatto' => isset($_GET['razza_gatto']) ? (array)$_GET['razza_gatto'] : [],
 		'nome' => isset($_GET['nome']) ? (string)$_GET['nome'] : '',
@@ -42,6 +43,11 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
     $checked_cane  = in_array('Cane', $selectedTipo) ? 'checked' : '';
     $checked_gatto = in_array('Gatto', $selectedTipo) ? 'checked' : '';
 
+    $selectedSesso = isset($values['sesso']) && is_array($values['sesso']) ? $values['sesso'] : [];
+
+    $checked_maschio = in_array('Maschio', $selectedSesso) ? 'checked' : '';
+    $checked_femmina = in_array('Femmina', $selectedSesso) ? 'checked' : '';
+
     $nome = htmlspecialchars($values['nome'] ?? '', ENT_QUOTES, 'UTF-8');
     $peso = htmlspecialchars($values['peso'] ?? '', ENT_QUOTES, 'UTF-8');
     $eta  = htmlspecialchars($values['eta'] ?? '', ENT_QUOTES, 'UTF-8');
@@ -57,6 +63,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
 
     // Controlla se ci sono filtri che sono stati cambiati da quelli default
     $filtri_cambiati = count($selectedTipo);
+    $filtri_cambiati += count($selectedSesso);
     if ($nome !== '') $filtri_cambiati++;
     if ($peso !== '') $filtri_cambiati++;
     if ($eta !== '') $filtri_cambiati++;
@@ -66,7 +73,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
     if ($telefono !== '') $filtri_cambiati++;
     $filtri_cambiati += count($razze_cane) + count($razze_gatto);
 
-    $html = '<div class="filter-panel">'
+    $html = '<div class="filter-panel" id="side-panel">'
         . '    <div class="filter-content">'
         . '        <form method="GET" action="' . htmlspecialchars($action, ENT_QUOTES) . '" id="form-filtri">'
         . '            <div class="azioni-filtro">'
@@ -80,7 +87,9 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-left"></div>'
             . '                    <button type="button" class="header" aria-expanded="false">'
             . '                        Tipo animale'
-            . '                        <span class="header-arrow"></span>'
+            . '                        <svg>'
+            . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
+            . '                        </svg>'
             . '                    </button>'
             . '                    <div class="legend-right"></div>'
             . '                </div>'
@@ -101,13 +110,44 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '            </div>';
     }
 
+    if (in_array('Sesso', $sections, true)) {
+        $html .= '            <div class="accordion">'
+            . '                <div class="accordion-header">'
+            . '                    <div class="legend-left"></div>'
+            . '                    <button type="button" class="header" aria-expanded="false">'
+            . '                        Sesso animale'
+            . '                        <svg>'
+            . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
+            . '                        </svg>'
+            . '                    </button>'
+            . '                    <div class="legend-right"></div>'
+            . '                </div>'
+            . '                <div class="content">'
+            . '                    <div class="inner-content form-field">'
+            . '                        <div class="check-group">'
+            . '                            <label for="maschio">'
+            . '                                <input type="checkbox" id="maschio" name="sesso[]" value="Maschio" ' . $checked_maschio . '>Maschio'
+            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                            </label>'
+            . '                            <label for="femmina">'
+            . '                                <input type="checkbox" id="femmina" name="sesso[]" value="Femmina" ' . $checked_femmina . '>Femmina'
+            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                            </label>'
+            . '                        </div>'
+            . '                    </div>'
+            . '                </div>'
+            . '            </div>';
+    }
+
     if (in_array('Dati animale', $sections, true)) {
         $html .= '            <div class="accordion">'
             . '                <div class="accordion-header">'
             . '                    <div class="legend-left"></div>'
             . '                    <button type="button" class="header" aria-expanded="false">'
             . '                        Dati animale'
-            . '                        <span class="header-arrow"></span>'
+            . '                        <svg>'
+            . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
+            . '                        </svg>'
             . '                    </button>'
             . '                    <div class="legend-right"></div>'
             . '                </div>'
@@ -160,7 +200,9 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-left"></div>'
             . '                     <button type="button" class="header" aria-expanded="false">'
             . '                        Dati persona'
-            . '                        <span class="header-arrow"></span>'
+            . '                        <svg>'
+            . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
+            . '                        </svg>'
             . '                    </button>'
             . '                    <div class="legend-right"></div>'
             . '                </div>'
@@ -212,7 +254,9 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-left"></div>'
             . '                     <button type="button" class="header" aria-expanded="false">'
             . '                        Razze cane'
-            . '                        <span class="header-arrow"></span>'
+            . '                        <svg>'
+            . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
+            . '                        </svg>'
             . '                    </button>'
             . '                    <div class="legend-right"></div>'
             . '                </div>'
@@ -229,7 +273,9 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-left"></div>'
             . '                     <button type="button" class="header" aria-expanded="false">'
             . '                        Razze gatto'
-            . '                        <span class="header-arrow"></span>'
+            . '                        <svg>'
+            . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
+            . '                        </svg>'
             . '                    </button>'
             . '                    <div class="legend-right"></div>'
             . '                </div>'
@@ -246,7 +292,16 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
     $html .= '        </form>'
         . '    </div>'
         . '    <span class="divider"></span>'
-        . '</div>';
+        . '</div>'
+        . '<dialog class="filter-panel" id="popup-panel">'
+        . '    <button class="btn-close">
+                    <svg>
+                        <use href="{{root}}/Resources/icons.svg#cancel"></use>
+                    </svg>
+                </button>'
+        . '   <div class="filter-content">'
+        . '   </div>'
+        . '</dialog>';
 
     return $html;
 }
@@ -264,7 +319,8 @@ function renderPannelloControlloFiltri($ricerca_html = false): string
         . '                   <button id="filtra-btn">'
         . '                       <svg>'
         . '                           <use href="{{root}}/Resources/icons.svg#filter"></use>'
-        . '                       </svg>Filtra'
+        . '                       </svg>'
+        . '                   <span class="abbr">Filtra</span>'
         . '                   </button>';    
 
     if ($ricerca_html) {
@@ -273,12 +329,14 @@ function renderPannelloControlloFiltri($ricerca_html = false): string
         . '                    <button id="avvia-ricerca" title="Avvia ricerca" type="submit">'
         . '                       <svg>'
         . '                         <use href="{{root}}/Resources/icons.svg#search"></use>'
-        . '                       </svg>Cerca'
+        . '                       </svg>'
+        . '                    <span class="abbr">Cerca</span>'
         . '                    </button>'
         . '                    <button id="clear-ricerca" title="Azzerra ricerca" type="reset">'
         . '                       <svg>'
         . '                         <use href="{{root}}/Resources/icons.svg#delete"></use>'
-        . '                       </svg>Azzera'
+        . '                       </svg>'
+        . '                    <span class="abbr">Azzera</span>'
         . '                    </button>'
         . '                 </form>';
     }

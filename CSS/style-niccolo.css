@@ -27,10 +27,11 @@
     margin: 3em auto;
 }
 
-#section-form-porta-adozione h2 {
+#section-form-porta-adozione h3 {
     text-align: center;
     color: var(--txtcolor);
     margin-bottom: 1em;
+    font-size: 1.5em
 }
 
 .form-field {
@@ -57,6 +58,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 1em;
 }
 
 .legend-left {
@@ -75,11 +77,20 @@
     transition: all 500ms ease;
 }
 
+.line-legenda {
+    background-color: var(--txtcolor);
+    height: 2px;
+    flex: 1;
+    border-radius: 0.5em;
+}
+
 .line {
     background-color: var(--txtcolor);
     height: 2px;
     flex: 1;
     border-radius: 0.5em;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
 }
 
 .section-legend p {
@@ -156,7 +167,6 @@
 #section-form-logout h2 {
     text-align: center;
     color: var(--txtcolor);
-    margin-bottom: 1em;
     font-weight: normal;
 }
 
@@ -200,24 +210,6 @@ textarea:focus {
 textarea {
     resize: vertical;
     min-height: 6em;
-}
-
-form button {
-    background-color: var(--bgbtn);
-    color: var(--txtbtncolor);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    box-shadow: var(--greenshadow);
-    border-radius: 0.5em;
-    border: 2px solid var(--borderbtn);
-    padding: var(--generalpadding);
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
 }
 
 .select-custom select {
@@ -297,6 +289,7 @@ form select::after {
     margin-bottom: 0;
 }
 
+/*
 .radio-group input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
@@ -327,9 +320,11 @@ form select::after {
     background-size: cover;
 }
 
+*/
+
 .info-required {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     font-size: 1.1em;
     color: var(--txtwarning);
     font-weight: bold;
@@ -347,7 +342,14 @@ form select::after {
     flex-direction: row;
 }
 
-.filter-panel { 
+#popup-panel {
+    width: auto;
+    height: 40vh;
+    overflow-y: auto;
+    min-width: 0;
+}
+
+#side-panel { 
     display: flex;
     overflow: hidden;
     width: 0;
@@ -355,7 +357,7 @@ form select::after {
     backdrop-filter: blur(0.7em);
 }
 
-.filter-panel.open {
+#side-panel.open {
     flex: 1;
     max-width: 20em;
 }
@@ -370,7 +372,7 @@ form select::after {
     flex: 1;
     padding: 1em 0.5em 0.5em 0.5em;
 }
-
+ 
 .filter-panel,
 .filter-content
 {
@@ -381,8 +383,14 @@ form select::after {
     border: 1px solid var(--txtcolor);
 }
 
+#form-ricerca{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 1rem;
+}
+
 .list-topbar {
-    border: 0px;
     border-radius: 0.5em;
     background-color: var(--bgcolor);
     border: 2px solid var(--txtcolor);
@@ -393,21 +401,14 @@ form select::after {
     position: sticky;
     top: 7em;
     z-index: 20;
+    flex-wrap: wrap-reverse;
+    align-items: center;
 }
 
 .list-topbar button {
-    background-color: var(--bgbtn);
-    color: var(--txtbtncolor);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    box-shadow: var(--greenshadow);
-    border-radius: 0.5em;
-    border: 2px solid var(--borderbtn);
-    padding: var(--generalpadding);
     transition: background-color 0.3s ease;
-    flex: 1;
-    max-width: 5em;
+    width: fit-content;
+    flex: 0;
 
     display: inline-flex;
     align-items: center;
@@ -415,23 +416,27 @@ form select::after {
     justify-content: center;
 }
 
+@media (max-width: 537px) {
+    .list-topbar button {
+        flex: 1;
+    }
+
+    #ricerca {
+        height: 2em;
+    }
+
+    #filtra-btn .abbr {
+        display: flex;
+    }
+
+    .legend-left {
+        display: none;
+    }
+}
+
 .list-topbar button:hover {
     background-color: var(--bgbtnhover);
     color: var(--inverttxtcolor);
-}
-
-#ordina-btn::before {
-    content: url("../Resources/Vectors/Order.svg");
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-}
-
-#ordina-btn:hover::before {
-    content: url("../Resources/Vectors/Order-Light.svg");
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
 }
 
 .list-vertical-panel {
@@ -450,14 +455,16 @@ form select::after {
     background-color: var(--bgcolor);
 }
 
-.check-group label {
+.check-group label,
+.radio-group label {
     position: relative;
     display: flex;
     align-items: center;
     gap: 0.4em;
 }
 
-.check-group input[type="checkbox"] {
+.check-group input[type="checkbox"],
+.radio-group input[type="radio"] {
     position: relative;
     appearance: none;
     -webkit-appearance: none;
@@ -469,12 +476,25 @@ form select::after {
     transition: 0.3s ease;
 }
 
-.check-group input[type="checkbox"]:checked ~ svg {
+form {
+    color: var(--txtcolor);
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="tel"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.check-group input[type="checkbox"]:checked ~ svg,
+.radio-group input[type="radio"]:checked ~ svg {
     opacity: 1;
     transform: scale(1);
 }
 
-.check-group svg {
+.check-group svg,
+.radio-group svg {
     position: absolute;
     left: 0.3em;
     width: 1.1em;
@@ -486,11 +506,13 @@ form select::after {
     pointer-events: none;
 }
 
-.check-group input[type="checkbox"]:hover {
+.check-group input[type="checkbox"]:hover,
+.radio-group input[type="radio"]:hover {
     background-color: var(--bgbtnhover);
 }
 
-.check-group input[type="checkbox"]:checked {
+.check-group input[type="checkbox"]:checked,
+.radio-group input[type="radio"]:checked {
     background-color: var(--bgbtnhover);
     box-shadow: var(--greenshadow);
 }
@@ -538,18 +560,14 @@ form select::after {
     color: var(--inverttxtcolor)
 }
 
-.header-arrow {
-    background-image: url("../Resources/Vectors/UpArrow.svg");
+.accordion-header button svg {
     transform: rotate(180deg);
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
     width: 1.4em;
     height: 1.4em;
-    transition: transform 0.3s ease;
 }
 
-.header-arrow.open {
+.accordion-header button svg.open {
     transform: rotate(0deg);
 }
 
@@ -557,73 +575,6 @@ form select::after {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.form-slider {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    align-items: center;
-}
-
-.form-slider input[type="text"]{
-    flex: 1;
-    max-width: 2em;
-    min-width: 0;
-}
-
-.form-slider input[type="range"] {
-    flex: 1;
-    min-width: 0;
-
-    appearance: none;
-    -webkit-appearance: none;
-    border: 2px solid var(--borderbtn);
-    background-color: var(--bgbtn);
-    cursor: pointer;
-    padding: 0;
-    height: 0.2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: none;
-    transition: 0.3s ease;
-}
-
-.form-slider input[type="range"]:hover {
-    background-color: var(--borderbtn);
-}
-
-.form-slider input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 1.6em;
-    height: 1.2em;
-    background-color: var(--bgbtn);
-    border: 2px solid var(--borderbtn);
-    border-radius: 0.3em;
-    transition: 0.3s ease;
-}
-
-.form-slider input[type="range"]::-moz-range-thumb {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 1.6em;
-    height: 1.2em;
-    background-color: var(--bgbtn);
-    border: 2px solid var(--borderbtn);
-    border-radius: 0.3em;
-    transition: 0.3s ease;
-}
-
-.form-slider input[type="range"]::-webkit-slider-thumb:hover {
-    background-color: var(--borderbtn);
-    box-shadow: var(--greenshadow);
-}
-
-.form-slider input[type="range"]::-moz-range-thumb:hover {
-    background-color: var(--borderbtn);
-    box-shadow: var(--greenshadow);
 }
 
 .inner-content .form-field {
@@ -724,6 +675,7 @@ form select::after {
 .azioni-filtro {
     display: flex;
     gap: 0.5em;
+    flex-wrap: wrap;
 }
 
 .azioni-filtro #applica {
@@ -935,6 +887,7 @@ form select::after {
     font-weight: bold;
     font-size: 1.1em;
     margin-top: 1.5em;
+    height: 2.25rem;
     box-shadow: var(--greenshadow);
     border-radius: 0.5em;
     border: 2px solid var(--borderbtn);
@@ -942,6 +895,7 @@ form select::after {
     transition: background-color 0.3s ease;
     justify-content: center;
     text-align: center;
+    align-items: center;
 }
 
 #amministrazione-link:hover {
@@ -954,11 +908,8 @@ form select::after {
     flex: 1;
 }
 
-#form-ricerca{
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    gap: 0.5rem;
+.list-topbar button {
+    height: 2.25em;
 }
 
 .list-topbar svg {
@@ -991,10 +942,8 @@ form select::after {
 }
 
 .btn-gruppo-v button {
-    padding: 0.5em;
-    border-radius: 0.5em;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: var(--squarewidth);
+    padding: var(--squarepadding);
 }
 
 .status-da-gestire {
