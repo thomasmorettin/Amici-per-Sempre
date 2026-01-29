@@ -1,3 +1,5 @@
+const pannelloPopupWidth = 1024;
+
 document.addEventListener("DOMContentLoaded", () => {
     togglePannello();
     gestioneAccordion();
@@ -9,10 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
     setupPosizionePanel();
     window.addEventListener('resize', setupPosizionePanel);
     chiusuraPopup();
+    gestionePulsanteResetFiltri();
+    controlloWrapBottone();
+
+    const pannello = document.getElementById("side-panel");
+    pannello.inert = true;
 })
 
 function setupPosizionePanel() {
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth <= pannelloPopupWidth;
     const form = document.getElementById('form-filtri');
     const sidepanel = document.getElementById('side-panel');
     const popup = document.getElementById('popup-panel');
@@ -163,6 +170,8 @@ function updateSectionFlags() {
         const header = acc.querySelector('.accordion-header');
         if (!header) return;
         let flag = header.querySelector('.flag-filtro');
+        flagNumero = flag.querySelector('.flag');
+        flagScreenReader = flag.querySelector('.solo-sr');
 
         // conta elementi attivi solo dentro questa accordion (generico)
         let c = 0;
@@ -172,19 +181,22 @@ function updateSectionFlags() {
         });
 
         if (c > 0) {
-            if (!flag) {
-                flag = document.createElement('span');
-                flag.className = 'flag-filtro';
-                const legendRight = header.querySelector('.legend-right');
-                if (legendRight) header.insertBefore(flag, legendRight);
-                else header.appendChild(flag);
+            flagNumero.textContent = c;
+
+            if (c == 1) {
+                flagScreenReader.textContent = c + " filtro selezionato";
+            } else {
+                flagScreenReader.textContent = c + " filtri selezionati";
             }
-            flag.textContent = c;
-            flag.style.display = '';
+            
+            // flag.style.display = '';
             flag.classList.add('show');
-            flag.classList.remove('hidden');
         } else {
-            hideAndRemoveBadge(flag);
+            flagNumero.textContent = "";
+            flagScreenReader.textContent = "";
+
+            flag.classList.remove('show');
+            // hideAndRemoveBadge(flag);
         }
     });
 }
@@ -286,7 +298,6 @@ function gestioneBottonePannelloFiltri() {
     
     if (filtraBtn) {
         filtraBtn.addEventListener('click', (e) => {
-            console.debug('filtra-btn click ricevuto');
             toggleFilter(e);
         });
     } else {
@@ -295,7 +306,7 @@ function gestioneBottonePannelloFiltri() {
 }
 
 function toggleFilter() {
-    if (window.innerWidth <= 786) {
+    if (window.innerWidth <= pannelloPopupWidth) {
         const pannello = document.getElementById("popup-panel");
         if (!pannello) {
             return;
@@ -310,7 +321,31 @@ function toggleFilter() {
             return;
         }
         pannello.classList.toggle("open");
+
+        if(pannello.classList.contains("open")) {
+            pannello.inert = false;
+        } else {
+            pannello.inert = true;
+        }
     }
+}
+
+function gestionePulsanteResetFiltri() {
+    const form = document.getElementById("form-filtri");
+    const pulsanteReset = form.querySelector(".reset");
+
+    pulsanteReset.addEventListener('click', function() {
+        form.reset();
+
+        form.querySelectorAll('input, textarea, select').forEach(el => {
+            if (el.type === 'checkbox' || el.type === 'radio') {
+                el.checked = false;
+            }
+            else {
+                el.value = '';
+            }
+        });
+    });
 }
 
 
@@ -369,4 +404,20 @@ function contaFiltri() {
 
         // inizializza UI
         refreshFilterUI();
+}
+
+function controlloWrapBottone() {
+    window.addEventListener('resize', () => {
+        const btnFiltri = document.getElementById('filtra-btn');
+        const formRicerca = document.getElementById('form-ricerca');
+
+        const formRicercaTop = formRicerca.getBoundingClientRect().top;
+        const buttonTop = btnFiltri.getBoundingClientRect().top;
+
+        if (buttonTop > formRicercaTop) {
+            btnFiltri.classList.add('wrapped');
+        } else {
+            btnFiltri.classList.remove('wrapped');
+        }
+    });
 }

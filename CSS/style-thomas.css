@@ -88,12 +88,27 @@
     outline-offset: 0.2rem;
 }
 
+.select-custom select:focus-visible {
+    outline: revert;
+    outline-offset: revert;
+}
+
+.select-custom:has(select:focus-visible) {
+    outline: var(--generaloutline);
+    outline-offset: 0.2rem;
+}
+
 input[type="text"]:focus-visible {
     outline: var(--generaloutline);
     outline-offset: 0.2rem;
 }
 
 input[type="checkbox"]:focus-visible {
+    outline: var(--generaloutline);
+    outline-offset: 0.2rem;
+}
+
+input[type="tel"]:focus-visible {
     outline: var(--generaloutline);
     outline-offset: 0.2rem;
 }

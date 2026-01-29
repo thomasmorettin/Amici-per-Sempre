@@ -26,3 +26,16 @@
 .section-legend p {
     font-size: 1.2rem;
 }
+
+.btn-gruppo-v {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn-gruppo-v button {
+    flex: 1;
+}
+
+#ricerca {
+    height: 2em;
+}
