@@ -13,7 +13,9 @@ $filtri = [
     'tipo' => isset($_GET['tipo']) ? $_GET['tipo'] : [],
     'nome' => isset($_GET['nome']) ? $_GET['nome'] : '',
     'peso' => isset($_GET['peso']) ? $_GET['peso'] : '',  
-    'eta'  => isset($_GET['eta'])  ? $_GET['eta']  : '' 
+    'eta'  => isset($_GET['eta'])  ? $_GET['eta']  : '',
+    'razza_cane' => isset($_GET['razza_cane']) ? $_GET['razza_cane'] : [],   
+    'razza_gatto' => isset($_GET['razza_gatto']) ? $_GET['razza_gatto'] : [] 
 ];
 
 // === RECUPERO ANIMALI TRAMITE MODEL ===
@@ -82,17 +84,17 @@ if (!empty($animali)) {
 }
 
 // === GENERAZIONE PANNELLO FILTRI 
-$pannello_controllo_html = Controller\renderPannelloControlloFiltri(false); // false = no bottone "Ordina"
+$pannello_controllo_html = Controller\renderPannelloControlloFiltri(false);
 $pannello_filtri_html = Controller\renderPannelloFiltri(
-    PROJECT_ROOT . '/adotta',  // Action del form
-    ['Tipo', 'Dati animale', 'Razze']
+    PROJECT_ROOT . '/adotta',
+    ['Tipo', 'Razze', 'Dati animale']  
 );
 
 // === ARRAY DATI PER buildPage() ===
 $dati = [
     '{{current-page}}' => 'Adotta',
-    '{{page-description}}' => '',
-    '{{page-keywords}}' => 'Amici per Sempre,
+    '{{page-description}}' => "Cani e gatti in adozione al rifugio Amici per Sempre di Padova. Filtra per razza, peso ed età per trovare l'animale perfetto per te.",
+    '{{page-keywords}}' => 'amici per sempre,
                             cani in adozione Padova, 
                             gatti in adozione Padova, 
                             adozione cane, adozione gatto, 

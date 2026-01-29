@@ -43,21 +43,49 @@ function getAllAnimali($filtri = []) {
         }
     }
     
-    // Filtro per nome
+    // determina quali tipi sono selezionati (se nessuno, considera entrambi)
+    $tipi_selezionati = !empty($filtri['tipo']) ? $filtri['tipo'] : ['Cane', 'Gatto'];
+    
+    // filtro razze intelligente con controllo compatibilità
+    $razze_condizioni = [];
+    
+    // Se ci sono razze cane selezionate E "Cane" è nei tipi selezionati
+    if (!empty($filtri['razza_cane']) && in_array('Cane', $tipi_selezionati)) {
+        $placeholders = implode(',', array_fill(0, count($filtri['razza_cane']), '?'));
+        $razze_condizioni[] = "(r.Tipo = 'Cane' AND r.Nome IN ($placeholders))";
+        foreach ($filtri['razza_cane'] as $razza) {
+            $params[] = $razza;
+        }
+    }
+    
+    // Se ci sono razze gatto selezionate E "Gatto" è nei tipi selezionati
+    if (!empty($filtri['razza_gatto']) && in_array('Gatto', $tipi_selezionati)) {
+        $placeholders = implode(',', array_fill(0, count($filtri['razza_gatto']), '?'));
+        $razze_condizioni[] = "(r.Tipo = 'Gatto' AND r.Nome IN ($placeholders))";
+        foreach ($filtri['razza_gatto'] as $razza) {
+            $params[] = $razza;
+        }
+    }
+    
+    if (!empty($razze_condizioni)) {
+        $condizioni[] = '(' . implode(' OR ', $razze_condizioni) . ')';
+    }
+    
+    // filtro per nome
     if (!empty($filtri['nome'])) {
         $condizioni[] = "ar.Nome LIKE ?";
         $params[] = '%' . $filtri['nome'] . '%';
     }
     
-    // Filtro per peso
+    // filtro per peso
     if (!empty($filtri['peso']) && $filtri['peso'] > 0) {
-        $condizioni[] = "CAST(SUBSTRING_INDEX(ar.Peso, ' ', 1) AS DECIMAL) >= ?";
+        $condizioni[] = "ar.Peso >= ?";
         $params[] = $filtri['peso'];
     }
     
     // Filtro per età
     if (!empty($filtri['eta']) && $filtri['eta'] > 0) {
-        $condizioni[] = "CAST(SUBSTRING_INDEX(ar.Eta, ' ', 1) AS DECIMAL) >= ?";
+        $condizioni[] = "ar.Eta >= ?";
         $params[] = $filtri['eta'];
     }
     
@@ -80,4 +108,5 @@ function getAllAnimali($filtri = []) {
     
     return [];
 }
+
 ?>
