@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.10)  26 JAN 2026 13:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.10)  29 JAN 2026 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -630,7 +630,7 @@ Package hyperref Info: Link coloring OFF on input line 23.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<Resources/logo.pdf, id=7, 43.72375pt x 30.34442pt>
+<Resources/logo.pdf, id=43, 43.72375pt x 30.34442pt>
 File: Resources/logo.pdf Graphic file (type pdf)
 <use Resources/logo.pdf>
 Package pdftex.def Info: Resources/logo.pdf  used on input line 30.
@@ -675,13 +675,13 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `relazione.out' has not changed.
-(rerunfilecheck)             Checksum: 93B2951FC708869D167F79254880B8E0;103.
+(rerunfilecheck)             Checksum: D7916C207D34D5DDB332F78E910BAB74;1714.
  ) 
 Here is how much of TeX's memory you used:
- 15686 strings out of 474486
- 253529 string characters out of 5743754
+ 15704 strings out of 474486
+ 253711 string characters out of 5743754
  1932542 words of memory out of 5000000
- 37758 multiletter control sequences out of 15000+600000
+ 37767 multiletter control sequences out of 15000+600000
  571665 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,9n,93p,474b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -692,9 +692,9 @@ Here is how much of TeX's memory you used:
 pen/ec/dpi600\ecrm1728.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour
 /jknappen/ec/dpi600\ectt2488.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/
 ljfour/jknappen/ec/dpi600\ecbx2074.pk>
-Output written on relazione.pdf (3 pages, 67399 bytes).
+Output written on relazione.pdf (3 pages, 89063 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 7 named destinations out of 1000 (max. 500000)
- 14 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 286 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

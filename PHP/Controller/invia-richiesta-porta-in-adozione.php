@@ -145,7 +145,7 @@ if (!$persona || empty($persona)) {
 $successo = createRichiestaInserimentoAnimale($persona_id, "hi", $specie, $peso, $razza, $eta, $sesso);
 
 if ($successo) {
-    $_SESSION['success'] = "La richiesta di inserimento animale è stata inviata con successo. Riceverai una email di conferma e le informazioni per i prossimi passi." . $persona_id;
+    $_SESSION['success'] = "La richiesta di inserimento animale è stata inviata con successo. Riceverai una email di conferma e le informazioni per i prossimi passi.";
     // sendEmail($email, $nome);  // BE CAREFUL
     header("Location: " . PROJECT_ROOT . "/PHP/Controller/porta-in-adozione");
     exit;

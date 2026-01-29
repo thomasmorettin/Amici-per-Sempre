@@ -88,6 +88,31 @@
     outline-offset: 0.2rem;
 }
 
+input[type="text"]:focus-visible {
+    outline: var(--generaloutline);
+    outline-offset: 0.2rem;
+}
+
+input[type="checkbox"]:focus-visible {
+    outline: var(--generaloutline);
+    outline-offset: 0.2rem;
+}
+
+input[type="radio"]:focus-visible {
+    outline: var(--generaloutline);
+    outline-offset: 0.2rem;
+}
+
+input:focus-visible {
+    outline: var(--generaloutline);
+    outline-offset: 0.2rem;
+}
+
+textarea:focus-visible {
+    outline: var(--generaloutline);
+    outline-offset: 0.2rem;
+}
+
 details > summary:focus {
     outline: none;
 }
@@ -388,7 +413,7 @@ main {
     text-align: center;
 }
 
-#section-title h1 {
+#section-title h2 {
     font-size: 3rem;
     line-height: 1.25em;    
 }

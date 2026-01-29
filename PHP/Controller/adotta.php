@@ -70,7 +70,7 @@ if (!empty($animali)) {
             PROJECT_ROOT,
             (int)$animale['ID'],
             $aria_label,
-            htmlspecialchars($animale['PthImg'], ENT_QUOTES, 'UTF-8'),
+            htmlspecialchars("{{root}}/Resources/Animali/" . $animale['PthImg'], ENT_QUOTES, 'UTF-8'),
             $nome,
             $lang_razza,
             $razza,
@@ -85,7 +85,7 @@ if (!empty($animali)) {
 $pannello_controllo_html = Controller\renderPannelloControlloFiltri(false); // false = no bottone "Ordina"
 $pannello_filtri_html = Controller\renderPannelloFiltri(
     PROJECT_ROOT . '/adotta',  // Action del form
-    ['Tipo', 'Dati animale', 'Razze']   /
+    ['Tipo', 'Dati animale', 'Razze'] 
 );
 
 // === ARRAY DATI PER buildPage() ===

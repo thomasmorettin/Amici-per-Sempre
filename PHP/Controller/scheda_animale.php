@@ -61,7 +61,7 @@ $peso_raw = floatval(htmlspecialchars($animale['Peso'], ENT_QUOTES, 'UTF-8'));
 $peso = $peso_raw . ' kg';
 
 $storia = htmlspecialchars($animale['Storia'], ENT_QUOTES, 'UTF-8');
-$pthImg = htmlspecialchars($animale['PthImg'], ENT_QUOTES, 'UTF-8');
+$pthImg = htmlspecialchars("{{root}}/Resources/Animali/" . $animale['PthImg'], ENT_QUOTES, 'UTF-8');
 
 // Determina la lingua della razza e assegna lang per accessibilità
 $lingua_razza = ($animale['LinguaRazza'] !== 'it') 
