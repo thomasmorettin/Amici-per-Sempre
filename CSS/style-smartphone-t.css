@@ -96,7 +96,11 @@
 }
 
 #section-title {
-    margin: 4.5em auto;
+    margin: 2rem auto 4.5rem auto;
+}
+
+#section-title ul {
+    gap: 1rem;
 }
 
 #section-chi-siamo > div {

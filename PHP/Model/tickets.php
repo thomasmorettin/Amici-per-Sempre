@@ -3,7 +3,7 @@ namespace Model;
 require_once dirname(__DIR__) . "/../PHP/db-access.php";
 use DB\DBAccess;
 
-function getAnimaliTck() {
+function getAnimaliTck($filtri = []) {
     $db = new DBAccess();
     $animali = [];
 
@@ -19,14 +19,57 @@ function getAnimaliTck() {
             LEFT JOIN Ticket T ON A.ID = T.Animale
             LEFT JOIN EntitaDatabile E ON T.ID = E.ID
             LEFT JOIN Persona P ON T.Richiedente = P.ID
-            LEFT JOIN Calendario C ON T.ID = C.ID
-            ORDER BY A.Nome ASC, C.Data DESC";
+            LEFT JOIN Calendario C ON T.ID = C.ID";
+
+    $params = [];
+    $condizioni = [];
+
+    if (!empty($filtri["nome_persona"])) {
+        $condizioni[] = "P.Nome LIKE ?";
+        $params[] = "%" . $filtri["nome_persona"] . "%";
+    }
+
+    if (!empty($filtri["cognome_persona"])) {
+        $condizioni[] = "P.Cognome LIKE ?";
+        $params[] = "%" . $filtri["cognome_persona"] . "%";
+    }
+
+    if (!empty($filtri["email"])) {
+        $condizioni[] = "P.Email LIKE ?";
+        $params[] = "%" . $filtri["email"] . "%";
+    }
+
+    if (!empty($filtri["telefono"])) {
+        $condizioni[] = "P.Telefono LIKE ?";
+        $params[] = "%" . $filtri["telefono"] . "%";
+    }
+
+    if (!empty($filtri["ricerca"])) {
+        $condizioni[] = "A.Nome LIKE ?";
+        $params[] = "%" . $filtri["ricerca"] . "%";
+    }
+
+    if (!empty($filtri["tipo"])) {
+        $placeholders = implode(",", array_fill(0, count($filtri["tipo"]), '?'));
+        $condizioni[] = "R.Tipo IN ($placeholders)";
+        foreach ($filtri["tipo"] as $tipo) {
+            $params[] = $tipo;
+        }
+    }
+
+    // Aggiunta delle condizioni WHERE se presenti
+    if (!empty($condizioni)) {
+        $sql .= " WHERE " . implode(" AND ", $condizioni);
+    }
+
+    // Aggiunta condizione di ORDER BY al termine della query
+    $sql .= " ORDER BY NomeAnimale ASC, DataApp DESC";
 
     $connOk = $db->openConn();
     if ($connOk) {
         $conn = $db->getConn();
 
-        $rawAnimali = $db->exeQuery($sql, []);
+        $rawAnimali = $db->exeQuery($sql, $params);
 
         $db->closeConn();
 

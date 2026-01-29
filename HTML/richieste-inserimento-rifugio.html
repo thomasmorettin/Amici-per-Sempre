@@ -27,9 +27,13 @@
 <dialog id="dia-appuntamento">
     <p class="titolo-dialog">Programma appuntamento</p>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
-    <p id="msg-errore" class="bold-red hidden" role="alert">Errore: data anteriore ad oggi o orario non valido (8:30 - 19:30)</p>
+    <p id="msg-errore" class="bold-red hidden" role="alert">Errore: data precedente ad oggi o orario non valido (8:30 - 19:30)</p>
 
-    <button class="btn-close"></button>
+    <button class="btn-close">
+        <svg>
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
 
     <form action="{{root}}/PHP/Controller/aggiungi-appuntamento" method="POST">
         <div id="campi-input">
@@ -48,6 +52,10 @@
 
         <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
     </form>
+
+    <div class="info-richieste">
+        <p>Campo obbligatorio</p>
+    </div>
 </dialog>
 
 <dialog id="dia-cancellazione">
@@ -59,7 +67,11 @@
         <p class="bold">L'azione è irreversibile.</p>
     </div>
 
-    <button class="btn-close"></button>
+    <button class="btn-close">
+        <svg>
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
 
     <form action="{{root}}/PHP/Controller/elimina-richiesta" method="POST">
         <input type="hidden" id="hidden-id-del" name="id">

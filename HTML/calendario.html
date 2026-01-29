@@ -40,9 +40,9 @@
 </dialog>
 
 <dialog id="dia-appuntamento">
-    <p class="titolo-dialog">Riprogramma appuntamento</p>
+    <p class="titolo-dialog">Programma appuntamento</p>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
-    <p id="msg-errore" class="bold-red hidden" role="alert">Errore: data anteriore ad oggi o orario non valido (8:30 - 19:30)</p>
+    <p id="msg-errore" class="bold-red hidden" role="alert">Errore: data precedente ad oggi o orario non valido (8:30 - 19:30)</p>
 
     <button class="btn-close">
         <svg>
@@ -54,12 +54,12 @@
         <div id="campi-input">
             <input type="hidden" id="hidden-id" name="id">
 
-            <div>
+            <div class="form-field">
                 <label for="data-appuntamento">Data</label>
                 <input type="date" id="data-appuntamento" name="data" required>
             </div>
 
-            <div>
+            <div class="form-field">
                 <label for="ora-appuntamento">Ora</label>
                 <input type="time" id="ora-appuntamento" name="ora" required>
             </div>
@@ -67,6 +67,10 @@
 
         <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
     </form>
+
+    <div class="info-richieste">
+        <p>Campo obbligatorio</p>
+    </div>
 </dialog>
 
 <dialog id="dia-cancellazione">

@@ -1,0 +1,30 @@
+input::placeholder,
+textarea::placeholder {
+    visibility: hidden;
+}
+
+.features ul li {
+    color: black;
+}
+
+#appointment-form {
+    max-height: none;
+    opacity: 1 ;
+    visibility: visible ;
+}
+
+.cfr-button {
+    display: none;
+}
+
+.submite-bt {
+    display: none; 
+}
+
+#chiedi-visita {
+    break-before: page;        
+}
+
+.form-intro {
+    display: none; 
+}

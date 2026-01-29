@@ -1,4 +1,4 @@
-const organizationData = {
+const org = {
     "@context": "https://schema.org",
     "@type": "AnimalShelter",       // Specifico per il settore del Rifugio
     "name": "Rifugio Amici per Sempre",
@@ -35,10 +35,18 @@ const organizationData = {
             "closes": "12:30"
         }
     ],
-    "priceRange": "$"       // Organizzazione no-profit
+    "priceRange": "$",       // Organizzazione no-profit
     /* "sameAs": [     // Possibile collegamento ai socials per l'identità anche se non esistenti
         "https://www.facebook.com/",
         "https://www.instagram.com/",
         "https://x.com/"
     ] */
 };
+
+{
+// Creazione ed iniezione dello script all'interno del tag <head>
+const script = document.createElement("script");
+script.type = "application/ld+json";
+script.text = JSON.stringify(org);
+document.head.appendChild(script);
+}

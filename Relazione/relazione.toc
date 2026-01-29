@@ -1,3 +1,12 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {section}{\numberline {1}Introduzione}{2}{section.1}%
+\contentsline {section}{\numberline {1}Scopo del sito (Felix)}{2}{section.1}%
+\contentsline {section}{\numberline {2}Analisi dei requisiti (Felix)}{2}{section.2}%
+\contentsline {section}{\numberline {3}Progettazione (Felix)}{2}{section.3}%
+\contentsline {section}{\numberline {4}Sviluppo (Thomas)}{2}{section.4}%
+\contentsline {section}{\numberline {5}Accessibilità (Thomas)}{2}{section.5}%
+\contentsline {section}{\numberline {6}Test e validazione (Niccolò)}{2}{section.6}%
+\contentsline {section}{\numberline {7}SEO e prestazioni (Thomas)}{2}{section.7}%
+\contentsline {section}{\numberline {8}Organizzazione (Niccolò)}{2}{section.8}%
+\contentsline {section}{\numberline {9}Difficoltà (Niccolò)}{2}{section.9}%
+\contentsline {section}{\numberline {10}Conclusioni (Niccolò)}{2}{section.10}%

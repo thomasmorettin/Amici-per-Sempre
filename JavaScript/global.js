@@ -10,9 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function menuResponsive() {
+  const hamburger = document.getElementById("hamburger");
+
   document.getElementById("contenitore-header").classList.toggle("open");
-  document.getElementById("hamburger").classList.toggle("active");
+  hamburger.classList.toggle("active");
   document.querySelector("header").classList.toggle("scrolled");
+
+  if (hamburger.getAttribute("aria-expanded") === "true") {
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "apri menù di navigazione");
+  } else {
+    hamburger.setAttribute("aria-expanded", "true");
+    hamburger.setAttribute("aria-label", "chiudi menù di navigazione");
+  }
 }
 
 /*
@@ -91,12 +101,14 @@ function backgroundSetting() {
   btn.addEventListener("click", () => {
     if (localStorage.getItem(STORAGE_KEY) == "true") {
       root.classList.add("set-background");
+      btn.setAttribute("aria-label", "reimposta immagine di sfondo");
       localStorage.setItem(STORAGE_KEY, "false");
       updateBackgroundButton(false);
     }
 
     else {
       root.classList.remove("set-background");
+      btn.setAttribute("aria-label", "rimuovi immagine di sfondo");
       localStorage.setItem(STORAGE_KEY, "true");
       updateBackgroundButton(true);
     }
@@ -127,12 +139,14 @@ function themeSetting() {
   btn.addEventListener("click", () => {
     if (localStorage.getItem(STORAGE_KEY) == "true") {
       root.dataset.theme = "light";
+      btn.setAttribute("aria-label", "imposta tema chiaro");
       localStorage.setItem(STORAGE_KEY, "false");
       updateButton(false);
     }
 
     else {
       root.dataset.theme = "dark";
+      btn.setAttribute("aria-label", "imposta tema scuro");
       localStorage.setItem(STORAGE_KEY, "true");
       updateButton(true);
     }

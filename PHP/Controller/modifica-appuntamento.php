@@ -8,17 +8,18 @@ ensure_session();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id = isset($_POST["id"]) ? (int)$_POST["id"] : null;
     $data = isset($_POST["data"]) ? $_POST["data"] : null;
+    $dataFormat = new DateTime($data);
     $ora = isset($_POST["ora"]) ? $_POST["ora"] : null;
     $oggi = date("Y-m-d");
 
     if ($id && $data && $ora) {
-        if ($data < $oggi || $ora < "08:30" || $ora > "19:30") {
+        if ($dataFormat->format("N") == 7 || $data < $oggi || $ora < "08:30" || $ora > "19:30") {
             $_SESSION['error'] = "Data non valida.";
             header("Location: " . PROJECT_ROOT . "/amministrazione/calendario");
             exit();
         }
 
-        elseif (updateAppuntamento($id, $data, $ora)) {
+        else if (updateAppuntamento($id, $data, $ora)) {
             $_SESSION['success'] = "Appuntamento aggiornato con successo.";
             header("Location: " . PROJECT_ROOT . "/amministrazione/calendario");
             exit();
