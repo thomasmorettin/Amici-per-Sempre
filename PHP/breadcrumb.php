@@ -24,7 +24,7 @@ function getCurrentPath() {
         "login.php" => [
             "titolo" => "Login",
             "padre" => "index.php",
-            "url" => PROJECT_ROOT . "/PHP/Controller/login"
+            "url" => PROJECT_ROOT . "/login"
         ],
 
         "amministrazione.php" => [
@@ -104,7 +104,7 @@ function getCurrentPath() {
 
     foreach ($percorso as $item) {
         if ($item["url"] === null) {
-            $html .= "<li class='bold'>{$item['titolo']}</li>";
+            $html .= "<li><span class='bold' aria-current='page'>{$item['titolo']}</span></li>";
         }
 
         else {

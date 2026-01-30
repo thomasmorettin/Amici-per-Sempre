@@ -11,56 +11,52 @@
     </section>
 </main>
 
-<dialog id="dia-appuntamento">
-    <p class="titolo-dialog">Programma appuntamento</p>
+<dialog id="dia-appuntamento" aria-labelledby="tit-dia-app" aria-modal="true">
+    <h3 id="tit-dia-app" class="titolo-dialog">Programma appuntamento</h3>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
 
     <div class="info-required">
         <p>Campo obbligatorio</p>
     </div>
 
-    <button class="btn-close">
-        <svg>
+    <button class="btn-close" aria-label="chiudi finestra modale">
+        <svg aria-hidden="true">
             <use href="{{root}}/Resources/icons.svg#cancel"></use>
         </svg>
     </button>
 
-    <form action="{{root}}/PHP/Controller/aggiungi-appuntamento" method="POST">
+    <form id="frm-app" action="{{root}}/PHP/Controller/aggiungi-appuntamento" method="POST" novalidate>
         <div id="campi-input">
             <input type="hidden" id="hidden-id" name="id">
 
             <div>
                 <label for="data-appuntamento">Data</label>
-                <input type="date" id="data-appuntamento" name="data" required>
+                <input type="date" id="data-appuntamento" name="data" required aria-describedby="msg-errore-app" aria-label="giorno, mese, anno">
             </div>
 
             <div>
-                <label for="ora-appuntamento">Ora</label>
-                <input type="time" id="ora-appuntamento" name="ora" required>
+                <label for="ora-appuntamento">Ora&nbsp;<span class="normal">(08:30 - 19:30)</span></label>
+                <input type="time" id="ora-appuntamento" name="ora" min="08:30" max="19:30" required aria-describedby="msg-errore-app">
             </div>
         </div>
 
-        <span class="field-error hidden" role="alert"></span>
+        <span id="msg-errore-app" class="field-error hidden" role="alert"></span>
 
         <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
     </form>
-
-    <div class="info-richieste">
-        <p>Campo obbligatorio</p>
-    </div>
 </dialog>
 
-<dialog id="dia-cancellazione">
-    <p class="titolo-dialog">Elimina richiesta</p>
+<dialog id="dia-cancellazione" aria-labelledby="tit-dia-can">
+    <h3 id="tit-dia-can" class="titolo-dialog">Elimina richiesta</h3>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
 
     <div id="msg-warning">
-        <p><span class="bold-red">Attenzione</span>, si sta per eliminare definitivamente la richiesta dell'utente.</p>
+        <p><span class="red"><strong>Attenzione</strong></span>, si sta per eliminare definitivamente la richiesta dell'utente.</p>
         <p class="bold">L'azione è irreversibile.</p>
     </div>
 
-    <button class="btn-close">
-        <svg>
+    <button class="btn-close" aria-label="chiudi finestra modale">
+        <svg aria-hidden="true">
             <use href="{{root}}/Resources/icons.svg#cancel"></use>
         </svg>
     </button>

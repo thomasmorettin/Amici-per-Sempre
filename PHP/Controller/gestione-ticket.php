@@ -53,7 +53,7 @@ if (is_logged_in()) {
                     $richDaGestire .=
                     "<li>
                         <dl>
-                            <dt id='nome-rich'>{$ticket["richiedente"]}</dt>
+                            <dt>{$ticket["richiedente"]}</dt>
                             <dd>
                                 <dl class='cliente-info'>
                                     <dt>Data richiesta:</dt>
@@ -66,28 +66,28 @@ if (is_logged_in()) {
                             </dd>
                         </dl>
 
-                        <menu class='btn-gruppo'>
-                            <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'>
-                                <svg>
+                        <div class='btn-gruppo'>
+                            <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}' aria-label='note aggiuntive per {$ticket["richiedente"]}'>
+                                <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#info'></use>
                                 </svg>
                             </button>
-                            <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'>
-                                <svg>
+                            <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}' aria-label='prenota appuntamento con {$ticket["richiedente"]}'>
+                                <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#calendario'></use>
                                 </svg>
                             </button>
-                            <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}'>
-                                <svg>
+                            <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$ticket["id"]}' data-nome='{$ticket["richiedente"]}' aria-label='elimina richiesta di {$ticket["richiedente"]}'>
+                                <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#delete'></use>
                                 </svg>
                             </button>
-                        </menu>
+                        </div>
                     </li>";
                 }
             }
 
-            else { $richDaGestire = "<p>Non ci sono richieste da gestire.</p>"; }
+            else { $richDaGestire = "<li><p>Non ci sono richieste da gestire.</p></li>"; }
 
             if (!empty($animale["gestite"])) {
                 foreach ($animale["gestite"] as $ticket) {
@@ -113,13 +113,13 @@ if (is_logged_in()) {
                         </dl>
 
                         <menu class='btn-gruppo'>
-                            <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}'>
-                                <svg>
+                            <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}' aria-label='note aggiuntive per {$ticket["richiedente"]}'>
+                                <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#info'></use>
                                 </svg>
                             </button>
-                            <a class='go-calendario btn-link' href='{{root}}/amministrazione/calendario?mese={$mese}&anno={$anno}#g{$giorno}'>
-                                <svg>
+                            <a class='go-calendario btn-link' href='{{root}}/amministrazione/calendario?mese={$mese}&anno={$anno}#g{$giorno}' aria-label='vai ad appuntamento in calendario con {$ticket["richiedente"]}'>
+                                <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#forward'></use>
                                 </svg>
                                 <span>Calendario</span>
@@ -129,23 +129,23 @@ if (is_logged_in()) {
                 }
             }
 
-            else { $richGestite = "<p>Non ci sono richieste già gestite.</p>"; }
+            else { $richGestite = "<li><p>Non ci sono richieste già gestite.</p></li>"; }
 
             $html .=
             "<li>
                 <details class='dtl-animale'>
                 <summary>
-                    <div class='info-animale'>
-                        <img src='{{root}}/Resources/Animali/{$animale["infoAnimale"]["foto"]}' class='img-animale'>
+                    <span class='info-animale'>
+                        <img src='{{root}}/Resources/Animali/{$animale["infoAnimale"]["foto"]}' class='img-animale' alt='' aria-hidden='true'>
 
-                        <div>
-                            <p class='nome-animale'>{$animale["infoAnimale"]["nome"]}</p>
-                            <p class='dettagli-animale'>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</p>
-                            <p class='status-richieste'><span class='num-rich'>{$numRich}</span>&nbsp<span class='richieste'>nuove richieste</span></p>
-                        </div>
-                    </div>
+                        <span>
+                            <span class='nome-animale'>{$animale["infoAnimale"]["nome"]}</span>
+                            <span class='dettagli-animale'>{$animale["infoAnimale"]["tipo"]} - <span lang='{$animale["infoAnimale"]["linguaRazza"]}'>{$animale["infoAnimale"]["razza"]}</span></span>
+                            <span class='status-richieste' aria-label='stato: {$numRich} nuove richieste'><span class='num-rich' aria-hidden='true'>{$numRich}</span>&nbsp;<span class='richieste' aria-hidden='true'>nuove richieste</span></span>
+                        </span>
+                    </span>
 
-                    <svg class='exp-freccia'>
+                    <svg class='exp-freccia' aria-hidden='true'>
                         <use href='{{root}}/Resources/icons.svg#arrow'></use>
                     </svg>
                 </summary>
@@ -174,7 +174,7 @@ if (is_logged_in()) {
         }
     }
 
-    else { $html = "<p class='center bold'>Nessun animale corrisponde alla ricerca.</p>"; }
+    else { $html = "<li><p class='center bold'>Nessun animale corrisponde alla ricerca.</p></li>"; }
 
     $pannelloControllo = renderPannelloControlloFiltri(true); // Il pulsante di ordina non viene mostrato
     $pannelloFiltri = renderPannelloFiltri(PROJECT_ROOT . "/amministrazione/gestione-ticket.php", ["Tipo", "Dati persona"]);

@@ -1,37 +1,37 @@
 <main>
-    <p class="titolo">Calendario appuntamenti</p>
+    <h2 class="titolo">Calendario appuntamenti</h2>
 
     <div id="btns-flottanti">
         <div id="btns-mesi">
-            <a id="btn-mese-prec" class="btn-link" href="{{link-prev}}">
-                <svg>
+            <a id="btn-mese-prec" class="btn-link" href="{{link-prev}}" title="Mese precedente" aria-label="vai al mese precedente: {{mese-prec}}">
+                <svg aria-hidden="true">
                     <use href="{{root}}/Resources/icons.svg#arrow"></use>
                 </svg>
             </a>
-            <p>{{mese-anno}}</p>
-            <a id="btn-mese-succ" class="btn-link" href="{{link-next}}">
-                <svg>
+            <p aria-live="polite" id="lbl-mese-corr">{{mese-anno}}</p>
+            <a id="btn-mese-succ" class="btn-link" href="{{link-next}}" title="Mese successivo" aria-label="vai al mese successivo: {{mese-succ}}">
+                <svg aria-hidden="true">
                     <use href="{{root}}/Resources/icons.svg#arrow"></use>
                 </svg>
             </a>
         </div>
 
-        <div id="btns-sett">
+        <div id="btns-sett" role="tablist" aria-label="seleziona la settimana da visualizzare">
             {{btns-sett}}
         </div>
     </div>
 
-    <section>
+    <section aria-live="polite">
         {{calendario-appuntamenti}}
     </section>
 </main>
 
-<dialog id="dia-info">
-    <p class="titolo-dialog">Eventuali note del richiedente</p>
+<dialog id="dia-info" aria-labelledby="tit-dia-info" aria-modal="true">
+    <h3 id="tit-dia-info" class="titolo-dialog">Eventuali note del richiedente</h3>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
 
-    <button class="btn-close">
-        <svg>
+    <button class="btn-close" aria-label="chiudi finestra modale">
+        <svg aria-hidden="true">
             <use href="{{root}}/Resources/icons.svg#cancel"></use>
         </svg>
     </button>
@@ -39,56 +39,52 @@
     <p id="info-rich"></p>
 </dialog>
 
-<dialog id="dia-appuntamento">
-    <p class="titolo-dialog">Programma appuntamento</p>
+<dialog id="dia-appuntamento" aria-labelledby="tit-dia-app" aria-modal="true">
+    <h3 id="tit-dia-app" class="titolo-dialog">Programma appuntamento</h3>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
 
     <div class="info-required">
         <p>Campo obbligatorio</p>
     </div>
 
-    <button class="btn-close">
-        <svg>
+    <button class="btn-close" aria-label="chiudi finestra modale">
+        <svg aria-hidden="true">
             <use href="{{root}}/Resources/icons.svg#cancel"></use>
         </svg>
     </button>
 
-    <form action="{{root}}/PHP/Controller/modifica-appuntamento" method="POST">
+    <form id="frm-app" action="{{root}}/PHP/Controller/modifica-appuntamento" method="POST" novalidate>
         <div id="campi-input">
             <input type="hidden" id="hidden-id" name="id">
 
             <div class="form-field">
-                <label for="data-appuntamento">Data</label>
-                <input type="date" id="data-appuntamento" name="data" required>
+                <label for="data-appuntamento"><span>Data</span></label>
+                <input type="date" id="data-appuntamento" name="data" required aria-describedby="msg-errore-app" aria-label="giorno, mese, anno">
             </div>
 
             <div class="form-field">
-                <label for="ora-appuntamento">Ora</label>
-                <input type="time" id="ora-appuntamento" name="ora" required>
+                <label for="ora-appuntamento">Ora&nbsp;<span class="normal">(08:30 - 19:30)</span></label>
+                <input type="time" id="ora-appuntamento" name="ora" required aria-describedby="msg-errore-app">
             </div>
         </div>
 
-        <span class="field-error hidden" role="alert"></span>
+        <span id="msg-errore-app" class="field-error hidden" role="alert"></span>
 
         <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
     </form>
-
-    <div class="info-richieste">
-        <p>Campo obbligatorio</p>
-    </div>
 </dialog>
 
-<dialog id="dia-cancellazione">
-    <p class="titolo-dialog">Cancella appuntamento</p>
+<dialog id="dia-cancellazione" aria-labelledby="tit-dia-can" aria-modal="true">
+    <h3 id="tit-dia-can" class="titolo-dialog">Cancella appuntamento</h3>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
 
     <div id="msg-warning">
-        <p><span class="bold-red">Attenzione</span>, si vuole eliminare l'appuntamento in giornata <span id="data-app" class="bold"></span> alle ore <span id="ora-app" class="bold"></span>.</p>
+        <p><span class="red"><strong>Attenzione</strong></span>, si vuole eliminare l'appuntamento in giornata <span id="data-app" class="bold"></span> alle ore <span id="ora-app" class="bold"></span>.</p>
         <p>L'appuntamento è riprenotabile alla pagina <a href="{{root}}/amministrazione/gestione-ticket.php">Gestione richieste</a>.</p>
     </div>
 
-    <button class="btn-close">
-        <svg>
+    <button class="btn-close" aria-label="chiudi finestra modale">
+        <svg aria-hidden="true">
             <use href="{{root}}/Resources/icons.svg#cancel"></use>
         </svg>
     </button>

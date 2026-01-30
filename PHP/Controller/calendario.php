@@ -72,37 +72,40 @@ if (is_logged_in()) {
 
                     if ($dataApp >= $currentData) {
                         $htmlBtns =
-                        "<menu class='btn-gruppo-cal'>
+                        "<div class='btn-gruppo-cal'>
                             <button class='btn-info'
                                 title='Note aggiuntive'
+                                aria-label='note aggiuntive per {$evento['NomeProprietario']} {$evento['CognomeProprietario']} delle {$evento['Ora']}'
                                 data-info='{$evento['Info']}'
                                 data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}'>
-                                <svg>
+                                <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#info'></use>
                                 </svg>
                             </button>
                             <button class='btn-popup-app'
                                 title='Modifica appuntamento'
+                                aria-label='modifica appuntamento di {$evento['NomeProprietario']} {$evento['CognomeProprietario']} delle {$evento['Ora']}'
                                 data-id='{$evento['ID']}'
                                 data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}'
                                 data-ora='{$evento['Ora']}'
                                 data-data='{$dataApp}'>
-                                <svg>
+                                <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#calendario'></use>
                                 </svg>
                             </button>
                             <button class='btn-elimina-app'
                                 title='Elimina appuntamento'
+                                aria-label='elimina appuntamento di {$evento['NomeProprietario']} {$evento['CognomeProprietario']} delle {$evento['Ora']}'
                                 data-id='{$evento['ID']}'
                                 data-nome='{$evento['NomeProprietario']} {$evento['CognomeProprietario']}'
                                 data-ora='{$evento['Ora']}'
                                 data-data='{$dataApp}'
                                 data-data-display='{$dataDisplay}'>
-                                <svg>
+                                <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#delete'></use>
                                 </svg>
                             </button>
-                        </menu>";
+                        </div>";
                     } else { $htmlLinea = ""; }
 
                     if ($evento["Tipo"] === "Ticket") {
@@ -112,7 +115,7 @@ if (is_logged_in()) {
 
                             <div class='cnt-info-btns'>
                                 <div class='appuntamento'>
-                                    <p class='orario'>{$evento['Ora']}</p>
+                                    <p class='orario'><span class='hidden'>ore </span>{$evento['Ora']}</p>
 
                                     <div class='info'>
                                         <p>Appuntamento adozione \"{$evento['NomeAnimale']}\"</p>
@@ -132,7 +135,7 @@ if (is_logged_in()) {
 
                             <div class='cnt-info-btns'>
                                 <div class='appuntamento'>
-                                    <p class='orario'>{$evento['Ora']}</p>
+                                    <p class='orario'><span class='hidden'>ore </span>{$evento['Ora']}</p>
 
                                     <div class='info'>
                                         <p>Appuntamento per valutare adozione per razza \"{$evento['Razza']}\"</p>
@@ -175,10 +178,11 @@ if (is_logged_in()) {
         $isActive = ($num === $currentSett);
 
         $activeBtn = $isActive ? "active" : "";
+        $ariaCurrent = $isActive ? "true" : "false";
         $activeCont = $isActive ? "" : "hidden";
 
-        $htmlBtns .= "<button class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num'><span class='abbr'>Settimana</span>$num</button>";
-        $htmlContent .= "<ol id='sett-$num' class='lista-settimana $activeCont'>$contenuto</ol>";
+        $htmlBtns .= "<button class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num' role='tab' aria-controls='sett-$num' aria-selected='$ariaCurrent'><span class='abbr'>Settimana</span>$num</button>";
+        $htmlContent .= "<ol id='sett-$num' class='lista-settimana $activeCont' aria-label='appuntamenti settimana $num'>$contenuto</ol>";
     }
 
     $dati = [
@@ -187,7 +191,9 @@ if (is_logged_in()) {
         "{{current-js}}" => "calendario.js",
         "{{mese-anno}}" => "$nomiMesi[$mese] $anno",
         "{{link-prev}}" => $linkPrev,
+        "{{mese-prec}}" => $prevMese . " " . $prevAnno,
         "{{link-next}}" => $linkNext,
+        "{{mese-succ}}" => $nextMese . " " . $nextAnno,
         "{{btns-sett}}" => $htmlBtns,
         "{{calendario-appuntamenti}}" => $htmlContent
     ];

@@ -64,7 +64,7 @@
     --squarepadding: 0.25rem 0.25rem;
     --generalbtnborder: 2px solid var(--borderbtn);
     --warningbtnborder: 2px solid var(--borderwarning);
-    --generalborder: 2px solid var(var(--borderform));
+    --generalborder: 2px solid var(--borderform);
     --generaloutline: 2px solid var(--linkcolor);
     --squarewidth: 2.25rem;
     --generalradius: 0.5rem;
@@ -80,47 +80,21 @@
     color: var(--bgcolor);
 }
 
-*:focus {
-    outline: none;
-}
-
-*:focus-visible {
-    outline: var(--generaloutline);
-    outline-offset: 0.2rem;
-}
-
-input[type="text"]:focus-visible {
-    outline: var(--generaloutline);
-    outline-offset: 0.2rem;
-}
-
-input[type="checkbox"]:focus-visible {
-    outline: var(--generaloutline);
-    outline-offset: 0.2rem;
-}
-
-input[type="radio"]:focus-visible {
-    outline: var(--generaloutline);
-    outline-offset: 0.2rem;
-}
-
-input:focus-visible {
-    outline: var(--generaloutline);
-    outline-offset: 0.2rem;
-}
-
-textarea:focus-visible {
-    outline: var(--generaloutline);
-    outline-offset: 0.2rem;
-}
-
+*:focus,
 details > summary:focus {
     outline: none;
 }
 
+*:focus-visible,
+input[type="text"]:focus-visible,
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible,
+input[type="password"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
 details:has(summary:focus-visible) {
     outline: var(--generaloutline);
-    outline-offset: 0.2rem;
+    outline-offset: 0.15rem;
 }
 
 .btn-link svg,
@@ -130,6 +104,12 @@ details summary svg {
     width: 1.75rem;
     height: 1.75rem;
     display: block;
+}
+
+.new-window {
+    margin-left: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
 }
 
 .btn-link,
@@ -180,6 +160,7 @@ a {
     text-decoration: underline;
     text-underline-offset: 0.15rem;
     border-radius: var(--generalradius);
+    text-align: center;
 }
 
 a:visited {
@@ -271,9 +252,19 @@ header h1 {
     font-weight: bold;
 }
 
+.red {
+    color: var(--txtwarning);
+}
+
 .bold-red {
     color: var(--txtwarning);
     font-weight: bold;
+}
+
+.normal {
+    font-weight: normal;
+    color: inherit;
+    font-style: normal;
 }
 
 .hidden {
@@ -617,7 +608,6 @@ main {
 }
 
 #up-quote {
-    position: absolute;
     width: 1em;
     height: 1em;
     top: -0.25em;
@@ -626,7 +616,6 @@ main {
 }
 
 #down-quote {
-    position: absolute;
     width: 1em;
     height: 1em;
     bottom: -0.25em;
@@ -861,12 +850,9 @@ footer {
     margin: auto;
     position: sticky;
     top: 7em;
-    padding: var(--squarepadding);
-    transition: all 0.3s ease;
-}
-
-#btns-flottanti.scrolled {
-    background-color: var(--bgbread);
+    background-color: var(--bgcolor);
+    border: var(--generalborder);
+    padding: 1rem;
     border-radius: 0.5em;
 }
 
@@ -879,7 +865,7 @@ footer {
     align-items: center;
 }
 
-#btns-mesi p {
+#lbl-mese-corr {
     background-color: var(--bgbread);
     padding: var(--generalpadding);
     border-radius: var(--generalradius);
@@ -1003,9 +989,11 @@ footer {
     display: contents;
 }
 
-.info-animale div {
+.info-animale > span {
     flex: 1;
     margin-left: 1em;
+    display: flex;
+    flex-direction: column;
 }
 
 .nome-animale {
@@ -1103,6 +1091,10 @@ details[open] > .contenuto-nascosto {
     flex: 1;
 }
 
+.btn-gruppo {
+    margin-top: 0.5rem;
+}
+
 .btn-gruppo,
 .btn-gruppo-cal {
     display: flex;
@@ -1119,12 +1111,6 @@ details[open] > .contenuto-nascosto {
 
 .lista-settimana {
     list-style-type: none;
-}
-
-#nome-rich {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
 }
 
 .btn-elimina-app {
@@ -1152,7 +1138,7 @@ dialog {
     color: var(--txtcolor);
     padding: 3em;
     background-color: var(--bgcolor);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     opacity: 0;
 }
 
@@ -1160,7 +1146,7 @@ dialog .field-error {
     justify-content: center;
 }
 
-dialog form {
+dialog form div {
     color: var(--txtcolor);
 }
 
@@ -1186,12 +1172,16 @@ input.error {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    height: 1.5rem;
-    width: 1.5rem;
+    width: var(--squarewidth);
     padding: var(--squarepadding);
     box-shadow: none;
     border: none;
     background-color: transparent;
+}
+
+.btn-close svg {
+    width: 2rem;
+    height: 2rem;
 }
 
 #dia-appuntamento,
@@ -1221,6 +1211,7 @@ dialog .info-required {
 
 #campi-input {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 1.5em;
 }
@@ -1262,7 +1253,7 @@ dialog .info-required {
 #toast-not {
     position: fixed;
     width: max-content;
-    bottom: 2em;
+    bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;

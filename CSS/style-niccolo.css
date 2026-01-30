@@ -11,7 +11,7 @@
 }
 
 .form-field:has(input:required) > label::before,
-.form-field:has(select:required) > label::before, 
+.form-field:has(select:required) > label::before,
 dialog .form-field:has(input:required) > label::before,
 dialog .form-field:has(select:required) > label::before {
     content: "•";
@@ -395,7 +395,7 @@ form select::after {
     gap: 1em;
     position: sticky;
     top: 7em;
-    z-index: 20;
+    z-index: 2;
 }
 
 .list-topbar button {
