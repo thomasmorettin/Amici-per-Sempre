@@ -71,14 +71,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const cognomeInput = document.getElementById('cognome');
     const emailInput = document.getElementById('email');
     const telefonoInput = document.getElementById('telefono');
-    const privacyCheckbox = document.getElementById('privacy');
     
     // Recupera i div errore 
     const errorNome = document.getElementById('error-nome');
     const errorCognome = document.getElementById('error-cognome');
     const errorEmail = document.getElementById('error-email');
     const errorTelefono = document.getElementById('error-telefono');
-    const errorPrivacy = document.getElementById('error-privacy');
     
     // ========================================
     // FUNZIONI DI VALIDAZIONE
