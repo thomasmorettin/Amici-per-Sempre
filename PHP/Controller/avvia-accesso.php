@@ -6,7 +6,7 @@ use function Model\accedi;
 
 ensure_session();
 
-$pagina_redirect = PROJECT_ROOT . "/PHP/Controller/login";
+$pagina_redirect = PROJECT_ROOT . "/login";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     $_SESSION['error'] = "Si è verificato un errore durante l'invio della richiesta. Riprova più tardi.";
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
 if (is_logged_in()) {
     $_SESSION['error'] = "Sei già loggato.";
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/amministrazione");
+    header("Location: " . PROJECT_ROOT . "/amministrazione");
     exit;
 }
 
@@ -77,6 +77,6 @@ session_regenerate_id(true);
 $_SESSION['loggato'] = true;  // Amministratore loggato (non ci sono altri utenti in questo caso)
 
 $_SESSION['success'] = "Login effettuato con successo.";
-header("Location: " . PROJECT_ROOT . "/PHP/Controller/amministrazione");
+header("Location: " . PROJECT_ROOT . "/amministrazione");
 
 ?>

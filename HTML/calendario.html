@@ -42,7 +42,10 @@
 <dialog id="dia-appuntamento">
     <p class="titolo-dialog">Programma appuntamento</p>
     <p>Sig/ra. <span class="nome-cliente"></span></p>
-    <p id="msg-errore" class="bold-red hidden" role="alert">Errore: data precedente ad oggi o orario non valido (8:30 - 19:30)</p>
+
+    <div class="info-required">
+        <p>Campo obbligatorio</p>
+    </div>
 
     <button class="btn-close">
         <svg>
@@ -64,6 +67,8 @@
                 <input type="time" id="ora-appuntamento" name="ora" required>
             </div>
         </div>
+
+        <span class="field-error hidden" role="alert"></span>
 
         <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
     </form>
