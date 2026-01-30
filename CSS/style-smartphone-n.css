@@ -1,0 +1,57 @@
+#ricerca {
+    height: 2em;
+}
+
+#step-1,
+#step-2,
+#step-3 {
+    display: none;
+}
+
+.info-step {
+    font-size: 1.1rem;
+}
+
+#section-step-porta-adozione {
+    margin: 4em auto;
+}
+
+#section-step-porta-adozione ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    text-align: left;
+    justify-content: center;
+    list-style: none;
+    gap: 1em;
+    flex-direction: column;
+}
+
+#section-form-porta-adozione h3 {
+    font-size: 1.3rem;
+}
+
+.section-legend p {
+    font-size: 1.2rem;
+}
+
+.btn-gruppo-v {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn-gruppo-v button {
+    flex: 1;
+}
+
+#ricerca {
+    height: 2em;
+}
+
+.description {
+    display: none;
+}
+
+#list-topbar {
+    position: revert;
+}

@@ -14,7 +14,7 @@ function accedi($user, $password) {
         $result = $db->exeQuery($query, [$user]);
         $db->closeConn();
         
-        if (!empty($result) || password_verify($password, $result[0]['PasswordHash'])) {
+        if (!empty($result) && password_verify($password, $result[0]['PasswordHash'])) {
             return $result[0];
         }
     }

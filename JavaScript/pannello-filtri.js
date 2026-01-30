@@ -1,15 +1,82 @@
+const pannelloPopupWidth = 1024;
+
 document.addEventListener("DOMContentLoaded", () => {
     togglePannello();
     gestioneAccordion();
-    contaFiltri();
     gestioneBottonePannelloFiltri();
-    updateSectionFlags();
     gestioneRicerca();
     gestioneFormFiltri();
+    setupPosizionePanel();
+    chiusuraPopup();
+    gestionePulsanteResetFiltri();
+    controlloWrapBottone();
+    gestioneContaFiltri();
+    controllaFlagSezioni();
+
+    const pannello = document.getElementById("side-panel");
+    pannello.inert = true;
+
+    // Per evitare che quando si inserisca parametri da telefono azioni l'evento resize
+    let isKeyboardResize = false;
+
+    document.addEventListener('focusin', e => {
+        if (e.target.matches('input, textarea')) {
+            isKeyboardResize = true;
+        } else {
+            isKeyboardResize = false;
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (isKeyboardResize) return;
+        setupPosizionePanel();
+        controlloWrapBottone();
+    });
 })
+
+function setupPosizionePanel() {
+    const isMobile = window.innerWidth <= pannelloPopupWidth;
+    const form = document.getElementById('form-filtri');
+    const sidepanel = document.getElementById('side-panel');
+    const popup = document.getElementById('popup-panel');
+
+    const filter_content_side = sidepanel.querySelector('.filter-content');
+    const filter_content_popup = popup.querySelector('.filter-content');
+
+    if (isMobile) {
+        if (sidepanel.classList.contains('open')) {
+            sidepanel.classList.toggle('open');
+        }
+        filter_content_popup.appendChild(form);
+        popup.classList.add('active');
+        sidepanel.classList.remove('active');
+    } else {
+        if (popup.classList.contains('open')) {
+            document.body.classList.remove("no-scroll");
+            popup.classList.toggle('open');
+            popup.close();
+        }
+        filter_content_side.appendChild(form);
+        sidepanel.classList.add('active');
+        popup.classList.remove('active');
+    }
+}
+
+function chiusuraPopup() {
+    const popup = document.getElementById('popup-panel');
+    const btnChiudiPopup = popup.querySelector(".btn-close");
+
+    btnChiudiPopup.addEventListener("click", () => {
+        popup.close();
+        document.body.classList.remove("no-scroll");
+    });
+}
 
 function gestioneRicerca() {
     const formRicerca = document.getElementById('form-ricerca');
+
+    if(!formRicerca)
+        return;
 
     formRicerca.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -73,11 +140,11 @@ function gestioneFormFiltri() {
 
 // Aggiorna contatori e badge (usata sia da listeners locali che da delegati)
 function refreshFilterUI() {
-    const panel = document.querySelector('.filter-panel');
-    if (!panel) return;
+    const form = document.getElementById('#form-filtri');
+    if (!form) return;
     // aggiorna bottone principale contando tutti i controlli rilevanti in modo generico
-    const btn = panel.querySelector('#applica');
-    const controls = panel.querySelectorAll('input, select, textarea');
+    const btn = document.getElementById('#applica');
+    const controls = form.querySelectorAll('input, select, textarea');
 
     let c = 0;
     controls.forEach(el => {
@@ -119,6 +186,8 @@ function updateSectionFlags() {
         const header = acc.querySelector('.accordion-header');
         if (!header) return;
         let flag = header.querySelector('.flag-filtro');
+        flagNumero = flag.querySelector('.flag');
+        flagScreenReader = flag.querySelector('.solo-sr');
 
         // conta elementi attivi solo dentro questa accordion (generico)
         let c = 0;
@@ -128,19 +197,22 @@ function updateSectionFlags() {
         });
 
         if (c > 0) {
-            if (!flag) {
-                flag = document.createElement('span');
-                flag.className = 'flag-filtro';
-                const legendRight = header.querySelector('.legend-right');
-                if (legendRight) header.insertBefore(flag, legendRight);
-                else header.appendChild(flag);
+            flagNumero.textContent = c;
+
+            if (c == 1) {
+                flagScreenReader.textContent = c + " filtro selezionato";
+            } else {
+                flagScreenReader.textContent = c + " filtri selezionati";
             }
-            flag.textContent = c;
-            flag.style.display = '';
+            
+            // flag.style.display = '';
             flag.classList.add('show');
-            flag.classList.remove('hidden');
         } else {
-            hideAndRemoveBadge(flag);
+            flagNumero.textContent = "";
+            flagScreenReader.textContent = "";
+
+            flag.classList.remove('show');
+            // hideAndRemoveBadge(flag);
         }
     });
 }
@@ -196,7 +268,7 @@ function hideAndRemoveBadge(el) {
 function gestioneAccordion() {
     document.querySelectorAll('.accordion').forEach(acc => {
         const header = acc.querySelector('.accordion-header');
-        const arrow = acc.querySelector('.header-arrow');
+        const arrow = header.querySelector('svg');
         const panel = acc.querySelector('.content');
         const button = acc.querySelectorAll('button')[0];
 
@@ -239,10 +311,9 @@ function gestioneAccordion() {
 
 function gestioneBottonePannelloFiltri() {
     const filtraBtn = document.getElementById('filtra-btn');
+    
     if (filtraBtn) {
-        console.debug('gestioneBottonePannelloFiltri: trovato #filtra-btn, attacco handler');
         filtraBtn.addEventListener('click', (e) => {
-            console.debug('filtra-btn click ricevuto');
             toggleFilter(e);
         });
     } else {
@@ -251,16 +322,50 @@ function gestioneBottonePannelloFiltri() {
 }
 
 function toggleFilter() {
-    const div = document.querySelector(".filter-panel");
-    if (!div) {
-        console.warn('toggleFilter: .filter-panel non trovato');
-        return;
+    if (window.innerWidth <= pannelloPopupWidth) {
+        const pannello = document.getElementById("popup-panel");
+        if (!pannello) {
+            return;
+        }
+        pannello.showModal();
+        pannello.classList.toggle("open");
+        document.body.classList.add("no-scroll");
+    } else {
+        const pannello = document.getElementById("side-panel");
+        if (!pannello) {
+            console.warn('toggleFilter: .filter-panel non trovato');
+            return;
+        }
+        pannello.classList.toggle("open");
+
+        if(pannello.classList.contains("open")) {
+            pannello.inert = false;
+        } else {
+            pannello.inert = true;
+        }
     }
-    console.debug('toggleFilter: prima classList=', Array.from(div.classList));
-    div.classList.toggle("open");
-    console.debug('toggleFilter: dopo classList=', Array.from(div.classList));
 }
 
+function gestionePulsanteResetFiltri() {
+    const form = document.getElementById("form-filtri");
+    const pulsanteReset = form.querySelector(".reset");
+
+    pulsanteReset.addEventListener('click', function() {
+        form.reset();
+
+        form.querySelectorAll('input, textarea, select').forEach(el => {
+            if (el.type === 'checkbox' || el.type === 'radio') {
+                el.checked = false;
+            }
+            else {
+                el.value = '';
+                el.dataset.changed = false;
+            }
+        });
+
+        azzeraCount();
+    });
+}
 
 function togglePannello() {
     document.querySelectorAll("fieldset.collapse legend.toggle").forEach(legend => {
@@ -270,51 +375,166 @@ function togglePannello() {
     });
 }
 
+function cambiaNumeroFlag(numero, flag, numFlag, descFlag, add = true) {
+    if (!numero && numero !== 0) return;
+    
+    if (add) {
+        numero++;
+    } else {
+        numero--;
+    }
 
-function contaFiltri() {
-  const panel = document.querySelector('.filter-panel');
-  if (!panel) return;
-  const btn = panel.querySelector('#applica');
-  const nameInp = panel.querySelector('input[name="nome"]');
-  const pesoInp = panel.querySelector('input[name="peso"]');
-  const etaInp  = panel.querySelector('input[name="eta"]');
-  const tipoChecks = panel.querySelectorAll('input[name="tipo[]"]');
+    numFlag.textContent = numero;
+    
+    if (numero == 1) {
+        descFlag.textContent = numero + " filtro selezionato";
+    } else if (numero > 1) {
+        descFlag.textContent = numero + " filtri selezionati";
+    } else {
+        descFlag.textContent = "";
+    }
 
-  function countActive() {
-    let c = 0;
-    c += [...tipoChecks].filter(ch => ch.checked).length;
-    if (nameInp && nameInp.value.trim() !== '') c++;
-    if (pesoInp && Number(pesoInp.value) > Number(pesoInp.getAttribute('min') || 1)) c++;
-    if (etaInp  && Number(etaInp.value)  > Number(etaInp.getAttribute('min')  || 1)) c++;
-    btn.textContent = `Applica ${c} filtri`;
-  }
+    if (numero > 0) {
+        flag.classList.add('show');
+    } else {
+        flag.classList.remove('show');
+    }
+}
 
-    const deb = (fn, ms=120) => { let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; };
-        const onChange = deb(refreshFilterUI, 100);
+function cambiaNumeroFlagDinamico(element, add = true) {
+    const accordionPadre = element.closest('.accordion');
+    const flag = accordionPadre.querySelector('.flag-filtro');
+    const numFlag = accordionPadre.querySelector('.flag');
+    const descFlag = accordionPadre.querySelector('.solo-sr');
 
-        // listeners locali sul panel
-        panel.addEventListener('input', onChange);
-        panel.addEventListener('change', onChange);
+    if (!numFlag) return;
 
-        // assicurati che il reset del form aggiorni i contatori (dopo che il browser ha ripristinato i valori)
-        const form = panel.querySelector('form');
-        if (form) {
-            form.addEventListener('reset', () => {
-                // posticipa leggermente per lasciare il browser applicare i valori di default
-                setTimeout(() => {
-                    refreshFilterUI();
-                }, 10);
+    let nFlag = +numFlag.textContent;
+
+    cambiaNumeroFlag(nFlag, flag, numFlag, descFlag, add);
+}
+
+function azzeraCount() {
+    const form = document.getElementById('form-filtri');
+    const btn = document.getElementById('applica');
+
+    form.querySelectorAll('.accordion').forEach(acc => {
+        const flag = acc.querySelector('.flag-filtro');
+        const numFlag = acc.querySelector('.flag');
+        const descFlag = acc.querySelector('.solo-sr');
+
+        acc.querySelectorAll('input, select').forEach(el => {
+            if (el.type === 'checkbox' || el.type === 'radio') {
+                cambiaNumeroFlag(1, flag, numFlag, descFlag, false);
+            } else if (el.type === 'text' || el.type === 'email' || el.type === 'tel') {
+                cambiaNumeroFlag(1, flag, numFlag, descFlag, false);
+            } else {
+                cambiaNumeroFlag(1, flag, numFlag, descFlag, false);
+            }
+        });
+    });
+
+    btn.dataset.nFiltri = 0;
+    btn.textContent = "Applica " + 0 + " filtri";
+}
+
+function controllaFlagSezioni() {
+    const form = document.getElementById('form-filtri');
+
+    form.querySelectorAll('.accordion').forEach(acc => {
+        const flag = acc.querySelector('.flag-filtro');
+        const numFlag = acc.querySelector('.flag');
+        const descFlag = acc.querySelector('.solo-sr');
+
+        acc.querySelectorAll('input, select').forEach(el => {
+            if (el.type === 'checkbox' || el.type === 'radio') {
+                if(el.checked) {
+                    let nFlag = +numFlag.textContent;
+                    cambiaNumeroFlag(nFlag, flag, numFlag, descFlag);
+                }
+            } else if (el.type === 'text' || el.type === 'email' || el.type === 'tel') {
+                if(el.value !== "" && el.dataset.changed == "true") {
+                    let nFlag = +numFlag.textContent;
+                    cambiaNumeroFlag(nFlag, flag, numFlag, descFlag);
+                }
+            } else {
+                if (el.value !== "" && el.dataset.changed == "true") {
+                    let nFlag = +numFlag.textContent;
+                    cambiaNumeroFlag(nFlag, flag, numFlag, descFlag);
+                }
+            }
+        });
+    });
+}
+
+function cambiaNumeroFiltri(add = true) {
+    const btn = document.getElementById('applica');
+    let nFiltri = +btn.dataset.nFiltri;
+
+    if (!nFiltri && nFiltri !== 0) return;
+
+    if (add) {
+        nFiltri++;
+    } else {
+        nFiltri--;
+    }
+
+    btn.dataset.nFiltri = nFiltri;
+    btn.textContent = "Applica " + nFiltri + " filtri";
+}
+
+function gestioneContaFiltri() {
+    const form = document.getElementById('form-filtri');
+    if (!form) return;
+    const btn = document.getElementById('applica');
+
+    form.querySelectorAll('input, select').forEach(el => {
+        if (el.type === 'checkbox' || el.type === 'radio') {
+            el.addEventListener('change', () => {
+                cambiaNumeroFiltri(el.checked ? true : false);
+                cambiaNumeroFlagDinamico(el, (el.checked ? true : false));
             });
+        } else if (el.type === 'text' || el.type === 'email' || el.type === 'tel') {
+            el.addEventListener('input', () => {
+                if(el.value === "" && el.dataset.changed == "true") {
+                    cambiaNumeroFiltri(false);
+                    cambiaNumeroFlagDinamico(el, false);
+                    el.dataset.changed = false;
+                }
+                else if(el.value !== "" && el.dataset.changed == "false") {
+                    cambiaNumeroFiltri();
+                    cambiaNumeroFlagDinamico(el);
+                    el.dataset.changed = true;
+                }
+            });
+        } else {
+            el.addEventListener('change', () => {
+                if (el.value === "" && el.dataset.changed == "true") {
+                    cambiaNumeroFiltri(false);
+                    cambiaNumeroFlagDinamico(el, false);
+                    el.dataset.changed = false;
+                } else if (el.value !== "" && el.dataset.changed == "false") {
+                    cambiaNumeroFiltri();
+                    cambiaNumeroFlagDinamico(el);
+                    el.dataset.changed = true;
+                }
+            })
         }
+    });
+}
 
-        // delega globale: utile se elementi vengono ricreati o il DOM cambia
-        document.addEventListener('input', (e) => {
-                if (e.target.closest && e.target.closest('.filter-panel')) onChange();
-        });
-        document.addEventListener('change', (e) => {
-                if (e.target.closest && e.target.closest('.filter-panel')) onChange();
-        });
+function controlloWrapBottone() {
+    const btnFiltri = document.getElementById('filtra-btn');
+    const formRicerca = document.getElementById('form-ricerca');
 
-        // inizializza UI
-        refreshFilterUI();
+    if(!formRicerca) return;
+    
+    const formRicercaTop = formRicerca.getBoundingClientRect().top;
+    const buttonTop = btnFiltri.getBoundingClientRect().top;
+
+    if (buttonTop > formRicercaTop) {
+        btnFiltri.classList.add('wrapped');
+    } else {
+        btnFiltri.classList.remove('wrapped');
+    }
 }

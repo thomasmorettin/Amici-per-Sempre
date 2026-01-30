@@ -122,6 +122,146 @@ function getAnimaliTck($filtri = []) {
     return $animali;
 }
 
+function getAnimaliEsterniTck($filtri = []) {
+    $db = new DBAccess();
+    $connOk = $db->openConn();
+    $animali = [];
+
+    if ($connOk) {
+        $conn = $db->getConn();
+
+        // QUERY: animali esterni al rifugio
+        $sql = "SELECT E.ID AS IDAnimale, E.Razza AS RazzaAnimale, R.Tipo AS TipoAnimale, E.Eta AS EtaAnimale,
+                E.Peso AS PesoAnimale, E.Sesso AS SessoAnimale, ED.Note AS Info, ED.DataRichiesta AS DataRich,
+                P.Nome AS NomeRich, P.Cognome AS CognomeRich, P.Email AS EmailRich, P.Telefono AS TelRich,
+                C.ID AS IDCalendario, C.Data AS DataApp, C.Ora AS OraApp
+                FROM AnimaleEsterno E
+                JOIN Razza R ON E.Razza = R.Nome
+                LEFT JOIN EntitaDatabile ED ON E.ID = ED.ID
+                LEFT JOIN Persona P ON E.Proprietario = P.ID
+                LEFT JOIN Calendario C ON ED.ID = C.ID
+                WHERE (C.Data > CURRENT_DATE OR (C.Data = CURRENT_DATE AND C.Ora >= CURRENT_TIME) OR C.Data IS NULL)";
+
+        $params = [];
+        $condizioni = [];
+
+        if (!empty($filtri["nome_persona"])) {
+            $condizioni[] = "P.Nome LIKE ?";
+            $params[] = "%" . $filtri["nome_persona"] . "%";
+        }
+
+        if (!empty($filtri["cognome_persona"])) {
+            $condizioni[] = "P.Cognome LIKE ?";
+            $params[] = "%" . $filtri["cognome_persona"] . "%";
+        }
+
+        if (!empty($filtri["email"])) {
+            $condizioni[] = "P.Email LIKE ?";
+            $params[] = "%" . $filtri["email"] . "%";
+        }
+
+        if (!empty($filtri["telefono"])) {
+            $condizioni[] = "P.Telefono LIKE ?";
+            $params[] = "%" . $filtri["telefono"] . "%";
+        }
+
+        if (!empty($filtri["ricerca"])) {
+            $condizioni[] = "(P.Nome LIKE ? OR P.Cognome LIKE ? OR P.Email LIKE ? OR P.Telefono LIKE ? OR CONCAT(P.Nome, ' ', P.Cognome) LIKE ? OR CONCAT(P.Cognome, ' ', P.Nome) LIKE ?)";
+            for ($i = 1; $i <= 6; $i++) {
+                $params[] = "%" . $filtri["ricerca"] . "%";
+            }
+        }
+
+        if (!empty($filtri["tipo"])) {
+            $placeholders = implode(",", array_fill(0, count($filtri["tipo"]), '?'));
+            $condizioni[] = "R.Tipo IN ($placeholders)";
+            foreach ($filtri["tipo"] as $tipo) {
+                $params[] = $tipo;
+            }
+        }
+
+        // determina quali tipi sono selezionati (se nessuno, considera entrambi)
+        $tipi_selezionati = !empty($filtri['tipo']) ? $filtri['tipo'] : ['Cane', 'Gatto'];
+
+        // filtro razze intelligente con controllo compatibilità
+        $razze_condizioni = [];
+        
+        // Se ci sono razze cane selezionate E "Cane" è nei tipi selezionati
+        if (!empty($filtri['razza_cane']) && in_array('Cane', $tipi_selezionati)) {
+            $placeholders = implode(',', array_fill(0, count($filtri['razza_cane']), '?'));
+            $razze_condizioni[] = "(r.Tipo = 'Cane' AND r.Nome IN ($placeholders))";
+            foreach ($filtri['razza_cane'] as $razza) {
+                $params[] = $razza;
+            }
+        }
+        
+        // Se ci sono razze gatto selezionate E "Gatto" è nei tipi selezionati
+        if (!empty($filtri['razza_gatto']) && in_array('Gatto', $tipi_selezionati)) {
+            $placeholders = implode(',', array_fill(0, count($filtri['razza_gatto']), '?'));
+            $razze_condizioni[] = "(r.Tipo = 'Gatto' AND r.Nome IN ($placeholders))";
+            foreach ($filtri['razza_gatto'] as $razza) {
+                $params[] = $razza;
+            }
+        }
+        
+        if (!empty($razze_condizioni)) {
+            $condizioni[] = '(' . implode(' OR ', $razze_condizioni) . ')';
+        }
+
+        // Aggiunta delle condizioni WHERE se presenti
+        if (!empty($condizioni)) {
+            $sql .= " AND " . implode(" AND ", $condizioni);
+        }
+        
+        $sql .= " ORDER BY 
+                CASE WHEN C.Data IS NULL THEN 0 ELSE 1 END,
+                ED.DataRichiesta DESC";
+
+        $rawAnimaliEsterni = $db->exeQuery($sql, $params);
+
+        $db->closeConn();
+
+        // Sanitizzazione e riorganizzazione dei dati, sia ticket avviati che anche calendarizzati
+        if ($rawAnimaliEsterni) {
+            
+            foreach ($rawAnimaliEsterni as $row) {
+                $idAnimaleEsterno = $row["IDAnimale"];
+
+                $animali[$idAnimaleEsterno] = [
+                    "infoAnimale" => [
+                        "id" => $row["IDAnimale"],
+                        "tipo" => htmlspecialchars($row["TipoAnimale"], ENT_QUOTES, "UTF-8"),
+                        "razza" => htmlspecialchars($row["RazzaAnimale"], ENT_QUOTES, "UTF-8"),
+                        "eta" => htmlspecialchars($row["EtaAnimale"], ENT_QUOTES, "UTF-8"),
+                        "peso" => htmlspecialchars($row["PesoAnimale"], ENT_QUOTES, "UTF-8"),
+                        "sesso" => (htmlspecialchars($row["SessoAnimale"], ENT_QUOTES, "UTF-8") == "M" ? "Maschio" : "Femmina"),
+                        "info" => htmlspecialchars($row["Info"], ENT_QUOTES, "UTF-8"),
+                    ],
+
+                    "padrone" => [
+                        "nome" => htmlspecialchars($row["NomeRich"]),
+                        "cognome" => htmlspecialchars($row["CognomeRich"], ENT_QUOTES, "UTF-8"),
+                        "email" => htmlspecialchars($row["EmailRich"], ENT_QUOTES, "UTF-8"),
+                        "telefono" => htmlspecialchars($row["TelRich"], ENT_QUOTES, "UTF-8")
+                    ],
+
+                    "dataRichiesta" => $row["DataRich"]
+                ];
+
+                if ($row["IDCalendario"]) {
+                    $animali[$idAnimaleEsterno]["gestito"] = true;
+                    $animali[$idAnimaleEsterno]["data"] = $row["DataApp"];
+                    $animali[$idAnimaleEsterno]["ora"] = sprintf("%02d:%02d", (int)substr($row["OraApp"], 0, 2), (int)substr($row["OraApp"], 3, 2));
+              
+                } else {
+                    $animali[$idAnimaleEsterno]["gestito"] = false;
+                }
+            }
+        }
+    }
+    return $animali;
+}
+
 function addAppuntamento($id, $data, $ora) {
     $db = new DBAccess();
 

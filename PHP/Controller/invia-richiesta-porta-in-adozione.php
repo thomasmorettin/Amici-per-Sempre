@@ -142,7 +142,7 @@ if (!$persona || empty($persona)) {
 };
 
 // Crea la richiesta di inserimento animale
-$successo = createRichiestaInserimentoAnimale($persona_id, "hi", $specie, $peso, $razza, $eta, $sesso);
+$successo = createRichiestaInserimentoAnimale($persona_id, $note, $peso, $razza, $eta, $sesso);
 
 if ($successo) {
     $_SESSION['success'] = "La richiesta di inserimento animale è stata inviata con successo. Riceverai una email di conferma e le informazioni per i prossimi passi.";

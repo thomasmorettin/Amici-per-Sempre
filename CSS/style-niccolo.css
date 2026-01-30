@@ -13,16 +13,17 @@
 .form-field:has(input:required) > label::before,
 .form-field:has(select:required) > label::before,
 dialog .form-field:has(input:required) > label::before,
-dialog .form-field:has(select:required) > label::before {
+dialog .form-field:has(select:required) > label::before,
+.radio-group:has(input:required) > legend::before {
     content: "•";
     font-size: 1.4em;
     color: var(--txtwarning);
-    margin-right: 0.2em;
+    margin-right: 0.1em;
 }
 
 #section-form-porta-adozione {
     padding: 2em;
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     box-shadow: var(--normalshadow);
     background-color: var(--bgcolor);
     border: 2px solid var(--borderform);
@@ -30,10 +31,11 @@ dialog .form-field:has(select:required) > label::before {
     margin: 3em auto;
 }
 
-#section-form-porta-adozione h2 {
+#section-form-porta-adozione h3 {
     text-align: center;
     color: var(--txtcolor);
     margin-bottom: 1em;
+    font-size: 1.5em
 }
 
 .form-field {
@@ -60,13 +62,14 @@ dialog .form-field:has(select:required) > label::before {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 1em;
 }
 
 .legend-left {
     background-color: var(--txtcolor);
     height: 2px;
     width: 1em;
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
 
 }
 
@@ -74,15 +77,24 @@ dialog .form-field:has(select:required) > label::before {
     background-color: var(--txtcolor);
     height: 2px;
     flex: 1;
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     transition: all 500ms ease;
+}
+
+.line-legenda {
+    background-color: var(--txtcolor);
+    height: 2px;
+    flex: 1;
+    border-radius: var(--generalradius);
 }
 
 .line {
     background-color: var(--txtcolor);
     height: 2px;
     flex: 1;
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
 }
 
 .section-legend p {
@@ -93,7 +105,7 @@ dialog .form-field:has(select:required) > label::before {
 
 #section-padrone {
     border: 0px solid var(--txtcolor);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -107,38 +119,16 @@ dialog .form-field:has(select:required) > label::before {
 
 #section-animale {
     border: 0px solid var(--txtcolor);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     margin-top: 1.2em;
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
-#section-animale legend {
-    font-size: 1.2em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-}
-
-/*
-.section-form .radio-group input[type="radio"]::before {
-    content: "";
-    width: 1.1em;
-    height: 1.1em;
-    display: block;
-    background-color: var(--bgbtn);
-    border-radius: inherit;                        
-    transition: 0.2s ease-in-out;
-}
-
-.section-form .radio-group input[type="radio"]:checked::before {
-    background-color: var(--borderbtn);
-}
-*/
-
 #section-form-login {
     padding: 2em;
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     box-shadow: var(--normalshadow);
     background-color: var(--bgcolor);
     border: 2px solid var(--borderform);
@@ -148,7 +138,7 @@ dialog .form-field:has(select:required) > label::before {
 
 #section-form-logout {
     padding: 2em;
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     box-shadow: var(--normalshadow);
     background-color: var(--bgcolor);
     border: 2px solid var(--borderform);
@@ -159,7 +149,6 @@ dialog .form-field:has(select:required) > label::before {
 #section-form-logout h2 {
     text-align: center;
     color: var(--txtcolor);
-    margin-bottom: 1em;
     font-weight: normal;
 }
 
@@ -191,6 +180,7 @@ textarea {
     font-family: "Inter", serif;
     color: var(--txtcolor);
     background-color: var(--bgbread);
+    transition: border-color 0.2s ease;
 }
 
 input:focus,
@@ -205,30 +195,12 @@ textarea {
     min-height: 6em;
 }
 
-form button {
-    background-color: var(--bgbtn);
-    color: var(--txtbtncolor);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    box-shadow: var(--greenshadow);
-    border-radius: 0.5em;
-    border: 2px solid var(--borderbtn);
-    padding: var(--generalpadding);
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-}
-
 .select-custom select {
     line-height: 1.5em;
     padding: 10px 40px 10px 10px;
     background: inherit;
     color: var(--txtcolor);
-    border: 0;
+    border: 2px solid transparent;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -237,27 +209,18 @@ form button:hover {
     display: flex;
     flex: 1;
     border-radius: inherit;
+    min-width: 0;
 }
 
 .select-custom {
     background: var(--bgbread);
     border: 2px solid var(--txtcolor);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     display: flex;
     flex-direction: row;
     align-items: center;
-    transition: 0.3s ease;
+    transition: border 0.2s ease;
     position: relative;
-}
-
-.select-custom:hover {
-    border-color: var(--bgbtnhover);
-    box-shadow: var(--greenshadow);
-}
-
-.select-custom:hover svg{
-    background-color: var(--bgbtnhover);
-    fill: var(--inverttxtcolor);
 }
 
 .select-custom svg {
@@ -287,11 +250,11 @@ form select::after {
   font-size: 12px;
 }
 
-
 .radio-group {
     flex-direction: row;
     display: flex;
-    gap: 2em;
+    gap: 1.4rem;
+    border: 0;
 }
 
 .radio-group label {
@@ -300,39 +263,9 @@ form select::after {
     margin-bottom: 0;
 }
 
-.radio-group input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 2px solid var(--borderbtn);
-    background-color: var(--bgbtn);
-    cursor: pointer;
-    padding: 0;
-    width: 1.5em;
-    height: 1.5em;
-    margin-right: 0.4em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: 0.3s ease;
-}
-
-.radio-group input[type="radio"]:hover {
-    background-color: var(--bgbtnhover);
-}
-
-.radio-group input[type="radio"]:checked {
-    background-color: var(--bgbtnhover);
-    box-shadow: var(--greenshadow);
-    background-image: url("../Resources/Vectors/Check.svg");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-}
-
 .info-required {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     font-size: 1.1em;
     color: var(--txtwarning);
     font-weight: bold;
@@ -350,15 +283,47 @@ form select::after {
     flex-direction: row;
 }
 
-.filter-panel { 
+.accordion-header button {
+    height: 1.8em;
+}
+
+#form-porta-adozione input.error,
+#form-porta-adozione textarea.error,
+#form-porta-adozione .select-custom:has(select.error) {
+    border-color: var(--txtwarning);
+    box-shadow: var(--redshadow);
+}
+
+#popup-panel {
+    width: auto;
+    height: 50vh;
+    overflow-y: auto;
+    min-width: 0;
+    padding: 0.5em 0.5em 2em 0.5em;
+}
+
+#popup-panel .azioni-filtro {
+    margin: 2em 2.5em 0.5em 2.5em;
+}
+
+#popup-panel .content {
+    padding: 0em 2.5em;
+}
+
+#popup-panel .legend-left {
+    width: 3em;
+}
+
+#side-panel { 
     display: flex;
     overflow: hidden;
     width: 0;
     transition: width 0.3s ease;
-    backdrop-filter: blur(0.7em);
+    background-color: var(--bgcolor);
+    border-radius: var(--generalradius);
 }
 
-.filter-panel.open {
+#side-panel.open {
     flex: 1;
     max-width: 20em;
 }
@@ -373,7 +338,7 @@ form select::after {
     flex: 1;
     padding: 1em 0.5em 0.5em 0.5em;
 }
-
+ 
 .filter-panel,
 .filter-content
 {
@@ -381,12 +346,42 @@ form select::after {
 }
 
 .divider {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
     border: 1px solid var(--txtcolor);
 }
 
-.list-topbar {
-    border: 0px;
-    border-radius: 0.5em;
+#form-ricerca {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 0.5rem;
+    min-width: 20em;
+}
+
+#form-ricerca input {
+    min-width: 0em;
+}
+
+#filtra-btn.alone {
+    flex: 1;
+    max-width: 25em;
+}
+
+#filtra-btn.alone .abbr {
+    display: flex;
+}
+
+#filtra-btn.wrapped {
+    flex: 1;
+}
+
+#filtra-btn.wrapped .abbr {
+    display: flex
+}
+
+#list-topbar {
+    border-radius: var(--generalradius);
     background-color: var(--bgcolor);
     border: 2px solid var(--txtcolor);
     padding: 1em;
@@ -395,46 +390,20 @@ form select::after {
     gap: 1em;
     position: sticky;
     top: 7em;
-    z-index: 2;
+    z-index: 20;
+    flex-wrap: wrap-reverse;
+    align-items: center;
 }
 
-.list-topbar button {
-    background-color: var(--bgbtn);
-    color: var(--txtbtncolor);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    box-shadow: var(--greenshadow);
-    border-radius: 0.5em;
-    border: 2px solid var(--borderbtn);
-    padding: var(--generalpadding);
+#list-topbar button {
     transition: background-color 0.3s ease;
-    flex: 1;
-    max-width: 5em;
+    width: fit-content;
+    flex: 0;
 
     display: inline-flex;
     align-items: center;
     gap: 0.5em;
     justify-content: center;
-}
-
-.list-topbar button:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-}
-
-#ordina-btn::before {
-    content: url("../Resources/Vectors/Order.svg");
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-}
-
-#ordina-btn:hover::before {
-    content: url("../Resources/Vectors/Order-Light.svg");
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
 }
 
 .list-vertical-panel {
@@ -445,7 +414,7 @@ form select::after {
 
 .section-filter {
     border: 1px solid var(--txtcolor);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     padding: 1.5em;
     display: flex;
     flex-direction: column;
@@ -453,14 +422,16 @@ form select::after {
     background-color: var(--bgcolor);
 }
 
-.check-group label {
+.check-group label,
+.radio-group label {
     position: relative;
     display: flex;
     align-items: center;
     gap: 0.4em;
 }
 
-.check-group input[type="checkbox"] {
+.check-group input[type="checkbox"],
+.radio-group input[type="radio"] {
     position: relative;
     appearance: none;
     -webkit-appearance: none;
@@ -472,12 +443,25 @@ form select::after {
     transition: 0.3s ease;
 }
 
-.check-group input[type="checkbox"]:checked ~ svg {
+form {
+    color: var(--txtcolor);
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="tel"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.check-group input[type="checkbox"]:checked ~ svg,
+.radio-group input[type="radio"]:checked ~ svg {
     opacity: 1;
     transform: scale(1);
 }
 
-.check-group svg {
+.check-group svg,
+.radio-group svg {
     position: absolute;
     left: 0.3em;
     width: 1.1em;
@@ -489,11 +473,8 @@ form select::after {
     pointer-events: none;
 }
 
-.check-group input[type="checkbox"]:hover {
-    background-color: var(--bgbtnhover);
-}
-
-.check-group input[type="checkbox"]:checked {
+.check-group input[type="checkbox"]:checked,
+.radio-group input[type="radio"]:checked {
     background-color: var(--bgbtnhover);
     box-shadow: var(--greenshadow);
 }
@@ -502,6 +483,19 @@ form select::after {
     flex-direction: column;
     display: flex;
     gap: 1em;
+    border: 0;
+}
+
+.check-group,
+.radio-group {
+    flex-wrap: wrap;
+}
+
+.radio-group legend,
+.check-group legend {
+    margin-bottom: 0.23em;
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
 .check-group label {
@@ -528,7 +522,7 @@ form select::after {
     align-items: center;
     background-color: var(--bgbtn);
     border: 2px solid var(--borderbtn);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     margin: 0 0.4em;
     font-weight: bold;
     color: var(--txtbtncolor);
@@ -536,23 +530,14 @@ form select::after {
     box-shadow: var(--greenshadow);
 }
 
-.header:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor)
-}
-
-.header-arrow {
-    background-image: url("../Resources/Vectors/UpArrow.svg");
+.accordion-header button svg {
     transform: rotate(180deg);
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
     width: 1.4em;
     height: 1.4em;
-    transition: transform 0.3s ease;
 }
 
-.header-arrow.open {
+.accordion-header button svg.open {
     transform: rotate(0deg);
 }
 
@@ -560,73 +545,6 @@ form select::after {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.form-slider {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    align-items: center;
-}
-
-.form-slider input[type="text"]{
-    flex: 1;
-    max-width: 2em;
-    min-width: 0;
-}
-
-.form-slider input[type="range"] {
-    flex: 1;
-    min-width: 0;
-
-    appearance: none;
-    -webkit-appearance: none;
-    border: 2px solid var(--borderbtn);
-    background-color: var(--bgbtn);
-    cursor: pointer;
-    padding: 0;
-    height: 0.2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: none;
-    transition: 0.3s ease;
-}
-
-.form-slider input[type="range"]:hover {
-    background-color: var(--borderbtn);
-}
-
-.form-slider input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 1.6em;
-    height: 1.2em;
-    background-color: var(--bgbtn);
-    border: 2px solid var(--borderbtn);
-    border-radius: 0.3em;
-    transition: 0.3s ease;
-}
-
-.form-slider input[type="range"]::-moz-range-thumb {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 1.6em;
-    height: 1.2em;
-    background-color: var(--bgbtn);
-    border: 2px solid var(--borderbtn);
-    border-radius: 0.3em;
-    transition: 0.3s ease;
-}
-
-.form-slider input[type="range"]::-webkit-slider-thumb:hover {
-    background-color: var(--borderbtn);
-    box-shadow: var(--greenshadow);
-}
-
-.form-slider input[type="range"]::-moz-range-thumb:hover {
-    background-color: var(--borderbtn);
-    box-shadow: var(--greenshadow);
 }
 
 .inner-content .form-field {
@@ -682,6 +600,7 @@ form select::after {
 
 #section-step-porta-adozione {
     margin: 6em auto;
+    position: relative;
 }
 
 #section-step-porta-adozione ul {
@@ -706,10 +625,6 @@ form select::after {
     transition: transform 0.3s ease;
 }
 
-#section-step-porta-adozione figure:hover {
-    transform: scale(1.05);
-}
-
 #section-step-porta-adozione ul li figure img {
     object-fit: cover;
     object-position: center top;
@@ -727,10 +642,19 @@ form select::after {
 .azioni-filtro {
     display: flex;
     gap: 0.5em;
+    flex-wrap: wrap;
 }
 
 .azioni-filtro #applica {
     flex: 1;
+}
+
+#form-filtri .reset {
+    min-width: 2em;
+    background-color: var(--bgwarning);
+    box-shadow: var(--redshadow);
+    border-color: var(--borderwarning);
+    fill: var(--txtwarning);
 }
 
 .azioni-filtro #reset {
@@ -743,11 +667,6 @@ form select::after {
     background-position: center;
 }
 
-.azioni-filtro #reset:hover {
-    background-color: var(--bgwarninghover);
-    background-image: url("../Resources/Vectors/Delete_Light.svg");
-}
-
 .flag-filtro {
     background-color: var(--borderdecoration);
     border: 1px solid var(--borderdecoration);
@@ -755,8 +674,8 @@ form select::after {
     width: 1.1em;
     margin-right: 0.4em;
     padding: 0.1em;
-    display: inline-flex;
-    border-radius: 0.4em;
+    display: none;
+    border-radius: var(--generalradius);
     color: var(--inverttxtcolor);
     font-size: 1em;
     font-weight: bold;
@@ -767,12 +686,12 @@ form select::after {
 }
 
 .flag-filtro.show {
-    opacity: 1;
+    display: inline-flex;
 
 }
 
-.flag-filtro.hidden {
-    opacity: 0;
+.solo-sr {
+    display: none;
 }
 
 .sort-container {
@@ -788,7 +707,7 @@ form select::after {
   
   background-color: #f0f4e8; /* Colore crema come il tuo design */
   border: 2px solid #4a5d23;
-  border-radius: 8px;
+  border-radius: var(--generalradius);
   list-style: none;
   padding: 10px;
   min-width: 160px;
@@ -819,18 +738,13 @@ form select::after {
     font-weight: bold;
     font-size: 1.1em;
     box-shadow: var(--greenshadow);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     border: 2px solid var(--borderbtn);
     padding: var(--generalpadding);
     
     cursor: pointer;
     width: 100%;
     text-align: center; /* Centra il testo all'interno del select */
-}
-/* Effetto Hover */
-.custom-select:hover {
-    background-color: var(--borderbtn); /* O il colore che preferisci per l'hover */
-    color: var(--inverttxtcolor);
 }
 
 .info-richiesta-animale {
@@ -880,19 +794,13 @@ form select::after {
     transition: all 0.3s ease;
 }
 
-#btn-amministrazione:hover,
-#btn-logout:hover {
-    background-color: var(--bgbtnhover);
-    box-shadow: var(--greenshadow);
-}
-
 #btn-logout {
     display: block;
     background-image: url("../Resources/Vectors/Logout.svg");
     text-indent: -9999em;
     white-space: nowrap;
     overflow: hidden;
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
 }
 
 #btn-amministrazione {
@@ -901,15 +809,7 @@ form select::after {
     text-indent: -9999em;
     white-space: nowrap;
     overflow: hidden;
-    border-radius: 0.5em;
-}
-
-#btn-logout:hover {
-    background-image: url("../Resources/Vectors/Logout-Light.svg");
-}
-
-#btn-amministrazione:hover {
-    background-image: url("../Resources/Vectors/Wrench-Light.svg");
+    border-radius: var(--generalradius);
 }
 
 #form-logout button {
@@ -919,15 +819,10 @@ form select::after {
     font-weight: bold;
     font-size: 1.1em;
     box-shadow: var(--redshadow);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     border: 2px solid var(--borderwarning);
     padding: var(--generalpadding);
     transition: background-color 0.3s ease;
-}
-
-#form-logout button:hover {
-    background-color: var(--bgwarninghover);
-    color: var(--inverttxtcolor);
 }
 
 #amministrazione-link {
@@ -938,18 +833,15 @@ form select::after {
     font-weight: bold;
     font-size: 1.1em;
     margin-top: 1.5em;
+    height: 2.25rem;
     box-shadow: var(--greenshadow);
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     border: 2px solid var(--borderbtn);
     padding: var(--generalpadding);
     transition: background-color 0.3s ease;
     justify-content: center;
     text-align: center;
-}
-
-#amministrazione-link:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
+    align-items: center;
 }
 
 #ricerca {
@@ -957,14 +849,11 @@ form select::after {
     flex: 1;
 }
 
-#form-ricerca{
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    gap: 0.5rem;
+#list-topbar button {
+    height: 2.25em;
 }
 
-.list-topbar svg {
+#list-topbar svg {
     width: 1.5rem;
     height: 1.5rem;
     flex-shrink: 0;
@@ -978,12 +867,6 @@ form select::after {
     fill: var(--txtwarning);
 }
 
-#clear-ricerca:hover {
-    background-color: var(--bgwarninghover);
-    fill: var(--inverttxtcolor);
-    color: var(--inverttxtcolor);
-}
-
 .btn-gruppo-v {
     display: flex;
     align-items: center;
@@ -994,10 +877,8 @@ form select::after {
 }
 
 .btn-gruppo-v button {
-    padding: 0.5em;
-    border-radius: 0.5em;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: var(--squarewidth);
+    padding: var(--squarepadding);
 }
 
 .status-da-gestire {
@@ -1030,4 +911,67 @@ form select::after {
     font-size: 2em;
     margin-right: 0.1em;
     padding-bottom: 0.15em;
+}
+
+@media (hover: hover) {
+    .select-custom:hover {
+    border-color: var(--bgbtnhover);
+    box-shadow: var(--greenshadow);
+    }
+
+    .select-custom:hover svg{
+        background-color: var(--bgbtnhover);
+        fill: var(--inverttxtcolor);
+    }
+
+    .check-group input[type="checkbox"]:hover,
+    .radio-group input[type="radio"]:hover {
+        background-color: var(--bgbtnhover);
+    }
+
+    .header:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--inverttxtcolor)
+    }
+
+    #section-step-porta-adozione figure:hover {
+    transform: scale(1.05);
+    }
+
+    #form-filtri .reset:hover {
+        background-color: var(--bgwarninghover);
+        fill: var(--inverttxtcolor);
+    }
+
+    .azioni-filtro #reset:hover {
+        background-color: var(--bgwarninghover);
+        background-image: url("../Resources/Vectors/Delete_Light.svg");
+    }
+
+    .custom-select:hover {
+    background-color: var(--borderbtn); /* O il colore che preferisci per l'hover */
+    color: var(--inverttxtcolor);
+    }
+    
+    #form-logout button:hover {
+        background-color: var(--bgwarninghover);
+        color: var(--inverttxtcolor);
+    }
+
+    #amministrazione-link:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
+    }
+
+    #clear-ricerca:hover {
+        background-color: var(--bgwarninghover);
+        fill: var(--inverttxtcolor);
+        color: var(--inverttxtcolor);
+    }
+
+    #list-topbar button:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
+    }
+
 }

@@ -1,12 +1,12 @@
 
 <main>
-    <p class="titolo">Porta in adozione il tuo animale</p>
+    <h2 class="titolo">Porta in adozione il tuo animale</h2>
     <p class="description">Puoi prenotare una visita con il centro compilando il form sottostante e portare il tuo cane o gatto per darlo in adozione. Dopo la prenotazione un operatore ti chiamerà entro 1 giorno lavorativo per accordarsi sul giorno e l'ora della visita.</p>
     <section id="section-step-porta-adozione">
         <ul>
             <li>
                 <figure>
-                    <img src="{{root}}/Resources/Images/Survey.png" id="step-1" alt="Persona che compila un form">
+                    <img src="{{root}}/Resources/Images/Survey.webp" id="step-1" alt="">
                     <figcaption>
                         <p class="info-step"><span class="step-number">1</span> <strong>Compila</strong> il form con i tuoi dati e quelli del tuo animale</p>
                     </figcaption>
@@ -14,7 +14,7 @@
             </li>
             <li>
                 <figure>
-                    <img src="{{root}}/Resources/Images/Message-Received.png" id="step-2" alt="Telefono con una notifica di messaggio">
+                    <img src="{{root}}/Resources/Images/Message-Received.webp" id="step-2" alt="">
                     <figcaption>
                         <p class="info-step"><span class="step-number">2</span> <strong>Controlla</strong> la tua casella postale per una email di conferma</p>                            
                     </figcaption>
@@ -22,7 +22,7 @@
             </li>
             <li>
                 <figure>
-                    <img src="{{root}}/Resources/Images/Receptionist.png" id="step-3" alt="Operatore che parla al telefono">
+                    <img src="{{root}}/Resources/Images/Receptionist.webp" id="step-3" alt="">
                     <figcaption>
                         <p class="info-step"><span class="step-number">3</span> <strong>Attendi</strong> la chiamata di un operatore per accordarti dell'orario della visita</p>                           
                     </figcaption>
@@ -31,37 +31,37 @@
         </ul>
     </section>
     <section id="section-form-porta-adozione">
-        <h2>Compila il form per prenotare una visita al centro di adozione</h2>
+        <h3>Compila il form per prenotare una visita al centro di adozione</h3>
         <div class="info-required">
             <p>Campo obbligatorio</p>
         </div>
         <form id="form-porta-adozione" method="POST" action="{{root}}/PHP/Controller/invia-richiesta-porta-in-adozione" class="form-porta-adozione"> 
             <div id="section-padrone">
                 <div class="section-legend">
-                    <div class="line"></div>
+                    <div class="line-legenda"></div>
                     <p>Dati del padrone</p>
-                    <div class="line"></div>
+                    <div class="line-legenda"></div>
                 </div>
                 <div class="form-field">
                     <label for="nome">
                         Nome
                     </label>
-                    <input placeholder="Es: Mario" name="nome" id="nome" aria-describedby="error-nome" type="text" value="[val_nome]" required>
-                    <div id="error-nome" class="field-error hidden" role="alert"></div>
+                    <input placeholder="Es: Mario" name="nome" id="nome" aria-describedby="error-nome" type="text" value="[val_nome]" autocomplete="off" required>
+                    <div id="error-nome" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
                 <div class="form-field">
                     <label for="cognome">
                         Cognome
                     </label>
-                    <input placeholder="Es: Rossi" name="cognome" id="cognome" aria-describedby="error-cognome" type="text" value="[val_cognome]" required>
-                    <div id="error-cognome" class="field-error hidden" role="alert"></div>
+                    <input placeholder="Es: Rossi" name="cognome" id="cognome" aria-describedby="error-cognome" type="text" value="[val_cognome]" autocomplete="off" required>
+                    <div id="error-cognome" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
                 <div class="form-field">
                     <label for="email">
                         Email
                     </label>
-                    <input placeholder="Es: mario.rossi@example.com" name="email" id="email" aria-describedby="error-email" type="text" value="[val_email]" required>
-                    <div id="error-email" class="field-error hidden" role="alert"></div>
+                    <input placeholder="Es: mario.rossi@example.com" name="email" id="email" aria-describedby="error-email" type="text" value="[val_email]" autocomplete="off" required>
+                    <div id="error-email" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
                 <div class="form-field">
                     <label for="telefono">
@@ -69,39 +69,39 @@
                     </label>
                     <div class="phone-input">
                         <span class="phone-prefix">+39</span>
-                        <input class="phone-number" placeholder="Es: 123 456 7890" name="telefono" id="telefono" type="text" aria-describedby="error-telefono" value="[val_telefono]" required>
+                        <input class="phone-number" placeholder="Es: 123 456 7890" name="telefono" id="telefono" type="tel" aria-describedby="error-telefono" value="[val_telefono]" autocomplete="off" required>
                     </div>
-                    <div id="error-telefono" class="field-error hidden" role="alert"></div>
+                    <div id="error-telefono" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
             </div>
             <div id="section-animale">
                 <div class="section-legend">
-                    <div class="line"></div>
+                    <div class="line-legenda"></div>
                     <p>Dati dell'animale</p>
-                    <div class="line"></div>
+                    <div class="line-legenda"></div>
                 </div>
                 <div class="form-field">
-                    <label>
-                        Tipo di animale
-                    </label>
-                    <div class="radio-group" id="specie">
+                    <fieldset class="radio-group" id="specie">
+                        <legend>
+                            Tipo di animale
+                        </legend>
                         [radio-buttons-specie]
-                    </div>
-                    <div id="error-specie" class="field-error hidden" role="alert"></div>
+                    </fieldset>
+                    <div id="error-specie" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
                 <div class="form-field">
                     <label for="eta">
                         Età (approssimativa)
                     </label>
-                    <input placeholder="Es: 4 anni, 6 mesi, cucciolo, adulto, anziano..." name="eta" type="text" id="eta" aria-describedby="error-eta" value="[val_eta]" required>
-                    <div id="error-eta" class="field-error hidden" role="alert"></div>
+                    <input placeholder="Es: 4 anni, 6 mesi, cucciolo, adulto, anziano..." name="eta" type="text" id="eta" aria-describedby="error-eta" value="[val_eta]" autocomplete="off" required>
+                    <div id="error-eta" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
                 <div class="form-field">
                     <label for="peso">
                         Peso (approssimativo)
                     </label>
-                    <input placeholder="Es: 5 kg, leggero, medio, pesante..." name="peso" type="text" id="peso" aria-describedby="error-peso" value="[val_peso]" required> 
-                    <div id="error-peso" class="field-error hidden" role="alert"></div>
+                    <input placeholder="Es: 5 kg, leggero, medio, pesante..." name="peso" type="text" id="peso" aria-describedby="error-peso" value="[val_peso]" autocomplete="off" required> 
+                    <div id="error-peso" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
                 <div class="form-field">
                     <label for="razza">
@@ -115,22 +115,22 @@
                             <use href="{{root}}/Resources/icons.svg#arrow"></use>
                         </svg>
                     </div>
-                    <div id="error-razza" class="field-error hidden" role="alert"></div>
+                    <div id="error-razza" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
                 <div class="form-field">
-                    <label>
-                        Sesso
-                    </label>
-                    <div class="radio-group" id="sesso">
+                    <fieldset class="radio-group" id="sesso">
+                        <legend>
+                            Sesso
+                        </legend>
                         [radio-buttons-sesso]
-                    </div>
-                    <div id="error-sesso" class="field-error hidden" role="alert"></div>
+                    </fieldset>   
+                    <div id="error-sesso" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
                 <div class="form-field">
-                    <label for="dettagli">
+                    <label for="note">
                         Caratteristiche e comportamento
                     </label>
-                    <textarea placeholder="Descrivi eventuali vaccini, comportamenti e altre caratteristiche..." id="dettagli"></textarea>
+                    <textarea name="note" placeholder="Descrivi eventuali vaccini, comportamenti e altre caratteristiche..." id="note"></textarea>
                 </div>
             </div>
             <div class="form-field">
