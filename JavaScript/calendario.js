@@ -147,6 +147,18 @@ function updateDialog(body) {
   const btnPopUp = document.querySelectorAll(".btn-popup-app");
   let lastElem = null;
 
+  function cleanFields() {
+    const data = document.getElementById("data-appuntamento");
+    const ora = document.getElementById("ora-appuntamento");
+    const error = document.querySelector(".field-error");
+
+    data.value = "";
+    ora.value = "";
+    data.classList.remove("error");
+    ora.classList.remove("error");
+    error.classList.add("hidden");
+  }
+
   btnPopUp.forEach(btn => {
     btn.addEventListener("click", (e) => {
       dialogApp.querySelector(".nome-cliente").innerHTML = `${btn.dataset.nome}`;
@@ -166,11 +178,13 @@ function updateDialog(body) {
   const chiudiDialogApp = () => {
     dialogApp.close();
     body.classList.remove("no-scroll");
+    cleanFields();
 
     lastElem.focus();
   }
 
   btnChiudiApp.addEventListener("click", chiudiDialogApp);
+  dialogApp.addEventListener("cancel", chiudiDialogApp);
 }
 
 // Funzione per la gestione del dialog di eliminazione del ticket
@@ -207,6 +221,7 @@ function deleteDialog(body) {
   }
 
   btnChiudiDel.addEventListener("click", chiudiDialogDel);
+  dialogDel.addEventListener("cancel", chiudiDialogDel);
 }
 
 // Funzione per la gestione del dialog per eventuali informazioni sulla richiesta
@@ -238,6 +253,7 @@ function infoDialog(body) {
   }
 
   btnChiudiInfo.addEventListener("click", chiudiDialogInfo);
+  dialogInfo.addEventListener("cancel", chiudiDialogInfo);
 }
 
 /*
