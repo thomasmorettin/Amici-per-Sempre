@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $giorno = null; $mese = null; $anno = null;
 
     if ($dataFormat) {
-        $giorno = $dataFormat->format("g");
+        $giorno = $dataFormat->format("d");
         $mese = $dataFormat->format("m");
         $anno = $dataFormat->format("Y");
     }
