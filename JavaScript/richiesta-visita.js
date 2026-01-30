@@ -130,13 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
     }
     
-    function validaPrivacy(checkbox) {
-        if (!checkbox.checked) {
-            return "Devi accettare il trattamento dei dati personali";
-        }
-        return null;
-    }
-    
     // ========================================
     // MOSTRA/NASCONDI ERRORI CON ARIA
     // ========================================
@@ -144,18 +137,23 @@ document.addEventListener('DOMContentLoaded', function() {
     function mostraErroreCampo(input, errorDiv, messaggio) {
         if (messaggio) {
             input.classList.add('error');
-            input.setAttribute('aria-invalid', 'true');  // ARIA: campo non valido
-            errorDiv.textContent = messaggio;
+            input.setAttribute('aria-invalid', 'true');
+        
+            const span = errorDiv.querySelector('.error-text');
+            span.textContent = messaggio;
             errorDiv.classList.remove('hidden');
         } else {
             rimuoviErroreCampo(input, errorDiv);
         }
     }
-    
+
     function rimuoviErroreCampo(input, errorDiv) {
         input.classList.remove('error');
-        input.removeAttribute('aria-invalid');  // ARIA: campo valido
-        errorDiv.textContent = '';
+        input.removeAttribute('aria-invalid');
+    
+        const span = errorDiv.querySelector('.error-text');
+        span.textContent = '';
+    
         errorDiv.classList.add('hidden');
     }
     
@@ -197,20 +195,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (errTelefono) {
             haErrori = true;
             if (!primoErrore) primoErrore = telefonoInput;
-        }
-        
-        // Valida privacy
-        const errPrivacy = validaPrivacy(privacyCheckbox);
-        if (errPrivacy) {
-            privacyCheckbox.parentNode.classList.add('error');
-            errorPrivacy.textContent = errPrivacy;
-            errorPrivacy.classList.remove('hidden');
-            haErrori = true;
-            if (!primoErrore) primoErrore = privacyCheckbox;
-        } else {
-            privacyCheckbox.parentNode.classList.remove('error');
-            errorPrivacy.textContent = '';
-            errorPrivacy.classList.add('hidden');
         }
         
         // Se ci sono errori
@@ -272,19 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    privacyCheckbox.addEventListener('change', function() {
-        const errore = validaPrivacy(this);
-        if (errore) {
-            this.parentNode.classList.add('error');
-            errorPrivacy.textContent = errore;
-            errorPrivacy.classList.remove('hidden');
-        } else {
-            this.parentNode.classList.remove('error');
-            errorPrivacy.textContent = '';
-            errorPrivacy.classList.add('hidden');
-        }
-    });
-    
+
     // FORMATTAZIONE AUTOMATICA TELEFONO
     
     telefonoInput.addEventListener('input', function() {

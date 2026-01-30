@@ -133,6 +133,7 @@
     font-size: 1.3em;
     color: var(--bgbtnhover);
     margin-bottom: 0.5em;
+    text-align: left; 
 }
 
 .animal-card .tipo {
@@ -303,7 +304,7 @@
     grid-area: caratteristiche;
     background-color: var(--bgdecoration);
     padding: 2em;
-    border-radius: 0.5em;
+    border-radius: var(--generalradius);
     border:2px solid var(--borderdecoration);
     box-shadow: var(--brownshadow);
     position: relative;
@@ -337,28 +338,18 @@
     color: var(--bgbread);
     background: var(--borderdecoration) ;
     padding: 1em 1.25em;
-    border-radius: 0.75em;
+    border-radius: var(--generalradius);
     font-size: 1.05em;
     display: flex;
     align-items: center;
     gap: 1em;
-    border-left: 0.45em solid var(--bgbread);
 }
 
-.features ul li::before {
-    content: "✓";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2em;
-    height: 2em;
-    background: var(--bgbread);
-    color: var(--borderdecoration);
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 1.1em;
+.features ul li .checkli {
+    width: 1.5em;
+    height: 1.5em;
+    fill: var(--bgbread);  /* Colore della spunta */
     flex-shrink: 0;
-    box-shadow: var(--greenshadow);
 }
 
 /* === VISITA === */
@@ -430,6 +421,11 @@
     visibility: visible;
     padding: 2.5em;
 }
+
+#appointment-form .info-required{
+    margin-bottom: 2em;
+}
+
 .form-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
@@ -517,10 +513,12 @@
     display: none;
 }
 
-.field-error::before {
-    content: "⚠️";
+.field-error .warning {
+    width: 1.2em;
+    height: 1.2em;
+    fill: var(--txtwarning);
     flex-shrink: 0;
-    line-height: 1.3;
+    margin-top: 0.1em;  /* Allineamento verticale */
 }
 
 /* === SUBMIT BUTTON === */

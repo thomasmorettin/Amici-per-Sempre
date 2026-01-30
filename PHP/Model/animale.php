@@ -58,7 +58,7 @@ function getAllAnimali($filtri = []) {
         }
     }
     
-    // Se ci sono razze gatto selezionate E "Gatto" è nei tipi selezionati
+    // Se ci sono razze gatto selezionate e "Gatto" è nei tipi selezionati
     if (!empty($filtri['razza_gatto']) && in_array('Gatto', $tipi_selezionati)) {
         $placeholders = implode(',', array_fill(0, count($filtri['razza_gatto']), '?'));
         $razze_condizioni[] = "(r.Tipo = 'Gatto' AND r.Nome IN ($placeholders))";
@@ -77,16 +77,51 @@ function getAllAnimali($filtri = []) {
         $params[] = '%' . $filtri['nome'] . '%';
     }
     
-    // filtro per peso
-    if (!empty($filtri['peso']) && $filtri['peso'] > 0) {
-        $condizioni[] = "ar.Peso >= ?";
-        $params[] = $filtri['peso'];
+    // Filtro per peso 
+    if (!empty($filtri['peso'])) {
+        $peso = $filtri['peso'];
+    
+        if ($peso === '-5') {
+        // Molto piccolo (Meno di 5 kg)
+            $condizioni[] = "ar.Peso < ?";
+            $params[] = 5;
+        } elseif ($peso === '51+') {
+        // Molto grande (51 kg o più)
+            $condizioni[] = "ar.Peso >= ?";
+            $params[] = 51;
+        } elseif (strpos($peso, '-') !== false) {
+        // Range normale (es: "5-10", "11-25", "26-50")
+            list($min, $max) = explode('-', $peso);
+            $condizioni[] = "ar.Peso >= ? AND ar.Peso <= ?";
+            $params[] = (float)$min;
+            $params[] = (float)$max + 0.9;  // Include fino a 25.9
+        }
     }
     
     // Filtro per età
-    if (!empty($filtri['eta']) && $filtri['eta'] > 0) {
-        $condizioni[] = "ar.Eta >= ?";
-        $params[] = $filtri['eta'];
+    if (!empty($filtri['eta'])) {
+        $eta = $filtri['eta'];
+
+        if ($eta === '-4') {
+        // Cucciolo (Meno di 4 mesi)
+            $condizioni[] = "ar.Eta < ?";
+            $params[] = 0.33;
+        } elseif ($eta === '4-1') {
+        // Piccolo (Da 4 mesi a meno di 1 anno)
+            $condizioni[] = "ar.Eta >= ? AND ar.Eta < ?";  // Cambiato <= in 
+            $params[] = 0.33;
+            $params[] = 1.0;
+        } elseif ($eta === '10+') {
+        // Anziano (10 anni o più)
+            $condizioni[] = "ar.Eta >= ?";
+            $params[] = 10;
+        } elseif (strpos($eta, '-') !== false) {
+        // Range normale (es: "1-4", "4-10")
+            list($min, $max) = explode('-', $eta);
+            $condizioni[] = "ar.Eta >= ? AND ar.Eta < ?";  // Cambiato <= in 
+            $params[] = (float)$min;
+            $params[] = (float)$max;
+        }
     }
     
     // Aggiungi condizioni WHERE se presenti
@@ -108,5 +143,4 @@ function getAllAnimali($filtri = []) {
     
     return [];
 }
-
 ?>

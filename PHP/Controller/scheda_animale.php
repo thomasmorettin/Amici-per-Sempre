@@ -74,8 +74,13 @@ $caratteristiche_html = '';
 
 if (is_array($caratteristiche) && !empty($caratteristiche)) {
     foreach ($caratteristiche as $caratteristica) {
-        $caratteristiche_html .= '<li>' . htmlspecialchars($caratteristica, ENT_QUOTES, 'UTF-8') . '</li>';
-    }
+    $caratteristiche_html .= '<li>'
+        . '<svg class="checkli" aria-hidden="true">'
+        . '    <use href="{{root}}/Resources/icons.svg#check"></use>'
+        . '</svg>'
+        . htmlspecialchars($caratteristica, ENT_QUOTES, 'UTF-8')
+        . '</li>';
+}
 } else {
     $caratteristiche_html = '<li>Nessuna caratteristica specificata</li>';
 }

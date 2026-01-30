@@ -67,7 +67,7 @@
                 </button>
             </div>
 
-            <form id="appointment-form" method="POST" action="{{root}}/PHP/Controller/invia-richiesta-visita">
+            <form id="appointment-form" method="POST" action="{{root}}/PHP/Controller/invia-richiesta-visita" >
                 <input type="hidden" name="animale_id" value="[animale_id]">
                 
                 <div class="form-intro">
@@ -91,7 +91,12 @@
                                value="[val_nome]"
                                autocomplete="off"
                                aria-describedby="error-nome">
-                        <div id="error-nome" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                        <div id="error-nome" class="field-error hidden" role="alert" aria-atomic="true">
+                            <svg class="warning" aria-hidden="true">
+                                <use href="{{root}}/Resources/icons.svg#warning"></use>
+                            </svg>
+                            <span class="error-text"></span>
+                        </div>
                     </div>
 
                     <div class="single-form">
@@ -106,7 +111,12 @@
                                value="[val_cognome]"
                                autocomplete="off"
                                aria-describedby="error-cognome">
-                        <div id="error-cognome" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                        <div id="error-cognome" class="field-error hidden" role="alert" aria-atomic="true">
+                          <svg class="warning" aria-hidden="true">
+                                <use href="{{root}}/Resources/icons.svg#warning"></use>
+                            </svg>
+                            <span class="error-text"></span>
+                        </div>
                     </div>        
                 </div>
 
@@ -123,7 +133,12 @@
                                value="[val_email]"
                                autocomplete="off"
                                aria-describedby="error-email">
-                        <div id="error-email" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                        <div id="error-email" class="field-error hidden" role="alert" aria-atomic="true">
+                            <svg class="warning" aria-hidden="true">
+                                <use href="{{root}}/Resources/icons.svg#warning"></use>
+                            </svg>
+                            <span class="error-text"></span>
+                        </div>
                     </div>
 
                     <div class="single-form">
@@ -138,7 +153,12 @@
                                value="[val_telefono]"
                                autocomplete="off"
                                aria-describedby="error-telefono">
-                        <div id="error-telefono" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                        <div id="error-telefono" class="field-error hidden" role="alert" aria-atomic="true">
+                            <svg class="warning" aria-hidden="true">
+                                <use href="{{root}}/Resources/icons.svg#warning"></use>
+                            </svg>
+                            <span class="error-text"></span>
+                        </div>
                     </div>
                 </div>
 
