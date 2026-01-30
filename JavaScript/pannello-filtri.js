@@ -7,16 +7,31 @@ document.addEventListener("DOMContentLoaded", () => {
     gestioneRicerca();
     gestioneFormFiltri();
     setupPosizionePanel();
-    window.addEventListener('resize', setupPosizionePanel);
     chiusuraPopup();
     gestionePulsanteResetFiltri();
     controlloWrapBottone();
-    window.addEventListener('resize', controlloWrapBottone);
     gestioneContaFiltri();
     controllaFlagSezioni();
 
     const pannello = document.getElementById("side-panel");
     pannello.inert = true;
+
+    // Per evitare che quando si inserisca parametri da telefono azioni l'evento resize
+    let isKeyboardResize = false;
+
+    document.addEventListener('focusin', e => {
+        if (e.target.matches('input, textarea')) {
+            isKeyboardResize = true;
+        } else {
+            isKeyboardResize = false;
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (isKeyboardResize) return;
+        setupPosizionePanel();
+        controlloWrapBottone();
+    });
 })
 
 function setupPosizionePanel() {

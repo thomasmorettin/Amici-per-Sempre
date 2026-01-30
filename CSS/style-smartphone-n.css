@@ -51,3 +51,7 @@
 .description {
     display: none;
 }
+
+#list-topbar {
+    position: revert;
+}

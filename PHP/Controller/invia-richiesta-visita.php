@@ -115,7 +115,7 @@ $success = createTicket($persona_id, $animale_id, $note_db);
 
 if ($success) {
     unset($_SESSION['form_data']);
-    sendEmail($email, $nome);  
+    // sendEmail($email, $nome);  
     $_SESSION['success'] = "Richiesta inviata con successo! Ti contatteremo entro 48/72 ore.";
     header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
 } else {

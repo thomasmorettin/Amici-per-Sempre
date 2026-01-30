@@ -3,20 +3,21 @@ require_once dirname(__DIR__) . "/../PHP/utils.php";
 require_once dirname(__DIR__) . "/Model/tickets.php";
 require_once dirname(__DIR__) . "/Controller/pannello-filtri.php";
 use function Model\getAnimaliEsterniTck;
+use function Controller\getFiltriFromRequest;
 use function Controller\renderPannelloFiltri;
 use function Controller\renderPannelloControlloFiltri;
-
-$risDB = getAnimaliEsterniTck();
-$html = "";
-$oggi = date("Y-m-d");
-
-// Creazione del pannello dei filtri e quello di controllo
-$pannello_filtri_html = renderPannelloFiltri(PROJECT_ROOT . '/PHP/Controller/richieste-inserimento-rifugio.php', ['Tipo', 'Dati persona', 'Dati animale', 'Razze', 'Sesso']);
-$pannello_controllo_filtri_html = renderPannelloControlloFiltri(true);
 
 if (!is_logged_in()) {
     header("Location: " . PROJECT_ROOT . "/401.php"); 
 }
+
+$risDB = getAnimaliEsterniTck(getFiltriFromRequest());
+$html = "";
+$oggi = date("Y-m-d");
+
+// Creazione del pannello dei filtri e quello di controllo
+$pannello_filtri_html = renderPannelloFiltri(PROJECT_ROOT . '/PHP/Controller/richieste-inserimento-rifugio.php', ['Tipo', 'Dati persona', 'Razze', 'Sesso']);
+$pannello_controllo_filtri_html = renderPannelloControlloFiltri(true);
 
 if (!empty($risDB)) {
 

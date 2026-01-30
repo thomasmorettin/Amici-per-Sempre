@@ -79,7 +79,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         . '            <div class="azioni-filtro">'
         . '                <button type="submit" id="applica" data-n-filtri="' . $filtri_cambiati .'">Applica ' . $filtri_cambiati . ' filtri</button>'
         . '                <button type="button" class="reset" aria-label="Azzera i filtri">'
-        . '                    <svg>'
+        . '                    <svg aria-hidden="true">'
         . '                         <use href="{{root}}/Resources/icons.svg#delete"></use>'
         . '                    </svg>'
         . '                 </button>'
@@ -91,7 +91,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-left"></div>'
             . '                    <button type="button" class="header" aria-expanded="false" id="legenda-tipo-animale" aria-describedby="count-tipo-animale">'
             . '                        Tipo animale'
-            . '                        <svg>'
+            . '                        <svg aria-hidden="true">'
             . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
             . '                        </svg>'
             . '                    </button>'
@@ -106,11 +106,11 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        <fieldset class="check-group" aria-labelledby="legenda-tipo-animale">'
             . '                            <label for="cane">'
             . '                                <input type="checkbox" id="cane" name="tipo[]" value="Cane" ' . $checked_cane . '>Cane'
-            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
             . '                            </label>'
             . '                            <label for="gatto">'
             . '                                <input type="checkbox" id="gatto" name="tipo[]" value="Gatto" ' . $checked_gatto . '>Gatto'
-            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
             . '                            </label>'
             . '                        </fieldset>'
             . '                    </div>'
@@ -124,7 +124,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-left"></div>'
             . '                    <button type="button" class="header" aria-expanded="false" aria-describedby="count-dati-animale">'
             . '                        Dati animale'
-            . '                        <svg>'
+            . '                        <svg aria-hidden="true">'
             . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
             . '                        </svg>'
             . '                    </button>'
@@ -151,7 +151,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                                    <option value="26-50" ' . ($peso == "26-50" ? 'selected' : '') . '>Grande (Da 26 a 50 kg)</option>'
             . '                                    <option value="51+" ' . ($peso == "51+" ? 'selected' : '') . '>Molto grande (51 kg o più)</option>'
             . '                                </select>'
-            . '                                <svg>'
+            . '                                <svg aria-hidden="true">'
             . '                                    <use href="{{root}}/Resources/icons.svg#arrow"></use>'
             . '                                </svg>'
             . '                            </div>'
@@ -167,7 +167,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                                    <option value="4-10" ' . ($eta == "4-10" ? 'selected' : '') . '>Adulto (Da 4 a 10 anni)</option>'
             . '                                    <option value="10+" ' . ($eta == "10+" ? 'selected' : '') . '>Anziano (10 anni o più)</option>'
             . '                                </select>'
-            . '                                <svg>'
+            . '                                <svg aria-hidden="true">'
             . '                                    <use href="{{root}}/Resources/icons.svg#arrow"></use>'
             . '                                </svg>'
             . '                            </div>'
@@ -183,7 +183,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-left"></div>'
             . '                     <button type="button" class="header" aria-expanded="false" aria-describedby="count-dati-persona">'
             . '                        Dati persona'
-            . '                        <svg>'
+            . '                        <svg aria-hidden="true">'
             . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
             . '                        </svg>'
             . '                    </button>'
@@ -225,14 +225,14 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         foreach ($razze["Cane"] as $razza_cane) {
             $razze_cane_html .= '          <label for="' . $razza_cane . '">'
             . '                                <input type="checkbox" id="' . $razza_cane .'" name="razza_cane[]" value="' . $razza_cane .'" ' . (in_array($razza_cane, $razze_cane) ? "checked" : "") . '>' . $razza_cane
-            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
             . '                            </label>';
         }
 
         foreach ($razze["Gatto"] as $razza_gatto) {
             $razze_gatto_html .= '         <label for="' . $razza_gatto . '">'
             . '                                <input type="checkbox" id="' . $razza_gatto .'" name="razza_gatto[]" value="' . $razza_gatto .'" ' . (in_array($razza_gatto, $razze_gatto) ? "checked" : "") . '>' . $razza_gatto
-            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
             . '                            </label>';
         }
 
@@ -241,7 +241,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-left"></div>'
             . '                     <button type="button" class="header" aria-expanded="false" id="legenda-razze-cane" aria-describedby="count-razze-cane">'
             . '                        Razze cane'
-            . '                        <svg>'
+            . '                        <svg aria-hidden="true">'
             . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
             . '                        </svg>'
             . '                    </button>'
@@ -264,7 +264,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-left"></div>'
             . '                     <button type="button" class="header" aria-expanded="false" id="legenda-razze-gatto" aria-describedby="count-razze-gatto">'
             . '                        Razze gatto'
-            . '                        <svg>'
+            . '                        <svg aria-hidden="true">'
             . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
             . '                        </svg>'
             . '                    </button>'
@@ -290,7 +290,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         . '</div>'
         . '<dialog class="filter-panel" id="popup-panel">'
         . '    <button class="btn-close">
-                    <svg>
+                    <svg aria-hidden="true">
                         <use href="{{root}}/Resources/icons.svg#cancel"></use>
                     </svg>
                 </button>'
@@ -311,8 +311,8 @@ function renderPannelloControlloFiltri($ricerca_html = false): string
     $ricerca = htmlspecialchars($values['ricerca'] ?? '', ENT_QUOTES, 'UTF-8');
 
     $html = '            <div id="list-topbar">'
-        . '                   <button id="filtra-btn">'
-        . '                       <svg>'
+        . '                   <button id="filtra-btn" ' . (!$ricerca_html ? "class=alone" : "") . '>'
+        . '                       <svg aria-hidden="true">'
         . '                           <use href="{{root}}/Resources/icons.svg#filter"></use>'
         . '                       </svg>'
         . '                   <span class="abbr">Filtra</span>'
@@ -322,13 +322,13 @@ function renderPannelloControlloFiltri($ricerca_html = false): string
         $html .= '          <form id="form-ricerca" method="GET">'
         . '                    <input type="text" id="ricerca" name="ricerca" placeholder="Ricerca" value="' . $ricerca . '">'
         . '                    <button id="avvia-ricerca" title="Avvia ricerca" type="submit">'
-        . '                       <svg>'
+        . '                       <svg aria-hidden="true">'
         . '                         <use href="{{root}}/Resources/icons.svg#search"></use>'
         . '                       </svg>'
         . '                    <span class="abbr">Cerca</span>'
         . '                    </button>'
         . '                    <button id="clear-ricerca" title="Azzerra ricerca" type="reset">'
-        . '                       <svg>'
+        . '                       <svg aria-hidden="true">'
         . '                         <use href="{{root}}/Resources/icons.svg#delete"></use>'
         . '                       </svg>'
         . '                    <span class="abbr">Azzera</span>'

@@ -180,6 +180,7 @@ textarea {
     font-family: "Inter", serif;
     color: var(--txtcolor);
     background-color: var(--bgbread);
+    transition: border-color 0.2s ease;
 }
 
 input:focus,
@@ -282,11 +283,35 @@ form select::after {
     flex-direction: row;
 }
 
+.accordion-header button {
+    height: 1.8em;
+}
+
+#form-porta-adozione input.error,
+#form-porta-adozione textarea.error,
+#form-porta-adozione .select-custom:has(select.error) {
+    border-color: var(--txtwarning);
+    box-shadow: var(--redshadow);
+}
+
 #popup-panel {
     width: auto;
-    height: 40vh;
+    height: 50vh;
     overflow-y: auto;
     min-width: 0;
+    padding: 0.5em 0.5em 2em 0.5em;
+}
+
+#popup-panel .azioni-filtro {
+    margin: 2em 2.5em 0.5em 2.5em;
+}
+
+#popup-panel .content {
+    padding: 0em 2.5em;
+}
+
+#popup-panel .legend-left {
+    width: 3em;
 }
 
 #side-panel { 
@@ -336,6 +361,15 @@ form select::after {
 
 #form-ricerca input {
     min-width: 0em;
+}
+
+#filtra-btn.alone {
+    flex: 1;
+    max-width: 25em;
+}
+
+#filtra-btn.alone .abbr {
+    display: flex;
 }
 
 #filtra-btn.wrapped {
@@ -890,11 +924,6 @@ form {
         fill: var(--inverttxtcolor);
     }
 
-    #list-topbar button:hover {
-    background-color: var(--bgbtnhover);
-    color: var(--inverttxtcolor);
-    }
-
     .check-group input[type="checkbox"]:hover,
     .radio-group input[type="radio"]:hover {
         background-color: var(--bgbtnhover);
@@ -937,6 +966,11 @@ form {
     #clear-ricerca:hover {
         background-color: var(--bgwarninghover);
         fill: var(--inverttxtcolor);
+        color: var(--inverttxtcolor);
+    }
+
+    #list-topbar button:hover {
+        background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
     }
 
