@@ -504,7 +504,7 @@
     font-size: 0.9em;
     margin-top: 0.5em;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.3em;
     font-weight: 500;
 }

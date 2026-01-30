@@ -1,0 +1,40 @@
+<dialog id="dia-appuntamento" aria-labelledby="tit-dia-app" aria-modal="true">
+    <h3 id="tit-dia-app" class="titolo-dialog">Programma appuntamento</h3>
+    <p><abbr title="Signore o signora">Sig/ra.</abbr>&nbsp;<span class="nome-cliente"></span></p>
+
+    <div class="info-required">
+        <p>Campo obbligatorio</p>
+    </div>
+
+    <button class="btn-close" aria-label="chiudi finestra modale">
+        <svg aria-hidden="true">
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
+
+    <form id="frm-app" action="{{root}}/PHP/Controller/{{funzione}}" method="POST" novalidate>
+        <div id="campi-input">
+            <input type="hidden" id="hidden-id" name="id">
+
+            <div class="form-field">
+                <label for="data-appuntamento">Data</label>
+                <input type="date" id="data-appuntamento" name="data" required aria-describedby="msg-errore-app" aria-label="giorno, mese, anno">
+            </div>
+
+            <div class="form-field">
+                <label for="ora-appuntamento">Ora&nbsp;<span class="normal">(08:30 - 19:30)</span></label>
+                <input type="time" id="ora-appuntamento" name="ora" min="08:30" max="19:30" required aria-describedby="msg-errore-app">
+            </div>
+        </div>
+
+        <div class="field-error hidden">
+            <svg class="warning" aria-hidden="true">
+                <use href="{{root}}/Resources/icons.svg#warning"></use>
+            </svg>
+
+            <span id="msg-errore-app" class="error-text" role="alert" aria-atomic="true"></span>
+        </div>
+
+        <button type="submit" id="btn-prenota-app">Salva appuntamento</button>
+    </form>
+</dialog>

@@ -2,10 +2,12 @@
 require_once dirname(__DIR__) . "/../PHP/utils.php";
 require_once dirname(__DIR__) . "/Model/tickets.php";
 require_once dirname(__DIR__) . "/Controller/pannello-filtri.php";
+require_once dirname(__DIR__) . "/../PHP/genera-dialogs.php";
 use function Model\getAnimaliEsterniTck;
 use function Controller\getFiltriFromRequest;
 use function Controller\renderPannelloFiltri;
 use function Controller\renderPannelloControlloFiltri;
+use function Controller\{getDialogInfo, getDialogAppuntamento, getDialogCanRichiesta};
 
 if (!is_logged_in()) {
     header("Location: " . PROJECT_ROOT . "/401.php"); 
@@ -149,11 +151,13 @@ else { $html = "<p class='center bold'>Nessun animale presente nel Rifugio.</p>"
 $dati = [
     "{{current-page}}" => "Richieste Inserimento Rifugio",
     "{{page-keywords}}" => "",
+    "{{type-script}}" => "module",
     "{{current-js}}" => "richieste-inserimento-rifugio.js",
     "{{extra-js}}" => "pannello-filtri.js",
     "{{lista-animali}}" => $html,
     "{{pannello-filtri}}" => $pannello_filtri_html,
-    "{{pannello-controllo-filtri}}" => $pannello_controllo_filtri_html
+    "{{pannello-controllo-filtri}}" => $pannello_controllo_filtri_html,
+    "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("aggiungi-appuntamento")) . (getDialogCanRichiesta("elimina-richiesta"))
 ];
 
 echo buildPage("richieste-inserimento-rifugio.html", $dati);

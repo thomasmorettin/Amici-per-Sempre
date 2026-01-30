@@ -1,7 +1,9 @@
 <?php
 require_once dirname(__DIR__) . "/../PHP/utils.php";
 require_once dirname(__DIR__) . "/Model/appuntamenti-calendario.php";
+require_once dirname(__DIR__) . "/../PHP/genera-dialogs.php";
 use function Model\getAppuntamenti;
+use function Controller\{getDialogInfo, getDialogAppuntamento, getDialogCanAppuntamento};
 
 if (is_logged_in()) {
     $mese = isset($_GET["mese"]) ? (int)$_GET["mese"] : date("n");
@@ -119,7 +121,7 @@ if (is_logged_in()) {
 
                                     <div class='info'>
                                         <p>Appuntamento adozione \"{$evento['NomeAnimale']}\"</p>
-                                        <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
+                                        <p><abbr title='Signore o signora'>Sig./ra</abbr>&nbsp;{$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
                                     </div>
                                 </div>
 
@@ -139,7 +141,7 @@ if (is_logged_in()) {
 
                                     <div class='info'>
                                         <p>Appuntamento per valutare adozione per razza \"{$evento['Razza']}\"</p>
-                                        <p>Sig./ra {$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
+                                        <p><abbr title='Signore o signora'>Sig./ra</abbr>&nbsp;{$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
                                     </div>
                                 </div>
 
@@ -188,6 +190,7 @@ if (is_logged_in()) {
     $dati = [
         "{{current-page}}" => "Calendario",
         "{{page-keywords}}" => "",
+        "{{type-script}}" => "module",
         "{{current-js}}" => "calendario.js",
         "{{mese-anno}}" => "$nomiMesi[$mese] $anno",
         "{{link-prev}}" => $linkPrev,
@@ -195,7 +198,8 @@ if (is_logged_in()) {
         "{{link-next}}" => $linkNext,
         "{{mese-succ}}" => $nextMese . " " . $nextAnno,
         "{{btns-sett}}" => $htmlBtns,
-        "{{calendario-appuntamenti}}" => $htmlContent
+        "{{calendario-appuntamenti}}" => $htmlContent,
+        "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("modifica-appuntamento")) . (getDialogCanAppuntamento("elimina-appuntamento", "gestione-ticket"))
     ];
 
     echo buildPage("calendario.html", $dati);

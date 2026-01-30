@@ -2,10 +2,12 @@
 require_once dirname(__DIR__) . "/../PHP/utils.php";
 require_once dirname(__DIR__) . "/Model/tickets.php";
 require_once dirname(__DIR__) . "/Controller/pannello-filtri.php";
+require_once dirname(__DIR__) . "/../PHP/genera-dialogs.php";
 use function Model\getAnimaliTck;
 use function Controller\renderPannelloFiltri;
 use function Controller\renderPannelloControlloFiltri;
 use function Controller\getFiltriFromRequest;
+use function Controller\{getDialogInfo, getDialogAppuntamento, getDialogCanRichiesta};
 
 if (is_logged_in()) {
     $risDB = getAnimaliTck(getFiltriFromRequest());
@@ -56,11 +58,11 @@ if (is_logged_in()) {
                             <dt>{$ticket["richiedente"]}</dt>
                             <dd>
                                 <dl class='cliente-info'>
-                                    <dt>Data richiesta:</dt>
+                                    <dt>Data <abbr title='Richiesta'>ric</abbr>:</dt>
                                     <dd>{$realFormat}</dd>
-                                    <dt>E-mail:</dt>
+                                    <dt lang='en'>E-mail:</dt>
                                     <dd><a href='mailto:{$ticket["emailRich"]}'>{$ticket["emailRich"]}</a></dd>
-                                    <dt>Tel:</dt>
+                                    <dt><abbr title='Telefono'>Tel</abbr>:</dt>
                                     <dd><a href='tel:{$ticket["telRich"]}'>{$ticket["telRich"]}</a></dd>
                                 </dl>
                             </dd>
@@ -102,11 +104,11 @@ if (is_logged_in()) {
                             <dt>{$ticket["richiedente"]}</dt>
                             <dd>
                                 <dl class='cliente-info'>
-                                    <dt>Data appuntamento:</dt>
+                                    <dt>Data <abbr title='Appuntamento'>app</abbr>:</dt>
                                     <dd>{$realFormat} - {$ticket["ora"]}</dd>
-                                    <dt>E-mail:</dt>
+                                    <dt lang='en'>E-mail:</dt>
                                     <dd><a href='mailto:{$ticket["emailRich"]}'>{$ticket["emailRich"]}</a></dd>
-                                    <dt>Tel:</dt>
+                                    <dt><abbr title='Telefono'>Tel</abbr>:</dt>
                                     <dd><a href='tel:{$ticket["telRich"]}'>{$ticket["telRich"]}</a></dd>
                                 </dl>
                             </dd>
@@ -182,11 +184,13 @@ if (is_logged_in()) {
     $dati = [
         "{{current-page}}" => "Tickets",
         "{{page-keywords}}" => "",
+        "{{type-script}}" => "module",
         "{{current-js}}" => "gestione-ticket.js",
         "{{extra-js}}" => "pannello-filtri.js",
         "{{lista-animali}}" => $html,
         "{{pannello-controllo-filtri}}" => $pannelloControllo,
         "{{pannello-filtri}}" => $pannelloFiltri,
+        "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("aggiungi-appuntamento")) . (getDialogCanRichiesta("elimina-richiesta"))
     ];
 
     echo buildPage("gestione-ticket.html", $dati);

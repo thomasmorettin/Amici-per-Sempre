@@ -1,0 +1,20 @@
+<dialog id="dia-cancellazione" aria-labelledby="tit-dia-can" aria-modal="true">
+    <h3 id="tit-dia-can" class="titolo-dialog">Elimina richiesta</h3>
+    <p><abbr title="Signore o signora">Sig/ra.</abbr>&nbsp;<span class="nome-cliente"></span></p>
+
+    <div id="msg-warning">
+        <p><span class="red"><strong>Attenzione</strong></span>, si sta per eliminare definitivamente la richiesta dell'utente.</p>
+        <p class="bold">L'azione è irreversibile.</p>
+    </div>
+
+    <button class="btn-close" aria-label="chiudi finestra modale">
+        <svg aria-hidden="true">
+            <use href="{{root}}/Resources/icons.svg#cancel"></use>
+        </svg>
+    </button>
+
+    <form action="{{root}}/PHP/Controller/{{funzione}}" method="POST">
+        <input type="hidden" id="hidden-id-del" name="id">
+        <button type="submit" id="btn-cancella-app">Elimina richiesta</button>
+    </form>
+</dialog>
