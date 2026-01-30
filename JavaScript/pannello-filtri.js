@@ -3,9 +3,7 @@ const pannelloPopupWidth = 1024;
 document.addEventListener("DOMContentLoaded", () => {
     togglePannello();
     gestioneAccordion();
-    contaFiltri();
     gestioneBottonePannelloFiltri();
-    updateSectionFlags();
     gestioneRicerca();
     gestioneFormFiltri();
     setupPosizionePanel();
@@ -13,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     chiusuraPopup();
     gestionePulsanteResetFiltri();
     controlloWrapBottone();
+    window.addEventListener('resize', controlloWrapBottone);
+    gestioneContaFiltri();
+    controllaFlagSezioni();
 
     const pannello = document.getElementById("side-panel");
     pannello.inert = true;
@@ -124,11 +125,11 @@ function gestioneFormFiltri() {
 
 // Aggiorna contatori e badge (usata sia da listeners locali che da delegati)
 function refreshFilterUI() {
-    const panel = document.querySelector('.filter-panel');
-    if (!panel) return;
+    const form = document.getElementById('#form-filtri');
+    if (!form) return;
     // aggiorna bottone principale contando tutti i controlli rilevanti in modo generico
-    const btn = panel.querySelector('#applica');
-    const controls = panel.querySelectorAll('input, select, textarea');
+    const btn = document.getElementById('#applica');
+    const controls = form.querySelectorAll('input, select, textarea');
 
     let c = 0;
     controls.forEach(el => {
@@ -343,11 +344,13 @@ function gestionePulsanteResetFiltri() {
             }
             else {
                 el.value = '';
+                el.dataset.changed = false;
             }
         });
+
+        azzeraCount();
     });
 }
-
 
 function togglePannello() {
     document.querySelectorAll("fieldset.collapse legend.toggle").forEach(legend => {
@@ -357,67 +360,164 @@ function togglePannello() {
     });
 }
 
+function cambiaNumeroFlag(numero, flag, numFlag, descFlag, add = true) {
+    if (!numero && numero !== 0) return;
+    
+    if (add) {
+        numero++;
+    } else {
+        numero--;
+    }
 
-function contaFiltri() {
-  const panel = document.querySelector('.filter-panel');
-  if (!panel) return;
-  const btn = panel.querySelector('#applica');
-  const nameInp = panel.querySelector('input[name="nome"]');
-  const pesoInp = panel.querySelector('input[name="peso"]');
-  const etaInp  = panel.querySelector('input[name="eta"]');
-  const tipoChecks = panel.querySelectorAll('input[name="tipo[]"]');
+    numFlag.textContent = numero;
+    
+    if (numero == 1) {
+        descFlag.textContent = numero + " filtro selezionato";
+    } else if (numero > 1) {
+        descFlag.textContent = numero + " filtri selezionati";
+    } else {
+        descFlag.textContent = "";
+    }
 
-  function countActive() {
-    let c = 0;
-    c += [...tipoChecks].filter(ch => ch.checked).length;
-    if (nameInp && nameInp.value.trim() !== '') c++;
-    if (pesoInp && Number(pesoInp.value) > Number(pesoInp.getAttribute('min') || 1)) c++;
-    if (etaInp  && Number(etaInp.value)  > Number(etaInp.getAttribute('min')  || 1)) c++;
-    btn.textContent = `Applica ${c} filtri`;
-  }
+    if (numero > 0) {
+        flag.classList.add('show');
+    } else {
+        flag.classList.remove('show');
+    }
+}
 
-    const deb = (fn, ms=120) => { let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; };
-        const onChange = deb(refreshFilterUI, 100);
+function cambiaNumeroFlagDinamico(element, add = true) {
+    const accordionPadre = element.closest('.accordion');
+    const flag = accordionPadre.querySelector('.flag-filtro');
+    const numFlag = accordionPadre.querySelector('.flag');
+    const descFlag = accordionPadre.querySelector('.solo-sr');
 
-        // listeners locali sul panel
-        panel.addEventListener('input', onChange);
-        panel.addEventListener('change', onChange);
+    if (!numFlag) return;
 
-        // assicurati che il reset del form aggiorni i contatori (dopo che il browser ha ripristinato i valori)
-        const form = panel.querySelector('form');
-        if (form) {
-            form.addEventListener('reset', () => {
-                // posticipa leggermente per lasciare il browser applicare i valori di default
-                setTimeout(() => {
-                    refreshFilterUI();
-                }, 10);
+    let nFlag = +numFlag.textContent;
+
+    cambiaNumeroFlag(nFlag, flag, numFlag, descFlag, add);
+}
+
+function azzeraCount() {
+    const form = document.getElementById('form-filtri');
+    const btn = document.getElementById('applica');
+
+    form.querySelectorAll('.accordion').forEach(acc => {
+        const flag = acc.querySelector('.flag-filtro');
+        const numFlag = acc.querySelector('.flag');
+        const descFlag = acc.querySelector('.solo-sr');
+
+        acc.querySelectorAll('input, select').forEach(el => {
+            if (el.type === 'checkbox' || el.type === 'radio') {
+                cambiaNumeroFlag(1, flag, numFlag, descFlag, false);
+            } else if (el.type === 'text' || el.type === 'email' || el.type === 'tel') {
+                cambiaNumeroFlag(1, flag, numFlag, descFlag, false);
+            } else {
+                cambiaNumeroFlag(1, flag, numFlag, descFlag, false);
+            }
+        });
+    });
+
+    btn.dataset.nFiltri = 0;
+    btn.textContent = "Applica " + 0 + " filtri";
+}
+
+function controllaFlagSezioni() {
+    const form = document.getElementById('form-filtri');
+
+    form.querySelectorAll('.accordion').forEach(acc => {
+        const flag = acc.querySelector('.flag-filtro');
+        const numFlag = acc.querySelector('.flag');
+        const descFlag = acc.querySelector('.solo-sr');
+
+        acc.querySelectorAll('input, select').forEach(el => {
+            if (el.type === 'checkbox' || el.type === 'radio') {
+                if(el.checked) {
+                    let nFlag = +numFlag.textContent;
+                    cambiaNumeroFlag(nFlag, flag, numFlag, descFlag);
+                }
+            } else if (el.type === 'text' || el.type === 'email' || el.type === 'tel') {
+                if(el.value !== "" && el.dataset.changed == "true") {
+                    let nFlag = +numFlag.textContent;
+                    cambiaNumeroFlag(nFlag, flag, numFlag, descFlag);
+                }
+            } else {
+                if (el.value !== "" && el.dataset.changed == "true") {
+                    let nFlag = +numFlag.textContent;
+                    cambiaNumeroFlag(nFlag, flag, numFlag, descFlag);
+                }
+            }
+        });
+    });
+}
+
+function cambiaNumeroFiltri(add = true) {
+    const btn = document.getElementById('applica');
+    let nFiltri = +btn.dataset.nFiltri;
+
+    if (!nFiltri && nFiltri !== 0) return;
+
+    if (add) {
+        nFiltri++;
+    } else {
+        nFiltri--;
+    }
+
+    btn.dataset.nFiltri = nFiltri;
+    btn.textContent = "Applica " + nFiltri + " filtri";
+}
+
+function gestioneContaFiltri() {
+    const form = document.getElementById('form-filtri');
+    if (!form) return;
+    const btn = document.getElementById('applica');
+
+    form.querySelectorAll('input, select').forEach(el => {
+        if (el.type === 'checkbox' || el.type === 'radio') {
+            el.addEventListener('change', () => {
+                cambiaNumeroFiltri(el.checked ? true : false);
+                cambiaNumeroFlagDinamico(el, (el.checked ? true : false));
             });
+        } else if (el.type === 'text' || el.type === 'email' || el.type === 'tel') {
+            el.addEventListener('input', () => {
+                if(el.value === "" && el.dataset.changed == "true") {
+                    cambiaNumeroFiltri(false);
+                    cambiaNumeroFlagDinamico(el, false);
+                    el.dataset.changed = false;
+                }
+                else if(el.value !== "" && el.dataset.changed == "false") {
+                    cambiaNumeroFiltri();
+                    cambiaNumeroFlagDinamico(el);
+                    el.dataset.changed = true;
+                }
+            });
+        } else {
+            el.addEventListener('change', () => {
+                if (el.value === "" && el.dataset.changed == "true") {
+                    cambiaNumeroFiltri(false);
+                    cambiaNumeroFlagDinamico(el, false);
+                    el.dataset.changed = false;
+                } else if (el.value !== "" && el.dataset.changed == "false") {
+                    cambiaNumeroFiltri();
+                    cambiaNumeroFlagDinamico(el);
+                    el.dataset.changed = true;
+                }
+            })
         }
-
-        // delega globale: utile se elementi vengono ricreati o il DOM cambia
-        document.addEventListener('input', (e) => {
-                if (e.target.closest && e.target.closest('.filter-panel')) onChange();
-        });
-        document.addEventListener('change', (e) => {
-                if (e.target.closest && e.target.closest('.filter-panel')) onChange();
-        });
-
-        // inizializza UI
-        refreshFilterUI();
+    });
 }
 
 function controlloWrapBottone() {
-    window.addEventListener('resize', () => {
-        const btnFiltri = document.getElementById('filtra-btn');
-        const formRicerca = document.getElementById('form-ricerca');
+    const btnFiltri = document.getElementById('filtra-btn');
+    const formRicerca = document.getElementById('form-ricerca');
 
-        const formRicercaTop = formRicerca.getBoundingClientRect().top;
-        const buttonTop = btnFiltri.getBoundingClientRect().top;
+    const formRicercaTop = formRicerca.getBoundingClientRect().top;
+    const buttonTop = btnFiltri.getBoundingClientRect().top;
 
-        if (buttonTop > formRicercaTop) {
-            btnFiltri.classList.add('wrapped');
-        } else {
-            btnFiltri.classList.remove('wrapped');
-        }
-    });
+    if (buttonTop > formRicercaTop) {
+        btnFiltri.classList.add('wrapped');
+    } else {
+        btnFiltri.classList.remove('wrapped');
+    }
 }

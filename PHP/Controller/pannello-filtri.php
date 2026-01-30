@@ -15,8 +15,8 @@ function getFiltriFromRequest(): array
         'razza_cane' => isset($_GET['razza_cane']) ? (array)$_GET['razza_cane'] : [],
         'razza_gatto' => isset($_GET['razza_gatto']) ? (array)$_GET['razza_gatto'] : [],
 		'nome' => isset($_GET['nome']) ? (string)$_GET['nome'] : '',
-		'peso' => isset($_GET['peso']) ? (string)$_GET['peso'] : 0,
-		'eta'  => isset($_GET['eta'])  ? (string)$_GET['eta']  : 0,
+		'peso' => isset($_GET['peso']) ? (string)$_GET['peso'] : '',
+		'eta'  => isset($_GET['eta'])  ? (string)$_GET['eta']  : '',
         'nome_persona' => isset($_GET['nome_persona']) ? (string)$_GET['nome_persona'] : '',
         'cognome_persona' => isset($_GET['cognome_persona']) ? (string)$_GET['cognome_persona'] : '',
         'email' => isset($_GET['email']) ? (string)$_GET['email'] : '',
@@ -77,7 +77,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         . '    <div class="filter-content">'
         . '        <form method="GET" action="' . htmlspecialchars($action, ENT_QUOTES) . '" id="form-filtri">'
         . '            <div class="azioni-filtro">'
-        . '                <button type="submit" id="applica">Applica ' . $filtri_cambiati . ' filtri</button>'
+        . '                <button type="submit" id="applica" data-n-filtri="' . $filtri_cambiati .'">Applica ' . $filtri_cambiati . ' filtri</button>'
         . '                <button type="button" class="reset" aria-label="Azzera i filtri">'
         . '                    <svg>'
         . '                         <use href="{{root}}/Resources/icons.svg#delete"></use>'
@@ -96,7 +96,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        </svg>'
             . '                    </button>'
             . '                    <span class="flag-filtro" aria-live="polite">'
-            . '                        <span class="flag"></span>'
+            . '                        <span class="flag">0</span>'
             . '                        <span class="solo-sr" id="count-tipo-animale"></span>'
             . '                    </span>'
             . '                    <div class="legend-right"></div>'
@@ -118,41 +118,6 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '            </div>';
     }
 
-    /*
-    if (in_array('Sesso', $sections, true)) {
-        $html .= '            <div class="accordion">'
-            . '                <div class="accordion-header">'
-            . '                    <div class="legend-left"></div>'
-            . '                    <button type="button" class="header" aria-expanded="false">'
-            . '                        Sesso animale'
-            . '                        <svg>'
-            . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
-            . '                        </svg>'
-            . '                    </button>'
-            . '                    <span class="flag-filtro" aria-live="polite">'
-            . '                        <span class="flag"></span>'
-            . '                        <span class="solo-sr" id="count-sesso-animale"></span>'
-            . '                    </span>'
-            . '                    <div class="legend-right"></div>'
-            . '                </div>'
-            . '                <div class="content">'
-            . '                    <div class="inner-content form-field">'
-            . '                        <div class="check-group">'
-            . '                            <label for="maschio">'
-            . '                                <input type="checkbox" id="maschio" name="sesso[]" value="Maschio" ' . $checked_maschio . '>Maschio'
-            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
-            . '                            </label>'
-            . '                            <label for="femmina">'
-            . '                                <input type="checkbox" id="femmina" name="sesso[]" value="Femmina" ' . $checked_femmina . '>Femmina'
-            . '                                <svg><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
-            . '                            </label>'
-            . '                        </div>'
-            . '                    </div>'
-            . '                </div>'
-            . '            </div>';
-    }
-    */
-
     if (in_array('Dati animale', $sections, true)) {
         $html .= '            <div class="accordion">'
             . '                <div class="accordion-header">'
@@ -164,7 +129,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        </svg>'
             . '                    </button>'
             . '                    <span class="flag-filtro" aria-live="polite">'
-            . '                        <span class="flag"></span>'
+            . '                        <span class="flag">0</span>'
             . '                        <span class="solo-sr" id="count-dati-animale"></span>'
             . '                    </span>'
             . '                    <div class="legend-right"></div>'
@@ -173,12 +138,12 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="inner-content">'
             . '                        <div class="form-field">'
             . '                            <label for="nome">Nome</label>'
-            . '                            <input type="text" id="nome" name="nome" value="' . $nome . '" placeholder="Es. Fido">'
+            . '                            <input type="text" id="nome" name="nome" value="' . $nome . '" placeholder="Es. Fido" data-changed="' . ($nome == "" ? 'false' : 'true') . '">'
             . '                        </div>'
             . '                        <div class="form-field">'
             . '                            <label for="peso">Peso</label>'
             . '                            <div class="select-custom">'
-            . '                                <select name="peso" id="peso">'
+            . '                                <select name="peso" id="peso" data-changed="' . ($peso == "" ? 'false' : 'true') . '">'
             . '                                    <option value="" ' . ($peso == "" ? 'selected' : '') . '>Qualsiasi</option>'
             . '                                    <option value="-5" ' . ($peso == "-5" ? 'selected' : '') . '>Molto piccolo (Meno di 5 kg)</option>'
             . '                                    <option value="5-10" ' . ($peso == "5-10" ? 'selected' : '') . '>Piccolo (Da 5 a 10 kg)</option>'
@@ -194,7 +159,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        <div class="form-field">'
             . '                            <label for="eta">Età</label>'
             . '                            <div class="select-custom">'
-            . '                                    <select name="eta" id="eta">'
+            . '                                    <select name="eta" id="eta" data-changed="' . ($eta == "" ? 'false' : 'true') . '">'
             . '                                    <option value="" ' . ($eta == "" ? 'selected' : '') . '>Qualsiasi</option>'
             . '                                    <option value="-4" ' . ($eta == "-4" ? 'selected' : '') . '>Cucciolo (Meno di 4 mesi)</option>'
             . '                                    <option value="4-1" ' . ($eta == "4-1" ? 'selected' : '') . '>Piccolo (Da 5 mesi ad 1 anno)</option>'
@@ -223,7 +188,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        </svg>'
             . '                    </button>'
             . '                    <span class="flag-filtro" aria-live="polite">'
-            . '                        <span class="flag"></span>'
+            . '                        <span class="flag">0</span>'
             . '                        <span class="solo-sr" id="count-dati-persona"></span>'
             . '                    </span>'
             . '                    <div class="legend-right"></div>'
@@ -232,19 +197,19 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="inner-content">'
             . '                        <div class="form-field">'
             . '                            <label for="nome_persona">Nome</label>'
-            . '                            <input type="text" id="nome_persona" name="nome_persona" value="' . $nome_persona . '" placeholder="Es. Mario">'
+            . '                            <input type="text" id="nome_persona" name="nome_persona" value="' . $nome_persona . '" placeholder="Es. Mario" data-changed="' . ($nome_persona == "" ? 'false' : 'true') . '">'
             . '                        </div>'
             . '                        <div class="form-field">'
             . '                            <label for="cognome_persona">Cognome</label>'
-            . '                            <input type="text" id="cognome_persona" name="cognome_persona" value="' . $cognome_persona . '" placeholder="Es. Rossi">'
+            . '                            <input type="text" id="cognome_persona" name="cognome_persona" value="' . $cognome_persona . '" placeholder="Es. Rossi" data-changed="' . ($cognome_persona == "" ? 'false' : 'true') . '">'
             . '                        </div>'
             . '                        <div class="form-field">'
             . '                            <label for="email">Email</label>'
-            . '                            <input type="email" id="email" name="email" value="' . $email . '" placeholder="Es. mariorossi@esempio.com">'
+            . '                            <input type="email" id="email" name="email" value="' . $email . '" placeholder="Es. mariorossi@esempio.com" data-changed="' . ($email == "" ? 'false' : 'true') . '">'
             . '                        </div>'
             . '                        <div class="form-field">'
             . '                            <label for="telefono">Telefono</label>'
-            . '                            <input type="tel" id="telefono" name="telefono" value="' . $telefono . '" placeholder="Es. 1234567890">'
+            . '                            <input type="tel" id="telefono" name="telefono" value="' . $telefono . '" placeholder="Es. 1234567890" data-changed="' . ($telefono == "" ? 'false' : 'true') . '">'
             . '                        </div>'
             . '                    </div>'
             . '                </div>'
@@ -281,7 +246,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        </svg>'
             . '                    </button>'
             . '                    <span class="flag-filtro" aria-live="polite">'
-            . '                        <span class="flag"></span>'
+            . '                        <span class="flag">0</span>'
             . '                        <span class="solo-sr" id="count-razze-cane"></span>'
             . '                    </span>'
             . '                    <div class="legend-right"></div>'
@@ -304,7 +269,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                        </svg>'
             . '                    </button>'
             . '                    <span class="flag-filtro" aria-live="polite">'
-            . '                        <span class="flag"></span>'
+            . '                        <span class="flag">0</span>'
             . '                        <span class="solo-sr" id="count-razze-gatto"></span>'
             . '                    </span>'
             . '                    <div class="legend-right"></div>'

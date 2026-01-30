@@ -185,7 +185,6 @@ function getAnimaliEsterniTck() {
             }
         }
     }
-
     return $animali;
 }
 

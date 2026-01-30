@@ -8,6 +8,14 @@
     display: none;
 }
 
+.info-step {
+    font-size: 1.1rem;
+}
+
+#section-step-porta-adozione {
+    margin: 4em auto;
+}
+
 #section-step-porta-adozione ul {
     display: flex;
     flex-wrap: wrap;
@@ -38,4 +46,8 @@
 
 #ricerca {
     height: 2em;
+}
+
+.description {
+    display: none;
 }

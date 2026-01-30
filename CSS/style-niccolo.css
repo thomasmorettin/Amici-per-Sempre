@@ -208,6 +208,7 @@ textarea {
     display: flex;
     flex: 1;
     border-radius: inherit;
+    min-width: 0;
 }
 
 .select-custom {
@@ -251,7 +252,7 @@ form select::after {
 .radio-group {
     flex-direction: row;
     display: flex;
-    gap: 2em;
+    gap: 1.4rem;
     border: 0;
 }
 
@@ -451,6 +452,11 @@ form {
     border: 0;
 }
 
+.check-group,
+.radio-group {
+    flex-wrap: wrap;
+}
+
 .radio-group legend,
 .check-group legend {
     margin-bottom: 0.23em;
@@ -560,6 +566,7 @@ form {
 
 #section-step-porta-adozione {
     margin: 6em auto;
+    position: relative;
 }
 
 #section-step-porta-adozione ul {
