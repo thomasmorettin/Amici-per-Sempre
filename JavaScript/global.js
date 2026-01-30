@@ -181,7 +181,7 @@ function toast() {
       toast.classList.add(type === "error" ? "error" : "success");
       toast.focus();
 
-      setTimeout(() => { toast.classList.add("hidden"); }, 5000);
+      setTimeout(() => { toast.classList.add("hidden"); }, 10000);
     }
   }
 }

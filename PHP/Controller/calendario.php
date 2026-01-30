@@ -199,7 +199,7 @@ if (is_logged_in()) {
         "{{mese-succ}}" => $nextMese . " " . $nextAnno,
         "{{btns-sett}}" => $htmlBtns,
         "{{calendario-appuntamenti}}" => $htmlContent,
-        "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("modifica-appuntamento")) . (getDialogCanAppuntamento("elimina-appuntamento", "gestione-ticket"))
+        "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("modifica-appuntamento", $_SERVER["REQUEST_URI"])) . (getDialogCanAppuntamento("elimina-appuntamento", "gestione-ticket"))
     ];
 
     echo buildPage("calendario.html", $dati);

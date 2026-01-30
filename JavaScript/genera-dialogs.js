@@ -18,7 +18,7 @@ export function checkInput() {
       data.classList.add("error");
       data.setAttribute("aria-invalid", "true");
       errors.push("Entrambi i campi sono obbligatori.");
-    } else { errors.pop(); }
+    }
 
     // Controllo di data (passata/domenica)
     if (data.value !== "") {
@@ -28,13 +28,13 @@ export function checkInput() {
         data.classList.add("error");
         data.setAttribute("aria-invalid", "true");
         errors.push("La data non può essere passata.");
-      } else { errors.pop(); }
+      }
 
       if (dataIn.getDay() === 0) {
         data.classList.add("error");
         data.setAttribute("aria-invalid", "true");
         errors.push("La data non può essere una domenica.");
-      } else { errors.pop(); }
+      }
     }
 
     validaForm();
@@ -47,7 +47,7 @@ export function checkInput() {
       ora.classList.add("error");
       ora.setAttribute("aria-invalid", "true");
       errors.push("Entrambi i campi sono obbligatori.");
-    } else { errors.pop(); }
+    }
 
     // Controllo dell'ora
     if (ora.value !== "") {
@@ -55,7 +55,7 @@ export function checkInput() {
         ora.classList.add("error");
         ora.setAttribute("aria-invalid", "true");
         errors.push("L'orario consentito è: 08:30 - 19:30.");
-      } else { errors.pop(); }
+      }
     }
 
     validaForm();
@@ -66,12 +66,13 @@ export function checkInput() {
     if (errors.length > 0) {
       error.textContent = errors[0];
       cont.classList.remove("hidden");
+      errors.length = 0;
       return false;     // Form non valido
     } else {
       data.setAttribute("aria-invalid", "false");
       ora.setAttribute("aria-invalid", "false");
-      cont.classList.add("hidden");
       error.textContent = "";
+      cont.classList.add("hidden");
       return true;    // Form valido
     }
   }
@@ -158,6 +159,7 @@ export function updateDialogAppuntamento(body) {
     btn.addEventListener("click", (e) => {
       dialogApp.querySelector(".nome-cliente").innerHTML = `${btn.dataset.nome}`;
       document.getElementById("hidden-id").value = `${btn.dataset.id}`;
+      document.getElementById("hidden-old-data").value = `${btn.dataset.data}`;
       document.getElementById("data-appuntamento").value = `${btn.dataset.data}`;
       document.getElementById("ora-appuntamento").value = `${btn.dataset.ora}`;
 

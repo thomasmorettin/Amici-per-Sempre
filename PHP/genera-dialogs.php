@@ -7,10 +7,11 @@ function getDialogInfo() {
     return $dialog;
 }
 
-function getDialogAppuntamento($funzione) {
+function getDialogAppuntamento($funzione, $URI) {
     $dialog = file_get_contents(__DIR__ . "/../HTML/dialog-appuntamento.html");
 
     $dialog = str_replace("{{funzione}}", $funzione, $dialog);
+    $dialog = str_replace("{{URI}}", $URI, $dialog);
     return $dialog;
 }
 
@@ -22,10 +23,11 @@ function getDialogCanAppuntamento($funzione, $whereLink) {
     return $dialog;
 }
 
-function getDialogCanRichiesta($funzione) {
+function getDialogCanRichiesta($funzione, $URI) {
     $dialog = file_get_contents(__DIR__ . "/../HTML/dialog-cancella-richiesta.html");
 
     $dialog = str_replace("{{funzione}}", $funzione, $dialog);
+    $dialog = str_replace("{{URI}}", $URI, $dialog);
     return $dialog;
 }
 ?>

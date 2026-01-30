@@ -15,6 +15,8 @@
 
     <form action="{{root}}/PHP/Controller/{{funzione}}" method="POST">
         <input type="hidden" id="hidden-id-del" name="id">
+        <input type="hidden" name="redirect-to" value="{{URI}}">
+
         <button type="submit" id="btn-cancella-app">Elimina richiesta</button>
     </form>
 </dialog>

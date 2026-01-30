@@ -157,7 +157,7 @@ $dati = [
     "{{lista-animali}}" => $html,
     "{{pannello-filtri}}" => $pannello_filtri_html,
     "{{pannello-controllo-filtri}}" => $pannello_controllo_filtri_html,
-    "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("aggiungi-appuntamento")) . (getDialogCanRichiesta("elimina-richiesta"))
+    "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("aggiungi-appuntamento", $_SERVER["REQUEST_URI"])) . (getDialogCanRichiesta("elimina-richiesta", $_SERVER["REQUEST_URI"]))
 ];
 
 echo buildPage("richieste-inserimento-rifugio.html", $dati);

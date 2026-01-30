@@ -190,7 +190,7 @@ if (is_logged_in()) {
         "{{lista-animali}}" => $html,
         "{{pannello-controllo-filtri}}" => $pannelloControllo,
         "{{pannello-filtri}}" => $pannelloFiltri,
-        "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("aggiungi-appuntamento")) . (getDialogCanRichiesta("elimina-richiesta"))
+        "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("aggiungi-appuntamento", $_SERVER["REQUEST_URI"])) . (getDialogCanRichiesta("elimina-richiesta", $_SERVER["REQUEST_URI"]))
     ];
 
     echo buildPage("gestione-ticket.html", $dati);
