@@ -512,6 +512,8 @@ function controlloWrapBottone() {
     const btnFiltri = document.getElementById('filtra-btn');
     const formRicerca = document.getElementById('form-ricerca');
 
+    if(!formRicerca) return;
+    
     const formRicercaTop = formRicerca.getBoundingClientRect().top;
     const buttonTop = btnFiltri.getBoundingClientRect().top;
 
