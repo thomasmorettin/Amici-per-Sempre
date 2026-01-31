@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         else if (updateAppuntamento($id, $data, $ora)) {
-            $_SESSION['success'] = "Appuntamento aggiornato con successo al seguente <a href=" . PROJECT_ROOT . "/amministrazione/calendario?mese=$mese&anno=$anno#g$giorno>link</a>.";
+            $_SESSION['success'] = "Appuntamento aggiornato con successo a <a href='" . PROJECT_ROOT . "/amministrazione/calendario?mese=$mese&anno=$anno#g$giorno'>$giorno/$mese/$anno</a>.";
             header("Location: " . PROJECT_ROOT . "/amministrazione/calendario?mese=$oldMese&anno=$oldAnno#g$oldGiorno");
             exit();
         } 

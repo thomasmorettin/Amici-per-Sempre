@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   dialogsSettings();
   hashGiorno();
   checkInput();
+  windowReload();
 })
 
 // Funzione per la gestione del meccanismo toggle dei bottoni delle settimane
@@ -76,4 +77,11 @@ function hashGiorno() {
       }
     }
   }
+}
+
+// Funzione per il refresh della pagina al cambiamento dell'ancora per il giorno
+function windowReload() {
+  window.addEventListener("hasChange", function() {
+    location.reload();    // Refresh forzato della pagina
+  })
 }

@@ -6,23 +6,27 @@ document.addEventListener("DOMContentLoaded", () => {
   backgroundSetting();
   themeSetting();
   toast();
+  menuResponsive();
+  backToTop();
   loadPage();   // Eseguita per ultima nel caso ci dovessero essere problemi in funzioni
 })
 
 function menuResponsive() {
   const hamburger = document.getElementById("hamburger");
 
-  document.getElementById("contenitore-header").classList.toggle("open");
-  hamburger.classList.toggle("active");
-  document.querySelector("header").classList.toggle("scrolled");
+  hamburger.addEventListener("click", function() {
+    document.getElementById("contenitore-header").classList.toggle("open");
+    hamburger.classList.toggle("active");
+    document.querySelector("header").classList.toggle("scrolled");
 
-  if (hamburger.getAttribute("aria-expanded") === "true") {
-    hamburger.setAttribute("aria-expanded", "false");
-    hamburger.setAttribute("aria-label", "apri menù di navigazione");
-  } else {
-    hamburger.setAttribute("aria-expanded", "true");
-    hamburger.setAttribute("aria-label", "chiudi menù di navigazione");
-  }
+    if (hamburger.getAttribute("aria-expanded") === "true") {
+      hamburger.setAttribute("aria-expanded", "false");
+      hamburger.setAttribute("aria-label", "apri menù di navigazione");
+    } else {
+      hamburger.setAttribute("aria-expanded", "true");
+      hamburger.setAttribute("aria-label", "chiudi menù di navigazione");
+    }
+  })
 }
 
 /*
@@ -61,7 +65,11 @@ function pageScroll() {
 
 // Funzione per tornare in cima
 function backToTop() {
-  window.scrollTo({top: 0, behavior: "smooth"});
+  const btn = document.getElementById("btn-back-to-top");
+
+  btn.addEventListener("click", function() {
+    window.scrollTo({top: 0, behavior: "smooth"});
+  })
 }
 
 // Funzione per il cambio dell'anno di copyright all'anno corrente
