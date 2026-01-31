@@ -324,7 +324,7 @@ function renderPannelloControlloFiltri($ricerca_html = false): string
 
     if ($ricerca_html) {
         $html .= '          <form id="form-ricerca" method="GET">'
-        . '                    <input type="text" id="ricerca" name="ricerca" placeholder="Ricerca" value="' . $ricerca . '">'
+        . '                    <input type="text" id="ricerca" name="ricerca" placeholder="Ricerca" aria-label="Ricerca" value="' . $ricerca . '">'
         . '                    <button id="avvia-ricerca" title="Avvia ricerca" type="submit">'
         . '                       <svg aria-hidden="true">'
         . '                         <use href="{{root}}/Resources/icons.svg#search"></use>'
