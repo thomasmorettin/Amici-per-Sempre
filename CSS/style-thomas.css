@@ -1,6 +1,6 @@
 [data-theme="light"] {
-    --txtcolor: #2A2725;
-    --borderform: #2A2725;
+    --txtcolor: #23201F;
+    --borderform: #23201F;
     --inverttxtcolor: #FFF8E7;
     --bgcolor: #FFF8E7;
     --bgbread: #F2ECDB;
@@ -13,7 +13,7 @@
     --txtbtncolor: #445D17;
     --bgbtnhover: #445D17;
     --txtimportant: #445D17;
-    --linkcolor: #2E799B;
+    --linkcolor: #2B7292;
     --bgwarning: #EAD6D4;
     --borderwarning: #963428;
     --bgwarninghover: #963428;
@@ -29,8 +29,8 @@
 }
 
 [data-theme="dark"] {
-    --txtcolor: #EAE5DF;
-    --borderform: #EAE5DF;
+    --txtcolor: #EFEBE6;
+    --borderform: #EFEBE6;
     --inverttxtcolor: #1C1A19;
     --bgcolor: #1C1A19;
     --bgbread: #221F1E;
@@ -43,7 +43,7 @@
     --txtbtncolor: #8FA668;
     --bgbtnhover: #8FA668;
     --txtimportant: #8FA668;
-    --linkcolor: #498AA8;
+    --linkcolor: #508FAB;
     --bgwarning: #3D1C19;
     --borderwarning: #D48780;
     --bgwarninghover: #D48780;
