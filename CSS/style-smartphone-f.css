@@ -134,11 +134,21 @@
 }
 
 .errore .messaggio-errore p {
-        font-size: 1.1em;
+    font-size: 1.1em;
 }
 
 .errore .opzionale {
-        display:none;
+    display: none;
+}
+
+.azioni-errore ul {
+    flex-direction: column; 
+    align-items: center; 
+    gap: 0.3em; 
+}
+
+.errore .btn-link {
+    margin: 0.5em 0; 
 }
 
 .errore .messaggio-errore a {

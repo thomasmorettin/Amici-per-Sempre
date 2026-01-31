@@ -296,7 +296,6 @@
     font-size: 1.05em;
     line-height: 1.8em;
     color: var(--txtcolor);
-    text-align: justify;
 }
 
 /* === CARATTERISTICHE === */
@@ -395,7 +394,7 @@
 .form-intro {
     background: var(--bgbread);
     padding: 2em;
-    border-radius: 1em;
+    border-radius: var(--generalradius);
     margin-bottom: 2em;
     border-left: 0.4em solid var(--borderdecoration);
 }
@@ -562,12 +561,20 @@
     font-weight: 600;
 }
 
+.azioni-errore ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
 .errore .btn-link {
     gap: 0.3em;  
     margin: 1.25em 0.8em 0 0.5em;
     min-width: 10em;
 }
-/* PAGINA ERRORE 404 */
 
 /* Heading nascosto visivamente ma accessibile */
 .hidden-header {
