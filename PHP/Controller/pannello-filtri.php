@@ -225,19 +225,29 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         $razze_gatto_html = "";
 
         foreach ($razze["Cane"] as $razza_cane) {
-            $razza_cane_id = strtolower(str_replace(' ', '-', $razza_cane));
+            $nome_razza = $razza_cane['Nome'];
+            $razza_cane_id = strtolower(str_replace(' ', '-', $nome_razza));
+    
+            $lang_attr = ($razza_cane['Lingua'] !== 'it') ? ' lang="' . $razza_cane['Lingua'] . '"' : '';
+    
             $razze_cane_html .= '          <label for="' . $razza_cane_id . '">'
-            . '                                <input type="checkbox" id="' . $razza_cane_id .'" name="razza_cane[]" value="' . $razza_cane .'" ' . (in_array($razza_cane, $razze_cane) ? "checked" : "") . '>' . $razza_cane
-            . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
-            . '                            </label>';
+                . '                                <input type="checkbox" id="' . $razza_cane_id .'" name="razza_cane[]" value="' . $nome_razza .'" ' . (in_array($nome_razza, $razze_cane) ? "checked" : "") . '>'
+                . '                                <span' . $lang_attr . '>' . $nome_razza . '</span>'
+                . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+                . '                        </label>';
         }
 
         foreach ($razze["Gatto"] as $razza_gatto) {
-            $razza_gatto_id = strtolower(str_replace(' ', '-', $razza_gatto));
+            $nome_razza = $razza_gatto['Nome'];
+            $razza_gatto_id = strtolower(str_replace(' ', '-', $nome_razza));
+    
+            $lang_attr = ($razza_gatto['Lingua'] !== 'it') ? ' lang="' . $razza_gatto['Lingua'] . '"' : '';
+    
             $razze_gatto_html .= '         <label for="' . $razza_gatto_id . '">'
-            . '                                <input type="checkbox" id="' . $razza_gatto_id .'" name="razza_gatto[]" value="' . $razza_gatto .'" ' . (in_array($razza_gatto, $razze_gatto) ? "checked" : "") . '>' . $razza_gatto
-            . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
-            . '                            </label>';
+                . '                                <input type="checkbox" id="' . $razza_gatto_id .'" name="razza_gatto[]" value="' . $nome_razza .'" ' . (in_array($nome_razza, $razze_gatto) ? "checked" : "") . '>'
+                . '                                <span' . $lang_attr . '>' . $nome_razza . '</span>'
+                . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+                . '                        </label>';
         }
 
         $html .= '             <div class="accordion">'
