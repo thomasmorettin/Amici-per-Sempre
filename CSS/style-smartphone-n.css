@@ -49,9 +49,42 @@
 }
 
 .description {
-    display: none;
+    font-size: 1.2rem;
+    opacity: 0.8; 
 }
 
 #list-topbar {
     position: revert;
+}
+
+.info-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-number {
+    margin-right: 0.2rem;
+}
+
+.info-step {
+    font-size: 1.2rem;
+}
+
+#section-step-porta-adozione ul {
+    align-items: center;
+    gap: 3rem;
+}
+
+#section-step-porta-adozione ul li {
+    max-width: revert;
+}
+
+#section-step-porta-adozione figcaption {
+    margin-top: 0rem;
+    align-items: center;
+}
+
+.titolo {
+    font-size: 2.4rem;
 }

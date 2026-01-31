@@ -102,17 +102,19 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                    <div class="legend-right"></div>'
             . '                </div>'
             . '                <div class="content">'
-            . '                    <div class="inner-content form-field">'
-            . '                        <fieldset class="check-group" aria-labelledby="legenda-tipo-animale">'
-            . '                            <label for="cane">'
-            . '                                <input type="checkbox" id="cane" name="tipo[]" value="Cane" ' . $checked_cane . '>Cane'
-            . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
-            . '                            </label>'
-            . '                            <label for="gatto">'
-            . '                                <input type="checkbox" id="gatto" name="tipo[]" value="Gatto" ' . $checked_gatto . '>Gatto'
-            . '                                <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
-            . '                            </label>'
-            . '                        </fieldset>'
+            . '                    <div class="inner-content">'
+            . '                        <div class="form-field">'
+            . '                            <fieldset class="check-group" aria-labelledby="legenda-tipo-animale">'
+            . '                                <label for="cane">'
+            . '                                    <input type="checkbox" id="cane" name="tipo[]" value="Cane" ' . $checked_cane . '>Cane'
+            . '                                    <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                                </label>'
+            . '                                <label for="gatto">'
+            . '                                    <input type="checkbox" id="gatto" name="tipo[]" value="Gatto" ' . $checked_gatto . '>Gatto'
+            . '                                    <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                                </label>'
+            . '                            </fieldset>'
+            . '                        </div>'
             . '                    </div>'
             . '                </div>'
             . '            </div>';
@@ -289,7 +291,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
         . '    <span class="divider"></span>'
         . '</div>'
         . '<dialog class="filter-panel" id="popup-panel">'
-        . '    <button class="btn-close">
+        . '    <button class="btn-close" aria-label="chiudi pannello filtri">
                     <svg aria-hidden="true">
                         <use href="{{root}}/Resources/icons.svg#cancel"></use>
                     </svg>

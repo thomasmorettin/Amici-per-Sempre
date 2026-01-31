@@ -26,7 +26,7 @@ dialog .form-field:has(select:required) > label::before,
     border-radius: var(--generalradius);
     box-shadow: var(--normalshadow);
     background-color: var(--bgcolor);
-    border: 2px solid var(--borderform);
+    border: 1px solid var(--borderform);
     max-width: 50em;
     margin: 3em auto;
 }
@@ -83,14 +83,14 @@ dialog .form-field:has(select:required) > label::before,
 
 .line-legenda {
     background-color: var(--txtcolor);
-    height: 2px;
+    height: 1px;
     flex: 1;
     border-radius: var(--generalradius);
 }
 
 .line {
     background-color: var(--txtcolor);
-    height: 2px;
+    height: 1px;
     flex: 1;
     border-radius: var(--generalradius);
     margin-bottom: 1.5em;
@@ -131,7 +131,7 @@ dialog .form-field:has(select:required) > label::before,
     border-radius: var(--generalradius);
     box-shadow: var(--normalshadow);
     background-color: var(--bgcolor);
-    border: 2px solid var(--borderform);
+    border: 1px solid var(--borderform);
     max-width: 25em;
     margin: 3em auto;
 }
@@ -141,7 +141,7 @@ dialog .form-field:has(select:required) > label::before,
     border-radius: var(--generalradius);
     box-shadow: var(--normalshadow);
     background-color: var(--bgcolor);
-    border: 2px solid var(--borderform);
+    border: 1px solid var(--borderform);
     max-width: 25em;
     margin: 3em auto;
 }
@@ -232,8 +232,8 @@ textarea {
     border: 2px solid var(--borderbtn);
     fill: var(--txtbtncolor);
     justify-content: center;
-    border-radius: inherit;
-    padding: 0.2em;
+    border-radius: var(--generalradius);
+    padding: 0.3em;
     right: 0.15rem;
     transform: rotate(180deg);
     transition: 0.3s ease;
@@ -284,7 +284,7 @@ form select::after {
 }
 
 .accordion-header button {
-    height: 1.8em;
+    height: 1.7em;
 }
 
 #form-porta-adozione input.error,
@@ -348,7 +348,9 @@ form select::after {
 .divider {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
-    border: 1px solid var(--txtcolor);
+    width: 2px;
+    background-color: var(--txtcolor);
+    border-radius: var(--generalradius);
 }
 
 #form-ricerca {
@@ -511,7 +513,10 @@ form {
 }
 
 .inner-content {
-    padding: 1em 0.5em 0em 0.5em;
+    padding: 1em 0.5em 0.4em 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .header {
@@ -547,20 +552,21 @@ form {
     align-items: center;
 }
 
-.inner-content .form-field {
-    margin-bottom: 1em;
-}
-
 .filter-content form {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    gap: 1.1em;
 }
 
 .info-step {
     text-align: center;
     font-size: 1.3em;
     line-height: 1.3em;
+}
+
+.strong-step {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
 }
 
 #step-1 {
@@ -607,7 +613,6 @@ form {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    width: 80%;
     text-align: center;
     justify-content: center;
     list-style: none;
@@ -616,6 +621,8 @@ form {
 
 #section-step-porta-adozione ul li {
     flex: 1;
+    max-width: 17.5rem;
+    min-width: 17.5rem;
 }
 
 #section-step-porta-adozione figure {
@@ -963,7 +970,7 @@ form {
         color: var(--inverttxtcolor);
     }
 
-    #clear-ricerca:hover {
+    #list-topbar #clear-ricerca:hover {
         background-color: var(--bgwarninghover);
         fill: var(--inverttxtcolor);
         color: var(--inverttxtcolor);

@@ -1140,6 +1140,7 @@ dialog {
     background-color: var(--bgcolor);
     border-radius: var(--generalradius);
     opacity: 0;
+    max-width: 30rem;
 }
 
 dialog .field-error {
