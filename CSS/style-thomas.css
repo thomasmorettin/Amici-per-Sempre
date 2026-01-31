@@ -1366,6 +1366,15 @@ dialog .info-required {
     flex: 1;
 }
 
+.no-richieste{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--txtcolor);
+    margin: 1.5em 0 1.5em 0;
+    padding: 1em;
+}
+
 @media (hover: hover) {
     .btn-link:hover,
     .btn-link:visited:hover,
