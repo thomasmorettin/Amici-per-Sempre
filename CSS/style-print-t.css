@@ -1,0 +1,224 @@
+:root {
+    --txtcolor: #23201F;
+    --bgcolor: #FFFFFF;
+    --txtimportant: #445D17;
+    --borderbtn: #445D17;
+    --txtdecoration: #70402B;
+    --strongdecoration: #70402B;
+    --txtwarning: #963428;
+    --linkcolor: #2B7292;
+}
+
+@page {
+    margin: 1.5cm;
+    size: A4;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;       /* Più leggibile su carta */
+    font-size: 12pt;
+    line-height: 1.5;
+    width: 100%;
+}
+
+body,
+main,
+section {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Rimuove sfondi e ombre da tutto per risparmiare inchiostro */
+* {
+    box-shadow: none;
+    text-shadow: none;
+}
+
+#contenitore-header {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+#link-logo {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+header {
+    margin: 0 auto;
+    padding: 0;
+}
+
+header h1 {
+    content: url("../Resources/Vectors/Logo-Dark.svg");
+    margin: 0 auto;
+    font-size: 50pt;
+    justify-self: center;
+}
+
+#toast-not,
+#btn-back-to-top,
+#hamburger,
+.header-btns,
+#navbar {
+    display: none;
+}
+
+/* Nasconde i pulsanti "Call to Action" (Adotta, Porta in adozione, ecc) */
+.btn-link,
+a[class*="btn-"],
+button {
+    display: none;
+}
+
+/* Nasconde la mappa interattiva (iframe) e le icone puramente decorative */
+#google-maps,
+.exp-freccia, /* Frecce delle FAQ */
+.new-window { /* Icona nuova finestra */
+    display: none;
+}
+
+footer nav,
+#tit-link-utili,
+#link-utili {
+    display: none;
+}
+
+main, section, footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+/* Titoli */
+h1, h2, h3 {
+    break-after: avoid;
+}
+
+/* Gestione Immagini */
+img {
+    break-inside: avoid;        /* Non tagliare le immagini a metà pagina */
+}
+
+section li {
+    break-inside: avoid;
+}
+
+details {
+    display: block;
+}
+
+details > div {
+    display: block !important;
+}
+
+summary {
+    font-weight: bold;
+    font-size: 14pt;
+    list-style: none;       /* Nasconde il triangolino di default */
+    border-bottom: 1pt solid var(--borderbtn);
+}
+
+blockquote {
+    font-style: italic;
+}
+
+#slogan {
+    font-size: 22pt;
+    margin-top: 10pt;
+}
+
+#section-esperti ul {
+    gap: 15pt;
+}
+
+#esperto-1,
+#esperto-2,
+#esperto-3 {
+    border-radius: 0.5rem;
+}
+
+#section-title,
+#section-chi-siamo {
+    margin-top: 1pt;
+    margin-bottom: 1pt;
+}
+
+#section-chi-siamo {
+    box-shadow: none;
+    border: none;
+    border-radius: 0pt;
+    padding: 5pt 0;
+}
+
+#img-volontari {
+    display: none;
+}
+
+#down-quote,
+#up-quote {
+    fill: var(--txtcolor);
+}
+
+#section-esperti,
+#section-dati,
+#section-faqs,
+#section-contatti {
+    break-before: always;
+    margin: 0 auto;
+}
+
+#section-contatti div {
+    text-align: center;
+}
+
+footer {
+    margin-top: 20pt;
+    border-top: 1pt solid var(--txtcolor);
+    box-shadow: none;
+}
+
+/* Footer: Dati legali e orari */
+footer #dati-footer {
+    display: block;
+}
+
+#dati-rifugio {
+    margin: 0;
+    margin-bottom: 20pt;
+}
+
+.titolo-footer {
+    text-align: left;
+}
+
+#tbl-orari dd {
+    margin-left: 0;
+}
+
+/* Stampa l'URL completo dopo il link, ma non per link interni o "#" */
+a[href^="http"]::after {
+    content: " [" attr(href) "]";
+    font-size: 10pt;
+    font-style: italic;
+    word-wrap: break-word;
+}
+
+#socials li a {
+    display: inline-flex;
+    width: auto;
+    color: var(--linkcolor);
+    text-decoration: underline;
+}
+
+#socials li a:visited {
+    color: var(--txtcolor);
+}
+
+#socials a svg {
+    width: 20pt;
+    height: 20pt;
+}

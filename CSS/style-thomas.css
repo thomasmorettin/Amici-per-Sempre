@@ -160,7 +160,6 @@ a {
     text-decoration: underline;
     text-underline-offset: 0.15rem;
     border-radius: var(--generalradius);
-    text-align: center;
 }
 
 a:visited {

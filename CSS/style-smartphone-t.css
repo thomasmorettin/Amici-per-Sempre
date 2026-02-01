@@ -116,10 +116,6 @@
     width: 100%;
 }
 
-#descrizione-foto blockquote::before {
-    left: -0.5em;
-}
-
 #img-volontari {
     display: none;
 }
