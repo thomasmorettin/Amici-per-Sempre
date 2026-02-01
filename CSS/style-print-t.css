@@ -219,6 +219,7 @@ a[href^="http"]::after {
 }
 
 #socials a svg {
+    fill: var(--txtcolor);
     width: 20pt;
     height: 20pt;
 }
