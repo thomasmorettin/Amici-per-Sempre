@@ -107,12 +107,18 @@ section li {
     break-inside: avoid;
 }
 
-details {
+.faq-answer {
+    break-inside: avoid;
     display: block;
 }
 
-details > div {
-    display: block !important;
+.faq-answer > div {
+    display: block;
+    grid-template-rows: none;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    overflow: visible;
 }
 
 summary {
