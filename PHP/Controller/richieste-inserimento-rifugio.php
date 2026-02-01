@@ -146,7 +146,7 @@ if (!empty($risDB)) {
     }
 }
 
-else { $html = "<p class='center bold'>Nessun animale presente nel Rifugio.</p>"; }
+else { $html = "<p class='no-richieste'>Nessun animale presente nel Rifugio.</p>"; }
 
 $dati = [
     "{{current-page}}" => "Richieste Inserimento Rifugio",

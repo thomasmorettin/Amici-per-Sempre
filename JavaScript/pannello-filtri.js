@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const pannello = document.getElementById("side-panel");
     pannello.inert = true;
 
+    // Ripristina lo stato del pannello se era aperto
+    if (window.innerWidth > pannelloPopupWidth && recuperaStatoPannello()) {
+        pannello.classList.add("open");
+        pannello.inert = false;
+    }
+
     // Per evitare che quando si inserisca parametri da telefono azioni l'evento resize
     let isKeyboardResize = false;
 
@@ -340,8 +346,10 @@ function toggleFilter() {
 
         if(pannello.classList.contains("open")) {
             pannello.inert = false;
+            salvaStatoPannello(true);
         } else {
             pannello.inert = true;
+            salvaStatoPannello(false);
         }
     }
 }
@@ -538,3 +546,12 @@ function controlloWrapBottone() {
         btnFiltri.classList.remove('wrapped');
     }
 }
+
+function salvaStatoPannello(isOpen) {
+    localStorage.setItem('filtriPannelloAperto', isOpen ? 'true' : 'false');
+}
+
+function recuperaStatoPannello() {
+    return localStorage.getItem('filtriPannelloAperto') === 'true';
+}
+

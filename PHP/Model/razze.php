@@ -18,10 +18,15 @@ function getRazze() {
 
         if ($result) {
             foreach ($result as $row) {
+                $razza_data = [
+                    'Nome' => htmlspecialchars($row["Nome"], ENT_QUOTES, 'UTF-8'),
+                    'Lingua' => htmlspecialchars($row["Lingua"], ENT_QUOTES, 'UTF-8')
+                ];
+                
                 if ($row["Tipo"] === "Cane") {
-                    array_push($razze_cane, htmlspecialchars($row["Nome"], ENT_QUOTES, 'UTF-8'));
+                    array_push($razze_cane, $razza_data);
                 } else if ($row["Tipo"] === "Gatto") {
-                    array_push($razze_gatto, htmlspecialchars($row["Nome"], ENT_QUOTES, 'UTF-8'));
+                    array_push($razze_gatto, $razza_data);
                 }
             }
         }
