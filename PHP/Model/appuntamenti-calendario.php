@@ -22,10 +22,11 @@ function getAppuntamenti($mese, $anno) {
             ORDER BY C.Data, C.Ora";
 
     // QUERY CON PLACEHOLDER: appuntamenti da calendario (richieste per portare in adozione)
-    $sqlRequests = "SELECT C.ID, DAY(Data) AS Giorno, Ora, E.Note AS Info, A.Razza AS RazzaAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario
+    $sqlRequests = "SELECT C.ID, DAY(Data) AS Giorno, Ora, E.Note AS Info, A.Razza AS RazzaAnimale, P.Cognome AS CognomeProprietario, P.Nome AS NomeProprietario, R.Tipo AS TipoAnimale, R.Lingua AS LinguaRazza
             FROM Calendario C
             JOIN EntitaDatabile E ON C.ID = E.ID
             JOIN AnimaleEsterno A ON C.ID = A.ID
+            JOIN Razza R ON A.Razza = R.Nome
             JOIN Persona P ON A.Proprietario = P.ID
             WHERE MONTH(Data) = ? AND YEAR(Data) = ?
             ORDER BY C.Data, C.Ora";
@@ -64,6 +65,8 @@ function getAppuntamenti($mese, $anno) {
                     "Ora" => sprintf("%02d:%02d", (int)substr($row["Ora"], 0, 2), (int)substr($row["Ora"], 3, 2)),
                     "Info" => htmlspecialchars($row["Info"], ENT_QUOTES, "UTF-8"),
                     "Razza" => htmlspecialchars($row["RazzaAnimale"], ENT_QUOTES, "UTF-8"),
+                    "TipoRazza" => htmlspecialchars($row["TipoAnimale"], ENT_QUOTES, "UTF-8"),
+                    "LinguaRazza" => htmlspecialchars($row["LinguaRazza"], ENT_QUOTES, "UTF-8"),
                     "CognomeProprietario" => htmlspecialchars($row["CognomeProprietario"], ENT_QUOTES, "UTF-8"),
                     "NomeProprietario" => htmlspecialchars($row["NomeProprietario"], ENT_QUOTES, "UTF-8"),
                     "Giorno" => $row["Giorno"]

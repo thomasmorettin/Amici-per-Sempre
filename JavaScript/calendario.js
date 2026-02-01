@@ -6,7 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
   hashGiorno();
   checkInput();
   windowReload();
+  loadCalendario();
 })
+
+function loadCalendario() {
+  const notes = document.querySelectorAll(".note-hidden");
+  notes.forEach(note => {
+    note.classList.add("hidden");
+  })
+}
 
 // Funzione per la gestione del meccanismo toggle dei bottoni delle settimane
 function toggleWeeks() {
@@ -81,7 +89,5 @@ function hashGiorno() {
 
 // Funzione per il refresh della pagina al cambiamento dell'ancora per il giorno
 function windowReload() {
-  window.addEventListener("hasChange", function() {
-    location.reload();    // Refresh forzato della pagina
-  })
+  window.onhashchange = () => location.reload();    // Refresh forzato della pagina
 }

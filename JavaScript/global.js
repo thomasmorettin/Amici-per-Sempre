@@ -85,15 +85,15 @@ function cleanDetails() {
   const details = document.querySelectorAll("details");
 
   details.forEach(detail => {
-      const summary = detail.querySelector("summary");
+    const summary = detail.querySelector("summary");
 
-      summary.addEventListener("mouseenter", () => {
-          detail.classList.add("summary-hovered");
-      })
+    summary.addEventListener("mouseenter", () => {
+        detail.classList.add("summary-hovered");
+    })
 
-      summary.addEventListener("mouseleave", () => {
-          detail.classList.remove("summary-hovered");
-      })
+    summary.addEventListener("mouseleave", () => {
+        detail.classList.remove("summary-hovered");
+    })
   })
 }
 

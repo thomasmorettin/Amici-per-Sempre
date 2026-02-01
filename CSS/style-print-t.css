@@ -19,6 +19,20 @@ body {
     font-size: 12pt;
     line-height: 1.5;
     width: 100%;
+    min-height: 0;
+    display: block;
+}
+
+#list-topbar {
+    display: none;
+}
+
+#side-panel {
+    display: none;
+}
+
+dialog {
+    display: none;
 }
 
 body,
@@ -44,6 +58,7 @@ section {
     display: block;
     margin: 0 auto;
     width: fit-content;
+    box-shadow: none;
 }
 
 header {
@@ -51,11 +66,19 @@ header {
     padding: 0;
 }
 
+header.scrolled {
+    box-shadow: none;
+}
+
 header h1 {
     content: url("../Resources/Vectors/Logo-Dark.svg");
     margin: 0 auto;
     font-size: 50pt;
     justify-self: center;
+}
+
+#breadcrumb {
+    margin: 0 auto;
 }
 
 #toast-not,
@@ -107,6 +130,25 @@ section li {
     break-inside: avoid;
 }
 
+.dtl-animale {
+    box-shadow: none;
+    break-inside: avoid;
+    display: block;
+}
+
+.dtl-animale > div {
+    display: block;
+    grid-template-rows: none;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    overflow: visible;
+}
+
+details {
+    box-shadow: none;
+}
+
 .faq-answer {
     break-inside: avoid;
     display: block;
@@ -141,10 +183,10 @@ blockquote {
     gap: 15pt;
 }
 
-#esperto-1,
-#esperto-2,
-#esperto-3 {
+#section-esperti ul li figure img {
     border-radius: 0.5rem;
+    box-shadow: none;
+    border: none;
 }
 
 #section-title,
@@ -177,19 +219,29 @@ blockquote {
     margin: 0 auto;
 }
 
+#section-dati ul li {
+    box-shadow: none;
+}
+
 #section-contatti div {
     text-align: center;
 }
 
 footer {
-    margin-top: 20pt;
+    margin-top: 10pt;
+    padding-top: 10pt;
     border-top: 1pt solid var(--txtcolor);
+    break-inside: avoid;
     box-shadow: none;
 }
 
 /* Footer: Dati legali e orari */
 footer #dati-footer {
     display: block;
+}
+
+#contenitore-footer {
+    padding: 0;
 }
 
 #dati-rifugio {
@@ -228,4 +280,78 @@ a[href^="http"]::after {
     fill: var(--txtcolor);
     width: 20pt;
     height: 20pt;
+}
+
+#benvenuto {
+    display: block;
+    text-align: center;
+    margin: 50pt auto;
+}
+
+#dog-house {
+    display: none;
+}
+
+#section-links {
+    display: none;
+}
+
+#lst-vertical-panel {
+    margin: 0;
+}
+
+#lst-animali {
+    width: 100%;
+    margin: 0;
+}
+
+.status-richieste {
+    margin: 0;
+}
+
+.status-richieste::before {
+    display: none;
+}
+
+.titolo-richieste::before {
+    display: none;
+}
+
+.titolo {
+    margin: 10pt auto;
+}
+
+#btns-flottanti {
+    border: none;
+    padding: 0;
+    position: static;
+}
+
+#lbl-mese-corr {
+    font-size: 18pt;
+}
+
+.linea {
+    display: none;
+}
+
+.note-hidden.hidden {
+    display: block;
+}
+
+.info {
+    box-shadow: none;
+}
+
+.lista-settimana > li {
+    break-inside: avoid;
+}
+
+.cnt-adozione,
+.cnt-presa-adozione {
+    break-inside: avoid;
+}
+
+.lista-settimana.hidden {
+    display: block;
 }

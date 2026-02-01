@@ -4,7 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
   animaleDetails();
   dialogsSettings();
   checkInput();
+  loadTickets();
 })
+
+function loadTickets() {
+  const notes = document.querySelectorAll(".note-hidden");
+  notes.forEach(note => {
+    note.classList.add("hidden");
+  })
+}
 
 // Funzione per apertura/chiusura del tag details per ciascun animale del rifugio
 function animaleDetails() {

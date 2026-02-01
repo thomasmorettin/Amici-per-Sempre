@@ -17,12 +17,15 @@ function changeWelcome() {
 // Funzione per mostrare la data odierna formattata in modo accogliente
 function currentDate() {
     const data = new Date();
+    const nomiSett = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+    const nomiMesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", 
+                    "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
+    const sett = nomiSett[data.getDay()];
     const giorno = data.getDate();
-    const nomiSett = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"];
-    const sett = nomiSett[data.getDay() - 1];
+    const mese = nomiMesi[data.getMonth()];
     const anno = data.getFullYear();
 
-    document.getElementById("ben-date").textContent = `${sett}` + " " + `${giorno}` + ", " + `${anno}`;
+    document.getElementById("ben-date").textContent = `${sett}` + " " + `${giorno}` + " " + `${mese}` + ", " + `${anno}`;
 }
 
 // Funzione per mostrare il pallino di notifica per uno o più appuntamenti odierni

@@ -122,6 +122,7 @@ if (is_logged_in()) {
                                     <div class='info'>
                                         <p>Appuntamento adozione \"{$evento['NomeAnimale']}\"</p>
                                         <p><abbr title='Signore o signora'>Sig./ra</abbr>&nbsp;{$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
+                                        <p class='note-hidden'><span class='bold'>Note:</span>&nbsp;{$evento['Info']}</p>
                                     </div>
                                 </div>
 
@@ -140,8 +141,9 @@ if (is_logged_in()) {
                                     <p class='orario'><span class='hidden'>ore </span>{$evento['Ora']}</p>
 
                                     <div class='info'>
-                                        <p>Appuntamento per valutare adozione per razza \"{$evento['Razza']}\"</p>
+                                        <p>Appuntamento per valutare ingresso in rifugio per razza \"<span lang='{$evento['LinguaRazza']}'>{$evento['Razza']}</span>\" ({$evento['TipoRazza']})</p>
                                         <p><abbr title='Signore o signora'>Sig./ra</abbr>&nbsp;{$evento['NomeProprietario']} {$evento['CognomeProprietario']}</p>
+                                        <p class='note-hidden'><span class='bold'>Note:</span>&nbsp;{$evento['Info']}</p>
                                     </div>
                                 </div>
 
@@ -194,9 +196,9 @@ if (is_logged_in()) {
         "{{current-js}}" => "calendario.js",
         "{{mese-anno}}" => "$nomiMesi[$mese] $anno",
         "{{link-prev}}" => $linkPrev,
-        "{{mese-prec}}" => $prevMese . " " . $prevAnno,
+        "{{mese-prec}}" => $nomiMesi[$prevMese] . " " . $prevAnno,
         "{{link-next}}" => $linkNext,
-        "{{mese-succ}}" => $nextMese . " " . $nextAnno,
+        "{{mese-succ}}" => $nomiMesi[$nextMese] . " " . $nextAnno,
         "{{btns-sett}}" => $htmlBtns,
         "{{calendario-appuntamenti}}" => $htmlContent,
         "{{dialogs}}" => (getDialogInfo()) . (getDialogAppuntamento("modifica-appuntamento", $_SERVER["REQUEST_URI"])) . (getDialogCanAppuntamento("elimina-appuntamento", "gestione-ticket"))

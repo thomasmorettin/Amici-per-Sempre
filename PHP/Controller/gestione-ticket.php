@@ -64,6 +64,10 @@ if (is_logged_in()) {
                                     <dd><a href='mailto:{$ticket["emailRich"]}'>{$ticket["emailRich"]}</a></dd>
                                     <dt><abbr title='Telefono'>Tel</abbr>:</dt>
                                     <dd><a href='tel:{$ticket["telRich"]}'>{$ticket["telRich"]}</a></dd>
+                                    <span class='note-hidden'>
+                                        <dt>Note:</dt>
+                                        <dd>{$ticket["info"]}</dd>
+                                    </span>
                                 </dl>
                             </dd>
                         </dl>
@@ -110,6 +114,10 @@ if (is_logged_in()) {
                                     <dd><a href='mailto:{$ticket["emailRich"]}'>{$ticket["emailRich"]}</a></dd>
                                     <dt><abbr title='Telefono'>Tel</abbr>:</dt>
                                     <dd><a href='tel:{$ticket["telRich"]}'>{$ticket["telRich"]}</a></dd>
+                                    <span class='note-hidden'>
+                                        <dt>Note:</dt>
+                                        <dd>{$ticket["info"]}</dd>
+                                    </span>
                                 </dl>
                             </dd>
                         </dl>
