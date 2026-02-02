@@ -108,7 +108,7 @@ function getAllAnimali($filtri = []) {
             $params[] = 0.33;
         } elseif ($eta === '4-1') {
         // Piccolo (Da 4 mesi a meno di 1 anno)
-            $condizioni[] = "ar.Eta >= ? AND ar.Eta < ?";  // Cambiato <= in 
+            $condizioni[] = "ar.Eta >= ? AND ar.Eta < ?";  
             $params[] = 0.33;
             $params[] = 1.0;
         } elseif ($eta === '10+') {
@@ -118,7 +118,7 @@ function getAllAnimali($filtri = []) {
         } elseif (strpos($eta, '-') !== false) {
         // Range normale (es: "1-4", "4-10")
             list($min, $max) = explode('-', $eta);
-            $condizioni[] = "ar.Eta >= ? AND ar.Eta < ?";  // Cambiato <= in 
+            $condizioni[] = "ar.Eta >= ? AND ar.Eta < ?";  
             $params[] = (float)$min;
             $params[] = (float)$max;
         }
