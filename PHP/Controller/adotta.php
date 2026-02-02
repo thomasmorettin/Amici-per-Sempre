@@ -94,7 +94,7 @@ $pannello_filtri_html = Controller\renderPannelloFiltri(
 $dati = [
     '{{current-page}}' => 'Adotta',
     '{{page-description}}' => "Cani e gatti in adozione al rifugio Amici per Sempre di Padova. Filtra per razza, peso ed età per trovare l'animale perfetto per te.",
-    '{{page-keywords}}' => 'amici per sempre,
+    '{{page-keywords}}' => 'Amici per Sempre,
                             cani in adozione Padova, 
                             gatti in adozione Padova, 
                             adozione cane, adozione gatto, 
