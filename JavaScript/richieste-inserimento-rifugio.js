@@ -5,11 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   dialogsSettings();
   checkInput();
   loadRichieste();
-  loadTickets();
 })
 
 // Funzione per il caricamento degli elementi gestiti tramite JS
-function loadTickets() {
+function loadRichieste() {
   const notes = document.querySelectorAll(".note-hidden");
   const btnsApp = document.querySelectorAll(".btn-gruppo-v");
 
@@ -18,15 +17,6 @@ function loadTickets() {
   })
 
   btnsApp.forEach(btn => {
-    btn.classList.remove("hidden");
-  })
-}
-
-// Funzione per il caricamento degli elementi che hanno comportamento gestito da JS
-function loadRichieste() {
-  const btns = document.querySelectorAll(".btn-gruppo-v");
-
-  btns.forEach(btn => {
     btn.classList.remove("hidden");
   })
 }
