@@ -1,512 +1,603 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.28)  2 FEB 2026 20:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.10)  3 FEB 2026 00:22
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/xampp/htdocs/tec-web/Relazione/relazione.tex
-(c:/xampp/htdocs/tec-web/Relazione/relazione.tex
-LaTeX2e <2025-11-01>
-L3 programming layer <2025-11-14>
-(c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+**./relazione.tex
+(relazione.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count275
-\c@section=\count276
-\c@subsection=\count277
-\c@subsubsection=\count278
-\c@paragraph=\count279
-\c@subparagraph=\count280
-\c@figure=\count281
-\c@table=\count282
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen148
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2025/11/23 v25.16 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
-\babel@savecnt=\count283
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2050.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2052.
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2054.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2055.
-LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2056.
-LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2058.
-LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2083.
-\U@D=\dimen149
-\l@unhyphenated=\language3
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def)
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count195
+\U@D=\dimen141
+\l@unhyphenated=\language79
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count284
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex)
-Package babel Info: Importing font and identification data for italian
-(babel)             from babel-it.ini. Reported on input line 4298.
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-italian/italian.ldf
+\bbl@dirlevel=\count196
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/babel-italian\italian.l
+df
 Language: italian 2024/10/10 v.1.5.01 Italian support for the babel system
+\it@lettering=\count197
+\it@doublequoteactive=\count198
+\it@ISOcompliance=\count199
+))
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/it\babel
+-italian.tex
+Package babel Info: Importing font and identification data for italian
+(babel)             from babel-it.ini. Reported on input line 11.
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count266
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-
-Package babel Warning: No hyphenation patterns were preloaded for
-(babel)                the language 'Italian' into the format.
-(babel)                Please, configure your TeX system to add them and
-(babel)                rebuild the format. Now I will use the patterns
-(babel)                preloaded for \language=0 instead on input line 21.
-
-Package babel Info: Hyphen rules for 'italian' set to \l@english
-(babel)             (\language0). Reported on input line 22.
-\it@lettering=\count285
-\it@doublequoteactive=\count286
-\it@ISOcompliance=\count287
-)) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count288
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen150
-\Gin@req@width=\dimen151
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip51
+Package graphics Info: Driver file: pdftex.def on input line 107.
 
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen142
+\Gin@req@width=\dimen143
+) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip50
 For additional information on amsmath, use the `?' option.
-(c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks20
-\ex@=\dimen152
-)) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+\ex@=\dimen144
+))
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen153
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+\pmbraise@=\dimen145
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count289
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count290
-\leftroot@=\count291
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count292
-\DOTSCASE@=\count293
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen154
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count294
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count295
-\dotsspace@=\muskip17
-\c@parentequation=\count296
-\dspbrk@lvl=\count297
+\inf@bad=\count267
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count268
+\leftroot@=\count269
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count270
+\DOTSCASE@=\count271
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen146
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count272
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count273
+\dotsspace@=\muskip16
+\c@parentequation=\count274
+\dspbrk@lvl=\count275
 \tag@help=\toks21
-\row@=\count298
-\column@=\count299
-\maxfields@=\count300
+\row@=\count276
+\column@=\count277
+\maxfields@=\count278
 \andhelp@=\toks22
-\eqnshift@=\dimen155
-\alignsep@=\dimen156
-\tagshift@=\dimen157
-\tagwidth@=\dimen158
-\totwidth@=\dimen159
-\lineht@=\dimen160
+\eqnshift@=\dimen147
+\alignsep@=\dimen148
+\tagshift@=\dimen149
+\tagwidth@=\dimen150
+\totwidth@=\dimen151
+\lineht@=\dimen152
 \@envbody=\toks23
-\multlinegap=\skip52
-\multlinetaggap=\skip53
+\multlinegap=\skip51
+\multlinetaggap=\skip52
 \mathdisplay@stack=\toks24
-LaTeX Info: Redefining \[ on input line 2950.
-LaTeX Info: Redefining \] on input line 2951.
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count301
-\lst@gtempboxa=\box55
+)) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.st
+y
+\lst@mode=\count279
+\lst@gtempboxa=\box53
 \lst@token=\toks25
-\lst@length=\count302
-\lst@currlwidth=\dimen161
-\lst@column=\count303
-\lst@pos=\count304
-\lst@lostspace=\dimen162
-\lst@width=\dimen163
-\lst@newlines=\count305
-\lst@lineno=\count306
-\lst@maxwidth=\dimen164
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstpatch.sty
-File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count307
-\lst@skipnumbers=\count308
-\lst@framebox=\box56
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2025/11/14 1.11b listings configuration
-))
-Package: listings 2025/11/14 1.11b (Carsten Heinz)
+\lst@length=\count280
+\lst@currlwidth=\dimen153
+\lst@column=\count281
+\lst@pos=\count282
+\lst@lostspace=\dimen154
+\lst@width=\dimen155
+\lst@newlines=\count283
+\lst@lineno=\count284
+\lst@maxwidth=\dimen156
 
-==> First Aid for listings.sty no longer applied!
-    Expected:
-        2024/09/23 1.10c (Carsten Heinz)
-    but found:
-        2025/11/14 1.11b (Carsten Heinz)
-    so I'm assuming it got fixed.
-(c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count285
+\lst@skipnumbers=\count286
+\lst@framebox=\box54
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
-Package xcolor Info: Model `RGB' extended on input line 1365.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
-Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+))
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count309
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+\c@section@level=\count287
 )
-\@linkdim=\dimen165
-\Hy@linkcounter=\count310
-\Hy@pagecounter=\count311
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+\@linkdim=\dimen157
+\Hy@linkcounter=\count288
+\Hy@pagecounter=\count289
+ (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count312
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count290
+ (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count313
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip18
+Package hyperref Info: Bookmarks ON on input line 4448.
+\c@Hy@tempcnt=\count291
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen166
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+LaTeX Info: Redefining \url on input line 4786.
+\XeTeXLinkMargin=\dimen158
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
 ))
-\Fld@menulength=\count314
-\Field@Width=\dimen167
-\Fld@charsize=\dimen168
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count315
-\c@Item=\count316
-\c@Hfootnote=\count317
+\Fld@menulength=\count292
+\Field@Width=\dimen159
+\Fld@charsize=\dimen160
+Package hyperref Info: Hyper figures OFF on input line 6065.
+Package hyperref Info: Link nesting OFF on input line 6070.
+Package hyperref Info: Hyper index ON on input line 6073.
+Package hyperref Info: backreferencing OFF on input line 6080.
+Package hyperref Info: Link coloring OFF on input line 6085.
+Package hyperref Info: Link coloring with OCG OFF on input line 6090.
+Package hyperref Info: PDF/A mode OFF on input line 6095.
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count293
+\c@Item=\count294
+\c@Hfootnote=\count295
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count318
-\c@bookmark@seq@number=\count319
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count296
+\c@bookmark@seq@number=\count297
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
 )
-\Hy@SectionHShift=\skip54
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+\Hy@SectionHShift=\skip53
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count320
-\Gm@cntv=\count321
-\c@Gm@tempcnt=\count322
-\Gm@bindingoffset=\dimen169
-\Gm@wd@mp=\dimen170
-\Gm@odd@mp=\dimen171
-\Gm@even@mp=\dimen172
-\Gm@layoutwidth=\dimen173
-\Gm@layoutheight=\dimen174
-\Gm@layouthoffset=\dimen175
-\Gm@layoutvoffset=\dimen176
+\Gm@cnth=\count298
+\Gm@cntv=\count299
+\c@Gm@tempcnt=\count300
+\Gm@bindingoffset=\dimen161
+\Gm@wd@mp=\dimen162
+\Gm@odd@mp=\dimen163
+\Gm@even@mp=\dimen164
+\Gm@layoutwidth=\dimen165
+\Gm@layoutheight=\dimen166
+\Gm@layouthoffset=\dimen167
+\Gm@layoutvoffset=\dimen168
 \Gm@dimlist=\toks26
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdframed/mdframed.sty
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-11-14 L3 programming layer (loader) 
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count323
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpars
+e.sty
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2024-01-04 L3 programming layer (loader) 
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count301
+\l__pdf_internal_box=\box55
 ))
-Package: xparse 2025-10-09 L3 Experimental document command parser
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/zref/zref-abspage.sty
+Package: xparse 2023-10-10 L3 Experimental document command parser
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-abspage.sty
 Package: zref-abspage 2025-06-08 v2.36 Module abspage for zref (HO)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/zref/zref-base.sty
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-base.sty
 Package: zref-base 2025-06-08 v2.36 Module base for zref (HO)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
-Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 Package zref Info: New property list: main on input line 767.
 Package zref Info: New property: default on input line 768.
 Package zref Info: New property: page on input line 769.
 )
-\c@abspage=\count324
+\c@abspage=\count302
 Package zref Info: New property: abspage on input line 67.
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/needspace/needspace.sty
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/needspace\needspace.sty
 Package: needspace 2025/03/13 v1.3e reserve vertical space
 )
-\mdf@templength=\skip55
-\c@mdf@globalstyle@cnt=\count325
-\mdf@skipabove@length=\skip56
-\mdf@skipbelow@length=\skip57
-\mdf@leftmargin@length=\skip58
-\mdf@rightmargin@length=\skip59
-\mdf@innerleftmargin@length=\skip60
-\mdf@innerrightmargin@length=\skip61
-\mdf@innertopmargin@length=\skip62
-\mdf@innerbottommargin@length=\skip63
-\mdf@splittopskip@length=\skip64
-\mdf@splitbottomskip@length=\skip65
-\mdf@outermargin@length=\skip66
-\mdf@innermargin@length=\skip67
-\mdf@linewidth@length=\skip68
-\mdf@innerlinewidth@length=\skip69
-\mdf@middlelinewidth@length=\skip70
-\mdf@outerlinewidth@length=\skip71
-\mdf@roundcorner@length=\skip72
-\mdf@footenotedistance@length=\skip73
-\mdf@userdefinedwidth@length=\skip74
-\mdf@needspace@length=\skip75
-\mdf@frametitleaboveskip@length=\skip76
-\mdf@frametitlebelowskip@length=\skip77
-\mdf@frametitlerulewidth@length=\skip78
-\mdf@frametitleleftmargin@length=\skip79
-\mdf@frametitlerightmargin@length=\skip80
-\mdf@shadowsize@length=\skip81
-\mdf@extratopheight@length=\skip82
-\mdf@subtitleabovelinewidth@length=\skip83
-\mdf@subtitlebelowlinewidth@length=\skip84
-\mdf@subtitleaboveskip@length=\skip85
-\mdf@subtitlebelowskip@length=\skip86
-\mdf@subtitleinneraboveskip@length=\skip87
-\mdf@subtitleinnerbelowskip@length=\skip88
-\mdf@subsubtitleabovelinewidth@length=\skip89
-\mdf@subsubtitlebelowlinewidth@length=\skip90
-\mdf@subsubtitleaboveskip@length=\skip91
-\mdf@subsubtitlebelowskip@length=\skip92
-\mdf@subsubtitleinneraboveskip@length=\skip93
-\mdf@subsubtitleinnerbelowskip@length=\skip94
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
+\mdf@templength=\skip54
+\c@mdf@globalstyle@cnt=\count303
+\mdf@skipabove@length=\skip55
+\mdf@skipbelow@length=\skip56
+\mdf@leftmargin@length=\skip57
+\mdf@rightmargin@length=\skip58
+\mdf@innerleftmargin@length=\skip59
+\mdf@innerrightmargin@length=\skip60
+\mdf@innertopmargin@length=\skip61
+\mdf@innerbottommargin@length=\skip62
+\mdf@splittopskip@length=\skip63
+\mdf@splitbottomskip@length=\skip64
+\mdf@outermargin@length=\skip65
+\mdf@innermargin@length=\skip66
+\mdf@linewidth@length=\skip67
+\mdf@innerlinewidth@length=\skip68
+\mdf@middlelinewidth@length=\skip69
+\mdf@outerlinewidth@length=\skip70
+\mdf@roundcorner@length=\skip71
+\mdf@footenotedistance@length=\skip72
+\mdf@userdefinedwidth@length=\skip73
+\mdf@needspace@length=\skip74
+\mdf@frametitleaboveskip@length=\skip75
+\mdf@frametitlebelowskip@length=\skip76
+\mdf@frametitlerulewidth@length=\skip77
+\mdf@frametitleleftmargin@length=\skip78
+\mdf@frametitlerightmargin@length=\skip79
+\mdf@shadowsize@length=\skip80
+\mdf@extratopheight@length=\skip81
+\mdf@subtitleabovelinewidth@length=\skip82
+\mdf@subtitlebelowlinewidth@length=\skip83
+\mdf@subtitleaboveskip@length=\skip84
+\mdf@subtitlebelowskip@length=\skip85
+\mdf@subtitleinneraboveskip@length=\skip86
+\mdf@subtitleinnerbelowskip@length=\skip87
+\mdf@subsubtitleabovelinewidth@length=\skip88
+\mdf@subsubtitlebelowlinewidth@length=\skip89
+\mdf@subsubtitleaboveskip@length=\skip90
+\mdf@subsubtitlebelowskip@length=\skip91
+\mdf@subsubtitleinneraboveskip@length=\skip92
+\mdf@subsubtitleinnerbelowskip@length=\skip93
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 )
-\mdf@frametitlebox=\box57
-\mdf@footnotebox=\box58
-\mdf@splitbox@one=\box59
-\mdf@splitbox@two=\box60
-\mdf@splitbox@save=\box61
-\mdfsplitboxwidth=\skip95
-\mdfsplitboxtotalwidth=\skip96
-\mdfsplitboxheight=\skip97
-\mdfsplitboxdepth=\skip98
-\mdfsplitboxtotalheight=\skip99
-\mdfframetitleboxwidth=\skip100
-\mdfframetitleboxtotalwidth=\skip101
-\mdfframetitleboxheight=\skip102
-\mdfframetitleboxdepth=\skip103
-\mdfframetitleboxtotalheight=\skip104
-\mdffootnoteboxwidth=\skip105
-\mdffootnoteboxtotalwidth=\skip106
-\mdffootnoteboxheight=\skip107
-\mdffootnoteboxdepth=\skip108
-\mdffootnoteboxtotalheight=\skip109
-\mdftotallinewidth=\skip110
-\mdfboundingboxwidth=\skip111
-\mdfboundingboxtotalwidth=\skip112
-\mdfboundingboxheight=\skip113
-\mdfboundingboxdepth=\skip114
-\mdfboundingboxtotalheight=\skip115
-\mdf@freevspace@length=\skip116
-\mdf@horizontalwidthofbox@length=\skip117
-\mdf@verticalmarginwhole@length=\skip118
-\mdf@horizontalspaceofbox=\skip119
-\mdfsubtitleheight=\skip120
-\mdfsubsubtitleheight=\skip121
-\c@mdfcountframes=\count326
+\mdf@frametitlebox=\box56
+\mdf@footnotebox=\box57
+\mdf@splitbox@one=\box58
+\mdf@splitbox@two=\box59
+\mdf@splitbox@save=\box60
+\mdfsplitboxwidth=\skip94
+\mdfsplitboxtotalwidth=\skip95
+\mdfsplitboxheight=\skip96
+\mdfsplitboxdepth=\skip97
+\mdfsplitboxtotalheight=\skip98
+\mdfframetitleboxwidth=\skip99
+\mdfframetitleboxtotalwidth=\skip100
+\mdfframetitleboxheight=\skip101
+\mdfframetitleboxdepth=\skip102
+\mdfframetitleboxtotalheight=\skip103
+\mdffootnoteboxwidth=\skip104
+\mdffootnoteboxtotalwidth=\skip105
+\mdffootnoteboxheight=\skip106
+\mdffootnoteboxdepth=\skip107
+\mdffootnoteboxtotalheight=\skip108
+\mdftotallinewidth=\skip109
+\mdfboundingboxwidth=\skip110
+\mdfboundingboxtotalwidth=\skip111
+\mdfboundingboxheight=\skip112
+\mdfboundingboxdepth=\skip113
+\mdfboundingboxtotalheight=\skip114
+\mdf@freevspace@length=\skip115
+\mdf@horizontalwidthofbox@length=\skip116
+\mdf@verticalmarginwhole@length=\skip117
+\mdf@horizontalspaceofbox=\skip118
+\mdfsubtitleheight=\skip119
+\mdfsubsubtitleheight=\skip120
+\c@mdfcountframes=\count304
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count327
-\c@mdf@env@i=\count328
-\c@mdf@env@ii=\count329
-\c@mdf@zref@counter=\count330
+\mdf@envdepth=\count305
+\c@mdf@env@i=\count306
+\c@mdf@env@ii=\count307
+\c@mdf@zref@counter=\count308
 Package zref Info: New property: mdf@pagevalue on input line 895.
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen177
-\lightrulewidth=\dimen178
-\cmidrulewidth=\dimen179
-\belowrulesep=\dimen180
-\belowbottomsep=\dimen181
-\aboverulesep=\dimen182
-\abovetopsep=\dimen183
-\cmidrulesep=\dimen184
-\cmidrulekern=\dimen185
-\defaultaddspace=\dimen186
-\@cmidla=\count331
-\@cmidlb=\count332
-\@aboverulesep=\dimen187
-\@belowrulesep=\dimen188
-\@thisruleclass=\count333
-\@lastruleclass=\count334
-\@thisrulewidth=\dimen189
-) (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
+\heavyrulewidth=\dimen169
+\lightrulewidth=\dimen170
+\cmidrulewidth=\dimen171
+\belowrulesep=\dimen172
+\belowbottomsep=\dimen173
+\aboverulesep=\dimen174
+\abovetopsep=\dimen175
+\cmidrulesep=\dimen176
+\cmidrulekern=\dimen177
+\defaultaddspace=\dimen178
+\@cmidla=\count309
+\@cmidlb=\count310
+\@aboverulesep=\dimen179
+\@belowrulesep=\dimen180
+\@thisruleclass=\count311
+\@lastruleclass=\count312
+\@thisrulewidth=\dimen181
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen190
-\captionmargin=\dimen191
-\caption@leftmargin=\dimen192
-\caption@rightmargin=\dimen193
-\caption@width=\dimen194
-\caption@indent=\dimen195
-\caption@parindent=\dimen196
-\caption@hangindent=\dimen197
+\caption@tempdima=\dimen182
+\captionmargin=\dimen183
+\caption@leftmargin=\dimen184
+\caption@rightmargin=\dimen185
+\caption@width=\dimen186
+\caption@indent=\dimen187
+\caption@parindent=\dimen188
+\caption@hangindent=\dimen189
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count335
-\c@continuedfloat=\count336
+\c@caption@flags=\count313
+\c@continuedfloat=\count314
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 )
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count337
+\c@subfigure=\count315
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count338
-) (./relazione.aux)
+\c@subtable=\count316
+) (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen190
+\WF@size=\dimen191
+\c@WF@wrappedlines=\count317
+\WF@box=\box61
+\WF@everypar=\toks27
+Package: wrapfig 2003/01/31  v 3.6
+)
+(relazione.aux)
 \openout1 = `relazione.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Info: Redefining \it@ocap on input line 23.
-LaTeX Info: Redefining \it@ccap on input line 23.
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Info: Redefining \it@ocap on input line 24.
+LaTeX Info: Redefining \it@ccap on input line 24.
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count318
+\scratchdimen=\dimen192
+\scratchbox=\box62
+\nofMPsegments=\count319
+\nofMParguments=\count320
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count321
+\MPscratchDim=\dimen193
+\MPnumerator=\count322
+\makeMPintoPDFobject=\count323
+\everyMPtoPDFconversion=\toks29
+)
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count339
-Package hyperref Info: Link coloring OFF on input line 23.
- (./relazione.out) (./relazione.out)
+\c@lstlisting=\count324
+Package hyperref Info: Link coloring OFF on input line 24.
+ (relazione.out) (relazione.out)
 \@outlinefile=\write3
 \openout3 = `relazione.out'.
 
@@ -546,130 +637,610 @@ Package hyperref Info: Link coloring OFF on input line 23.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<Resources/logo.pdf, id=144, 43.72375pt x 30.34442pt>
+<Resources/logo.pdf, id=147, 43.72375pt x 30.34442pt>
 File: Resources/logo.pdf Graphic file (type pdf)
 <use Resources/logo.pdf>
-Package pdftex.def Info: Resources/logo.pdf  used on input line 30.
-(pdftex.def)             Requested size: 109.30908pt x 75.86082pt.
+Package pdftex.def Info: Resources/logo.pdf  used on input line 31.
+(pdftex.def)             Requested size: 131.1709pt x 91.03299pt.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
+6.
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 35.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
-(c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
- (c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
 
-{c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Resources/Logo.pdf>] (./relazione.toc)
+
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+[1
+
+{C:/Users/thoma/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Resources/
+logo.pdf>] (relazione.toc)
 \tf@toc=\write4
 \openout4 = `relazione.toc'.
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.70 	\clearpage
+l.71 	\clearpage
                  [1] [2
 
 ] [3]
-Overfull \hbox (18.27914pt too wide) in paragraph at lines 150--151
-\T1/cmr/m/n/10 Tutte le pagine del sito con-di-vi-dono una strut-tura HTML5 se-man-ti-ca uni-forme defini-ta nel file \T1/cmtt/m/n/10 template.html\T1/cmr/m/n/10 .
+Overfull \hbox (18.27914pt too wide) in paragraph at lines 151--152
+\T1/cmr/m/n/10 Tutte le pa-gi-ne del si-to con-di-vi-do-no una strut-tu-ra HTML
+5 se-man-ti-ca uni-for-me de-fi-ni-ta nel fi-le \T1/cmtt/m/n/10 template.html\T
+1/cmr/m/n/10 .
  []
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 156.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 157.
 
-Overfull \hbox (13.20319pt too wide) in paragraph at lines 156--158
-\T1/cmr/m/n/10 nav-igazione e viene gen-er-a-to di-nami-ca-mente at-traver-so la fun-zione \T1/cmtt/m/n/10 populatedNavbar() \T1/cmr/m/n/10 in \T1/cmtt/m/n/10 header.php\T1/cmr/m/n/10 .
+Overfull \hbox (2.92792pt too wide) in paragraph at lines 157--159
+\T1/cmr/m/n/10 vi-ga-zio-ne e vie-ne ge-ne-ra-to di-na-mi-ca-men-te at-tra-ver-
+so la fun-zio-ne \T1/cmtt/m/n/10 populatedNavbar() \T1/cmr/m/n/10 in \T1/cmtt/m
+/n/10 header.php\T1/cmr/m/n/10 .
  []
 
 
-Overfull \hbox (1.9613pt too wide) in paragraph at lines 161--162
-\T1/cmr/m/n/10 ray di link basan-dosi sul-la pag-i-na cor-rente ril-e-va-ta tramite \T1/cmtt/m/n/10 basename($_SERVER["PHP_SELF"])\T1/cmr/m/n/10 .
+Overfull \hbox (1.9613pt too wide) in paragraph at lines 162--163
+\T1/cmr/m/n/10 ray di link ba-san-do-si sul-la pa-gi-na cor-ren-te ri-le-va-ta 
+tra-mi-te \T1/cmtt/m/n/10 basename($_SERVER["PHP_SELF"])\T1/cmr/m/n/10 .
  []
 
 
-Overfull \hbox (30.44284pt too wide) in paragraph at lines 183--184
-\T1/cmr/m/n/10 La pi-attafor-ma è strut-tura-ta sec-on-do un mod-el-lo ger-ar-chico defini-to nel-l'ar-ray \T1/cmtt/m/n/10 $nomiPag \T1/cmr/m/n/10 del file \T1/cmtt/m/n/10 breadcrumb.php\T1/cmr/m/n/10 ,
+Overfull \hbox (30.44284pt too wide) in paragraph at lines 184--185
+\T1/cmr/m/n/10 La piat-ta-for-ma è strut-tu-ra-ta se-con-do un mo-del-lo ge-rar
+-chi-co de-fi-ni-to nel-l'ar-ray \T1/cmtt/m/n/10 $nomiPag \T1/cmr/m/n/10 del fi
+-le \T1/cmtt/m/n/10 breadcrumb.php\T1/cmr/m/n/10 ,
  []
 
 [4]
-Overfull \hbox (25.18024pt too wide) in paragraph at lines 189--190
-\T1/cmr/m/n/10 am-min-is-tra-ti-va si di-ra-ma in tre sezioni: Cal-en-dario (\T1/cmtt/m/n/10 calendario.php\T1/cmr/m/n/10 ), Ges-tione tick-et (\T1/cmtt/m/n/10 gestione-ticket.php\T1/cmr/m/n/10 )
+Overfull \hbox (25.18024pt too wide) in paragraph at lines 190--191
+\T1/cmr/m/n/10 am-mi-ni-stra-ti-va si di-ra-ma in tre se-zio-ni: Ca-len-da-rio 
+(\T1/cmtt/m/n/10 calendario.php\T1/cmr/m/n/10 ), Ge-stio-ne tic-ket (\T1/cmtt/m
+/n/10 gestione-ticket.php\T1/cmr/m/n/10 )
+ []
+
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 195.
+
+Overfull \hbox (3.53206pt too wide) in paragraph at lines 211--212
+[]\T1/cmr/bx/n/10 SoC (Se-pa-ra-tion of Con-cerns)\T1/cmr/m/n/10 , in quan-to s
+i è man-te-nu-ta la se-pa-ra-zio-ne tra la strut-tu-ra (HTML5),
  []
 
 [5] [6]
-Overfull \hbox (24.4906pt too wide) in paragraph at lines 249--252
-\T1/cmr/m/n/10 Come de-scrit-to prece-den-te-mente cias-cun el-e-men-to del-la pag-i-na viene gesti-to dis-tin-ta-mente. Il file \T1/cmtt/m/n/10 template.php
+<../Resources/Images/email-rifugio.png, id=237, 481.8pt x 722.7pt>
+File: ../Resources/Images/email-rifugio.png Graphic file (type png)
+<use ../Resources/Images/email-rifugio.png>
+Package pdftex.def Info: ../Resources/Images/email-rifugio.png  used on input l
+ine 265.
+(pdftex.def)             Requested size: 163.69513pt x 245.5383pt.
+
+Overfull \vbox (120.76889pt too high) detected at line 267
  []
 
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 267.
+
+Overfull \vbox (121.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (122.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (123.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (124.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (125.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (126.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (127.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (128.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (129.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (130.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (131.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (132.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (133.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (134.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (135.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (136.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (137.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (138.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (139.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (140.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (141.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (142.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (143.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (144.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (145.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (146.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (147.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (148.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (149.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (150.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (151.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (152.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (153.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (154.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (155.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (156.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (157.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (158.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (159.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (160.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (161.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (162.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (163.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (164.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (165.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (166.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (167.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (168.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (169.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (170.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (171.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (172.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (173.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (174.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (175.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (176.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (177.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (178.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (179.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (180.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (181.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (182.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (183.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (184.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (185.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (186.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (187.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (188.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (189.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (190.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (191.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (192.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (193.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (194.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (195.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (196.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (197.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (198.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (199.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (200.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (201.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (202.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (203.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (204.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (205.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (206.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (207.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (208.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (209.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (210.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (211.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (212.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (213.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (214.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (215.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (216.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (217.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (218.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (219.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (220.76889pt too high) detected at line 267
+ []
+
+
+Overfull \vbox (221.76889pt too high) detected at line 267
+ []
+
+
+Package mdframed Warning: correct box splittet fails
+ It seems you are using a non splittable contents
+(mdframed)                 on input line 267.
+
+Package mdframed Info: You first box width is to small
+ mdframed fixed it
+(mdframed)              on input line 267.
 [7]
-<../Database/er-rifugio.pdf, id=233, 615.25856pt x 536.0025pt>
+
+pdfTeX warning: pdflatex.exe (file ../Database/er-rifugio.pdf): PDF inclusion: 
+found PDF version <1.7>, but at most version <1.5> allowed
+<../Database/er-rifugio.pdf, id=243, 615.25856pt x 536.0025pt>
 File: ../Database/er-rifugio.pdf Graphic file (type pdf)
 <use ../Database/er-rifugio.pdf>
-Package pdftex.def Info: ../Database/er-rifugio.pdf  used on input line 263.
+Package pdftex.def Info: ../Database/er-rifugio.pdf  used on input line 286.
 (pdftex.def)             Requested size: 461.44278pt x 402.00089pt.
 
-Overfull \hbox (6.19867pt too wide) in paragraph at lines 263--264
+Overfull \hbox (6.19867pt too wide) in paragraph at lines 286--287
  [][] 
  []
 
-[8 <../Database/er-rifugio.pdf>]
-Overfull \hbox (23.16574pt too wide) in paragraph at lines 273--274
-\T1/cmr/m/n/10 Una copia del DUMP per la base di dati è pre-sente al per-cor-so in-ter-no di pro-get-to \T1/cmtt/m/n/10 Database/dump-rifugio.sql 
+[8 <../Resources/Images/email-rifugio.png>]
+Overfull \hbox (23.16574pt too wide) in paragraph at lines 296--297
+\T1/cmr/m/n/10 Una co-pia del DUMP per la ba-se di da-ti è pre-sen-te al per-co
+r-so in-ter-no di pro-get-to \T1/cmtt/m/n/10 Database/dump-rifugio.sql 
+ []
+
+[9 <../Database/er-rifugio.pdf>]
+Overfull \hbox (28.17175pt too wide) in paragraph at lines 300--301
+[]\T1/cmr/m/n/10 creazione, co-me già par-la-to pre-ce-den-te-men-te, del-la fu
+n-zio-ne \T1/cmtt/m/n/10 exeQuery \T1/cmr/m/n/10 la qua-le fa uso di \T1/cmtt/m
+/n/10 mysqli_prepare()
  []
 
 
-Overfull \hbox (28.17175pt too wide) in paragraph at lines 277--278
-[]\T1/cmr/m/n/10 creazione, come già par-la-to prece-den-te-mente, del-la fun-zione \T1/cmtt/m/n/10 exeQuery \T1/cmr/m/n/10 la quale fa uso di \T1/cmtt/m/n/10 mysqli_prepare()
+Overfull \hbox (9.9902pt too wide) in paragraph at lines 302--303
+[]\T1/cmr/m/n/10 protezione da at-tac-chi di ti-po \T1/cmr/bx/n/10 XSS (Cross-S
+ite Scrip-ting) \T1/cmr/m/n/10 gra-zie al-la fun-zio-ne \T1/cmtt/m/n/10 htmlspe
+cialchars()
  []
 
+[10]
 
-Overfull \hbox (18.00757pt too wide) in paragraph at lines 286--287
-[]\T1/cmr/m/n/10 separazione net-ta tra liv-el-lo di strut-tura (HTML5), pre-sen-tazione (CSS3) e com-por-ta-men-to (JavaScript);
- []
-
-[9] [10]
-<../Design/tema-chiaro.pdf, id=300, 963.6pt x 542.025pt>
+pdfTeX warning: pdflatex.exe (file ../Design/tema-chiaro.pdf): PDF inclusion: f
+ound PDF version <1.7>, but at most version <1.5> allowed
+<../Design/tema-chiaro.pdf, id=311, 963.6pt x 542.025pt>
 File: ../Design/tema-chiaro.pdf Graphic file (type pdf)
 <use ../Design/tema-chiaro.pdf>
-Package pdftex.def Info: ../Design/tema-chiaro.pdf  used on input line 324.
+Package pdftex.def Info: ../Design/tema-chiaro.pdf  used on input line 347.
 (pdftex.def)             Requested size: 289.08223pt x 162.60875pt.
-<../Design/tema-scuro.pdf, id=301, 963.6pt x 542.025pt>
+
+
+pdfTeX warning: pdflatex.exe (file ../Design/tema-scuro.pdf): PDF inclusion: fo
+und PDF version <1.7>, but at most version <1.5> allowed
+<../Design/tema-scuro.pdf, id=312, 963.6pt x 542.025pt>
 File: ../Design/tema-scuro.pdf Graphic file (type pdf)
 <use ../Design/tema-scuro.pdf>
-Package pdftex.def Info: ../Design/tema-scuro.pdf  used on input line 329.
+Package pdftex.def Info: ../Design/tema-scuro.pdf  used on input line 352.
 (pdftex.def)             Requested size: 289.08223pt x 162.60875pt.
- [11 <../Design/tema-chiaro.pdf> <../Design/tema-scuro.pdf
 
-pdfTeX warning: pdflatex.exe (file ../Design/tema-scuro.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [12] [13] [14]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 434.
- [15] [16] (./relazione.aux)
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11] [12 <../Design/tema-chiaro.pdf> <../Design/tema-scuro.pdf
+
+pdfTeX warning: pdflatex.exe (file ../Design/tema-scuro.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] [13] [14] [15] [16] [17] (relazione.aux)
  ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2025-11-14>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `relazione.out' has not changed.
-(rerunfilecheck)             Checksum: 3079F33324E0B01A6BDB4930AE9D337F;5115.
+(rerunfilecheck)             Checksum: 3F9FCC92F23B397985943E7E04AD7BFD;5309.
  ) 
 Here is how much of TeX's memory you used:
- 15609 strings out of 469519
- 252730 string characters out of 5467703
- 693153 words of memory out of 5000000
- 43971 multiletter control sequences out of 15000+600000
- 644504 words of font info for 82 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 76i,9n,79p,1101b,705s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt2488.600pk> <c:/Users/nicof/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk>
-Output written on relazione.pdf (17 pages, 260163 bytes).
+ 15934 strings out of 474486
+ 257764 string characters out of 5743754
+ 1940542 words of memory out of 5000000
+ 37913 multiletter control sequences out of 15000+600000
+ 574852 words of font info for 78 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 79i,9n,93p,1087b,691s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti
+1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ectt1200.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx1200.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\tcrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\thoma\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\thoma\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\thoma\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt2488.pk> <C:\Users\thoma\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk>
+Output written on relazione.pdf (18 pages, 394376 bytes).
 PDF statistics:
- 834 PDF objects out of 1000 (max. 8388607)
- 359 compressed objects within 4 object streams
- 85 named destinations out of 1000 (max. 500000)
- 301 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 862 PDF objects out of 1000 (max. 8388607)
+ 90 named destinations out of 1000 (max. 500000)
+ 314 words of extra memory for PDF output out of 10000 (max. 10000000)
 
