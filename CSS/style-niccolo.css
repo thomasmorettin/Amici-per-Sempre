@@ -702,7 +702,7 @@ form {
     position: relative;
     display: inline-flex;
     align-items: center;
-    justify-content: center; /* Centra orizzontalmente il contenuto */
+    justify-content: center;
     flex: 1;
     max-width: 20em;
 }
@@ -722,7 +722,7 @@ form {
     
     cursor: pointer;
     width: 100%;
-    text-align: center; /* Centra il testo all'interno del select */
+    text-align: center;
 }
 
 .info-richiesta-animale {
@@ -926,7 +926,7 @@ form {
     }
 
     .custom-select:hover {
-    background-color: var(--borderbtn); /* O il colore che preferisci per l'hover */
+    background-color: var(--borderbtn);
     color: var(--inverttxtcolor);
     }
     
