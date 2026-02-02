@@ -159,7 +159,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             . '                                    <select name="eta" id="eta" data-changed="' . ($eta == "" ? 'false' : 'true') . '">'
             . '                                    <option value="" ' . ($eta == "" ? 'selected' : '') . '>Qualsiasi</option>'
             . '                                    <option value="-4" ' . ($eta == "-4" ? 'selected' : '') . '>Cucciolo (Meno di 4 mesi)</option>'
-            . '                                    <option value="4-1" ' . ($eta == "4-1" ? 'selected' : '') . '>Piccolo (Da 5 mesi ad 1 anno)</option>'
+            . '                                    <option value="4-1" ' . ($eta == "4-1" ? 'selected' : '') . '>Piccolo (Da 4 mesi ad 1 anno)</option>'
             . '                                    <option value="1-4" ' . ($eta == "1-4" ? 'selected' : '') . '>Giovane (Da 1 a 4 anni)</option>'
             . '                                    <option value="4-10" ' . ($eta == "4-10" ? 'selected' : '') . '>Adulto (Da 4 a 10 anni)</option>'
             . '                                    <option value="10+" ' . ($eta == "10+" ? 'selected' : '') . '>Anziano (10 anni o più)</option>'
