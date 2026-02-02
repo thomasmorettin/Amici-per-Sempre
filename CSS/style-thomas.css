@@ -152,7 +152,7 @@ html, body {
 }
 
 .scroll-padding {
-    scroll-padding-top: 17.5rem;
+    scroll-padding-top: 15rem;
 }
 
 a {
@@ -1109,7 +1109,7 @@ details[open] > .contenuto-nascosto {
     padding: var(--squarepadding);
 }
 
-.lista-settimana {
+.lista-settimana > ol {
     list-style-type: none;
 }
 

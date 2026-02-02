@@ -133,7 +133,7 @@ if (is_logged_in()) {
 
                     elseif ($evento["Tipo"] === "Request") {
                         $htmlEv .=
-                        "<li class='cnt-presa-adozione' id='g{$giorno}'>
+                        "<li class='cnt-presa-adozione'>
                             <div class='linea'></div>
 
                             <div class='cnt-info-btns'>
@@ -185,8 +185,8 @@ if (is_logged_in()) {
         $ariaCurrent = $isActive ? "true" : "false";
         $activeCont = $isActive ? "" : "hidden";
 
-        $htmlBtns .= "<button class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num' role='tab' aria-controls='sett-$num' aria-selected='$ariaCurrent'><span class='abbr'>Settimana</span>$num</button>";
-        $htmlContent .= "<ol id='sett-$num' class='lista-settimana $activeCont' aria-label='appuntamenti settimana $num'>$contenuto</ol>";
+        $htmlBtns .= "<button id='btn-sett-$num' class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num' role='tab' aria-controls='sett-$num' aria-selected='$ariaCurrent'><span class='abbr'>Settimana</span>$num</button>";
+        $htmlContent .= "<div id='sett-$num' aria-label='appuntamenti settimana $num' aria-labelledby='btn-sett-$num' role='tabpanel' class='lista-settimana $activeCont'><ol>$contenuto</ol></div>";
     }
 
     $dati = [
