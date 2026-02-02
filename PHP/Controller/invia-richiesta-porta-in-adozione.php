@@ -11,7 +11,7 @@ ensure_session();
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     $_SESSION['error'] = "Si è verificato un errore durante l'invio della richiesta. Riprova più tardi.";
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/porta-in-adozione");
+    header("Location: " . PROJECT_ROOT . "/porta-in-adozione");
     exit;
 }
 
@@ -30,7 +30,7 @@ $note = isset($_POST["note"]) ? trim($_POST["note"]) : null;
 if (!$nome || !$cognome || !$email || !$telefono || !$specie || !$peso || !$razza || !$eta || !$sesso) {
     $_SESSION['error'] = "Dati mancanti per l'aggiornamento dell'appuntamento.";
     $_SESSION['form_data'] = $_POST;
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/porta-in-adozione");
+    header("Location: " . PROJECT_ROOT . "/porta-in-adozione");
     exit;
 }
 
@@ -133,7 +133,7 @@ if (!checkRazza($razza, $specie)) {
 if (!empty($errori)) {
     $_SESSION['error'] = implode("<br>", $errori);
     $_SESSION['form_data'] = $_POST;
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/porta-in-adozione");
+    header("Location: " . PROJECT_ROOT . "/porta-in-adozione");
     exit;
 }
 
@@ -153,11 +153,11 @@ $successo = createRichiestaInserimentoAnimale($persona_id, $note, $peso, $razza,
 if ($successo) {
     $_SESSION['success'] = "La richiesta di inserimento animale è stata inviata con successo. Riceverai una email di conferma e le informazioni per i prossimi passi.";
     sendEmail($email, $nome);
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/porta-in-adozione");
+    header("Location: " . PROJECT_ROOT . "/porta-in-adozione");
     exit;
 } else {
     $_SESSION['error'] = "Si è verificato un errore durante l'invio della richiesta. Riprova più tardi.";
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/porta-in-adozione");
+    header("Location: " . PROJECT_ROOT . "/porta-in-adozione");
     exit;
 }
 

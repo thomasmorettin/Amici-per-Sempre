@@ -93,8 +93,18 @@ input[type="checkbox"]:focus-visible,
 input[type="radio"]:focus-visible,
 input[type="password"]:focus-visible,
 input:focus-visible,
-textarea:focus-visible,
 details:has(summary:focus-visible) {
+    outline: var(--generaloutline);
+    outline-offset: 0.15rem;
+}
+
+.outline-elem:focus-visible {
+    outline: var(--generaloutline);
+    outline-offset: 0.15rem;
+}
+
+#appointment-form input:focus,
+#appointment-form textarea:focus {
     outline: var(--generaloutline);
     outline-offset: 0.15rem;
 }

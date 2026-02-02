@@ -18,7 +18,7 @@ $html = "";
 $oggi = date("Y-m-d");
 
 // Creazione del pannello dei filtri e quello di controllo
-$pannello_filtri_html = renderPannelloFiltri(PROJECT_ROOT . '/PHP/Controller/richieste-inserimento-rifugio.php', ['Tipo', 'Dati persona', 'Razze', 'Sesso']);
+$pannello_filtri_html = renderPannelloFiltri(PROJECT_ROOT . '/richieste-inserimento-rifugio.php', ['Tipo', 'Dati persona', 'Razze', 'Sesso']);
 $pannello_controllo_filtri_html = renderPannelloControlloFiltri(true);
 
 if (!empty($risDB)) {

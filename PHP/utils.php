@@ -118,9 +118,13 @@ function sendEmail($destinatario, $nomeUser) {
         $mail->Host       = "smtp.gmail.com";
         $mail->SMTPAuth   = true;
         $mail->Username   = "rifugio.amicipersempre@gmail.com";     // Indirizzo email del rifugio
-        $mail->Password   = "omph ykmh izuj wwlr";      // Password apposita per l'applicazione -> connessione all'indirizzo di posta
+        $mail->Password   = "ghwn vgqt wqxz apzn ";      // Password apposita per l'applicazione -> connessione all'indirizzo di posta
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Port       = 587;	// Il server dell'Università blocca il traffico uscente (anche da 465)
+
+	    // Timeout: Se non si connette in 5 secondi, da errore (invece di caricare all'infinito)
+        $mail->Timeout    = 5;
+        $mail->Timelimit  = 5;
 
         $mail->setFrom("rifugio.amicipersempre@gmail.com", "Rifugio Amici per Sempre");
         $mail->addAddress($destinatario);
@@ -134,8 +138,6 @@ function sendEmail($destinatario, $nomeUser) {
         return true;
     }
 
-    catch (Expection $e) {
-        return false;
-    }
+    catch (Exception $e) { return false; }
 }
 ?>
