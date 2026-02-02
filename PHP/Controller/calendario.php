@@ -67,6 +67,8 @@ if (is_logged_in()) {
         $noApp = false;
 
         if (date("N", $tsGiorno) != 7) {
+            $giornoPad = str_pad($giorno, 2, "0", STR_PAD_LEFT);
+
             if (isset($risDB[$giorno])) {
                 foreach ($risDB[$giorno] as $evento) {
                     $dataApp = "$anno-" . str_pad($mese, 2, "0", STR_PAD_LEFT) . "-" . str_pad($giorno, 2, "0", STR_PAD_LEFT);
@@ -74,7 +76,7 @@ if (is_logged_in()) {
 
                     if ($dataApp >= $currentData) {
                         $htmlBtns =
-                        "<div class='btn-gruppo-cal'>
+                        "<div class='btn-gruppo-cal hidden'>
                             <button class='btn-info'
                                 title='Note aggiuntive'
                                 aria-label='note aggiuntive per {$evento['NomeProprietario']} {$evento['CognomeProprietario']} delle {$evento['Ora']}'
@@ -163,10 +165,8 @@ if (is_logged_in()) {
                 $currentSett = $numSett;
             }
 
-            $giornoPad = str_pad($giorno, 2, "0", STR_PAD_LEFT);
-
-            if ($noApp) { $htmlGiorno = "<li id='g{$giorno}'><p class='giornata'>$nomeGiorno $giornoPad</p>$htmlEv</li>"; }
-            else { $htmlGiorno = "<li id='g{$giorno}'><p class='giornata'>$nomeGiorno $giornoPad</p><ol>$htmlEv</ol></li>"; }
+            if ($noApp) { $htmlGiorno = "<li id='g{$giornoPad}'><p class='giornata'>$nomeGiorno $giornoPad</p>$htmlEv</li>"; }
+            else { $htmlGiorno = "<li id='g{$giornoPad}'><p class='giornata'>$nomeGiorno $giornoPad</p><ol>$htmlEv</ol></li>"; }
 
             if (!isset($settimane[$numSett])) { $settimane[$numSett] = ""; }
             $settimane[$numSett] .= $htmlGiorno;
@@ -185,7 +185,7 @@ if (is_logged_in()) {
         $ariaCurrent = $isActive ? "true" : "false";
         $activeCont = $isActive ? "" : "hidden";
 
-        $htmlBtns .= "<button id='btn-sett-$num' class='btn-toggle $activeBtn' data-target='sett-$num' title='Settimana $num' role='tab' aria-controls='sett-$num' aria-selected='$ariaCurrent'><span class='abbr'>Settimana</span>$num</button>";
+        $htmlBtns .= "<button id='btn-sett-$num' class='btn-toggle hidden $activeBtn' data-target='sett-$num' title='Settimana $num' role='tab' aria-controls='sett-$num' aria-selected='$ariaCurrent'><span class='abbr'>Settimana</span>$num</button>";
         $htmlContent .= "<div id='sett-$num' aria-label='appuntamenti settimana $num' aria-labelledby='btn-sett-$num' role='tabpanel' class='lista-settimana $activeCont'><ol>$contenuto</ol></div>";
     }
 

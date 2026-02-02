@@ -10,9 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function loadCalendario() {
+  document.getElementById("btn-mese-prec").classList.remove("hidden");
+  document.getElementById("btn-mese-succ").classList.remove("hidden");
   const notes = document.querySelectorAll(".note-hidden");
+  const btns = document.querySelectorAll(".btn-toggle");
+  const btnsApp = document.querySelectorAll(".btn-gruppo-cal");
+
   notes.forEach(note => {
     note.classList.add("hidden");
+  })
+
+  btns.forEach(btn => {
+    btn.classList.remove("hidden");
+  })
+
+  btnsApp.forEach(btn => {
+    btn.classList.remove("hidden");
   })
 }
 
@@ -70,10 +83,12 @@ function hashGiorno() {
       if (parentWeek) {
         document.querySelectorAll(".lista-settimana").forEach(el => {
             el.classList.add("hidden");
+            btn.setAttribute("aria-selected", "false");
         });
         
         document.querySelectorAll(".btn-toggle").forEach(btn => {
             btn.classList.remove("active");
+            btn.setAttribute("aria-selected", "true");
         });
 
         parentWeek.classList.remove("hidden");

@@ -2,7 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   changeWelcome();
   currentDate();
   currentNumApp();
+  loadAmministrazione();
 })
+
+// Funzione per il caricamento degli elementi gestiti da JS
+function loadAmministrazione() {
+    document.getElementById("data-oggi").classList.remove("hidden");
+}
 
 // Funzione per cambiare il saluto all'amministratore
 function changeWelcome() {

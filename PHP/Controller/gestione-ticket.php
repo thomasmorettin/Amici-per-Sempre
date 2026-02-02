@@ -70,7 +70,7 @@ if (is_logged_in()) {
                             </dd>
                         </dl>
 
-                        <div class='btn-gruppo'>
+                        <div class='btn-gruppo hidden'>
                             <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}' aria-label='note aggiuntive per {$ticket["richiedente"]}'>
                                 <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#info'></use>
@@ -118,7 +118,7 @@ if (is_logged_in()) {
                             </dd>
                         </dl>
 
-                        <div class='btn-gruppo'>
+                        <div class='btn-gruppo hidden'>
                             <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}' aria-label='note aggiuntive per {$ticket["richiedente"]}'>
                                 <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#info'></use>

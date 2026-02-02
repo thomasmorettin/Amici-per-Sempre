@@ -4,7 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
   animaleDetails();
   dialogsSettings();
   checkInput();
+  loadRichieste();
 })
+
+// Funzione per il caricamento degli elementi che hanno comportamento gestito da JS
+function loadRichieste() {
+  const btns = document.querySelectorAll(".btn-gruppo-v");
+
+  btns.forEach(btn => {
+    btn.classList.remove("hidden");
+  })
+}
 
 // Funzione per apertura/chiusura del tag details per ciascun animale del rifugio
 function animaleDetails() {

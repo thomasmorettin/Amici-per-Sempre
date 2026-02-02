@@ -99,7 +99,7 @@ if (!empty($risDB)) {
         if(!$animale["gestito"]) {
             $html .= 
             "   
-                    <div class='btn-gruppo-v'>
+                    <div class='btn-gruppo-v hidden'>
                         <button class='btn-info' title='Note aggiuntive' data-info='{$animale["infoAnimale"]["info"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
                             <svg>
                                 <use href='{{root}}/Resources/icons.svg#info'></use>
@@ -123,7 +123,7 @@ if (!empty($risDB)) {
             $anno = explode("-", $animale["data"])[0];
             $html .=
             "   
-                    <div class='btn-gruppo-v'>
+                    <div class='btn-gruppo-v hidden'>
                         <button class='btn-info' title='Note aggiuntive' data-info='{$animale["infoAnimale"]["info"]}' data-nome='{$animale["padrone"]["nome"]}'>
                             <svg>
                                 <use href='{{root}}/Resources/icons.svg#info'></use>
