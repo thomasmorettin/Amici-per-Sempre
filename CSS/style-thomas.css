@@ -110,6 +110,7 @@ details summary svg {
     margin-left: 0.25rem;
     width: 0.75rem;
     height: 0.75rem;
+    fill: var(--txtcolor);
 }
 
 .btn-link,
