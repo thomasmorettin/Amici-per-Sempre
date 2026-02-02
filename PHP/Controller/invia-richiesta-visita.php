@@ -72,12 +72,6 @@ if (empty($telefono)) {
     }
 }
 
-/*
-// Validazione privacy
-if (!$privacy) {
-    $errori[] = "Devi accettare il trattamento dei dati personali";
-}
-    */
 
 // === SE CI SONO ERRORI, TORNA INDIETRO ===
 if (!empty($errori)) {

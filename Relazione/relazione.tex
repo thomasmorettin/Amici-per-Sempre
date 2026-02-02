@@ -69,9 +69,126 @@
 	\tableofcontents
 	\clearpage
 	
-	\section{Scopo del sito (Felix)}
-	\section{Analisi dei requisiti (Felix)}
-	\section{Progettazione (Felix)}
+	\section{Scopo del sito}
+
+	\textbf{Amici per Sempre} è una piattaforma web progettata per il rifugio di animali domestici situato a Padova. Il sito rappresenta la vetrina digitale della struttura e offre servizi completi sia per chi cerca un animale da adottare sia per chi ha necessità di affidare il proprio animale al rifugio.
+    L'obiettivo principale è duplice:
+	\begin{itemize}
+		\item \textbf{Lato utenti}: permettere la consultazione degli animali ospitati, prenotare visite conoscitive per l'adozione e richiedere l'inserimento del proprio animale nel rifugio;
+		\item \textbf{Lato rifugio}: gestire in modo efficiente le richieste di adozione, il calendario degli appuntamenti per visite e per l'accoglienza di nuovi animali.
+	\end{itemize}
+    Il portale si propone di creare un ponte bidirezionale: da un lato gli animali in cerca di famiglia incontrano i potenziali adottanti, dall'altro le persone che per vari motivi non possono più tenere il proprio animale trovano una soluzione responsabile attraverso l'affidamento al rifugio.
+	\section{Analisi dei requisiti}
+	\subsection{Analisi del target}
+    Il sito è progettato per un'utenza eterogenea che include:
+    \begin{itemize}
+	\item \textbf{Potenziali adottanti}: persone di tutte le età in cerca di un animale da compagnia;
+	\item \textbf{Proprietari in difficoltà}: cittadini che per motivi personali, economici o di salute necessitano di affidare il proprio animale a una struttura qualificata;
+	\item \textbf{Visitatori curiosi}: utenti che desiderano conoscere la realtà del rifugio;
+	\item \textbf{Amministratori}: personale del rifugio che gestisce richieste e appuntamenti.
+    \end{itemize}
+    Per garantire accessibilità universale, l'interfaccia adotta un linguaggio semplice, una gerarchia visiva chiara e una navigazione intuitiva, riducendo il carico cognitivo anche per utenti con competenze informatiche limitate o in situazioni di stress emotivo (come chi deve separarsi dal proprio animale).
+
+    \subsection{Tipi di utente}
+    Il sistema prevede due categorie principali di utenti con permessi differenziati:
+    
+    \vspace{1em}
+    \textbf{Utente non autenticato:}
+    \begin{itemize}
+	   \item Visualizzazione degli animali disponibili per l'adozione con sistema di filtri avanzato;
+	   \item Accesso alle informazioni sul rifugio e sulla missione;
+	   \item Compilazione del form ``Porta in Adozione'' per richiedere un appuntamento e cedere il proprio animale;
+	   \item Possibilità di consultare le schede dettagliate di ogni animale e prenotare una visita compilando un form.
+    \end{itemize}
+
+    \textbf{Utente autenticato (amministratore):}
+    \begin{itemize}
+	   \item Accesso all'area amministrativa con dashboard riepilogativa;
+	   \item Gestione completa del calendario appuntamenti (visite per adozione + accoglienza animali esterni);
+	   \item Visualizzazione e gestione dei ticket di richiesta adozione;
+	   \item Gestione delle richieste di inserimento animali esterni nel rifugio;
+    \end{itemize}
+
+    \subsection{Funzionalità}
+    Il portale offre un insieme articolato di funzionalità pensate per rispondere ai bisogni dei diversi tipi di utenti:
+
+    \begin{itemize}
+    \item \textbf{Catalogo animali dinamico.}  
+    La sezione principale del sito consente la visualizzazione degli animali disponibili per l’adozione tramite un catalogo dinamico. Gli utenti possono filtrare i risultati per specie, sesso, età, taglia e carattere, oppure cercare un animale per nome tramite una barra di ricerca testuale. Un contatore aggiorna in tempo reale il numero di risultati visualizzati.
+
+    \item \textbf{Schede dettagliate degli animali.}  
+    Ogni animale dispone di una scheda dedicata contenente informazioni strutturate, una breve storia descrittiva e un elenco di caratteristiche comportamentali. I dati principali includono specie, età formattata automaticamente, sesso, peso, colore e razza, con particolare attenzione all’accessibilità tramite l’uso dell’attributo \texttt{lang} per razze con denominazione in lingua straniera.
+
+    \item \textbf{Form ``Porta in Adozione''.}  
+    Il sistema permette ai proprietari di animali di richiedere l’inserimento nel rifugio tramite un form guidato in tre fasi. Vengono raccolti i dati del proprietario e le informazioni principali sull’animale, con validazione sia lato client che lato server. Al termine della procedura viene inviata un’email di conferma e creato un appuntamento per la visita di accoglienza.
+
+    \item \textbf{Sistema di prenotazione visite.}  
+    Gli utenti autenticati possono prenotare una visita conoscitiva direttamente dalla scheda di un animale. Il form raccoglie i dati di contatto dell’utente e associa automaticamente la richiesta all’animale selezionato. A seguito dell’invio, il sistema genera un ticket di adozione e invia una conferma via email.
+
+    \item \textbf{Dashboard amministrativa.}  
+    L’area amministrativa presenta una dashboard riepilogativa con statistiche aggiornate in tempo reale. Vengono mostrati il numero di appuntamenti, ticket di adozione pendenti e richieste di inserimento, oltre a collegamenti rapidi alle principali sezioni di gestione.
+
+    \item \textbf{Calendario appuntamenti.}  
+    Il calendario consente la gestione degli appuntamenti tramite una vista mensile e settimanale accessibile. Gli appuntamenti sono distinti visivamente in base alla tipologia e possono essere modificati tramite finestre di dialogo completamente navigabili da tastiera.
+
+    \item \textbf{Gestione ticket adozione.}  
+    Questa sezione permette di visualizzare e gestire le richieste di adozione organizzate per animale. L’amministratore può consultare i dati completi del richiedente e approvare o rifiutare le richieste tramite dialog di conferma, facilitando una gestione ordinata e sicura.
+
+    \item \textbf{Richieste inserimento rifugio.}  
+    Le richieste provenienti dal form ``Porta in Adozione'' sono raccolte in una sezione dedicata all’amministratore. Vengono mostrati i dati del proprietario e dell’animale esterno, con la possibilità di accettare la richiesta o rifiutarla previa conferma.
+	\end{itemize}
+	\section{Progettazione}
+    \subsection{Struttura del sito}
+    L’organizzazione del portale è stata studiata per assicurare un’esperienza di navigazione intuitiva e un facile orientamento tra i contenuti. La piattaforma è articolata in macro-aree funzionali con livelli di accesso distinti, strutturate secondo una gerarchia informativa ben definita.
+
+    \subsubsection{Sistema di template centralizzato}
+    Il sito adotta un sistema di generazione dinamica delle pagine basato su file di template HTML e script PHP dedicati. Il file \texttt{template.html} costituisce lo scheletro base di ogni pagina e include placeholder che vengono sostituiti dinamicamente dal codice PHP con i contenuti specifici di ciascuna pagina.
+    La funzione \texttt{buildPage()} nel file \texttt{utils.php} coordina l'assemblaggio finale della pagina: riceve come parametri il nome del file HTML contenente il main e un array associativo di dati per la sostituzione dei placeholder. Questa funzione si occupa di caricare il template base tramite \texttt{buildTemplate()}, inserire il contenuto principale, popolare tutti i placeholder con i valori forniti e rimuovere eventuali placeholder non sostituiti.
+    Il file \texttt{template.php} gestisce la composizione degli elementi comuni del layout. La funzione \texttt{buildTemplate()} carica il template base e lo popola con header (tramite \texttt{populatedNavbar()}), breadcrumb (tramite \texttt{populatedBread()}), footer e pulsante account (tramite \texttt{getAccountButton()}). Questo approccio garantisce che tutti gli elementi strutturali siano generati in modo coerente su ogni pagina del sito.
+
+    \subsubsection{Scheletro comune}
+	Tutte le pagine del sito condividono una struttura HTML5 semantica uniforme definita nel file \texttt{template.html}. Gli elementi costitutivi principali sono:
+
+	\begin{itemize}
+    \item \textbf{Head standardizzato.} 
+    La sezione \texttt{<head>} contiene metadati completi per SEO e accessibilità. Sono presenti meta tag per charset UTF-8, viewport responsive, description e keywords dinamiche. Il meta tag \texttt{format-detection} è impostato su \texttt{telephone=no} per prevenire l'attivazione automatica di link telefonici su numeri non destinati a questo scopo, evitando disorientamento dell'utente. La sezione include inoltre meta tag Open Graph per l'ottimizzazione della condivisione sui social media, favicon in multiple risoluzioni e formati, link ai fogli di stile con relative versioni mobile e print.
+
+    \item \textbf{Header (\texttt{header.html} e \texttt{header.php}).} 
+    Il componente header costituisce il punto centrale della navigazione e viene generato dinamicamente attraverso la funzione \texttt{populatedNavbar()} in \texttt{header.php}. La struttura include:
+    \begin{itemize}
+    \item Il logo del rifugio, gestito dalla funzione \texttt{replaceLogo()}, che genera un \texttt{<h1>} semplice nella homepage e un \texttt{<h1>} cliccabile nelle altre pagine. Nella homepage il titolo non è linkato per evitare ridondanza, mentre nelle altre pagine diventa un link verso la home. Questa scelta mantiene la convenzione di un unico \texttt{<h1>} per pagina riservato al contenuto semanticamente più importante.
+
+    \item Il menu di navigazione principale, generato dalla funzione \texttt{getNavbarLinks()}, che crea un array di link basandosi sulla pagina corrente rilevata tramite \texttt{basename(\$\_SERVER["PHP\_SELF"])}. I link disponibili sono Home, Adotta e Porta in adozione.
+
+    \item L'area pulsanti di utilità, che include il pulsante per rimozione/ripristino dello sfondo decorativo, il pulsante per cambio tema chiaro/scuro e i pulsanti account. Per questi ultimi pulsanti viene verificato lo stato di autenticazione tramite \texttt{is\_logged\_in()} e restituisce HTML differente: per utenti non autenticati mostra un singolo pulsante Login, mentre per amministratori autenticati mostra due pulsanti (Area amministrativa e Logout).
+    \end{itemize}
+
+    \item \textbf{Breadcrumb (\texttt{breadcrumb.html} e \texttt{breadcrumb.php}).} 
+    Il sistema di breadcrumb fornisce orientamento all'utente attraverso la generazione dinamica del percorso di navigazione. Le pagine di errore (401, 404, 500) non presentano breadcrumb come scelta progettuale intenzionale, in quanto non fanno parte del percorso di navigazione standard del sito.
+
+    \item \textbf{Toast di notifica.} 
+    Il template include un elemento di output con attributi ARIA appropriati per annunciare messaggi di successo o errore all'utente.
+
+    \item \textbf{Main.} 
+    Il contenuto principale specifico di ogni pagina viene inserito dinamicamente tramite il sistema di placeholder. Questo elemento è marcato semanticamente con tag \texttt{<main>} e rappresenta il punto di arrivo dei link di salto per la navigazione accessibile.
+
+    \item \textbf{Footer (\texttt{footer.html}).} 
+    La struttura del footer è statica e include diverse sezioni informative organizzate semanticamente. La sezione ``Link utili'' contiene collegamenti rapidi a FAQs e Contatti tramite ancore alla homepage. Il copyright con anno dinamico aggiornato da JavaScript chiude la sezione.
+
+    \item \textbf{Pulsante back-to-top.} 
+    Un pulsante flottante permette di tornare rapidamente in cima alla pagina. L'elemento viene nascosto automaticamente se JavaScript è disabilitato per evitare di mostrare funzionalità non operative, garantendo progressive enhancement.
+    \end{itemize}
+
+    \subsubsection{Organizzazione delle pagine}
+    La piattaforma è strutturata secondo un modello gerarchico definito nell'array \texttt{\$nomiPag} del file \texttt{breadcrumb.php}, che costituisce la mappa completa della navigazione.
+
+    \textbf{Livello radice:} La homepage (\texttt{index.php}) rappresenta l'unico elemento senza padre, punto di partenza per tutta la navigazione.
+
+    \textbf{Secondo livello:} Direttamente accessibili dalla home sono le pagine Adotta (\texttt{adotta.php}), Porta in adozione (\texttt{porta-in-adozione.php}), Login (\texttt{login.php}) e Amministrazione (\texttt{amministrazione.php}).
+
+    \textbf{Terzo livello:} La pagina Adotta ha come figlia la Scheda Animale (\texttt{scheda\_animale.php}). L'area amministrativa si dirama in tre sezioni: Calendario (\texttt{calendario.php}), Gestione ticket (\texttt{gestione-ticket.php}) e Richieste inserimento rifugio (\texttt{richieste-inserimento-rifugio.php}).
+
+    \textbf{Pagine di errore:} Le pagine 401, 404 e 500 hanno \texttt{padre} impostato a \texttt{null}, escludendole dal sistema di breadcrumb come scelta progettuale per evitare di includerle in un percorso di navigazione standard.
 	\section{Web Development}
 	All'interno di questa sezione si vogliono descrivere le tecnologie, gli standard e la struttura adottati all'interno del progetto.
 	\subsection{HTML5}
@@ -153,6 +270,7 @@
 		\item l'entità \texttt{Razza} presenta un campo Lingua che viene utilizzato per popolare l'attributo \texttt{lang} HTML e poter quindi rendere accessibile la pronuncia di una razza nel momento in cui viene utilizzata all'interno del sito;
 		\item l'entità \texttt{AnimaleRifugio} presenta il campo Età di tipo \texttt{FLOAT(2, 2)}, permettendo così di estrapolare dalle cifre unitarie gli anni dell'animali, mentre da quelle decimali i mesi di quest'ultimo; questa scelta permette di filtrare anche per mesi gli animali del Rifugio.
 	\end{itemize}
+	Una copia del DUMP per la base di dati è presente al percorso interno di progetto \texttt{Database/dump-rifugio.sql}
 	\subsection{Sicurezza}
 	Per quanto concerne la sicurezza del sito web sono state applicate le seguenti tecniche di prevenzione danni nei confronti delle tecnologie client/server-side:
 	\begin{itemize}
