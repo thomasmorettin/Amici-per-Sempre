@@ -75,8 +75,99 @@
 	\section{Sviluppo (Thomas)}
 	\section{Accessibilità (Thomas)}
 	\section{Test e validazione (Niccolò)}
+	Sono stati eseguiti vari test per garantire l'accessibilità del sito e per validare il codice. Di seguito la lista di strumenti che sono stati utilizzati per automizzare alcuni test:
+	\begin{itemize}
+		\item \textbf{W3C Validator:} sturmento che ci ha permesso di analizzare il codice html di ogni pagina per garantire che fosse sotto gli standard di W3C.
+		\item \textbf{WAVE Evaluation Tool:} estensione disponibile al browser che ha analizzato la pagina direttamente sotto gli standard alle linee guida di WCAG 2.2.
+		\item \textbf{WebAIM Contrast Checker:} strumento utilizzato per verificare il contrasto tra i colori utilizzati nel progetto, garantendo il rispetto del livello di accessibilità AA.
+	\end{itemize}
+	Inoltre, durante la fase dello sviluppo del codice sono stati eseguiti vari test manuali per garantire tutti gli aspetti di accessibilità e funzionalità che non possono essere testati automaticamente:
+	\begin{itemize}
+		\item \textbf{Test con NVDA:} tutte le pagine sono state testate e strutturate correttamente in modo da garantire il giusto funzionamento dello screen reader NVDA. In particolare:
+		\begin{enumerate}
+			\item I flag di conteggio nel pannello filtri hanno l'attributo "aria-live=polite" per permette allo screen reader di non fermarsi se il numero si aggiorna dinamicamente mentre sta leggendo la pagina.
+			\item Nel pannello filtri per ogni bottone di sezione è stato aggiunto l'attributo "aria-describedby" per informare l'utente di quanti filtri sono stati modificati in quella sezione.
+			\item Sono stati inseriti "aria-hidden" per gli elementi che non devono essere letti.
+			\item Per le immagini già corredate da figcaption, l'attributo "alt" è stato lasciato vuoto (alt="") per evitare che lo screen reader fornisca una descrizione ridondante o poco rilevante dal punto di vista contestuale.
+			\item Ogni termine non italiano è stato marcato con l'attributo "lang".
+		\end{enumerate}
+		\item \textbf{Supporto per tastiera:} si ha prestato attenzione per rendere il sito navigabile da tastiera. Ogni elemento interagibile può essere selezionato senza l'utilizzo di mouse, in particolare:
+		\begin{enumerate}
+			\item Ogni elemento dei form ha corretto label associato utilizzando gli attributi "for" nelle label ed "aria-labelledby" nel caso dei gruppi checkbox nel pannello filtri e la barra di ricerca nelle pagine di amministrazione.
+			\item I radio button e checkbox sono stati raggruppati correttamente in fieldset con eventuale legenda per descrivere il gruppo.
+			\item In Ogni campo obbligatorio è stato aggiunto l'attributo "aria-describedby" per avvisare l'utente di eventuali errori nella compilazione dei form in modo dinamico.
+			\item Il "tabindex" del pannello filtri e delle relative sezioni è stato modificato per prevenire la navigazione da tastiera quando questi sono chiusi e non visibili.
+		\end{enumerate}
+		\item \textbf{Compatibilità browser multipli:} si ha verificato che il sito fosse correttamente renderizzato ed utilizzabile dai principali browser (Edge, Firefox, Chrome, Brave, Safari),
+		\item \textbf{Compatibilità browser da telefono:} si ha verificato che il sito fosse correttamente renderizzato ed utilizzabile da dispositivi mobili.
+		\item \textbf{Test di reindirizzamento delle pagine:} si ha testato il corretto funzionamento dei reindirizzamenti configurati in .htaccess, sia nella navigazione generale che nelle relative pagine di errore.
+		\item \textbf{Test del layout di stampa:} si ha verificato che durante la stampa la maggior parte dei bottoni venissero nascosti e che non ci fossero elementi tagliati dal cambio di pagina.
+		\item \textbf{Test funzionali:} sono stati eseguiti vari test per controllare le seguenti funzionalità:
+		\begin{enumerate}
+			\item \textbf{Invio e-mail di conferma:} quando l'utente invia un form di adozione o di richiesta porta in adozione, il sistema deve inviare una e-mail di conferma all'indirizzo specificato, con le corrette informazioni e il layout CSS definito dal file style-email.css
+			\item \textbf{Pagina di amministrazione:} la pagina deve indicare a chi accede quante richieste devo essere gestite per entrambi i tipi (adozione / porta in adozione), e quanti appuntamenti sono programmati per quel giorno.
+			\item \textbf{Pagine di gestione richieste:} devono essere mostrate nella lista tutte le richieste che non sono state datate nel calendario, e tutte le richieste già assegnate nel calendario che sono previste per una data / ora futura. In particolare:
+			\begin{enumerate}
+				\item Nella \textbf{gestione ticket} (richieste di adozione), devono essere mostrati tutti gli animali disponibili nel centro di adozione. Per ogni animale il sistema deve indicare quante richieste sono da gestire, e quali sono invece già gestite.
+				\item Nella \textbf{gestione richieste inserimento animali in rifugio} invece, devono essere mostrati tutti gli animali "esterni" al rifugio, con aggiuntivo descrittore che indica se la richiesta è stata gestita o no.
+			\end{enumerate}
+			Inoltre, ogni richiesta deve essere popolata correttamente dal database (con eventuale immagine dell'animale) e gestita correttamente da tre funzionalità principali:
+			\begin{enumerate}
+				\item Il pulsante \emph{info} deve aprire un dialog popup che informa di eventuali note della richiesta.
+				\item Il pulsante \emph{assegnazione a calendario} deve aprire un dialog popup che consenta di selezionare data e ora valide per programmare la visita (con "valide" si intende una data non passata e dentro l'orario lavorativo del centro).
+				\item Il pulsante \emph{eliminazione} deve aprire un dialog popup che richieda la conferma dell'azione e rimuovi la richiesta dal database.
+			\end{enumerate}
+			Se la richiesta è già gestita, i pulsanti (b) e (c) vengono sostituiti da un pulsante che porta al calendario in cui la visita è stata programmata.
+			\item \textbf{Calendario:} la pagina deve essere popolata correttamente dal database, e deve essere possibile navigare tra settimane / mesi. Ogni richiesta deve avere:
+			\begin{enumerate}
+				\item Il pulsante \emph{info} con funzione identica a quella citata sopra.
+				\item Il pulsante \emph{modifica appuntamento} che deve aprire un dialog popup per modificare la data e l'ora della visita (ovviamente data e ora valide)
+				\item Il pulsante \emph{eliminazione} che deve aprire un dialog popup per la conferma della rimozione da calendario (rendendo la richiesta nuovamente da gestire nelle pagine di gestione richieste).
+			\end{enumerate}
+			In caso di data passata l'utente potrà solo verificare le note della prenotazione.
+			\item \textbf{Pannello filtri:} il pannello deve soddisfare le seguenti funzionalità:
+			\begin{itemize}
+				\item Se l'accesso avviene tramite desktop il pannello può essere aperto al lato destro della pagina.
+				\item Se l'accesso avviene tramite dispositivo mobile il pannello può essere aperto come dialog popup.
+				\item Il pannello deve cambiare il numero di filtri selezionati dinamicamente, sia in maniera generale (dal bottone di "applica filtri"), che per ogni sezione (flag di conteggio). 
+				\item Se il pannello è stato aperto laterlamente deve essere già aperto al caricamento della pagina. 
+				\item I campi vuoti del form del pannello devono essere omessi dalla richiesta GET.
+				\item I filtri devono essere applicati correttamente nelle pagine che usufruiscono del pannello. 
+				\item Anche se il pannello filtri e la barra di ricerca sono in form separati, la richiesta deve poter tenere eventuali parametri GET già presenti nell'url per evitare la perdita di filtri durante la ricerca e viceversa.
+			\end{itemize}
+			\item \textbf{Pagina di adozione:} La pagina deve essere popolata correttamente dal database, e ogni scheda deve portare alla pagina dell'animale selezionato.
+			\item \textbf{Scheda animale:} La pagina deve essere popolata correttamente dal database.
+			\item \textbf{Pagina di porta in adozione:} Il select della razza nel form di richiesta deve popolarsi in modo dinamico in base al tipo di animale scelto tramite richiesta ajax alla pagina razze-json.php
+			\item \textbf{Accesso amministratore:} In caso si navigasse nella pagina di accesso quando si ha già eseguito il login, il sito deve invece mostrare la pagina di logout.
+			\item \textbf{Pagine di amministrazione:} Se l'utente prova ad entrare nelle pagine di amminstrazione senza effettuare il login, deve essere reindirizzato alla pagina di errore 401.
+		\end{enumerate}
+	\end{itemize}
 	\section{SEO e prestazioni (Thomas)}
-	\section{Organizzazione (Niccolò)}
-	\section{Difficoltà (Niccolò)}
-	\section{Conclusioni (Niccolò)}
+	\section{Organizzazione del lavoro (Niccolò)}
+	Il gruppo si è organizzato per la realizzazione del progetto suddividendo il lavoro in base alle pagine da realizzare, ognuna delle quali prevedeva lo sviluppo di HTML, CSS, PHP e JavaScript:
+	\begin{itemize}
+		\item Thomas Morettin: header e footer, pagina \emph{Index}, pagina \emph{Calendario}, pagina \emph{Gestione ticket}, pagina \emph{Amministrazione}.
+		\item Felician Mario Necsulescu: pagina \emph{Adotta}, pagina \emph{Scheda animale}
+		\item Niccolò Feltrin: pagina \emph{Accesso}, pagina \emph{Porta in adozione}, pagina \emph{Gestione richieste inserimento rifugio} 
+	\end{itemize}
+	A livello funzionale, sono state assegnate:
+	\begin{itemize}
+		\item a Thomas Morettin il sistema di invio e-mail.
+		\item a Niccolò Feltrin il pannello filtri utilizzabile modularmente.
+		\item a Felician Mario Necsulescu la maggior parte della validazione dei campi nei form presento nel sito.
+	\end{itemize}
+	Si ha data quindi la responsabilità ad ogni membro del gruppo di validare l'accessibilità delle proprie pagine e di testarne il corretto funzionamento.
+	Ogni membro ha contribuito alla progettazione del database e alla scelta dei colori utilizzati nel sito, valutati in base al contrasto secondo gli standard delle linee guida WCAG 2.2, con Thomas Morettin come principale contributore in questo ambito.
+	\section{Conclusioni e difficoltà incontrate (Niccolò)}
+	In conclusione, il sito è stato progettato in un contesto il più possibile realistico, con l'obiettivo di sviluppare un sistema in grado di gestire in modo completo tutte le transazioni (adozioni e appuntamenti) di un centro di adozione immaginario. Particolare attenzione è stata posta affinché il sistema risultasse accattivante, accessibile, semplice da utilizzare, immediato e distintivo.
+	Il progetto ci ha permesso di esplorare diverse fasi dello sviluppo web, dalla progettazione del logo alla definizione delle funzionalità principali del sito, offrendo un'esperienza completa e pratica che ha arricchito le competenze di tutti i membri, sia sul design pulito e funzionale, sia sulla realizzazione di un servizio web operativo.
+	L'attività ha inoltre fornito l'opportunità di gestire efficacemente il lavoro di gruppo, sperimentando la suddivisione dei compiti e l'organizzazione delle pagine. Particolarmente significativa è stata la progettazione di un sistema modulare per la creazione delle pagine e l'implementazione di un meccanismo di invio automatico delle e-mail, che ha consentito di rendere il sito più completo e professionale.
+	Grazie alla sua struttura modulare, il progetto può essere facilmente esteso e adattato per un'implementazione reale in un centro di adozione, offrendo così un'esperienza arricchente per i membri del gruppo.
+	\vspace{2mm}
+	Alcune difficoltà sono state riscontrate durante la progettazione del sito:
+	\begin{itemize}
+		\item \textbf{Accessibilità:} in alcune funzionalità del sito, come nelle pagine di gestione delle richieste, nelle schede animali o nel pannello dei filtri, è stato particolarmente impegnativo cercare di trovare un bilanciamento tra estetica accattivante e layout accessibile, portandoci a studiare esaustivamente diverse opzioni di implementazione e prendendo decisioni in fase d'implementazione che scartavano alcune scelte decise all'inizio per un approccio più accessibile o modulare.
+		\item \textbf{Unificazione del sito:} vista l'organizzazione dello sviluppo delle pagine, nettamente suddivisa tra i membri, è stato dedicato del tempo per rendere l'intero sito un'esperienza coerente e uniforme, un aspetto che non era immediato all'inizio della progettazione. Per questo il gruppo ha pianificato vari incontri che permettessero di dialogare su proposte e/o consigli in modo da accordarsi sulle decisioni più importanti.
+		\item \textbf{Previsione del carico di lavoro:} anche se fin dall'inizio l'obiettivo del sito era chiaro al gruppo, è capitato più volte di proporre idee troppo complesse da implementare o troppo dispendiose in termini di tempo. È stato quindi necessario rivalutare alcune scelte originali per garantire la fattibilità del progetto.
+	\end{itemize}
 \end{document}

@@ -53,13 +53,13 @@ if (!empty($risDB)) {
                     <section class='sezione-padrone'>
                         <p>Info padrone</p>
                         <dl class='richiesta-inserimento-info'>
-                            <dt>Nome completo:</dt>
+                            <dt>Nome:</dt>
                             <dd>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</dd>
-                            <dt>E-mail:</dt>
+                            <dt lang='en'>E-mail:</dt>
                             <dd><a href='mailto:{$animale["padrone"]["email"]}'>{$animale["padrone"]["email"]}</a></dd>
-                            <dt>Telefono:</dt>
+                            <dt><abbr title='Telefono'>Tel</abbr>:</dt>
                             <dd><a href='tel:{$animale["padrone"]["telefono"]}'>+39 {$animale["padrone"]["telefono"]}</a></dd>
-                            <dt>Data richiesta:</dt>
+                            <dt>Data <abbr title='Richiesta'>ric</abbr>:</dt>
                             <dd>{$richiestaRealFormat}</dd>";
                             
         
@@ -68,9 +68,9 @@ if (!empty($risDB)) {
             $gestitaRealFormat = (new DateTime($animale["data"]))->format("d/m/Y"); 
 
             $html .=
-            "               <dt>Data appuntamento:</dt>
+            "               <dt>Data <abbr title='Appuntamento'>app</abbr>:</dt>
                             <dd>{$gestitaRealFormat}</dt>
-                            <dt>Ora appuntamento:</dt>
+                            <dt>Ora <abbr title='Appuntamento'>app</abbr>:</dt>
                             <dd>{$animale["ora"]}</dt>";
         }
 
@@ -91,7 +91,7 @@ if (!empty($risDB)) {
                             <dd>{$animale["infoAnimale"]["sesso"]}</dd>
                             <dt>Età:</dt>
                             <dd>{$animale["infoAnimale"]["eta"]}</dd>
-                            <dt>Peso</dt>
+                            <dt>Peso:</dt>
                             <dd>{$animale["infoAnimale"]["peso"]}</dd>
                         </dl>
                     </section>";
@@ -101,17 +101,17 @@ if (!empty($risDB)) {
             "   
                 <div class='btn-gruppo-v'>
                     <button class='btn-info' title='Note aggiuntive' data-info='{$animale["infoAnimale"]["info"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
-                        <svg>
+                        <svg aria-hidden='true'>
                             <use href='{{root}}/Resources/icons.svg#info'></use>
                         </svg>
                     </button>
                     <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$animale["infoAnimale"]["id"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
-                        <svg>
+                        <svg aria-hidden='true'>
                             <use href='{{root}}/Resources/icons.svg#calendario'></use>
                         </svg>
                     </button>
                     <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$animale["infoAnimale"]["id"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
-                        <svg>
+                        <svg aria-hidden='true'>
                             <use href='{{root}}/Resources/icons.svg#delete'></use>
                         </svg>
                     </button>
@@ -125,12 +125,12 @@ if (!empty($risDB)) {
             "   
                 <div class='btn-gruppo-v'>
                     <button class='btn-info' title='Note aggiuntive' data-info='{$animale["infoAnimale"]["info"]}' data-nome='{$animale["padrone"]["nome"]}'>
-                        <svg>
+                        <svg aria-hidden='true'>
                             <use href='{{root}}/Resources/icons.svg#info'></use>
                         </svg>
                     </button>
                     <a class='go-calendario btn-link' href='{{root}}/amministrazione/calendario?mese={$mese}&anno={$anno}#g{$giorno}'>
-                        <svg>
+                        <svg aria-hidden='true'>
                             <use href='{{root}}/Resources/icons.svg#forward'></use>
                         </svg>
                         <span>Calendario</span>

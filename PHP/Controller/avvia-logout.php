@@ -3,7 +3,7 @@ require_once dirname(__DIR__) . "/../PHP/utils.php";
 
 ensure_session();
 
-$pagina_redirect = PROJECT_ROOT . "/login";
+$pagina_redirect = PROJECT_ROOT . "/accesso";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     $_SESSION['error'] = "Si è verificato un errore durante l'invio della richiesta. Riprova più tardi.";

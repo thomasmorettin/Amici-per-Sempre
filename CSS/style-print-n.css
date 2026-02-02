@@ -1,0 +1,10 @@
+#section-step-porta-adozione ul li figure img {
+    border-radius: 0.5rem;
+    box-shadow: none;
+    height: 12.5rem;
+}
+
+#section-step-porta-adozione ul li {
+    max-width: 12.5rem;
+    min-width: 12.5rem;
+}

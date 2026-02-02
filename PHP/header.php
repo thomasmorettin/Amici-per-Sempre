@@ -67,13 +67,13 @@ function getAccountButton() {
                             <use href="{{root}}/Resources/icons.svg#wrench"></use>
                         </svg>
                     </a>
-                    <a class="btn-link" href="{{root}}/login" lang="en" aria-label="logout da area riservata" title="Logout">
+                    <a class="btn-link" href="{{root}}/accesso" lang="en" aria-label="logout da area riservata" title="Logout">
                         <svg aria-hidden="true">
                             <use href="{{root}}/Resources/icons.svg#logout"></use>
                         </svg>
                     </a>';
     } else {
-        return '    <a class="btn-link" href="{{root}}/login" lang="en" aria-label="login ad area riservata" title="Login">
+        return '    <a class="btn-link" href="{{root}}/accesso" lang="en" aria-label="login ad area riservata" title="Login">
                         <svg aria-hidden="true">
                             <use href="{{root}}/Resources/icons.svg#login"></use>
                         </svg>

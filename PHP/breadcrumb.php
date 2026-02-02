@@ -21,10 +21,10 @@ function getCurrentPath() {
             "url" => PROJECT_ROOT . "/porta-in-adozione"
         ],
 
-        "login.php" => [
-            "titolo" => "Login",
+        "accesso.php" => [
+            "titolo" => "Accesso",
             "padre" => "index.php",
-            "url" => PROJECT_ROOT . "/login"
+            "url" => PROJECT_ROOT . "/accesso"
         ],
 
         "amministrazione.php" => [

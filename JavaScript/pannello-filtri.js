@@ -276,11 +276,11 @@ function gestioneAccordion() {
         const header = acc.querySelector('.accordion-header');
         const arrow = header.querySelector('svg');
         const panel = acc.querySelector('.content');
-        const button = acc.querySelectorAll('button')[0];
+        const button = acc.querySelector('button');
 
         panel.inert = true;
 
-        header.addEventListener('click', () => {
+        button.addEventListener('click', () => {
 
             if (panel.classList.contains('open')) {
 

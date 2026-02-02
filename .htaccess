@@ -18,8 +18,8 @@ RewriteRule ^porta-in-adozione/?$ PHP/Controller/porta-in-adozione.php [L,QSA]
 #3.2 Mappatura per "porta-in-adozione.php"
 RewriteRule ^porta-in-adozione/?$ PHP/Controller/porta-in-adozione.php [L,QSA]
 
-#3.3 Mappatura per "login.php"
-RewriteRule ^login/?$ PHP/Controller/login.php [L,QSA]
+#3.3 Mappatura per "accesso.php"
+RewriteRule ^accesso/?$ PHP/Controller/accesso.php [L,QSA]
 
 # 4. Mappatura della cartella di amministrazione
 # CASO A: scrittura di ".../amministrazione"

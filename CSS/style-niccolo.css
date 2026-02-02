@@ -136,6 +136,11 @@ dialog .form-field:has(select:required) > label::before,
     margin: 3em auto;
 }
 
+#section-form-login .info-required {
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
 #section-form-logout {
     padding: 2em;
     border-radius: var(--generalradius);
@@ -303,7 +308,7 @@ form select::after {
 }
 
 #popup-panel .azioni-filtro {
-    margin: 2em 2.5em 0.5em 2.5em;
+    margin: 3em 2.5em 0.5em 2.5em;
 }
 
 #popup-panel .content {
@@ -520,7 +525,6 @@ form {
 }
 
 .header {
-    cursor: pointer;
     padding: 0.2em 0em 0.2em 0.3em;
     font-size: 1.1em;
     display: flex;
@@ -550,6 +554,7 @@ form {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
 }
 
 .filter-content form {
@@ -654,6 +659,8 @@ form {
 
 .azioni-filtro #applica {
     flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #form-filtri .reset {
@@ -759,23 +766,15 @@ form {
     font-weight: bold;
 }
 
-.richiesta-inserimento-info {
-    display: grid;
-    /* La prima colonna si adatta al contenuto, la seconda prende tutto il resto */
-    grid-template-columns: max-content 1fr;
-    column-gap: 0.6em; /* Spazio tra "Note:" e il testo */
-    row-gap: 0.1em;    /* Spazio tra le righe */
-}
-
 .richiesta-inserimento-info dt {
-    grid-column: 1;
+    margin-left: 0.5em;
+    float: left;
     font-weight: bold;
+    margin-right: 0.25em;
 }
 
 .richiesta-inserimento-info dd {
-    grid-column: 2;
-    margin: 0; /* Rimuove il margine predefinito dei browser */
-    word-break: break-word; /* Evita che parole lunghissime rompano il layout */
+    margin-left: 0.5rem;
 }
 
 .spaziatore {
