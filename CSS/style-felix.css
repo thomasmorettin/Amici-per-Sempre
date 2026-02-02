@@ -550,7 +550,9 @@
 }
 
 .errore .messaggio-errore {
+    margin: 0 auto;
     margin-top: 2em;
+    max-width: 55em;
 }
 
 .errore .messaggio-errore p {

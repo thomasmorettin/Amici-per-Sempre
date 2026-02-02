@@ -54,7 +54,7 @@ function getCurrentPath() {
         "scheda_animale.php" => [
             "titolo" => "Scheda Animale",
             "padre" => "adotta.php",
-            "url" => PROJECT_ROOT . "/scheda_animale"
+            "url" => PROJECT_ROOT . "/scheda-animale"
         ],
 
         "401.php" => [

@@ -81,7 +81,7 @@ if (!$privacy) {
 if (!empty($errori)) {
     $_SESSION['error'] = implode('<br>', $errori);
     $_SESSION['form_data'] = $_POST;
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
+    header("Location: " . PROJECT_ROOT . "/adotta/scheda-animale?id=" . $animale_id);
     exit;
 }
 
@@ -96,7 +96,7 @@ if ($persona) {
     if (!$persona_id) {
         $_SESSION['error'] = "Errore durante la creazione dell'utente";
         $_SESSION['form_data'] = $_POST;
-        header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
+        header("Location: " . PROJECT_ROOT . "/adotta/scheda-animale?id=" . $animale_id);
         exit;
     }
 }
@@ -105,7 +105,7 @@ if ($persona) {
 if (ticketExists($persona_id, $animale_id)) {  
     $_SESSION['error'] = "Hai già inviato una richiesta per questo animale";
     $_SESSION['form_data'] = $_POST;
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
+    header("Location: " . PROJECT_ROOT . "/adotta/scheda-animale?id=" . $animale_id);
     exit;
 }
 
@@ -117,11 +117,11 @@ if ($success) {
     unset($_SESSION['form_data']);
     // sendEmail($email, $nome);  
     $_SESSION['success'] = "Richiesta inviata con successo! Ti contatteremo entro 48/72 ore.";
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
+    header("Location: " . PROJECT_ROOT . "/adotta/scheda-animale?id=" . $animale_id);
 } else {
     $_SESSION['error'] = "Errore durante l'invio della richiesta";
     $_SESSION['form_data'] = $_POST;
-    header("Location: " . PROJECT_ROOT . "/PHP/Controller/scheda_animale?id=" . $animale_id);
+    header("Location: " . PROJECT_ROOT . "/adotta/scheda-animale?id=" . $animale_id);
 }
 
 exit;

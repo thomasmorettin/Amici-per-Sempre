@@ -59,7 +59,7 @@ if (!empty($animali)) {
         
         $lista_animali_html .= sprintf('
         <li class="animal-card">
-            <a href="%s/PHP/Controller/scheda_animale?id=%d" aria-label="%s">
+            <a href="%s/adotta/scheda-animale?id=%d" aria-label="%s">
                 <figure>
                     <img src="%s" alt="">
                     <figcaption>
@@ -102,7 +102,8 @@ $dati = [
                             animali in adozione, 
                             rifugio animali Padova',
 
-    '{{current-js}}' => 'pannello-filtri.js', 
+    '{{current-js}}' => 'pannello-filtri.js',
+    '{{extra-js}}' => 'org-schema.js',
     '[project_root]' => PROJECT_ROOT,
     '[contatore_animali]' => $contatore_html,
     '[lista_animali]' => $lista_animali_html,

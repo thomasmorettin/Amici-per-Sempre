@@ -12,8 +12,9 @@ RewriteCond %{REQUEST_URI} !/index\.php$
 RewriteRule ^ /%1 [R=301,L]
 
 #3.1 Mappatura per "adotta.php" e "scheda-animale"
-RewriteRule ^adotta/scheda-animale/?$ PHP/Controller/scheda_animale.php [L,QSA]
 RewriteRule ^adotta/?$ PHP/Controller/adotta.php [L,QSA]
+RewriteRule ^porta-in-adozione/?$ PHP/Controller/porta-in-adozione.php [L,QSA]
+RewriteRule ^adotta/scheda-animale PHP/Controller/scheda-animale.php [L,QSA]
 
 #3.2 Mappatura per "porta-in-adozione.php"
 RewriteRule ^porta-in-adozione/?$ PHP/Controller/porta-in-adozione.php [L,QSA]

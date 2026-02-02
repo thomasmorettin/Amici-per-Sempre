@@ -39,6 +39,7 @@ $dati = [
     "{{current-page}}" => "Porta in Adozione",
     "{{page-keywords}}" => "Amici per Sempre, Porta in Adozione, porta adozione cane, porta adozione gatto, porta adozione animale",
     "{{current-js}}" => "porta-in-adozione.js",
+    '{{extra-js}}' => 'org-schema.js',
     "[val_nome]"         => isset($form_data['nome']) ? htmlspecialchars($form_data['nome'], ENT_QUOTES, 'UTF-8') : '',
     "[val_cognome]"      => isset($form_data['cognome']) ? htmlspecialchars($form_data['cognome'], ENT_QUOTES, 'UTF-8') : '',
     "[val_email]"        => isset($form_data['email']) ? htmlspecialchars($form_data['email'], ENT_QUOTES, 'UTF-8') : '',
