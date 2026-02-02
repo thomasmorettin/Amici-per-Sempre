@@ -48,6 +48,8 @@ function buildPage($file, $dati) {
 
     $template = str_replace("{{data-page}}", getMsgSession(), $template);
     $template = str_replace("{{main}}", $main, $template);
+    // Rimozione di attributo defer nel caso in cui il tipo di script è module
+    $template = str_replace('{{defer}}', isset($dati["{{type-script}}"]) ? "" : "defer", $template);
 
     // Se è presente {{extra-js}} e contiene solo nomi di file, trasformali in tag <script>
     if (isset($dati['{{extra-js}}'])) {

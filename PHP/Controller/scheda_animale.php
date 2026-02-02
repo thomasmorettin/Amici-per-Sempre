@@ -101,6 +101,7 @@ $dati = [
                             $tipo in adozione Padova",
 
     '{{current-js}}'     => 'richiesta-visita.js',
+    '{{extra-js}}'       => 'org-schema.js',
     '{{header}}'         => file_get_contents(dirname(__DIR__) . "/../HTML/header.html"),
     '{{breadcrumb}}'     => populatedBread(),
     '{{footer}}'         => file_get_contents(dirname(__DIR__) . "/../HTML/footer.html"),

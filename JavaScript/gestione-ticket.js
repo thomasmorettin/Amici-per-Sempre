@@ -7,10 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
   loadTickets();
 })
 
+// Funzione per il caricamento degli elementi gestiti tramite JS
 function loadTickets() {
   const notes = document.querySelectorAll(".note-hidden");
+  const btnsApp = document.querySelectorAll(".btn-gruppo");
+
   notes.forEach(note => {
     note.classList.add("hidden");
+  })
+
+  btnsApp.forEach(btn => {
+    btn.classList.remove("hidden");
   })
 }
 

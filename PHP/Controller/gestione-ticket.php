@@ -21,7 +21,7 @@ if (is_logged_in()) {
 
             if ($countA != $countB) { return $countB <=> $countA; }
 
-            return strcasecmp($a["info"]["nome"], $b["info"]["nome"]);
+            return strcasecmp($a["infoAnimale"]["nome"], $b["infoAnimale"]["nome"]);
         });
 
         foreach ($risDB as $id => $animale) {
@@ -64,15 +64,13 @@ if (is_logged_in()) {
                                     <dd><a href='mailto:{$ticket["emailRich"]}'>{$ticket["emailRich"]}</a></dd>
                                     <dt><abbr title='Telefono'>Tel</abbr>:</dt>
                                     <dd><a href='tel:{$ticket["telRich"]}'>{$ticket["telRich"]}</a></dd>
-                                    <span class='note-hidden'>
-                                        <dt>Note:</dt>
-                                        <dd>{$ticket["info"]}</dd>
-                                    </span>
+                                    <dt class='note-hidden'>Note:</dt>
+                                    <dd class='note-hidden'>{$ticket["info"]}</dd>
                                 </dl>
                             </dd>
                         </dl>
 
-                        <div class='btn-gruppo'>
+                        <div class='btn-gruppo hidden'>
                             <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}' aria-label='note aggiuntive per {$ticket["richiedente"]}'>
                                 <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#info'></use>
@@ -114,15 +112,13 @@ if (is_logged_in()) {
                                     <dd><a href='mailto:{$ticket["emailRich"]}'>{$ticket["emailRich"]}</a></dd>
                                     <dt><abbr title='Telefono'>Tel</abbr>:</dt>
                                     <dd><a href='tel:{$ticket["telRich"]}'>{$ticket["telRich"]}</a></dd>
-                                    <span class='note-hidden'>
-                                        <dt>Note:</dt>
-                                        <dd>{$ticket["info"]}</dd>
-                                    </span>
+                                    <dt class='note-hidden'>Note:</dt>
+                                    <dd class='note-hidden'>{$ticket["info"]}</dd>
                                 </dl>
                             </dd>
                         </dl>
 
-                        <menu class='btn-gruppo'>
+                        <div class='btn-gruppo hidden'>
                             <button class='btn-info' title='Note aggiuntive' data-info='{$ticket["info"]}' data-nome='{$ticket["richiedente"]}' aria-label='note aggiuntive per {$ticket["richiedente"]}'>
                                 <svg aria-hidden='true'>
                                     <use href='{{root}}/Resources/icons.svg#info'></use>
@@ -134,7 +130,7 @@ if (is_logged_in()) {
                                 </svg>
                                 <span>Calendario</span>
                             </a>
-                        </menu>
+                        </div>
                     </li>";
                 }
             }
@@ -151,7 +147,7 @@ if (is_logged_in()) {
                         <span>
                             <span class='nome-animale'>{$animale["infoAnimale"]["nome"]}</span>
                             <span class='dettagli-animale'>{$animale["infoAnimale"]["tipo"]} - <span lang='{$animale["infoAnimale"]["linguaRazza"]}'>{$animale["infoAnimale"]["razza"]}</span></span>
-                            <span class='status-richieste' aria-label='stato: {$numRich} nuove richieste'><span class='num-rich' aria-hidden='true'>{$numRich}</span>&nbsp;<span class='richieste' aria-hidden='true'>nuove richieste</span></span>
+                            <span class='status-richieste'><span class='num-rich'>{$numRich}</span>&nbsp;<span class='richieste'>nuove richieste</span></span>
                         </span>
                     </span>
 
@@ -184,7 +180,7 @@ if (is_logged_in()) {
         }
     }
 
-    else { $html = "<li><p class='center bold'>Nessun animale corrisponde alla ricerca.</p></li>"; }
+    else { $html = "<li><p class='no-richieste'>Nessun animale corrisponde alla ricerca.</p></li>"; }
 
     $pannelloControllo = renderPannelloControlloFiltri(true); // Il pulsante di ordina non viene mostrato
     $pannelloFiltri = renderPannelloFiltri(PROJECT_ROOT . "/amministrazione/gestione-ticket.php", ["Tipo", "Dati persona"]);

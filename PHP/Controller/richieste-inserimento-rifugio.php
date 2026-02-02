@@ -28,25 +28,25 @@ if (!empty($risDB)) {
         $richiestaRealFormat = (new DateTime($animale["dataRichiesta"]))->format("d/m/Y");
 
         if(!$animale["gestito"]) {
-            $msgGestito = "<p class='status-da-gestire'>Da gestire</p>";
+            $msgGestito = "<span class='status-da-gestire'>Da gestire</span>";
         } else {
-            $msgGestito = "<p class='status-gestito'>Gestito</p>";
+            $msgGestito = "<span class='status-gestito'>Gestito</span>";
         }
 
         $html .=
-        "
-            <details class='dtl-animale'>
-            <summary>
-                <div>
-                    <p class='info-richiesta-animale'>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</p>
-                    <p class='dettagli-animale'>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</p>
-                    $msgGestito
-                </div>
+        "   <li>
+                <details class='dtl-animale'>
+                    <summary>
+                        <span>
+                            <span class='info-richiesta-animale'>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</span>
+                            <span class='dettagli-animale'>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</span>
+                            $msgGestito
+                        </span>
 
-                <svg class='exp-freccia'>
-                    <use href='{{root}}/Resources/icons.svg#arrow'></use>
-                </svg>
-            </summary>
+                        <svg class='exp-freccia'>
+                            <use href='{{root}}/Resources/icons.svg#arrow'></use>
+                        </svg>
+                    </summary>
 
             <div class='contenuto-nascosto'>
                 <div>       <!-- Con il solo scopo di rendere più fluida la dissolvenza della scheda -->
@@ -99,23 +99,23 @@ if (!empty($risDB)) {
         if(!$animale["gestito"]) {
             $html .= 
             "   
-                <div class='btn-gruppo-v'>
-                    <button class='btn-info' title='Note aggiuntive' data-info='{$animale["infoAnimale"]["info"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
-                        <svg aria-hidden='true'>
-                            <use href='{{root}}/Resources/icons.svg#info'></use>
-                        </svg>
-                    </button>
-                    <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$animale["infoAnimale"]["id"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
-                        <svg aria-hidden='true'>
-                            <use href='{{root}}/Resources/icons.svg#calendario'></use>
-                        </svg>
-                    </button>
-                    <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$animale["infoAnimale"]["id"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
-                        <svg aria-hidden='true'>
-                            <use href='{{root}}/Resources/icons.svg#delete'></use>
-                        </svg>
-                    </button>
-                </div>";
+                    <div class='btn-gruppo-v hidden'>
+                        <button class='btn-info' title='Note aggiuntive' data-info='{$animale["infoAnimale"]["info"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
+                            <svg aria-hidden='true'>
+                                <use href='{{root}}/Resources/icons.svg#info'></use>
+                            </svg>
+                        </button>
+                        <button class='btn-popup-app' title='Prenota appuntamento' data-id='{$animale["infoAnimale"]["id"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
+                            <svg aria-hidden='true'>
+                                <use href='{{root}}/Resources/icons.svg#calendario'></use>
+                            </svg>
+                        </button>
+                        <button class='btn-elimina-app' title='Elimina richiesta' data-id='{$animale["infoAnimale"]["id"]}' data-nome='{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}'>
+                            <svg aria-hidden='true'>
+                                <use href='{{root}}/Resources/icons.svg#delete'></use>
+                            </svg>
+                        </button>
+                    </div>";
         } else {
             $realFormat = (new DateTime($animale["data"]))->format("d/m/Y");
             $giorno = explode("-", $animale["data"])[2];
@@ -123,26 +123,27 @@ if (!empty($risDB)) {
             $anno = explode("-", $animale["data"])[0];
             $html .=
             "   
-                <div class='btn-gruppo-v'>
-                    <button class='btn-info' title='Note aggiuntive' data-info='{$animale["infoAnimale"]["info"]}' data-nome='{$animale["padrone"]["nome"]}'>
-                        <svg aria-hidden='true'>
-                            <use href='{{root}}/Resources/icons.svg#info'></use>
-                        </svg>
-                    </button>
-                    <a class='go-calendario btn-link' href='{{root}}/amministrazione/calendario?mese={$mese}&anno={$anno}#g{$giorno}'>
-                        <svg aria-hidden='true'>
-                            <use href='{{root}}/Resources/icons.svg#forward'></use>
-                        </svg>
-                        <span>Calendario</span>
-                    </a>
-                </div>";
+                    <div class='btn-gruppo-v hidden'>
+                        <button class='btn-info' title='Note aggiuntive' data-info='{$animale["infoAnimale"]["info"]}' data-nome='{$animale["padrone"]["nome"]}'>
+                            <svg aria-hidden='true'>
+                                <use href='{{root}}/Resources/icons.svg#info'></use>
+                            </svg>
+                        </button>
+                        <a class='go-calendario btn-link' href='{{root}}/amministrazione/calendario?mese={$mese}&anno={$anno}#g{$giorno}'>
+                            <svg aria-hidden='true'>
+                                <use href='{{root}}/Resources/icons.svg#forward'></use>
+                            </svg>
+                            <span>Calendario</span>
+                        </a>
+                    </div>";
         }
 
         $html .=
         "
+                    </div>
                 </div>
-            </div>
-        </details>";
+            </details>
+        </li>";
     }
 }
 

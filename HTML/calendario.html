@@ -1,15 +1,15 @@
 <main>
-    <h2 class="titolo">Calendario appuntamenti</h2>
+    <p class="titolo">Calendario appuntamenti</p>
 
     <div id="btns-flottanti">
         <div id="btns-mesi">
-            <a id="btn-mese-prec" class="btn-link" href="{{link-prev}}" title="Mese precedente" aria-label="vai al mese precedente: {{mese-prec}}">
+            <a id="btn-mese-prec" class="btn-link hidden" href="{{link-prev}}" title="Mese precedente" aria-label="vai al mese precedente: {{mese-prec}}">
                 <svg aria-hidden="true">
                     <use href="{{root}}/Resources/icons.svg#arrow"></use>
                 </svg>
             </a>
             <p aria-live="polite" id="lbl-mese-corr">{{mese-anno}}</p>
-            <a id="btn-mese-succ" class="btn-link" href="{{link-next}}" title="Mese successivo" aria-label="vai al mese successivo: {{mese-succ}}">
+            <a id="btn-mese-succ" class="btn-link hidden" href="{{link-next}}" title="Mese successivo" aria-label="vai al mese successivo: {{mese-succ}}">
                 <svg aria-hidden="true">
                     <use href="{{root}}/Resources/icons.svg#arrow"></use>
                 </svg>

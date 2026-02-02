@@ -6,7 +6,7 @@
             <div>
                 <p id="ben-time">Buongiorno</p>
 
-                <p>Oggi è <span id="ben-date">00/00/0000</span></p>
+                <p id="data-oggi" class="hidden">Oggi è <span id="ben-date">00/00/0000</span></p>
                 <p id="polite-app"><span id="num-app">{{num-app}}</span> <span id="app">appuntamenti</span> in programma</p>
             </div>
 
@@ -18,7 +18,7 @@
         <section id="section-links" aria-label="link rapidi di gestione">
             <ul>
                 <li>
-                    <span id="cal-not" aria-label="calendario: {{num-app}} notifiche">{{num-app}}</span>
+                    <span id="cal-not"><span class="hidden">notifiche per calendario&nbsp;</span>{{num-app}}</span>
                     <a class="btn-link" href="{{root}}/amministrazione/calendario">
                         <svg aria-hidden="true">
                             <use href="{{root}}/Resources/icons.svg#calendario"></use>
@@ -28,7 +28,7 @@
                 </li>
 
                 <li>
-                    <span id="ticket-not" aria-label="richieste adozione: {{num-tck}} notifiche">{{num-tck}}</span>
+                    <span id="ticket-not"><span class="hidden">notifiche per richieste di adozione&nbsp;</span>{{num-tck}}</span>
                     <a class="btn-link" href="{{root}}/amministrazione/gestione-ticket">
                         <svg aria-hidden="true">
                             <use href="{{root}}/Resources/icons.svg#cuore"></use>
@@ -38,7 +38,7 @@
                 </li>
 
                 <li>
-                    <span id="proposte-not" aria-label="richieste inserimento: {{num-req}} notifiche">{{num-req}}</span>
+                    <span id="proposte-not"><span class="hidden">notifiche per richieste di inserimento animali&nbsp;</span>{{num-req}}</span>
                     <a class="btn-link" href="{{root}}/amministrazione/richieste-inserimento-rifugio">
                         <svg aria-hidden="true">
                             <use href="{{root}}/Resources/icons.svg#domanda"></use>

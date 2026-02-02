@@ -10,7 +10,6 @@ $dati = [
                             adozione gatti padova,
                             portare cane in adozione,
                             portare gatto in adozione,
-                            cessione animali domestici,
                             addestratori enci padova,
                             volontariato animali padova,
                             veterinaria padova,
