@@ -4,13 +4,81 @@ textarea::placeholder {
 }
 
 .features ul li {
-    color: black;
+    color: var(--txtcolor);
+}
+
+#chiedi-visita{
+    width:90%;
+    justify-content: center;
+    align-items: center;
+}
+
+#scheda-con-visita {
+    padding: 0.5em;
+    display: block; 
+    box-sizing: border-box;  
+    margin-top:0.5em;
+    background: transparent;        
+    box-shadow: none;               
+    border-radius: 0;  
+     
+}
+
+.animal-info{
+    margin-bottom: 1em;
+}
+
+.animal-image {
+    width: 100%;
+    max-height: 18em;        
+    min-height: 18em;        
+    object-fit: cover;
+    margin-bottom: 1em;
+    display: block;  
+
+}
+
+.descriptions, .features{
+    margin-bottom: 1em;
+}
+
+.visita-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 3em;
+    gap: 1em;
+}
+
+
+.visita-header h3 {
+    font-size: 1.3em;
+    margin: 0;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+#appointment-form.active {
+    opacity: 1;
+    visibility: visible;
+    padding: 1.5em;
+}
+
+.form-row {
+    display: flex;  
+    flex-direction: column;
+    gap: 1em;
 }
 
 #appointment-form {
     max-height: none;
     opacity: 1 ;
     visibility: visible ;
+}
+
+.single-form-group textarea {
+    width: 100%;
+    min-height: 5em;
+    padding: 0.5em;
 }
 
 .cfr-button {
