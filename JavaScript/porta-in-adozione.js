@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     gestioneCaricamentoRazze();
+    loadSelect();
     const form = document.querySelector('.form-porta-adozione');
     if (!form) return;
 
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Elementi dell'animale
     const specieInput = document.getElementById('specie');
-    const razzaInput = document.getElementById('razza');
+    const razzaInput = document.getElementById('razza-select');
     const etaInput = document.getElementById('eta');
     const sessoInput = document.getElementById('sesso');
     const pesoInput = document.getElementById('peso');
@@ -367,7 +368,7 @@ function gestioneCaricamentoRazze() {
             richiediRazze(radio.value)
               .then(razze => {
                 if (razze !== null) {
-                    ripopulaSelect('razza', razze, radio.value);
+                    ripopulaSelect('razza-select', razze, radio.value);
                 } else {
                     console.error("Errore nel fetch delle razze");
                 }
@@ -375,4 +376,15 @@ function gestioneCaricamentoRazze() {
               .catch(err => console.error("Error imprevisto:", err));
         });
     });
+}
+
+function loadSelect() {
+  const inputRazza = document.getElementById("razza-input-field");
+  const inputSelect = document.getElementById("razza-select-field");
+
+  inputRazza.classList.add("hidden");
+  inputRazza.querySelector("input").required = false;
+
+  inputSelect.classList.remove("hidden");
+  inputSelect.querySelector("select").required = true;
 }

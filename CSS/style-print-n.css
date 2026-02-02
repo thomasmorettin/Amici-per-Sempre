@@ -1,10 +1,32 @@
 #section-step-porta-adozione ul li figure img {
     border-radius: 0.5rem;
     box-shadow: none;
-    height: 12.5rem;
+    height: 11.5rem;
 }
 
 #section-step-porta-adozione ul li {
-    max-width: 12.5rem;
-    min-width: 12.5rem;
+    max-width: 11.5rem;
+    min-width: 11.5rem;
+}
+
+#section-form-porta-adozione {
+    width:90%;
+    justify-content: center;
+    align-items: center;
+    border: 2px;
+}
+
+#razza-select-field {
+    display: none;
+}
+
+#razza-input-field {
+    display: flex;
+}
+
+#razza-input-field label::before {
+    content: "•";
+    font-size: 1.4em;
+    color: var(--txtwarning);
+    margin-right: 0.1em;
 }

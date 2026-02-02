@@ -115,19 +115,45 @@
                     <input placeholder="Es. 5 kg, leggero, medio, pesante..." name="peso" type="text" id="peso" aria-describedby="error-peso" value="[val_peso]" autocomplete="off" required> 
                     <div id="error-peso" class="field-error hidden" role="alert" aria-atomic="true"></div>
                 </div>
-                <div class="form-field">
-                    <label for="razza">
-                        Razza
-                    </label>
-                    <div class="select-custom">
-                        <select name="razza" id="razza" aria-describedby="error-razza" required>
-                            <option value="">Seleziona il tipo di animale</option>
-                        </select>
-                        <svg aria-hidden="true">
-                            <use href="{{root}}/Resources/icons.svg#arrow"></use>
-                        </svg>
+                <div id="razza-select-field" class="hidden">
+                    <div class="form-field">
+                        <label for="razza-select">
+                            Razza
+                        </label>
+                        <div class="select-custom">
+                            <select name="razza" id="razza-select" aria-describedby="error-razza">
+                                <option value="">Seleziona il tipo di animale</option>
+                            </select>
+                            <svg aria-hidden="true">
+                                <use href="{{root}}/Resources/icons.svg#arrow"></use>
+                            </svg>
+                        </div>
                     </div>
-                    <div id="error-razza" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                </div>
+                <div id="razza-input-field">
+                    <div class="form-field">
+                        <label for="razza-input">
+                            Razza
+                        </label>
+                        <input placeholder="Es. Corgi, Golden Retriever, Persiano..." id="razza-input" type="text" name="razza" aria-hidden="true" required>
+                        <div id="lista-razze">
+                            <section>
+                                <p>Razze per cani:</p>
+                                <ul class='richiesta-inserimento-info'>
+                                    [razze-cani]
+                                </ul>
+                            </section>
+                            <section>
+                                <p>Razze per gatti:</p>
+                                <ul class='richiesta-inserimento-info'>
+                                    [razze-gatti]
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                    
                 </div>
                 <div class="form-field">
                     <fieldset class="radio-group" id="sesso">

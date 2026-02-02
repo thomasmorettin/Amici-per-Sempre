@@ -782,6 +782,32 @@ form {
     flex: 1;
 }
 
+#lista-razze {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#lista-razze section {
+    flex: 1;
+}
+
+#lista-razze li {
+    margin-left: 1.5rem;
+}
+
+#lista-razze {
+    margin-top: 0.5rem;
+}
+
+#lista-razze section p {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 0.3rem;
+}
+
 #btn-logout,
 #btn-amministrazione
 {
@@ -912,6 +938,14 @@ form {
     font-size: 2em;
     margin-right: 0.1em;
     padding-bottom: 0.15em;
+}
+
+#razza-input-field {
+    flex: 1;
+}
+
+#razza-input-field .form-field {
+    flex: 1;
 }
 
 @media (hover: hover) {
