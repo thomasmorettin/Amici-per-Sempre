@@ -382,6 +382,18 @@ function gestioneCaricamentoRazze() {
     const radioSpecie = document.querySelectorAll('input[name="specie"]');
 
     radioSpecie.forEach(radio => {
+        richiediRazze(radio.value)
+        .then(razze => {
+        if (razze !== null) {
+            ripopulaSelect('razza-select', razze, radio.value);
+        } else {
+            console.error("Errore nel fetch delle razze");
+        }
+        })
+        .catch(err => console.error("Error imprevisto:", err));
+    });
+
+    radioSpecie.forEach(radio => {
         radio.addEventListener('change', () => {
             richiediRazze(radio.value)
               .then(razze => {
