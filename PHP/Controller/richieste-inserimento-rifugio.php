@@ -39,7 +39,7 @@ if (!empty($risDB)) {
                     <summary>
                         <span class='info-animale'>
                             <span>
-                                <span class='info-richiesta-animale'>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</span>
+                                <span class='info-richiesta-animale'>{$animale["infoAnimale"]["tipo"]} - <span lang='{$animale["infoAnimale"]["linguaRazza"]}'>{$animale["infoAnimale"]["razza"]}</span></span>
                                 <span class='dettagli-padrone'>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</span>
                                 $msgGestito
                             </span>
@@ -87,7 +87,7 @@ if (!empty($risDB)) {
                             <dt>Tipo:</dt>
                             <dd>{$animale["infoAnimale"]["tipo"]}</dd>
                             <dt>Razza:</dt>
-                            <dd>{$animale["infoAnimale"]["razza"]}</dd>
+                            <dd><span lang='{$animale["infoAnimale"]["linguaRazza"]}'>{$animale["infoAnimale"]["razza"]}</span></dd>
                             <dt>Sesso:</dt>
                             <dd>{$animale["infoAnimale"]["sesso"]}</dd>
                             <dt>Età:</dt>

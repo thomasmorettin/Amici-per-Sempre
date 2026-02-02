@@ -8,7 +8,7 @@ ensure_session();
 if( is_logged_in() ) {
     $dati = [
         "{{current-page}}" => "Logout",
-        "{{current-js}}" => "logout.js",
+        "{{current-js}}" => "login.js",
         '{{page-keywords}}' => 'Amici per Sempre,
                         logout, 
                         esci'

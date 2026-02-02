@@ -5,7 +5,6 @@
     text-align: center;
 }
 
-
 .form-field label{
     flex-direction: row;
 }
@@ -244,17 +243,6 @@ textarea {
     transition: 0.3s ease;
 }
 
-form select::after {
-  content: "▼"; /* o puoi usare un'immagine */
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: #4a6f1b; /* verde simile all’immagine */
-  font-size: 12px;
-}
-
 .radio-group {
     flex-direction: row;
     display: flex;
@@ -400,6 +388,10 @@ form select::after {
     z-index: 20;
     flex-wrap: wrap-reverse;
     align-items: center;
+}
+
+#list-topbar.hidden {
+    display: none;
 }
 
 #list-topbar button {
@@ -671,16 +663,6 @@ form {
     fill: var(--txtwarning);
 }
 
-.azioni-filtro #reset {
-    min-width: 2em;
-    background-color: var(--bgwarning);
-    box-shadow: var(--redshadow);
-    border: 2px solid var(--borderwarning);
-    background-image: url("../Resources/Vectors/Delete.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 .flag-filtro {
     background-color: var(--borderdecoration);
     border: 1px solid var(--borderdecoration);
@@ -701,37 +683,10 @@ form {
 
 .flag-filtro.show {
     display: inline-flex;
-
 }
 
 .solo-sr {
     display: none;
-}
-
-.sort-container {
-  position: relative; /* Dice al menu: "Tu ti muovi rispetto a me" */
-  display: inline-block;
-}
-
-.sort-dropdown {
-  position: absolute; /* Esce dal flusso della pagina e non occupa spazio */
-  top: 100%;          /* Si posiziona esattamente sotto il bottone */
-  left: 0;
-  z-index: 1000;      /* Si assicura di stare sopra alle immagini dei cani */
-  
-  background-color: #f0f4e8; /* Colore crema come il tuo design */
-  border: 2px solid #4a5d23;
-  border-radius: var(--generalradius);
-  list-style: none;
-  padding: 10px;
-  min-width: 160px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  
-  display: none;      /* Nascosto di default */
-}
-
-.sort-container.open .sort-dropdown {
-  display: block;
 }
 
 .select-wrapper {
@@ -819,24 +774,6 @@ form {
     width: 2.75rem;
     height: 2.75rem;
     transition: all 0.3s ease;
-}
-
-#btn-logout {
-    display: block;
-    background-image: url("../Resources/Vectors/Logout.svg");
-    text-indent: -9999em;
-    white-space: nowrap;
-    overflow: hidden;
-    border-radius: var(--generalradius);
-}
-
-#btn-amministrazione {
-    display: block;
-    background-image: url("../Resources/Vectors/Wrench.svg");
-    text-indent: -9999em;
-    white-space: nowrap;
-    overflow: hidden;
-    border-radius: var(--generalradius);
 }
 
 #form-logout button {
@@ -976,11 +913,6 @@ form {
     #form-filtri .reset:hover {
         background-color: var(--bgwarninghover);
         fill: var(--inverttxtcolor);
-    }
-
-    .azioni-filtro #reset:hover {
-        background-color: var(--bgwarninghover);
-        background-image: url("../Resources/Vectors/Delete_Light.svg");
     }
 
     .custom-select:hover {

@@ -5,6 +5,7 @@ require_once dirname(__DIR__) . "/Model/richiesta-porta-in-adozione.php";
 use function Model\getPersonaByEmailOrTelefono;
 use function Model\createPersona;
 use function Model\createRichiestaInserimentoAnimale;
+use function Model\checkRazza;
 
 ensure_session();
 
@@ -21,7 +22,7 @@ $email = isset($_POST["email"]) ? trim($_POST["email"]) : null;
 $telefono = isset($_POST["telefono"]) ? trim($_POST["telefono"]) : null;
 $specie = isset($_POST["specie"]) ? trim($_POST["specie"]) : null;
 $peso = isset($_POST["peso"]) ? trim($_POST["peso"]) : null;
-$razza = isset($_POST["razza"]) ? trim($_POST["razza"]) : null;
+$razza = isset($_POST["razza-input"]) ? trim($_POST["razza-input"]) : null;
 $eta = isset($_POST["eta"]) ? trim($_POST["eta"]) : null;
 $sesso = isset($_POST["sesso"]) ? trim($_POST["sesso"]) : null;
 $note = isset($_POST["note"]) ? trim($_POST["note"]) : null;
@@ -123,6 +124,11 @@ if (empty($sesso)) {
     $errori[] = "Il sesso non è valido";
 }
 
+// Verifica che la razza sia valida
+if (!checkRazza($razza, $specie)) {
+    $errori[] = "La razza non è valida";
+}
+
 // Se ci sono errori, salva in sessione e reindirizza
 if (!empty($errori)) {
     $_SESSION['error'] = implode("<br>", $errori);
@@ -146,7 +152,7 @@ $successo = createRichiestaInserimentoAnimale($persona_id, $note, $peso, $razza,
 
 if ($successo) {
     $_SESSION['success'] = "La richiesta di inserimento animale è stata inviata con successo. Riceverai una email di conferma e le informazioni per i prossimi passi.";
-    // sendEmail($email, $nome);  // BE CAREFUL
+    sendEmail($email, $nome);
     header("Location: " . PROJECT_ROOT . "/PHP/Controller/porta-in-adozione");
     exit;
 } else {

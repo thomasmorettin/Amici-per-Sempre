@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 
-require_once dirname(__DIR__) . '\Model\razze.php';
+require_once dirname(__DIR__) . '/Model/razze.php';
 use function Model\getRazze;
 
 // Helper per il pannello filtri — restituisce HTML pronto da inserire
@@ -45,9 +45,6 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
 
     $selectedSesso = isset($values['sesso']) && is_array($values['sesso']) ? $values['sesso'] : [];
 
-    $checked_maschio = in_array('Maschio', $selectedSesso) ? 'checked' : '';
-    $checked_femmina = in_array('Femmina', $selectedSesso) ? 'checked' : '';
-
     $nome = htmlspecialchars($values['nome'] ?? '', ENT_QUOTES, 'UTF-8');
     $peso = htmlspecialchars($values['peso'] ?? '', ENT_QUOTES, 'UTF-8');
     $eta  = htmlspecialchars($values['eta'] ?? '', ENT_QUOTES, 'UTF-8');
@@ -55,8 +52,6 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
     $cognome_persona = htmlspecialchars($values['cognome_persona'] ?? '', ENT_QUOTES, 'UTF-8');
     $email = htmlspecialchars($values['email'] ?? '', ENT_QUOTES, 'UTF-8');
     $telefono = htmlspecialchars($values['telefono'] ?? '', ENT_QUOTES, 'UTF-8');
-
-    $project_root = defined('PROJECT_ROOT') ? PROJECT_ROOT : ''; 
 
     $razze_cane = isset($values['razza_cane']) && is_array($values['razza_cane']) ? $values['razza_cane'] : [];
     $razze_gatto = isset($values['razza_gatto']) && is_array($values['razza_gatto']) ? $values['razza_gatto'] : [];
@@ -73,7 +68,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
     if ($telefono !== '') $filtri_cambiati++;
     $filtri_cambiati += count($razze_cane) + count($razze_gatto);
 
-    $html = '<div class="filter-panel" id="side-panel">'
+    $html = '<div class="filter-panel" id="side-panel" inert>'
         . '    <div class="filter-content">'
         . '        <form method="GET" action="' . htmlspecialchars($action, ENT_QUOTES) . '" id="form-filtri">'
         . '            <div class="azioni-filtro">'
@@ -324,8 +319,8 @@ function renderPannelloControlloFiltri($ricerca_html = false): string
     $values = getFiltriFromRequest();
     $ricerca = htmlspecialchars($values['ricerca'] ?? '', ENT_QUOTES, 'UTF-8');
 
-    $html = '            <div id="list-topbar">'
-        . '                   <button id="filtra-btn" ' . (!$ricerca_html ? "class=alone" : "") . '>'
+    $html = '            <div id="list-topbar" class="hidden" inert>'
+        . '                   <button id="filtra-btn" class="' . (!$ricerca_html ? "alone" : "") . '">'
         . '                       <svg aria-hidden="true">'
         . '                           <use href="{{root}}/Resources/icons.svg#filter"></use>'
         . '                       </svg>'

@@ -59,21 +59,36 @@
                         Nome
                     </label>
                     <input placeholder="Es. Mario" name="nome" id="nome" aria-describedby="error-nome" type="text" value="[val_nome]" autocomplete="off" required>
-                    <div id="error-nome" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                    <div id="error-nome" class="field-error hidden" role="alert" aria-atomic="true">
+                        <svg class="warning" aria-hidden="true">
+                            <use href="{{root}}/Resources/icons.svg#warning"></use>
+                        </svg>
+                        <span class="error-text"></span>
+                    </div>
                 </div>
                 <div class="form-field">
                     <label for="cognome">
                         Cognome
                     </label>
                     <input placeholder="Es. Rossi" name="cognome" id="cognome" aria-describedby="error-cognome" type="text" value="[val_cognome]" autocomplete="off" required>
-                    <div id="error-cognome" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                    <div id="error-cognome" class="field-error hidden" role="alert" aria-atomic="true">
+                        <svg class="warning" aria-hidden="true">
+                            <use href="{{root}}/Resources/icons.svg#warning"></use>
+                        </svg>
+                        <span class="error-text"></span>
+                    </div>
                 </div>
                 <div class="form-field">
                     <label for="email">
                         Email
                     </label>
-                    <input placeholder="Es. mario.rossi@example.com" name="email" id="email" aria-describedby="error-email" type="text" value="[val_email]" autocomplete="off" required>
-                    <div id="error-email" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                    <input placeholder="Es. mario.rossi@esempio.com" name="email" id="email" aria-describedby="error-email" type="text" value="[val_email]" autocomplete="off" required>
+                    <div id="error-email" class="field-error hidden" role="alert" aria-atomic="true">
+                        <svg class="warning" aria-hidden="true">
+                            <use href="{{root}}/Resources/icons.svg#warning"></use>
+                        </svg>
+                        <span class="error-text"></span>
+                    </div>
                 </div>
                 <div class="form-field">
                     <label for="telefono">
@@ -83,7 +98,12 @@
                         <span class="phone-prefix">+39</span>
                         <input class="phone-number" placeholder="Es. 123 456 7890" name="telefono" id="telefono" type="tel" aria-describedby="error-telefono" value="[val_telefono]" autocomplete="off" required>
                     </div>
-                    <div id="error-telefono" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                    <div id="error-telefono" class="field-error hidden" role="alert" aria-atomic="true">
+                        <svg class="warning" aria-hidden="true">
+                            <use href="{{root}}/Resources/icons.svg#warning"></use>
+                        </svg>
+                        <span class="error-text"></span>
+                    </div>
                 </div>
             </div>
             <div id="section-animale">
@@ -99,21 +119,36 @@
                         </legend>
                         [radio-buttons-specie]
                     </fieldset>
-                    <div id="error-specie" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                    <div id="error-specie" class="field-error hidden" role="alert" aria-atomic="true">
+                        <svg class="warning" aria-hidden="true">
+                            <use href="{{root}}/Resources/icons.svg#warning"></use>
+                        </svg>
+                        <span class="error-text"></span>
+                    </div>
                 </div>
                 <div class="form-field">
                     <label for="eta">
                         Età (approssimativa)
                     </label>
                     <input placeholder="Es. 4 anni, 6 mesi, cucciolo, adulto, anziano..." name="eta" type="text" id="eta" aria-describedby="error-eta" value="[val_eta]" autocomplete="off" required>
-                    <div id="error-eta" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                    <div id="error-eta" class="field-error hidden" role="alert" aria-atomic="true">
+                        <svg class="warning" aria-hidden="true">
+                            <use href="{{root}}/Resources/icons.svg#warning"></use>
+                        </svg>
+                        <span class="error-text"></span>
+                    </div>
                 </div>
                 <div class="form-field">
                     <label for="peso">
                         Peso (approssimativo)
                     </label>
                     <input placeholder="Es. 5 kg, leggero, medio, pesante..." name="peso" type="text" id="peso" aria-describedby="error-peso" value="[val_peso]" autocomplete="off" required> 
-                    <div id="error-peso" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                    <div id="error-peso" class="field-error hidden" role="alert" aria-atomic="true">
+                        <svg class="warning" aria-hidden="true">
+                            <use href="{{root}}/Resources/icons.svg#warning"></use>
+                        </svg>
+                        <span class="error-text"></span>
+                    </div>
                 </div>
                 <div id="razza-select-field" class="hidden">
                     <div class="form-field">
@@ -121,12 +156,18 @@
                             Razza
                         </label>
                         <div class="select-custom">
-                            <select name="razza" id="razza-select" aria-describedby="error-razza">
+                            <select name="razza-select" id="razza-select" aria-describedby="error-razza">
                                 <option value="">Seleziona il tipo di animale</option>
                             </select>
                             <svg aria-hidden="true">
                                 <use href="{{root}}/Resources/icons.svg#arrow"></use>
                             </svg>
+                        </div>
+                        <div id="error-razza" class="field-error hidden" role="alert" aria-atomic="true">
+                            <svg class="warning" aria-hidden="true">
+                                <use href="{{root}}/Resources/icons.svg#warning"></use>
+                            </svg>
+                            <span class="error-text"></span>
                         </div>
                     </div>
                 </div>
@@ -135,7 +176,7 @@
                         <label for="razza-input">
                             Razza
                         </label>
-                        <input placeholder="Es. Corgi, Golden Retriever, Persiano..." id="razza-input" type="text" name="razza" aria-hidden="true" required>
+                        <input placeholder="Es. Corgi, Golden Retriever, Persiano..." id="razza-input" type="text" name="razza-input" aria-hidden="true" required>
                         <div id="lista-razze">
                             <section>
                                 <p>Razze per cani:</p>
@@ -162,7 +203,12 @@
                         </legend>
                         [radio-buttons-sesso]
                     </fieldset>   
-                    <div id="error-sesso" class="field-error hidden" role="alert" aria-atomic="true"></div>
+                    <div id="error-sesso" class="field-error hidden" role="alert" aria-atomic="true">
+                        <svg class="warning" aria-hidden="true">
+                            <use href="{{root}}/Resources/icons.svg#warning"></use>
+                        </svg>
+                        <span class="error-text"></span>
+                    </div>
                 </div>
                 <div class="form-field">
                     <label for="note">

@@ -1,7 +1,6 @@
 const pannelloPopupWidth = 1024;
 
 document.addEventListener("DOMContentLoaded", () => {
-    togglePannello();
     gestioneAccordion();
     gestioneBottonePannelloFiltri();
     gestioneRicerca();
@@ -12,11 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     controlloWrapBottone();
     gestioneContaFiltri();
     controllaFlagSezioni();
+    verificaPannelloJS();
 
     const pannello = document.getElementById("side-panel");
     pannello.inert = true;
 
-    // Ripristina lo stato del pannello se era aperto
     if (window.innerWidth > pannelloPopupWidth && recuperaStatoPannello()) {
         pannello.classList.add("open");
         pannello.inert = false;
@@ -38,7 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
         setupPosizionePanel();
         controlloWrapBottone();
     });
-})
+});
+
+function verificaPannelloJS() {
+    const topbar = document.getElementById('list-topbar');
+
+    topbar.classList.remove("hidden");
+    topbar.inert = false;
+}
 
 function setupPosizionePanel() {
     const isMobile = window.innerWidth <= pannelloPopupWidth;
@@ -218,57 +224,8 @@ function updateSectionFlags() {
             flagScreenReader.textContent = "";
 
             flag.classList.remove('show');
-            // hideAndRemoveBadge(flag);
         }
     });
-}
-
-// Hide the badge with CSS transition and remove from DOM after legend expansion
-function hideAndRemoveBadge(el) {
-    if (!el || el.dataset.removing) return;
-    el.dataset.removing = '1';
-    const header = el.parentElement;
-    const legendRight = header ? header.querySelector('.legend-right') : null;
-
-    // compute badge full width including margins
-    const bs = getComputedStyle(el);
-    const badgeWidth = el.getBoundingClientRect().width + (parseFloat(bs.marginLeft) || 0) + (parseFloat(bs.marginRight) || 0);
-
-    if (legendRight) {
-        const prevMax = legendRight.style.maxWidth || '';
-        legendRight.style.transition = 'max-width .22s ease';
-        legendRight.style.maxWidth = `calc(100% - ${badgeWidth}px)`;
-        // force reflow
-        legendRight.getBoundingClientRect();
-
-        // shrink badge (this will animate via CSS)
-        el.classList.add('hidden');
-
-        // then expand legend to take full space
-        requestAnimationFrame(() => {
-            legendRight.style.maxWidth = '100%';
-        });
-
-        const onLegendEnd = (ev) => {
-            if (ev.target !== legendRight) return;
-            legendRight.removeEventListener('transitionend', onLegendEnd);
-            if (el.parentElement) el.remove();
-            legendRight.style.transition = '';
-            legendRight.style.maxWidth = prevMax;
-            delete el.dataset.removing;
-        };
-
-        legendRight.addEventListener('transitionend', onLegendEnd);
-    } else {
-        el.classList.add('hidden');
-        const onEnd = (ev) => {
-            if (ev.target !== el) return;
-            el.removeEventListener('transitionend', onEnd);
-            if (el.classList.contains('hidden')) el.remove();
-            delete el.dataset.removing;
-        };
-        el.addEventListener('transitionend', onEnd);
-    }
 }
 
 function gestioneAccordion() {
@@ -284,9 +241,9 @@ function gestioneAccordion() {
 
             if (panel.classList.contains('open')) {
 
-                // Closing
+                // Apertura
                 panel.style.height = panel.scrollHeight + "px";
-                panel.getBoundingClientRect(); // force reflow
+                panel.getBoundingClientRect();
 
                 requestAnimationFrame(() => {
                 panel.style.height = "0px";
@@ -297,7 +254,7 @@ function gestioneAccordion() {
 
             } else {
 
-                // Opening
+                // Chiusura
                 panel.style.height = panel.scrollHeight + "px";
                 panel.inert = false;
                 button.setAttribute('aria-expanded', 'true');
@@ -375,13 +332,6 @@ function gestionePulsanteResetFiltri() {
     });
 }
 
-function togglePannello() {
-    document.querySelectorAll("fieldset.collapse legend.toggle").forEach(legend => {
-        legend.addEventListener("click", function () {
-            this.parentElement.classList.toggle("open");
-        });
-    });
-}
 
 function cambiaNumeroFlag(numero, flag, numFlag, descFlag, add = true) {
     if (!numero && numero !== 0) return;

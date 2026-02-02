@@ -4,6 +4,23 @@ namespace Model;
 require_once dirname(__DIR__) . "/db-access.php";
 use DB\DBAccess;
 
+// Controlla che la razza sia valida (se il javascript è disabilitato)
+function checkRazza($razza, $tipo) {
+    $query = "SELECT Nome FROM Razza WHERE Nome = ? AND Tipo = ?";
+
+    $db = new DBAccess();
+    $connOk = $db->openConn();
+
+    if ($connOk) {
+        $result = $db->exeQuery($query, [$razza, $tipo]);
+        $db->closeConn();
+
+        return !empty($result);
+    }
+
+    return false;
+}
+
 // Verifica se una persona esiste per email o telefono
 function getPersonaByEmailOrTelefono($email, $telefono) {
     $query = "SELECT ID FROM Persona WHERE Email = ? OR Telefono = ?";

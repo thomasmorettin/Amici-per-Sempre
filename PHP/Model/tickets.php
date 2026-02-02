@@ -134,7 +134,7 @@ function getAnimaliEsterniTck($filtri = []) {
         $sql = "SELECT E.ID AS IDAnimale, E.Razza AS RazzaAnimale, R.Tipo AS TipoAnimale, E.Eta AS EtaAnimale,
                 E.Peso AS PesoAnimale, E.Sesso AS SessoAnimale, ED.Note AS Info, ED.DataRichiesta AS DataRich,
                 P.Nome AS NomeRich, P.Cognome AS CognomeRich, P.Email AS EmailRich, P.Telefono AS TelRich,
-                C.ID AS IDCalendario, C.Data AS DataApp, C.Ora AS OraApp
+                C.ID AS IDCalendario, C.Data AS DataApp, C.Ora AS OraApp, R.Lingua AS LinguaRazza
                 FROM AnimaleEsterno E
                 JOIN Razza R ON E.Razza = R.Nome
                 LEFT JOIN EntitaDatabile ED ON E.ID = ED.ID
@@ -236,6 +236,7 @@ function getAnimaliEsterniTck($filtri = []) {
                         "peso" => htmlspecialchars($row["PesoAnimale"], ENT_QUOTES, "UTF-8"),
                         "sesso" => (htmlspecialchars($row["SessoAnimale"], ENT_QUOTES, "UTF-8") == "M" ? "Maschio" : "Femmina"),
                         "info" => htmlspecialchars($row["Info"], ENT_QUOTES, "UTF-8"),
+                        "linguaRazza" => htmlspecialchars($row["LinguaRazza"], ENT_QUOTES, "UTF-8"),
                     ],
 
                     "padrone" => [

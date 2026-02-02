@@ -16,17 +16,14 @@
     border: 2px;
 }
 
+#section-form-porta-adozione .field-error {
+    display: none;
+}
+
 #razza-select-field {
     display: none;
 }
 
 #razza-input-field {
     display: flex;
-}
-
-#razza-input-field label::before {
-    content: "•";
-    font-size: 1.4em;
-    color: var(--txtwarning);
-    margin-right: 0.1em;
 }

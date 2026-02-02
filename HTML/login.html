@@ -9,13 +9,25 @@
                 <label for="username" class="required">
                     Username
                 </label>
-                <input type="text" id="username" name="username" placeholder="Es. user1234" required>
+                <input type="text" id="username" name="username" placeholder="Es. user1234" aria-describedby="error-user" required>
+                <div id="error-username" class="field-error hidden" role="alert" aria-atomic="true">
+                    <svg class="warning" aria-hidden="true">
+                        <use href="{{root}}/Resources/icons.svg#warning"></use>
+                    </svg>
+                    <span class="error-text"></span>
+                </div>
             </div>
             <div class="form-field">
                 <label for="password" class="required">
                     Password
                 </label>
                 <input type="password" id="password" name="password" placeholder="Es. password1234" required>
+                <div id="error-password" class="field-error hidden" role="alert" aria-atomic="true">
+                    <svg class="warning" aria-hidden="true">
+                        <use href="{{root}}/Resources/icons.svg#warning"></use>
+                    </svg>
+                    <span class="error-text"></span>
+                </div>
             </div>
             <div class="form-field">
                 <button type="submit">Accedi</button>

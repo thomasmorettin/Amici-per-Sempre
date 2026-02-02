@@ -7,7 +7,7 @@ use function Model\getRazze;
 ensure_session();
 
 $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
-// unset($_SESSION['form_data']);
+unset($_SESSION['form_data']);
 
 $radio_buttons_sesso = '<label for="sesso-maschio">
                             <input type="radio" name="sesso" value="m" id="sesso-maschio" aria-describedby="error-sesso" required' . ((isset($form_data['sesso']) && $form_data['sesso'] === "m") ? 'checked' : '') . '>
