@@ -9,22 +9,21 @@ use function Model\createTicket;
 
 ensure_session();
 
-// === VERIFICA METODO POST ===
+// VERIFICA METODO POST 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: " . PROJECT_ROOT . "/");
     exit;
 }
 
-// === RECUPERO DATI DAL FORM ===
+// RECUPERO DATI DAL FORM
 $animale_id = isset($_POST['animale_id']) ? (int)$_POST['animale_id'] : 0;
 $nome = trim($_POST['nome'] ?? '');
 $cognome = trim($_POST['cognome'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $telefono = trim($_POST['telefono'] ?? '');
 $note = trim($_POST['note'] ?? '');
-$privacy = isset($_POST['privacy']);
 
-// === VALIDAZIONE DATI ===
+// VALIDAZIONE DATI 
 $errori = [];
 
 if ($animale_id <= 0) { 
@@ -73,7 +72,7 @@ if (empty($telefono)) {
 }
 
 
-// === SE CI SONO ERRORI, TORNA INDIETRO ===
+// SE CI SONO ERRORI, TORNA INDIETRO 
 if (!empty($errori)) {
     $_SESSION['error'] = implode('<br>', $errori);
     $_SESSION['form_data'] = $_POST;
@@ -81,7 +80,7 @@ if (!empty($errori)) {
     exit;
 }
 
-// === STEP 1: VERIFICA/CREA PERSONA ===
+// STEP 1: VERIFICA/CREA PERSONA 
 $persona = getPersonaByEmailOrTelefono($email, $telefono);
 
 if ($persona) {
@@ -97,7 +96,7 @@ if ($persona) {
     }
 }
 
-// === STEP 2: VERIFICA TICKET DUPLICATO ===
+// STEP 2: VERIFICA TICKET DUPLICATO 
 if (ticketExists($persona_id, $animale_id)) {  
     $_SESSION['error'] = "Hai già inviato una richiesta per questo animale";
     $_SESSION['form_data'] = $_POST;
@@ -105,7 +104,7 @@ if (ticketExists($persona_id, $animale_id)) {
     exit;
 }
 
-// === STEP 3: CREA RICHIESTA ===
+//  STEP 3: CREA RICHIESTA 
 $note_db = !empty($note) ? $note : null;
 $success = createTicket($persona_id, $animale_id, $note_db); 
 

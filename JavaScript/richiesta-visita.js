@@ -4,9 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!form) return;
     
-    // ========================================
-    // GESTIONE APERTURA/CHIUSURA FORM + ACCESSIBILITÀ
-    // ========================================
+
+    // GESTIONE APERTURA/CHIUSURA FORM  ACCESSIBILE
     
     // Imposta aria-expanded iniziale
     if (btnRichiestaVisita) {
@@ -63,9 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // ========================================
     // ELEMENTI DEL FORM
-    // ========================================
     
     const nomeInput = document.getElementById('nome');
     const cognomeInput = document.getElementById('cognome');
@@ -78,10 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorEmail = document.getElementById('error-email');
     const errorTelefono = document.getElementById('error-telefono');
     
-    // ========================================
-    // FUNZIONI DI VALIDAZIONE
-    // ========================================
-    
+   // FUNZIONI DI VALIDAZIONE
+   
     function validaNome(input) {
         const valore = input.value.trim();
         
@@ -128,9 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
     }
     
-    // ========================================
     // MOSTRA/NASCONDI ERRORI CON ARIA
-    // ========================================
     
     function mostraErroreCampo(input, errorDiv, messaggio) {
         if (messaggio) {
@@ -155,9 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorDiv.classList.add('hidden');
     }
     
-    // ========================================
     // VALIDAZIONE AL SUBMIT
-    // ========================================
     
     form.addEventListener('submit', function(e) {
         let haErrori = false;
@@ -206,9 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // ========================================
     // VALIDAZIONE IN TEMPO REALE (blur/input)
-    // ========================================
     
     nomeInput.addEventListener('blur', function() {
         const errore = validaNome(this);
