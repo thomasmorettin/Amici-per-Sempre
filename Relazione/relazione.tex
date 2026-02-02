@@ -32,7 +32,7 @@
 		\vspace{1cm}
 		
 		{\huge \textbf{Rifugio per adozione animali}}\\[0.5cm]
-		{\Huge \textbf{\url{http://localhost/}}}\\[1.5cm]
+		{\Huge \textbf{\url{http://localhost/tmoretti/}}}\\[1.5cm]
 		
 		\rule{\textwidth}{0.5pt}\\[0.5cm] % linea orizzontale elegante
 		{\LARGE Relazione di progetto}\\[0.1cm]
@@ -146,10 +146,10 @@
 		\includegraphics[scale=0.75]{../Database/er-rifugio.pdf}
 		\caption{Diagramma ER della base di dati}
 	\end{figure}\\
-	Per questioni di spazio, ma volendo comunque approfondire il diagramma soprariportato, si approfondiscono le seguenti scelte progettuali:
+	Per questioni di spazio, ma volendo comunque approfondire il diagramma soprariportato, si evidenziano le seguenti scelte progettuali:
 	\begin{itemize}
 		\item l'entità \texttt{EntitàDatabile} viene utilizzata per accorpare gli attributi comuni di \texttt{AnimaleEsterno} e \texttt{Ticket}, ovvero la richiesta di adozione; in particolare l'entità serve per permettere di calendarizzare le tuple, delle tabelle distinte, all'interno dell'entità \texttt{Calendario}, potendo usare ID univoco;
-		\item l'entità \texttt{Utente} presenta un campo Password criptato...;
+		\item l'entità \texttt{Utente} presenta un campo Password criptato tramite funzione di hashing \texttt{bcrypt} basata su cifratura Blowfish;
 		\item l'entità \texttt{Razza} presenta un campo Lingua che viene utilizzato per popolare l'attributo \texttt{lang} HTML e poter quindi rendere accessibile la pronuncia di una razza nel momento in cui viene utilizzata all'interno del sito;
 		\item l'entità \texttt{AnimaleRifugio} presenta il campo Età di tipo \texttt{FLOAT(2, 2)}, permettendo così di estrapolare dalle cifre unitarie gli anni dell'animali, mentre da quelle decimali i mesi di quest'ultimo; questa scelta permette di filtrare anche per mesi gli animali del Rifugio.
 	\end{itemize}
@@ -157,19 +157,93 @@
 	Per quanto concerne la sicurezza del sito web sono state applicate le seguenti tecniche di prevenzione danni nei confronti delle tecnologie client/server-side:
 	\begin{itemize}
 		\item creazione, come già parlato precedentemente, della funzione \texttt{exeQuery} la quale fa uso di \texttt{mysqli\_prepare()} per parametrizzare le query e trattare l'input, eccetto dati integer/double, come una semplice stringa; ciò previene SQL Injection;
-		\item password dell'amministratore salvata con tecnica di criptazione...;
+		\item password dell'amministratore salvata con tecnica di criptazione tramite funzione di hashing \texttt{bcrypt} basata su cifratura Blowfish;
 		\item protezione da attacchi di tipo XSS (Cross-Site Scripting) grazie alla funzione \texttt{htmlspecialchars()} inserita all'interno di ogni funzione per l'estrapolazione dei dati dal database ed evitare l'inserimento di elementi HTML che potrebbero rompere la struttura della pagina.
 	\end{itemize}
 	\section{Accessibilità e usabilità}
+	Uno degli aspetti fondamentali nella progettazione web risulta essere l'attenzione all'accessibilità, ovvero il ramo che si occupa di rendere utilizzabile un sito web da chiunque. Per questo progetto si è fatto riferimento allo standard WCAG (Web Content Accessibility Guidelines) 2.2, inclusivo dello standard 2.1.
 	\subsection{Elementi fondamentali}
+	L'accessibilità all'interno di questo progetto si concretizza nel rispetto di regole ben specifiche dello standard sopracitato:
+	\begin{itemize}
+		\item separazione netta tra livello di struttura (HTML5), presentazione (CSS3) e comportamento (JavaScript); questo permette di incorporare elementi di arricchimento delle pagine senza rompere la struttura solida alla base;
+		\item utilizzo di file HTML semantici e validati, per garantire che non si "rompano" alla visualizzazione, rovinando così la lettura tramite tecnologie assistive;
+		\item rispetto della norma WCAG 2.5.8, in quanto tutti gli elementi cliccabili interni al sito presentano un'area cliccabile di almeno \texttt{24x24} pixel garantendo il livello minimo AA; i pulsanti, invece, garantiscono un livello di accessibilità AAA con una dimensione minima di \texttt{44x44} pixel;
+		\item utilizzo di unità relative all'interno dei fogli di stile per garantire il ridimensionamento degli elementi in base alle necessità dell'utente;
+		\item implementazione di funzionalità "rimuovi sfondo", permettendo ad un utente con difficoltà visive o ADHD di concentrarsi più facilmente nella lettura del testo;
+		\item implementazione di funzionalità "tema chiaro/scuro", permettendo ad utenti ipovedenti (affetti da fotosensibilità, patologie dell'occhio, ...) di navigare il sito con minore difficoltà;
+		\begin{quote}
+			\textbf{NB} Queste ultime due funzionalità vengono rese fruibili anche tramite screen reader, in quanto utili agli utenti ipovedenti per le ragioni soprariportate.
+		\end{quote}
+		\item utilizzo di animazioni con un tempo di esecuzione minimo pari a \texttt{0.3}s per non inficiare sull'attenzione dell'utente.
+		\item è stato fatto uso di un font accessibile quale \href{https://fonts.google.com/specimen/Inter?query=inter}{\texttt{Inter}}, privo di grazie per rendere la lettura delle pagine facile a qualsiasi utente e preservare un estetica pulita;
+		\item validazione dei campi di un form sia a livello client-side che server-side, con particolare attenzione alla stampa degli errori commessi dall'utente, i quali vengono annunciati per essere subito compresi anche da un utente che naviga con tecnologie assistive;
+		\item inserimento di attributi \texttt{lang} per l'identificazione della lingua dell'elemento e permettere una lettura efficace da parte dello screen-reader.
+	\end{itemize}
 	\subsection{Orientamento e navigazione}
+	Per quanto riguarda questa sezione si elencano le best practices adottate per rendere il sito web di facile navigazione:
+	\begin{itemize}
+		\item utilizzo dell'elemento breadcrumb, il quale permette all'utente di orientarsi all'interno del sito web;
+		\item implementazione di un pulsante "torna in cima", per facilitare il ritorno alla parte superiore della pagina;
+		\item header e elementi di selezione del contenuto (pannello filtri, pannello di gestione calendario) definiti \texttt{sticky} per permetterne la reperibilità durante la navigazione;
+		\item utilizzo di tag \texttt{<details>} per la visualizzazione di informazioni principali all'interno di \texttt{summary} e dettagli ad esso collegati nella seziona a scomparsa; ciò permette all'utente di navigare con semplicità senza l'obbligo di lettura, soprattutto con screen reader, di un contenuto potenzialmente non richiesto dall'utente stesso;
+		\item elemento di notifica toast, con focus e role \texttt{alert} per avvisare l'utente al successo o meno di un'azione interna al sito (es. calendarizzazione di un appuntamento);
+		\item testing ed eventuale correzione della navigazione da tastiera tramite pulsante Tab, con possibile esclusione di alcuni elementi aventi \texttt{tabindex=-1}, altrimenti difficili da navigare (es. Google map nella homepage del sito).
+	\end{itemize}
 	\subsection{WAI-ARIA}
+	Un ulteriore pratica adottata all'interno del sito web per renderlo accessibile è l'utilizzo di specifiche WAI-ARIA (Web Accessibility Initiative - Accessible Rich Internet Applications) per definire ruoli e proprietà aggiuntive per rendere la navigazione tramite tecnologie assistive il più comprensibile possibile. Alcuni degli attributi utilizzati sono:
+	\begin{itemize}
+		\item \texttt{aria-label} per la definizione dell'etichetta di pulsanti e renderli così più comprensivi nel loro scopo;
+		\item \texttt{aria-hidden} per nascondere elementi, come icone vettoriali, che altrimenti verrebbero percepite dallo screen reader;
+		\item \texttt{aria-labelledby} per fornire un titolo significativo a ciascun tag \texttt{<section>} all'interno del sito web;
+		\item \texttt{aria-expanded} per far comprendere ad un utente ipovedente/non vedente se un elemento si è espanso o meno;
+		\item \texttt{aria-live} per avvertire l'utente nel momento in cui il contenuto di un elemento è cambiato dopo una determinata azione;
+		\item attributo \texttt{role} per la definizione del ruolo di ciascun elemento e di come debba essere interpretato dalla tecnologia assistiva.
+	\end{itemize}
 	\subsection{Colori e Brand Identity}
+	Per quanto concerne l'utilizzo dei colori, quindi di una palette unificata, si è voluto far fronte sia ad un'esigenza estetica che funzionale/accessibile. Nello specifico la palette richiama quelli che sono i colori principali per un'attività a stretto contatto con gli animali, rispettando al tempo stesso quelle che sono le necessità minime di contrasto AA (valore 4.5:1) richieste all'interno dello standard WCAG 2.2. Si riportano di seguito le palette utilizzate con i relativi contrasti.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.3]{../Design/tema-chiaro.pdf}
+		\caption{Tema chiaro}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.3]{../Design/tema-scuro.pdf}
+		\caption{Tema scuro}
+	\end{figure}\\[3.5cm]
+	Com'è possibile notare dalle tabelle soprariportate tutti i contrasti rispettano ciò che è stato descritto nel paragrafo precedente. È stato riportato, all'interno delle tabelle, anche il contrasto tra il colore per i link non visitati (\texttt{\#2B7292} e \texttt{\#508FAB}) e il testo normale (\texttt{\#23201F} e \texttt{\#EFEBE6}), che è il colore dei link già visitati, che è pari a 3.02:1, sufficiente per comprenderne la differenza. Si vuole evidenziare, inoltre, che per l'ideazione del tema scuro non c'è stata una semplice "inversione" dei colori, ma bensì uno studio che garantisse una desaturazione dei colori luminosi, come testo o bordi, in quanto, a differenza del tema chiaro, i colori chiari hanno una luminosità differente rispetto a quelli scuri, tendendo così a risaltare maggiormente in constrasto con uno sfondo quasi nero. Tutti i colori riportati all'interno di queste palette aiutano a creare così una brand identity per il sito che diventa riconoscibile nella sua grafica e tonalità.
+	\subsection{Convenzioni interne del sito}
+	Per aiutare l'utente durante la navigazione all'interno del sito si è fatto uso delle seguenti convenzioni interne:
+	\begin{itemize}
+		\item colori di pulsanti, compreso di quest'ultimi sfondo, bordo e testo, sono stati standardizzati con le tonalità del verde, per essere immediatamente identificabili in quanto elementi cliccabili;
+		\item i link non visitati presentano colore azzurro, a differenza di quelli visitati che si "nascondono" riprendendo il colore del testo; entrambi rimangono comunque sottolineati per identificazione immediata da parte dell'utente;
+		\item i link che portano a pagine esterne dal sito vengono segnalati tramite l'uso di un'icona standard nella progettazione web che riporta una freccia che punta verso l'esterno di un quadrato.
+	\end{itemize}
 	\section{Test e validazione (Niccolò)}
 	\section{SEO e prestazioni}
+	Il ranking del sito web, specialmente per quanto riguarda un'attività no-profit e geograficamente circoscritta come il Rifugio in oggetto, è un aspetto fonamentale. Per questo ci si basa sull'incremento della SEO (Search Engine Optimization) per fare in modo che il sito venga proposto ai livelli più alti possibili della SERP (Search Engine Results Page). Le best practices più comuni adottate in questo progetto sono:
+	\begin{itemize}
+		\item separazione tra struttura (HTML5), presentazione (CSS3) e comportamento (JavaScript) per permettere un caricamento rapido delle pagine del sito.
+		\begin{quote}
+			\textbf{NB} Tramite estensione Chrome Browser \href{https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=it}{Lighthouse} è stato possibile verificare una velocità di caricamento della pagina ottimo (99/100), con una velocità di caricamento massima pari a 0.5s.
+		\end{quote}
+		\item uso di formati leggeri per le immagini del sito, come \texttt{.jpg} o \texttt{WebP};
+		\item inserimento di keywords e metadati dinamici all'interno delle diverse pagine tramite scripting PHP;
+		\item breadcrumb e link di navigazione del sito per permettere agli algoritmi di ispezione delle pagine di analizzare più pagine possibili del sito web;
+		\item uso di tag \texttt{<strong>} ed \texttt{<em>} per la marcatura delle keywords all'interno del sito;
+		\item metatag con attributo \texttt{property="og:..."} per definire parametri utili nella fase di condivisione del sito tramite socials, come logo, descrizione, ...;
+		\item ottimizzazione del layout responsive per permettere agli algoritmi di ispezione di alzare il livello di ranking;
+		\item tag \texttt{<title>} con lunghezza inferiore ai 55 caratteri, dallo specifico al generale e univoco per ciascuna pagina;
+		\item uso di metatag \texttt{description} dinamico per ciascuna pagina, il quale non massimizza direttamente il ranking ma potrebbe aiutare nel CTR (Click-Through Rate) aumentando così il numero di interazioni che gli utenti hanno con il sito web;
+		\item dichiarazione degli elementi grafici vettoriali all'interno del file \texttt{icons.svg}, la quale scelta permette di diminuire la velocità di caricamento della pagina, permettendo al browser di caricare in un momento unico tutte le icone di cui il sito ha necessità; il vantaggio risiede anche nella manipolazione del colore e nell'organizzazione delle suddette icone vettoriali;
+		\item utilizzo di tag \texttt{<h1>} univoco per pagina (logo del sito) contenente la keyword principale, abbinato all'uso gerarchico dei tag \texttt{<h2>...<h6>};
+		\item link ai social media del Rifugio, anche se non concretamente presenti si fa presente che aiutano come elemento per la SEO; concetto analogo è valido anche per l'indirizzo fisico del Rifugio, il quale aiuta alla connessione con ricerche in Google Maps.
+	\end{itemize}
+	Si è deciso inoltre di lavorare sulla SEO semantica, ampliando così il quantitativo di scelte architetturali adottate per l'ottimizzazione del ranking. Di seguito viene riportata la descrizione dei file cardine. Nello specifico è stato implementato il vocabolario semantico \texttt{Schema.org} attravero il formato JSON-LD (JavaScript Object Notation for Linked Data), utilizzato per inserire dati strutturati in formato JSON all'interno delle pagine web e renderli facilmente ispezionabili dagli algoritmi di ranking.
 	\subsection{\texttt{faq-schema.js}}
+	File "iniettabile" all'interno della homepage, la quale al suo interno presenta FAQs (Frequently Asked Questions) per approfondire eventuali dubbi da parte dell'utente. Lo \texttt{Schema.org} in questione si pone l'obiettivo di rendere disponibili ai crawler le domande e le risposte contenute all'interno della pagina, strutturate e leggibili facilmente. Questa sezione aiuta ad aumentare il ranking, in quanto ha la possibilità di abbinare criteri di ricerca generali dell'utente (eseguiti nella barra di ricerca del browser) alla pagina del Rifugio, tramite per l'appunto risposte ad eventuali domande.
 	\subsection{\texttt{org-schema.js}}
-	\subsection{Web Performance Optimization}
+	Questo secondo file viene "iniettato" all'interno della homepage, pagina di adotta, pagina di porta in adozione e scheda animale. In questo contesto il file permette di comunicare in modo univoco al browser quelli che sono i dati principali dell'ente, i quali ne identificano l'identità. Alcuni degli attributi definiti nello schema sono: tipologia ente specifica per rifugio animali (\texttt{AnimalShelter}), telefono, email, localizzazione geografica, orari di apertura e scopo di lucro dell'ente (\texttt{\$} ovvero no-profit). Eventualmente è stata aggiunta la possibilità di collegamento ai link social anche se non presenti nel concreto. Questi dati aiutano a creare autorevolezza per l'ente del Rifugio, permettendo così una massimizzazione del ranking all'interno della SERP.
 	\section{Organizzazione (Niccolò)}
 	\section{Difficoltà (Niccolò)}
 	\section{Conclusioni (Niccolò)}

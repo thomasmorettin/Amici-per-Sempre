@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.10)  2 FEB 2026 01:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.10)  2 FEB 2026 11:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -700,24 +700,53 @@ n-zio-ne \T1/cmtt/m/n/10 exeQuery \T1/cmr/m/n/10 la qua-le fa uso di \T1/cmtt/m
 /n/10 mysqli_prepare()
  []
 
+[6]
+
+pdfTeX warning: pdflatex.exe (file ../Design/tema-chiaro.pdf): PDF inclusion: f
+ound PDF version <1.7>, but at most version <1.5> allowed
+<../Design/tema-chiaro.pdf, id=252, 963.6pt x 542.025pt>
+File: ../Design/tema-chiaro.pdf Graphic file (type pdf)
+<use ../Design/tema-chiaro.pdf>
+Package pdftex.def Info: ../Design/tema-chiaro.pdf  used on input line 206.
+(pdftex.def)             Requested size: 289.08223pt x 162.60875pt.
+
+
+pdfTeX warning: pdflatex.exe (file ../Design/tema-scuro.pdf): PDF inclusion: fo
+und PDF version <1.7>, but at most version <1.5> allowed
+<../Design/tema-scuro.pdf, id=253, 963.6pt x 542.025pt>
+File: ../Design/tema-scuro.pdf Graphic file (type pdf)
+<use ../Design/tema-scuro.pdf>
+Package pdftex.def Info: ../Design/tema-scuro.pdf  used on input line 211.
+(pdftex.def)             Requested size: 289.08223pt x 162.60875pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7] [8 <../Design/tema-chiaro.pdf> <../Design/tema-scuro.pdf
+
+pdfTeX warning: pdflatex.exe (file ../Design/tema-scuro.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 170.
-[6] (relazione.aux)
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 243.
+ [9] [10] (relazione.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `relazione.out' has not changed.
-(rerunfilecheck)             Checksum: AFEEACB2C17C7D5775A03C9A18C3EB4F;4247.
+(rerunfilecheck)             Checksum: 2981AD99115A77E27E0105E5227877E4;4250.
  ) 
 Here is how much of TeX's memory you used:
- 15772 strings out of 474486
- 254901 string characters out of 5743754
- 1938542 words of memory out of 5000000
- 37806 multiletter control sequences out of 15000+600000
+ 15794 strings out of 474486
+ 255499 string characters out of 5743754
+ 1939542 words of memory out of 5000000
+ 37822 multiletter control sequences out of 15000+600000
  574166 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,9n,93p,713b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,9n,93p,1069b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
 1200.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -729,9 +758,9 @@ ts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\thoma\AppData\Local\MiKT
 eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\thoma\AppData\Loca
 l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt2488.pk> <C:\Users\thoma\AppDat
 a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk>
-Output written on relazione.pdf (7 pages, 207320 bytes).
+Output written on relazione.pdf (11 pages, 270305 bytes).
 PDF statistics:
- 631 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 243 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 690 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 253 words of extra memory for PDF output out of 10000 (max. 10000000)
 
