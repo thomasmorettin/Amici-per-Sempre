@@ -782,11 +782,6 @@ form {
     flex: 1;
 }
 
-.sezione-padrone {
-    display: flex;
-    flex-direction: column;
-}
-
 #btn-logout,
 #btn-amministrazione
 {

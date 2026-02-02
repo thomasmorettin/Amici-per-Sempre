@@ -37,10 +37,12 @@ if (!empty($risDB)) {
         "   <li>
                 <details class='dtl-animale'>
                     <summary>
-                        <span>
-                            <span class='info-richiesta-animale'>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</span>
-                            <span class='dettagli-animale'>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</span>
-                            $msgGestito
+                        <span class='info-animale'>
+                            <span>
+                                <span class='info-richiesta-animale'>{$animale["infoAnimale"]["tipo"]} - {$animale["infoAnimale"]["razza"]}</span>
+                                <span class='dettagli-padrone'>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</span>
+                                $msgGestito
+                            </span>
                         </span>
 
                         <svg class='exp-freccia'>
@@ -50,8 +52,8 @@ if (!empty($risDB)) {
 
             <div class='contenuto-nascosto'>
                 <div>       <!-- Con il solo scopo di rendere più fluida la dissolvenza della scheda -->
-                    <section class='sezione-padrone'>
-                        <p>Info padrone</p>
+                    <section>
+                        <p>Info padrone:</p>
                         <dl class='richiesta-inserimento-info'>
                             <dt>Nome:</dt>
                             <dd>{$animale["padrone"]["nome"]} {$animale["padrone"]["cognome"]}</dd>
@@ -77,11 +79,10 @@ if (!empty($risDB)) {
         $html .= 
         "
                         </dl>
-                        <div class='spaziatore'></div>
                     </section>
 
                     <section>
-                        <p>Info animale</p>
+                        <p>Info animale:</p>
                         <dl class='richiesta-inserimento-info'>
                             <dt>Tipo:</dt>
                             <dd>{$animale["infoAnimale"]["tipo"]}</dd>
@@ -93,6 +94,8 @@ if (!empty($risDB)) {
                             <dd>{$animale["infoAnimale"]["eta"]}</dd>
                             <dt>Peso:</dt>
                             <dd>{$animale["infoAnimale"]["peso"]}</dd>
+                            <dt class='note-hidden'>Note:</dt>
+                            <dd class='note-hidden'>{$animale["infoAnimale"]["info"]}</dd>
                         </dl>
                     </section>";
 

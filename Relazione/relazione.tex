@@ -219,7 +219,7 @@
 		\item i link non visitati presentano colore azzurro, a differenza di quelli visitati che si "nascondono" riprendendo il colore del testo; entrambi rimangono comunque sottolineati per identificazione immediata da parte dell'utente;
 		\item i link che portano a pagine esterne dal sito vengono segnalati tramite l'uso di un'icona standard nella progettazione web che riporta una freccia che punta verso l'esterno di un quadrato.
 	\end{itemize}
-	\section{Test e validazione (Niccolò)}
+	\section{Test e validazione}
 	Sono stati eseguiti vari test per garantire l'accessibilità del sito e per validare il codice. Di seguito la lista di strumenti che sono stati utilizzati per automizzare alcuni test:
 	\begin{itemize}
 		\item \textbf{W3C Validator:} sturmento che ci ha permesso di analizzare il codice html di ogni pagina per garantire che fosse sotto gli standard di W3C.
@@ -247,6 +247,11 @@
 		\item \textbf{Compatibilità browser da telefono:} si ha verificato che il sito fosse correttamente renderizzato ed utilizzabile da dispositivi mobili.
 		\item \textbf{Test di reindirizzamento delle pagine:} si ha testato il corretto funzionamento dei reindirizzamenti configurati in .htaccess, sia nella navigazione generale che nelle relative pagine di errore.
 		\item \textbf{Test del layout di stampa:} si ha verificato che durante la stampa la maggior parte dei bottoni venissero nascosti e che non ci fossero elementi tagliati dal cambio di pagina.
+		\item \textbf{Test di funzionalità senza Javascript:} alcuni componenti usufruiscono di codice a lato client per rendere l'esperienza più fluida e animata: in quel caso si ha verificato che il sito funzionasse senza aver bisogno di codice Javascript. In particolare:
+		\begin{itemize}
+			\item Ogni campo dei form deve essere verificato sia da lato client con Javascript che da lato server con PHP, rendendo quindi il primo solo un controllo aggiuntivo e non essenziale.
+			\item Il pannello filtri deve essere nascosto di default, e mostrato solamente se il codice Javascript è attivo, in modo da evitare una esperienza utente incompleta.
+		\end{itemize}
 		\item \textbf{Test funzionali:} sono stati eseguiti vari test per controllare le seguenti funzionalità:
 		\begin{enumerate}
 			\item \textbf{Invio e-mail di conferma:} quando l'utente invia un form di adozione o di richiesta porta in adozione, il sistema deve inviare una e-mail di conferma all'indirizzo specificato, con le corrette informazioni e il layout CSS definito dal file style-email.css
@@ -311,8 +316,9 @@
 	File "iniettabile" all'interno della homepage, la quale al suo interno presenta FAQs (Frequently Asked Questions) per approfondire eventuali dubbi da parte dell'utente. Lo \texttt{Schema.org} in questione si pone l'obiettivo di rendere disponibili ai crawler le domande e le risposte contenute all'interno della pagina, strutturate e leggibili facilmente. Questa sezione aiuta ad aumentare il ranking, in quanto ha la possibilità di abbinare criteri di ricerca generali dell'utente (eseguiti nella barra di ricerca del browser) alla pagina del Rifugio, tramite per l'appunto risposte ad eventuali domande.
 	\subsection{\texttt{org-schema.js}}
 	Questo secondo file viene "iniettato" all'interno della homepage, pagina di adotta, pagina di porta in adozione e scheda animale. In questo contesto il file permette di comunicare in modo univoco al browser quelli che sono i dati principali dell'ente, i quali ne identificano l'identità. Alcuni degli attributi definiti nello schema sono: tipologia ente specifica per rifugio animali (\texttt{AnimalShelter}), telefono, email, localizzazione geografica, orari di apertura e scopo di lucro dell'ente (\texttt{\$} ovvero no-profit). Eventualmente è stata aggiunta la possibilità di collegamento ai link social anche se non presenti nel concreto. Questi dati aiutano a creare autorevolezza per l'ente del Rifugio, permettendo così una massimizzazione del ranking all'interno della SERP.
-	\section{Organizzazione del lavoro (Niccolò)}
-	Il gruppo si è organizzato per la realizzazione del progetto suddividendo il lavoro in base alle pagine da realizzare, ognuna delle quali prevedeva lo sviluppo di HTML, CSS, PHP e JavaScript:
+	\section{Organizzazione del lavoro}
+	Ogni membro ha contribuito alla progettazione del database e alla scelta dei colori utilizzati nel sito, valutati in base al contrasto secondo gli standard delle linee guida WCAG 2.2, con Thomas Morettin come principale contributore in questo ambito.
+	Per quanto riguarda lo sviluppo delle pagine, il gruppo si è organizzato per la realizzazione del progetto suddividendo il lavoro in base alle pagine da realizzare, ognuna delle quali prevedeva lo sviluppo di HTML, CSS, PHP e JavaScript:
 	\begin{itemize}
 		\item Thomas Morettin: header e footer, pagina \emph{Index}, pagina \emph{Calendario}, pagina \emph{Gestione ticket}, pagina \emph{Amministrazione}.
 		\item Felician Mario Necsulescu: pagina \emph{Adotta}, pagina \emph{Scheda animale}
@@ -325,18 +331,17 @@
 		\item a Felician Mario Necsulescu la maggior parte della validazione dei campi nei form presento nel sito.
 	\end{itemize}
 	Si ha data quindi la responsabilità ad ogni membro del gruppo di validare l'accessibilità delle proprie pagine e di testarne il corretto funzionamento.
-	Ogni membro ha contribuito alla progettazione del database e alla scelta dei colori utilizzati nel sito, valutati in base al contrasto secondo gli standard delle linee guida WCAG 2.2, con Thomas Morettin come principale contributore in questo ambito.
-	\section{Conclusioni e difficoltà incontrate (Niccolò)}
+	\section{Conclusioni e difficoltà incontrate}
 	In conclusione, il sito è stato progettato in un contesto il più possibile realistico, con l'obiettivo di sviluppare un sistema in grado di gestire in modo completo tutte le transazioni (adozioni e appuntamenti) di un centro di adozione immaginario. Particolare attenzione è stata posta affinché il sistema risultasse accattivante, accessibile, semplice da utilizzare, immediato e distintivo.
 	Il progetto ci ha permesso di esplorare diverse fasi dello sviluppo web, dalla progettazione del logo alla definizione delle funzionalità principali del sito, offrendo un'esperienza completa e pratica che ha arricchito le competenze di tutti i membri, sia sul design pulito e funzionale, sia sulla realizzazione di un servizio web operativo.
 	L'attività ha inoltre fornito l'opportunità di gestire efficacemente il lavoro di gruppo, sperimentando la suddivisione dei compiti e l'organizzazione delle pagine. Particolarmente significativa è stata la progettazione di un sistema modulare per la creazione delle pagine e l'implementazione di un meccanismo di invio automatico delle e-mail, che ha consentito di rendere il sito più completo e professionale.
 	Grazie alla sua struttura modulare, il progetto può essere facilmente esteso e adattato per un'implementazione reale in un centro di adozione, offrendo così un'esperienza arricchente per i membri del gruppo.
 	
-	\newpage
+	\vspace{0.5cm}
 
 	Alcune difficoltà sono state riscontrate durante la progettazione del sito:
 	\begin{itemize}
-		\item \textbf{Accessibilità:} in alcune funzionalità del sito, come nelle pagine di gestione delle richieste, nelle schede animali o nel pannello dei filtri, è stato particolarmente impegnativo cercare di trovare un bilanciamento tra estetica accattivante e layout accessibile, portandoci a studiare esaustivamente diverse opzioni di implementazione e prendendo decisioni in fase d'implementazione che scartavano alcune scelte decise all'inizio per un approccio più accessibile o modulare.
+		\item \textbf{Accessibilità:} in alcune funzionalità del sito, come nelle pagine di gestione delle richieste, nelle schede animali o nel pannello dei filtri, è stato particolarmente impegnativo cercare di trovare un bilanciamento tra estetica accattivante e layout accessibile, portandoci a studiare esaustivamente diverse opzioni di progettazione e prendendo decisioni in fase d'implementazione che scartavano delle scelte prese all'inizio del progetto per un approccio più accessibile o modulare.
 		\item \textbf{Unificazione del sito:} vista l'organizzazione dello sviluppo delle pagine, nettamente suddivisa tra i membri, è stato dedicato del tempo per rendere l'intero sito un'esperienza coerente e uniforme, un aspetto che non era immediato all'inizio della progettazione. Per questo il gruppo ha pianificato vari incontri che permettessero di dialogare su proposte e/o consigli in modo da accordarsi sulle decisioni più importanti.
 		\item \textbf{Previsione del carico di lavoro:} anche se fin dall'inizio l'obiettivo del sito era chiaro al gruppo, è capitato più volte di proporre idee troppo complesse da implementare o troppo dispendiose in termini di tempo. È stato quindi necessario rivalutare alcune scelte originali per garantire la fattibilità del progetto.
 	\end{itemize}
