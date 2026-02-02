@@ -71,9 +71,9 @@ if (!empty($risDB)) {
 
             $html .=
             "               <dt>Data <abbr title='Appuntamento'>app</abbr>:</dt>
-                            <dd>{$gestitaRealFormat}</dt>
+                            <dd>{$gestitaRealFormat}</dd>
                             <dt>Ora <abbr title='Appuntamento'>app</abbr>:</dt>
-                            <dd>{$animale["ora"]}</dt>";
+                            <dd>{$animale["ora"]}</dd>";
         }
 
         $html .= 
