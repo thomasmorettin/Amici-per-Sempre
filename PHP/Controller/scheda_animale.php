@@ -7,7 +7,7 @@ use function Model\getAnimaleById;
 
 ensure_session();
 
-// === RECUPERO ID ANIMALE DALL'URL ===
+// RECUPERO ID ANIMALE DALL'URL 
 $animale_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 if ($animale_id <= 0) {
@@ -15,7 +15,7 @@ if ($animale_id <= 0) {
     exit;
 }
 
-// === RECUPERO DATI TRAMITE MODEL ===
+// RECUPERO DATI TRAMITE MODEL 
 $animale = getAnimaleById($animale_id);
 
 if (!$animale) {
@@ -23,7 +23,7 @@ if (!$animale) {
     exit;
 }
 
-// === SANITIZZAZIONE DATI ===
+// SANITIZZAZIONE DATI 
 $nome = htmlspecialchars($animale['Nome'], ENT_QUOTES, 'UTF-8');
 $razza = htmlspecialchars($animale['Razza'], ENT_QUOTES, 'UTF-8');
 $tipo = htmlspecialchars($animale['Tipo'], ENT_QUOTES, 'UTF-8');
@@ -90,7 +90,7 @@ if (is_array($caratteristiche) && !empty($caratteristiche)) {
 $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
 unset($_SESSION['form_data']);
 
-// === ARRAY DATI PER buildPage() ===
+// ARRAY DATI PER buildPage() 
 $dati = [
     '{{current-page}}'   => $nome,
     '{{page-description}}' => "Adotta un $tipo di razza $razza in cerca di famiglia. Prenota una visita gratuita al rifugio Amici per Sempre di Padova.",
@@ -125,6 +125,5 @@ $dati = [
     '[val_note]'         => isset($form_data['note']) ? htmlspecialchars($form_data['note'], ENT_QUOTES, 'UTF-8') : ''
 ];
 
-// === OUTPUT FINALE ===
 echo buildPage("scheda_animale.html", $dati);
 ?>

@@ -22,7 +22,6 @@ $cognome = trim($_POST['cognome'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $telefono = trim($_POST['telefono'] ?? '');
 $note = trim($_POST['note'] ?? '');
-$privacy = isset($_POST['privacy']);
 
 // === VALIDAZIONE DATI ===
 $errori = [];

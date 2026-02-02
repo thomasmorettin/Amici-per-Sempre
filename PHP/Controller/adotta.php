@@ -8,7 +8,7 @@ use function Model\getAllAnimali;
 
 ensure_session();
 
-// === GESTIONE FILTRI ===
+//GESTIONE FILTRI 
 $filtri = [
     'tipo' => isset($_GET['tipo']) ? $_GET['tipo'] : [],
     'nome' => isset($_GET['nome']) ? $_GET['nome'] : '',
@@ -18,11 +18,11 @@ $filtri = [
     'razza_gatto' => isset($_GET['razza_gatto']) ? $_GET['razza_gatto'] : [] 
 ];
 
-// === RECUPERO ANIMALI TRAMITE MODEL ===
+// RECUPERO ANIMALI TRAMITE MODEL 
 $animali = getAllAnimali($filtri);
 $count = count($animali);
 
-// === GENERAZIONE HTML LISTA ANIMALI ===
+// GENERAZIONE HTML LISTA ANIMALI 
 $lista_animali_html = '';
 $contatore_html = '';
 
@@ -83,14 +83,14 @@ if (!empty($animali)) {
     $contatore_html = '<p class="animali-nontrovati" role="status">Nessun animale trovato con i filtri selezionati.</p>';
 }
 
-// === GENERAZIONE PANNELLO FILTRI 
+// GENERAZIONE PANNELLO FILTRI 
 $pannello_controllo_html = Controller\renderPannelloControlloFiltri(false);
 $pannello_filtri_html = Controller\renderPannelloFiltri(
     PROJECT_ROOT . '/adotta',
     ['Tipo', 'Razze', 'Dati animale']  
 );
 
-// === ARRAY DATI PER buildPage() ===
+// ARRAY DATI PER buildPage() 
 $dati = [
     '{{current-page}}' => 'Adotta',
     '{{page-description}}' => "Cani e gatti in adozione al rifugio Amici per Sempre di Padova. Filtra per razza, peso ed età per trovare l'animale perfetto per te.",
@@ -112,6 +112,6 @@ $dati = [
     
 ];
 
-// === OUTPUT FINALE ===
+
 echo buildPage("adotta.html", $dati);
 ?>
