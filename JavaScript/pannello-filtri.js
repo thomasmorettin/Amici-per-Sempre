@@ -315,13 +315,13 @@ function toggleFilter() {
 }
 
 function gestionePulsanteResetFiltri() {
-    const form = document.getElementById("form-filtri");
-    const pulsanteReset = form.querySelector(".reset");
+    const formFiltri = document.getElementById("form-filtri");
+    const resetFiltri = formFiltri.querySelector(".reset");
 
-    pulsanteReset.addEventListener('click', function() {
-        form.reset();
+    resetFiltri.addEventListener('click', function() {
+        formFiltri.reset();
 
-        form.querySelectorAll('input, textarea, select').forEach(el => {
+        formFiltri.querySelectorAll('input, textarea, select').forEach(el => {
             if (el.type === 'checkbox' || el.type === 'radio') {
                 el.checked = false;
             }
@@ -332,6 +332,23 @@ function gestionePulsanteResetFiltri() {
         });
 
         azzeraCount();
+    });
+
+    const formRicerca = document.getElementById("form-ricerca");
+    if(!formRicerca) return;
+    const resetRicerca = formRicerca.querySelector(".reset");
+
+    resetRicerca.addEventListener('click', function() {
+        formRicerca.reset();
+
+        formRicerca.querySelectorAll('input, textarea, select').forEach(el => {
+            if (el.type === 'checkbox' || el.type === 'radio') {
+                el.checked = false;
+            }
+            else {
+                el.value = '';
+            }
+        });
     });
 }
 

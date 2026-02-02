@@ -655,8 +655,17 @@ form {
     overflow: hidden;
 }
 
+#form-ricerca .reset {
+    color: var(--txtwarning);
+    background-color: var(--bgwarning);
+    box-shadow: var(--redshadow);
+    border-color: var(--borderwarning);
+    fill: var(--txtwarning);
+}
+
 #form-filtri .reset {
     min-width: 2em;
+    color: var(--txtwarning);
     background-color: var(--bgwarning);
     box-shadow: var(--redshadow);
     border-color: var(--borderwarning);
@@ -910,7 +919,8 @@ form {
     transform: scale(1.05);
     }
 
-    #form-filtri .reset:hover {
+    #form-filtri .reset:hover,
+    #form-ricerca .reset:hover {
         background-color: var(--bgwarninghover);
         fill: var(--inverttxtcolor);
     }
