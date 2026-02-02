@@ -4,9 +4,8 @@ namespace Model;
 require_once dirname(__DIR__) . "/db-access.php";
 use DB\DBAccess;
 
-/**
- * Verifica se una persona esiste per email o telefono
- */
+//Verifica se una persona esiste per email o telefono
+ 
 function getPersonaByEmailOrTelefono($email, $telefono) {
     $query = "SELECT ID FROM Persona WHERE Email = ? OR Telefono = ?";
     
@@ -23,9 +22,7 @@ function getPersonaByEmailOrTelefono($email, $telefono) {
     return null;
 }
 
-/**
- * Crea una nuova persona
- */
+//Crea una nuova persona*/
 function createPersona($nome, $cognome, $email, $telefono) {
     $query = "INSERT INTO Persona (Nome, Cognome, Email, Telefono) VALUES (?, ?, ?, ?)";
     
@@ -47,9 +44,7 @@ function createPersona($nome, $cognome, $email, $telefono) {
     return false;
 }
 
-/**
- * Verifica se esiste già un ticket per una persona e un animale
- */
+//Verifica se esiste già un ticket per una persona e un animale 
 function ticketExists($persona_id, $animale_id) {
     $query = "SELECT t.ID FROM Ticket t 
               JOIN EntitaDatabile ed ON t.ID = ed.ID
@@ -68,9 +63,8 @@ function ticketExists($persona_id, $animale_id) {
     return false;
 }
 
-/**
- * Crea un nuovo ticket di richiesta visita
- */
+//Crea un nuovo ticket di richiesta visita
+
 function createTicket($persona_id, $animale_id, $note = null) {
     $query_entita = "INSERT INTO EntitaDatabile (Note) VALUES (?)";
     $query_ticket = "INSERT INTO Ticket (ID, Richiedente, Animale) VALUES (?, ?, ?)";
