@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.10)  2 FEB 2026 16:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.10)  2 FEB 2026 17:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -669,94 +669,128 @@ been already used, duplicate ignored
 l.70 	\clearpage
                  [1] [2
 
-]
+] [3]
+Overfull \hbox (18.27914pt too wide) in paragraph at lines 150--151
+\T1/cmr/m/n/10 Tutte le pa-gi-ne del si-to con-di-vi-do-no una strut-tu-ra HTML
+5 se-man-ti-ca uni-for-me de-fi-ni-ta nel fi-le \T1/cmtt/m/n/10 template.html\T
+1/cmr/m/n/10 .
+ []
+
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 113.
- [3]
-Overfull \hbox (24.4906pt too wide) in paragraph at lines 132--135
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 156.
+
+Overfull \hbox (2.92792pt too wide) in paragraph at lines 156--158
+\T1/cmr/m/n/10 vi-ga-zio-ne e vie-ne ge-ne-ra-to di-na-mi-ca-men-te at-tra-ver-
+so la fun-zio-ne \T1/cmtt/m/n/10 populatedNavbar() \T1/cmr/m/n/10 in \T1/cmtt/m
+/n/10 header.php\T1/cmr/m/n/10 .
+ []
+
+
+Overfull \hbox (1.9613pt too wide) in paragraph at lines 161--162
+\T1/cmr/m/n/10 ray di link ba-san-do-si sul-la pa-gi-na cor-ren-te ri-le-va-ta 
+tra-mi-te \T1/cmtt/m/n/10 basename($_SERVER["PHP_SELF"])\T1/cmr/m/n/10 .
+ []
+
+
+Overfull \hbox (30.44284pt too wide) in paragraph at lines 183--184
+\T1/cmr/m/n/10 La piat-ta-for-ma è strut-tu-ra-ta se-con-do un mo-del-lo ge-rar
+-chi-co de-fi-ni-to nel-l'ar-ray \T1/cmtt/m/n/10 $nomiPag \T1/cmr/m/n/10 del fi
+-le \T1/cmtt/m/n/10 breadcrumb.php\T1/cmr/m/n/10 ,
+ []
+
+[4]
+Overfull \hbox (25.18024pt too wide) in paragraph at lines 189--190
+\T1/cmr/m/n/10 am-mi-ni-stra-ti-va si di-ra-ma in tre se-zio-ni: Ca-len-da-rio 
+(\T1/cmtt/m/n/10 calendario.php\T1/cmr/m/n/10 ), Ge-stio-ne tic-ket (\T1/cmtt/m
+/n/10 gestione-ticket.php\T1/cmr/m/n/10 )
+ []
+
+[5] [6]
+Overfull \hbox (24.4906pt too wide) in paragraph at lines 249--252
 \T1/cmr/m/n/10 Come de-scrit-to pre-ce-den-te-men-te cia-scun ele-men-to del-la
  pa-gi-na vie-ne ge-sti-to di-stin-ta-men-te. Il fi-le \T1/cmtt/m/n/10 template
 .php
  []
 
-
+[7]
 
 pdfTeX warning: pdflatex.exe (file ../Database/er-rifugio.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<../Database/er-rifugio.pdf, id=184, 615.25856pt x 536.0025pt>
+<../Database/er-rifugio.pdf, id=208, 615.25856pt x 536.0025pt>
 File: ../Database/er-rifugio.pdf Graphic file (type pdf)
 <use ../Database/er-rifugio.pdf>
-Package pdftex.def Info: ../Database/er-rifugio.pdf  used on input line 146.
+Package pdftex.def Info: ../Database/er-rifugio.pdf  used on input line 263.
 (pdftex.def)             Requested size: 461.44278pt x 402.00089pt.
 
-Overfull \hbox (6.19867pt too wide) in paragraph at lines 146--147
+Overfull \hbox (6.19867pt too wide) in paragraph at lines 263--264
  [][] 
  []
 
-[4]
-Overfull \hbox (23.16574pt too wide) in paragraph at lines 156--157
+[8 <../Database/er-rifugio.pdf>]
+Overfull \hbox (23.16574pt too wide) in paragraph at lines 273--274
 \T1/cmr/m/n/10 Una co-pia del DUMP per la ba-se di da-ti è pre-sen-te al per-co
 r-so in-ter-no di pro-get-to \T1/cmtt/m/n/10 Database/dump-rifugio.sql 
  []
 
-[5 <../Database/er-rifugio.pdf>]
-Overfull \hbox (28.17175pt too wide) in paragraph at lines 160--161
+
+Overfull \hbox (28.17175pt too wide) in paragraph at lines 277--278
 []\T1/cmr/m/n/10 creazione, co-me già par-la-to pre-ce-den-te-men-te, del-la fu
 n-zio-ne \T1/cmtt/m/n/10 exeQuery \T1/cmr/m/n/10 la qua-le fa uso di \T1/cmtt/m
 /n/10 mysqli_prepare()
  []
 
-[6]
+[9] [10]
 
 pdfTeX warning: pdflatex.exe (file ../Design/tema-chiaro.pdf): PDF inclusion: f
 ound PDF version <1.7>, but at most version <1.5> allowed
-<../Design/tema-chiaro.pdf, id=252, 963.6pt x 542.025pt>
+<../Design/tema-chiaro.pdf, id=275, 963.6pt x 542.025pt>
 File: ../Design/tema-chiaro.pdf Graphic file (type pdf)
 <use ../Design/tema-chiaro.pdf>
-Package pdftex.def Info: ../Design/tema-chiaro.pdf  used on input line 207.
+Package pdftex.def Info: ../Design/tema-chiaro.pdf  used on input line 324.
 (pdftex.def)             Requested size: 289.08223pt x 162.60875pt.
 
 
 pdfTeX warning: pdflatex.exe (file ../Design/tema-scuro.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<../Design/tema-scuro.pdf, id=253, 963.6pt x 542.025pt>
+<../Design/tema-scuro.pdf, id=276, 963.6pt x 542.025pt>
 File: ../Design/tema-scuro.pdf Graphic file (type pdf)
 <use ../Design/tema-scuro.pdf>
-Package pdftex.def Info: ../Design/tema-scuro.pdf  used on input line 212.
+Package pdftex.def Info: ../Design/tema-scuro.pdf  used on input line 329.
 (pdftex.def)             Requested size: 289.08223pt x 162.60875pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[7] [8 <../Design/tema-chiaro.pdf> <../Design/tema-scuro.pdf
+[11 <../Design/tema-chiaro.pdf> <../Design/tema-scuro.pdf
 
 pdfTeX warning: pdflatex.exe (file ../Design/tema-scuro.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
->]
+>] [12]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 244.
- [9] [10] (relazione.aux)
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 361.
+ [13] (relazione.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-Package rerunfilecheck Info: File `relazione.out' has not changed.
-(rerunfilecheck)             Checksum: 2981AD99115A77E27E0105E5227877E4;4250.
+
+
+Package rerunfilecheck Warning: File `relazione.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `relazione.out':
+(rerunfilecheck)             Before: 2981AD99115A77E27E0105E5227877E4;4250
+(rerunfilecheck)             After:  8FA0539AD63AA91E2FD3AE79A5A4A5E6;5268.
  ) 
 Here is how much of TeX's memory you used:
- 15794 strings out of 474486
- 255499 string characters out of 5743754
- 1939542 words of memory out of 5000000
+ 15804 strings out of 474486
+ 255633 string characters out of 5743754
+ 1938542 words of memory out of 5000000
  37822 multiletter control sequences out of 15000+600000
  574166 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,9n,93p,1069b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,9n,93p,1069b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
 1200.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx1200.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+0\ecbx1200.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\tcrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
 pen/ec/dpi600\ectt1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour
 /jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/
 ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fon
@@ -764,9 +798,9 @@ ts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\thoma\AppData\Local\MiKT
 eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\thoma\AppData\Loca
 l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt2488.pk> <C:\Users\thoma\AppDat
 a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk>
-Output written on relazione.pdf (11 pages, 270667 bytes).
+Output written on relazione.pdf (14 pages, 288989 bytes).
 PDF statistics:
- 691 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
+ 731 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
  253 words of extra memory for PDF output out of 10000 (max. 10000000)
 
