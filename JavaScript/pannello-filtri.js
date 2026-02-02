@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setupPosizionePanel();
     chiusuraPopup();
     gestionePulsanteResetFiltri();
-    controlloWrapBottone();
     gestioneContaFiltri();
     controllaFlagSezioni();
     verificaPannelloJS();
@@ -37,6 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
         setupPosizionePanel();
         controlloWrapBottone();
     });
+
+    setTimeout(() => {
+        controlloWrapBottone();
+    }, 80);
 });
 
 function verificaPannelloJS() {
