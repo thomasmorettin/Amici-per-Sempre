@@ -6,8 +6,6 @@ use Pelago\Emogrifier\CssInliner;
 require_once dirname(__DIR__) . "/PHP/template.php";
 $vendorPath = dirname(__DIR__) . "/PHP/vendor/autoload.php";
 
-(!file_exists($vendorPath)) ? null : require_once $vendorPath;
-
 const PROJECT_ROOT = "/tec-web";
 
 // Funzione per l'avvio della sessione se non già avviata
@@ -107,40 +105,43 @@ function parserEmailCSS($html) {
 
 // Funzione per l'invio della mail automatica all'utente
 function sendEmail($destinatario, $nomeUser) {
-    try {
-        $mail = new PHPMailer(true);
+    if (file_exists($vendorPath)) {
+        require_once $vendorPath;
 
-        $html = file_get_contents(__DIR__ . "/../HTML/Email/request-mail.html");
-        $body = parserEmailCSS($html);
+        try {
+            $mail = new PHPMailer(true);
 
-        // Creazione del corpo dell'email
-        $body = str_replace("{{root}}", PROJECT_ROOT, $body);
-        $body = str_replace("{{nome-utente}}", $nomeUser, $body);
+            $html = file_get_contents(__DIR__ . "/../HTML/Email/request-mail.html");
+            $body = parserEmailCSS($html);
 
-        $mail->isSMTP();
-        $mail->Host       = "smtp.gmail.com";
-        $mail->SMTPAuth   = true;
-        $mail->Username   = "rifugio.amicipersempre@gmail.com";     // Indirizzo email del rifugio
-        $mail->Password   = "ghwn vgqt wqxz apzn ";      // Password apposita per l'applicazione -> connessione all'indirizzo di posta
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;	// Il server dell'Università blocca il traffico uscente (anche da 465)
+            // Creazione del corpo dell'email
+            $body = str_replace("{{root}}", PROJECT_ROOT, $body);
+            $body = str_replace("{{nome-utente}}", $nomeUser, $body);
 
-	    // Timeout: Se non si connette in 5 secondi, da errore (invece di caricare all'infinito)
-        $mail->Timeout    = 5;
-        $mail->Timelimit  = 5;
+            $mail->isSMTP();
+            $mail->Host       = "smtp.gmail.com";
+            $mail->SMTPAuth   = true;
+            $mail->Username   = "rifugio.amicipersempre@gmail.com";     // Indirizzo email del rifugio
+            $mail->Password   = "ghwn vgqt wqxz apzn ";      // Password apposita per l'applicazione -> connessione all'indirizzo di posta
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;	// Il server dell'Università blocca il traffico uscente (anche da 465)
 
-        $mail->setFrom("rifugio.amicipersempre@gmail.com", "Rifugio Amici per Sempre");
-        $mail->addAddress($destinatario);
-        $mail->isHTML(true);
+            // Timeout: Se non si connette in 5 secondi, da errore (invece di caricare all'infinito)
+            $mail->Timeout    = 5;
 
-        $mail->Subject = "Richiesta al Rifugio Amici per Sempre";
-        $mail->Body = $body;
+            $mail->setFrom("rifugio.amicipersempre@gmail.com", "Rifugio Amici per Sempre");
+            $mail->addAddress($destinatario);
+            $mail->isHTML(true);
 
-        $mail->send();
+            $mail->Subject = "Richiesta al Rifugio Amici per Sempre";
+            $mail->Body = $body;
 
-        return true;
+            $mail->send();
+
+            return true;
+        }
+
+        catch (Exception $e) { return false; }
     }
-
-    catch (Exception $e) { return false; }
 }
 ?>
