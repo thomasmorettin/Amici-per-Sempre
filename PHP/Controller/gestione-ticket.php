@@ -41,7 +41,7 @@ if (is_logged_in()) {
                     $isOldB = ($b["data"] < $oggi);
 
                     if ($isOldA && !$isOldB) { return 1; }
-                    elseif (!$isOldA && isOldB) { return -1; }
+                    elseif (!$isOldA && $isOldB) { return -1; }
 
                     $dataOraA = $a["data"] . $a["ora"];
                     $dataOraB = $b["data"] . $b["ora"];
