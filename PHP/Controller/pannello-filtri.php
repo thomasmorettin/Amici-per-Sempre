@@ -82,6 +82,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
                         </div>';
 
     if (in_array('Tipo', $sections, true)) {
+<<<<<<< Updated upstream
         $html .= '         
                         <div class="accordion">
                             <div class="accordion-header">
@@ -115,6 +116,40 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
                                 </div>
                             </div>
                         </div>';
+=======
+        $html .= '         <div class="accordion">'
+            . '                <div class="accordion-header">'
+            . '                    <div class="legend-left"></div>'
+            . '                    <button type="button" class="header" aria-expanded="false" id="legenda-tipo-animale" aria-describedby="count-tipo-animale">'
+            . '                        Tipo animale'
+            . '                        <svg aria-hidden="true">'
+            . '                            <use href="{{root}}/Resources/icons.svg#arrow"></use>'
+            . '                        </svg>'
+            . '                    </button>'
+            . '                    <span class="flag-filtro" aria-live="polite">'
+            . '                        <span class="flag">0</span>'
+            . '                        <span class="solo-sr" id="count-tipo-animale"></span>'
+            . '                    </span>'
+            . '                    <div class="legend-right"></div>'
+            . '                </div>'
+            . '                <div class="content">'
+            . '                    <div class="inner-content">'
+            . '                        <div class="form-field">'
+            . '                            <fieldset class="check-group" aria-labelledby="legenda-tipo-animale">'
+            . '                                <label for="cane">'
+            . '                                    <input type="checkbox" id="cane" name="tipo[]" value="Cane" ' . $checked_cane . '>Cane'
+            . '                                    <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                                </label>'
+            . '                                <label for="gatto">'
+            . '                                    <input type="checkbox" id="gatto" name="tipo[]" value="Gatto" ' . $checked_gatto . '>Gatto'
+            . '                                    <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>'
+            . '                                </label>'
+            . '                            </fieldset>'
+            . '                        </div>'
+            . '                    </div>'
+            . '                </div>'
+            . '            </div>';
+>>>>>>> Stashed changes
     }
 
     if (in_array('Dati animale', $sections, true)) {
@@ -304,6 +339,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
                         </div>';
     }
 
+<<<<<<< Updated upstream
     $html .= '        
                     </form>
                 </div>
@@ -311,6 +347,14 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
             </div>
             <dialog class="filter-panel" id="popup-panel">
                 <button class="btn-close" aria-label="chiudi pannello filtri">
+=======
+    $html .= '        </form>'
+        . '    </div>'
+        . '    <span class="divider"></span>'
+        . '</div>'
+        . '<dialog class="filter-panel" id="popup-panel">'
+        . '    <button class="btn-close" aria-label="chiudi pannello filtri">
+>>>>>>> Stashed changes
                     <svg aria-hidden="true">
                         <use href="{{root}}/Resources/icons.svg#cancel"></use>
                     </svg>
