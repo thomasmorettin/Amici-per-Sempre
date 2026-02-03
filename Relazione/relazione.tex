@@ -17,7 +17,11 @@
 \usepackage{wrapfig}
 \geometry{margin=2.5cm}
 
-\newmdenv[linecolor=black,linewidth=0.5pt,backgroundcolor=white!10]{citabox}
+\newmdenv[linecolor=black,linewidth=0.5pt,backgroundcolor=white!10,
+innertopmargin=10pt,
+innerbottommargin=10pt,
+innerleftmargin=10pt,
+innerrightmargin=10pt]{citabox}
 \definecolor{colorImportant}{HTML}{963428}
 
 % ---------------- DOCUMENTO ----------------
@@ -49,7 +53,7 @@
 			\textbf{2111001 (Referente)} Thomas Morettin (\href{mailto:thomas.morettin@studenti.unipd.it}{thomas.morettin@studenti.unipd.it}) \\
 			\textbf{2111935} Felician Mario Necsulescu (\href{mailto:felicianmario.necsulescu@studenti.unipd.it}{felicianmario.necsulescu@studenti.unipd.it}) \\
 			\textbf{2111947} Niccolò Feltrin (\href{mailto:niccolo.feltrin@studenti.unipd.it}{niccolo.feltrin@studenti.unipd.it}) \\ [0.5cm]
-			\textbf{Data} 02.02.2026 \\
+			\textbf{Data} 03.02.2026 \\
 			\textbf{Corso} Tecnologie Web \\
 			\textbf{\hspace*{0.5cm}Cod.} SCP4065581 \\
 		\end{flushleft}
@@ -193,7 +197,7 @@
 	\section{Web Development}
 	All'interno di questa sezione si vogliono descrivere le tecnologie, gli standard e la struttura adottati all'interno del progetto.
 	\subsection{Caricamento delle librerie \texttt{PHPMailer} ed \texttt{Emogrifier}}
-	\textbf{! Questi procedimenti sono già stati svolti per la cartella all'interno del server universitario. Se le librerie non fossero presenti lo script andrebbe in crash.}\vspace{0.25cm}\\
+	\textbf{! Questi procedimenti sono già stati svolti per la cartella all'interno del server universitario.}\vspace{0.25cm}\\
 	Per permettere il corretto funzionamento della procedura di invio email automatica (sezione \ref{email}) è necessaria l'installazione di Composer per il caricamento delle librerie.
 	\begin{quote}
 		\textbf{NB} All'interno della cartella \texttt{/PHP} nel repository è presente il file \texttt{composer.json} che definisce automaticamente le versioni per le librerie necessarie, con relativa versione di PHP in uso sulla macchina (per precauzione si fa uso di una versione leggermente meno recente). 
@@ -258,7 +262,7 @@
 			\noindent
 			\begin{minipage}{0.57\textwidth}
 				\hfill \textbf{\textcolor{colorImportant}{Importante}} \hfill\mbox{}\vspace{0.5cm}
-				\\A seguito dell'upload del progetto sul server dedicato universitario è stato riscontrato un errore nel caricamento della sopracitata funzione. In particolare si è presentato un problema, con molta probabilità prevedibile, che riguarda le autorizzazioni del server circa l'utilizzo delle porte \texttt{587} e \texttt{465} per l'inoltro di richieste con protocollo \textbf{SMTP al server Gmail}. Si intuisce che questa scelta sia stata adottata dal Dipartimento di afferenza per motivi legati prettamente alla sicurezza dell'infrastruttura informatica.\\Nonostante ciò si è optato per mantenere la funzionalità, in quanto ottimizzata per gestire un errore di questo calibro, in quanto è frutto di un ragionamento improntato a rendere questo progetto il più realistico possibile. Si allega al corrente paragrafo un'anteprima di come viene renderizzata l'email una volta inviata.
+				\\A seguito dell'upload del progetto sul server dedicato universitario è stato riscontrato un errore nel caricamento della sopracitata funzione. In particolare si è presentato un problema, con molta probabilità prevedibile, che riguarda le autorizzazioni del server circa l'utilizzo delle porte \texttt{587} e \texttt{465} per l'inoltro di richieste con protocollo \textbf{SMTP al server Gmail}. Si intuisce che questa scelta sia stata adottata dal Dipartimento di afferenza per motivi legati prettamente alla sicurezza dell'infrastruttura informatica.\\Nonostante ciò si è optato per mantenere la funzionalità, ottimizzata per gestire un errore di questo calibro, in quanto è frutto di un ragionamento improntato a rendere questo progetto il più realistico possibile. Si allega al corrente paragrafo un'anteprima di come viene renderizzata l'email una volta inviata.
 			\end{minipage}
 			\hfill
 			\begin{minipage}{0.4\textwidth}
