@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="/Resources/Vectors/Logo-Light.svg">
-    <img src="/Resources/Vectors/Logo-Dark.svg" width="300" alt="Logo Rifugio Amici per Sempre">
+    <img src="/Resources/Vectors/Logo-Dark.svg" height="150" alt="Logo Rifugio Amici per Sempre">
   </picture>
 </p>
 <p align="center">
