@@ -48,7 +48,7 @@ foreach ($razze["Cane"] as $razza) {
 }
 
 foreach ($razze["Gatto"] as $razza) {
-    $razze_gatti_html .= '<li>' . $razza["Nome"] . '</li>';
+    $razze_gatti_html .= '<li><span lang="' . $razza["Lingua"] . '">' . $razza["Nome"] . '</span></li>';
 }
 
 $dati = [
