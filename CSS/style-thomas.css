@@ -100,8 +100,7 @@ details:has(summary:focus-visible),
 }
 
 .select-custom select:focus-visible {
-    outline: revert;
-    outline-offset: revert;
+    outline: none;
 }
 
 .outline-elem:focus-visible {
