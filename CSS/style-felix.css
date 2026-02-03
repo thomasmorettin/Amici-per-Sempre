@@ -15,7 +15,6 @@
 .hero p {
     font-size: 1.2em;
     color: var(--txtcolor);
-    opacity: 0.8; 
     margin-bottom: 1.5em;
 }
 
@@ -248,7 +247,6 @@
     letter-spacing: 0.05em;
     margin-bottom: 0.4em;
     margin-left: 0; 
-    opacity: 0.8;
 }
 
 .info-value {

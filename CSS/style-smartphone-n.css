@@ -13,7 +13,7 @@
 }
 
 #section-step-porta-adozione {
-    margin: 4em auto;
+    margin: 0em auto 4em auto;
 }
 
 #section-step-porta-adozione ul {
@@ -48,9 +48,8 @@
     height: 2em;
 }
 
-.description {
+.hero p.description {
     font-size: 1.2rem;
-    opacity: 0.8; 
 }
 
 #list-topbar {
