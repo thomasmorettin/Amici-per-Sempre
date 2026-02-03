@@ -25,6 +25,10 @@
     display: block;
 }
 
+#toast-not {
+    width: calc(100% - 4rem);
+}
+
 #hamburger span:not(:nth-child(2)) {
     transition: transform 0.3s ease;
 }

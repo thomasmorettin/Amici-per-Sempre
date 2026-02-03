@@ -1265,7 +1265,7 @@ dialog .info-required {
 
 #toast-not {
     position: fixed;
-    width: calc(100% - 4rem);
+    width: max-content;
     bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
