@@ -93,9 +93,15 @@ input[type="checkbox"]:focus-visible,
 input[type="radio"]:focus-visible,
 input[type="password"]:focus-visible,
 input:focus-visible,
-details:has(summary:focus-visible) {
+details:has(summary:focus-visible),
+.select-custom:has(select:focus-visible) {
     outline: var(--generaloutline);
     outline-offset: 0.15rem;
+}
+
+.select-custom select:focus-visible {
+    outline: revert;
+    outline-offset: revert;
 }
 
 .outline-elem:focus-visible {

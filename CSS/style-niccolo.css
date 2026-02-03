@@ -184,7 +184,7 @@ textarea {
     font-family: "Inter", serif;
     color: var(--txtcolor);
     background-color: var(--bgbread);
-    transition: border-color 0.2s ease;
+    transition: border-color 0.3s ease;
 }
 
 input:focus,
@@ -223,7 +223,7 @@ textarea {
     display: flex;
     flex-direction: row;
     align-items: center;
-    transition: border 0.2s ease;
+    transition: border 0.3s ease;
     position: relative;
 }
 
@@ -439,7 +439,7 @@ textarea {
     cursor: pointer;
     width: 1.5em;
     height: 1.5em;
-    transition: 0.3s ease;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 form {
