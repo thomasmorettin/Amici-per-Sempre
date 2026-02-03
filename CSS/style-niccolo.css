@@ -390,8 +390,8 @@ textarea {
     align-items: center;
 }
 
-#list-topbar.hidden {
-    display: none;
+#list-topbar:has(#filtra-btn.alone) {
+    position: revert;
 }
 
 #list-topbar button {
