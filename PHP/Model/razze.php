@@ -57,7 +57,11 @@ function getRazzeByTipo($tipo) {
 
         if ($result) {
             foreach ($result as $row) {
-                array_push($razze, htmlspecialchars($row["Nome"], ENT_QUOTES, 'UTF-8'));
+                $razza_data = [
+                    'Nome' => htmlspecialchars($row["Nome"], ENT_QUOTES, 'UTF-8'),
+                    'Lingua' => htmlspecialchars($row["Lingua"], ENT_QUOTES, 'UTF-8')
+                ];
+                array_push($razze, $razza_data);
             }
         }
 

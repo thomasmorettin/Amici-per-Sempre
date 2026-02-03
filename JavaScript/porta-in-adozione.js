@@ -372,8 +372,9 @@ function ripopulaSelect(selectID, opzioni, razza) {
 
     opzioni.forEach(opzione => {
         const opt = document.createElement('option');
-        opt.value = opzione;
-        opt.textContent = opzione;
+        opt.value = opzione.Nome;
+        opt.textContent = opzione.Nome;
+        opt.lang = opzione.Lingua;
         select.appendChild(opt);
     })
 }
