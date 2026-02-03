@@ -1,10 +1,12 @@
 <?php
-require_once dirname(__DIR__) . "/PHP/template.php";
-require_once dirname(__DIR__) . "/PHP/vendor/autoload.php";
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Pelago\Emogrifier\CssInliner;
+
+require_once dirname(__DIR__) . "/PHP/template.php";
+$vendorPath = dirname(__DIR__) . "/PHP/vendor/autoload.php";
+
+(!file_exists($vendorPath)) ? null : require_once $vendorPath;
 
 const PROJECT_ROOT = "/tec-web";
 
@@ -105,15 +107,16 @@ function parserEmailCSS($html) {
 
 // Funzione per l'invio della mail automatica all'utente
 function sendEmail($destinatario, $nomeUser) {
-    $mail = new PHPMailer(true);
-
-    $html = file_get_contents(__DIR__ . "/../HTML/Email/request-mail.html");
-    $body = parserEmailCSS($html);
-
-    $body = str_replace("{{root}}", PROJECT_ROOT, $body);
-    $body = str_replace("{{nome-utente}}", $nomeUser, $body);
-
     try {
+        $mail = new PHPMailer(true);
+
+        $html = file_get_contents(__DIR__ . "/../HTML/Email/request-mail.html");
+        $body = parserEmailCSS($html);
+
+        // Creazione del corpo dell'email
+        $body = str_replace("{{root}}", PROJECT_ROOT, $body);
+        $body = str_replace("{{nome-utente}}", $nomeUser, $body);
+
         $mail->isSMTP();
         $mail->Host       = "smtp.gmail.com";
         $mail->SMTPAuth   = true;
