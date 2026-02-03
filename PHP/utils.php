@@ -5,7 +5,7 @@ use Pelago\Emogrifier\CssInliner;
 
 require_once dirname(__DIR__) . "/PHP/template.php";
 
-const PROJECT_ROOT = "/tec-web";
+const PROJECT_ROOT = "/tmoretti";
 
 // Funzione per l'avvio della sessione se non già avviata
 function ensure_session() {
