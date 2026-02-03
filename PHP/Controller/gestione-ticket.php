@@ -63,7 +63,7 @@ if (is_logged_in()) {
                                     <dt lang='en'>E-mail:</dt>
                                     <dd><a href='mailto:{$ticket["emailRich"]}'>{$ticket["emailRich"]}</a></dd>
                                     <dt><abbr title='Telefono'>Tel</abbr>:</dt>
-                                    <dd><a href='tel:{$ticket["telRich"]}'>{$ticket["telRich"]}</a></dd>
+                                    <dd><a href='tel:{$ticket["telRich"]}'>+39 {$ticket["telRich"]}</a></dd>
                                     <dt class='note-hidden'>Note:</dt>
                                     <dd class='note-hidden'>{$ticket["info"]}</dd>
                                 </dl>
@@ -111,7 +111,7 @@ if (is_logged_in()) {
                                     <dt lang='en'>E-mail:</dt>
                                     <dd><a href='mailto:{$ticket["emailRich"]}'>{$ticket["emailRich"]}</a></dd>
                                     <dt><abbr title='Telefono'>Tel</abbr>:</dt>
-                                    <dd><a href='tel:{$ticket["telRich"]}'>{$ticket["telRich"]}</a></dd>
+                                    <dd><a href='tel:{$ticket["telRich"]}'>+39 {$ticket["telRich"]}</a></dd>
                                     <dt class='note-hidden'>Note:</dt>
                                     <dd class='note-hidden'>{$ticket["info"]}</dd>
                                 </dl>
