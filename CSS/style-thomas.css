@@ -109,12 +109,6 @@ details:has(summary:focus-visible),
     outline-offset: 0.15rem;
 }
 
-#appointment-form input:focus,
-#appointment-form textarea:focus {
-    outline: var(--generaloutline);
-    outline-offset: 0.15rem;
-}
-
 .btn-link svg,
 .btn-link:visited svg,
 button svg,
