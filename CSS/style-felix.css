@@ -38,6 +38,7 @@
     color: var(--txtcolor);
     margin: 1.5em 0 1.5em 0;
     padding: 1em;
+    line-height: 1.2em;
 }
 
 .section-list {
