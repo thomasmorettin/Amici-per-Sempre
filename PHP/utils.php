@@ -4,7 +4,6 @@ use PHPMailer\PHPMailer\Exception;
 use Pelago\Emogrifier\CssInliner;
 
 require_once dirname(__DIR__) . "/PHP/template.php";
-$vendorPath = dirname(__DIR__) . "/PHP/vendor/autoload.php";
 
 const PROJECT_ROOT = "/tec-web";
 
@@ -105,6 +104,8 @@ function parserEmailCSS($html) {
 
 // Funzione per l'invio della mail automatica all'utente
 function sendEmail($destinatario, $nomeUser) {
+    $vendorPath = dirname(__DIR__) . "/PHP/vendor/autoload.php";
+
     if (file_exists($vendorPath)) {
         require_once $vendorPath;
 
