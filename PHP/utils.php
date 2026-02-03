@@ -108,16 +108,16 @@ function sendEmail($destinatario, $nomeUser) {
     if (file_exists($vendorPath)) {
         require_once $vendorPath;
 
+        $mail = new PHPMailer(true);
+
+        $html = file_get_contents(__DIR__ . "/../HTML/Email/request-mail.html");
+        $body = parserEmailCSS($html);
+
+        // Creazione del corpo dell'email
+        $body = str_replace("{{root}}", PROJECT_ROOT, $body);
+        $body = str_replace("{{nome-utente}}", $nomeUser, $body);
+
         try {
-            $mail = new PHPMailer(true);
-
-            $html = file_get_contents(__DIR__ . "/../HTML/Email/request-mail.html");
-            $body = parserEmailCSS($html);
-
-            // Creazione del corpo dell'email
-            $body = str_replace("{{root}}", PROJECT_ROOT, $body);
-            $body = str_replace("{{nome-utente}}", $nomeUser, $body);
-
             $mail->isSMTP();
             $mail->Host       = "smtp.gmail.com";
             $mail->SMTPAuth   = true;
@@ -125,9 +125,6 @@ function sendEmail($destinatario, $nomeUser) {
             $mail->Password   = "ghwn vgqt wqxz apzn ";      // Password apposita per l'applicazione -> connessione all'indirizzo di posta
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;	// Il server dell'Università blocca il traffico uscente (anche da 465)
-
-            // Timeout: Se non si connette in 5 secondi, da errore (invece di caricare all'infinito)
-            $mail->Timeout    = 5;
 
             $mail->setFrom("rifugio.amicipersempre@gmail.com", "Rifugio Amici per Sempre");
             $mail->addAddress($destinatario);
