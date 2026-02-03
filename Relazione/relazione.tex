@@ -258,18 +258,18 @@ innerrightmargin=10pt]{citabox}
 		\end{itemize}
 		\item funzione di parsing del file \texttt{request-mail.html}, contenente la struttura dell'email automatica, per "iniettare" i parametri di stile all'interno dei tag HTML tramite libreria Emogrifier; come spiegato in precedenza risulta essere il modo più efficiente per mantenere la compatibilità tra i diversi server di posta;
 		\item \label{email}funzione per l'invio automatico dell'email alla compilazione dei form di adozione o porta in adozione tramite libreria PHPMailer; l'invio avviene mediante protocollo SMTP, server Gmail (dominio di posta dell'email), con password per applicazione e completamento del destinatario.
-		\begin{citabox}
-			\noindent
-			\begin{minipage}{0.57\textwidth}
-				\hfill \textbf{\textcolor{colorImportant}{Importante}} \hfill\mbox{}\vspace{0.5cm}
-				\\A seguito dell'upload del progetto sul server dedicato universitario è stato riscontrato un errore nel caricamento della sopracitata funzione. In particolare si è presentato un problema, con molta probabilità prevedibile, che riguarda le autorizzazioni del server circa l'utilizzo delle porte \texttt{587} e \texttt{465} per l'inoltro di richieste con protocollo \textbf{SMTP al server Gmail}. Si intuisce che questa scelta sia stata adottata dal Dipartimento di afferenza per motivi legati prettamente alla sicurezza dell'infrastruttura informatica.\\Nonostante ciò si è optato per mantenere la funzionalità, ottimizzata per gestire un errore di questo calibro, in quanto è frutto di un ragionamento improntato a rendere questo progetto il più realistico possibile. Si allega al corrente paragrafo un'anteprima di come viene renderizzata l'email una volta inviata.
-			\end{minipage}
-			\hfill
-			\begin{minipage}{0.4\textwidth}
-				\includegraphics[width=\linewidth]{../Resources/Images/email-rifugio.png}
-			\end{minipage}
-		\end{citabox}
 	\end{itemize}
+	\begin{citabox}
+		\noindent
+		\begin{minipage}{0.57\textwidth}
+			\hfill \textbf{\textcolor{colorImportant}{Importante}} \hfill\mbox{}\vspace{0.5cm}
+			\\A seguito dell'upload del progetto sul server dedicato universitario è stato riscontrato un errore nel caricamento della sopracitata funzione. In particolare si è presentato un problema, con molta probabilità prevedibile, che riguarda le autorizzazioni del server circa l'utilizzo delle porte \texttt{587} e \texttt{465} per l'inoltro di richieste con protocollo \textbf{SMTP al server Gmail}. Si intuisce che questa scelta sia stata adottata dal Dipartimento di afferenza per motivi legati prettamente alla sicurezza dell'infrastruttura informatica.\\Nonostante ciò si è optato per mantenere la funzionalità, ottimizzata per gestire un errore di questo calibro, in quanto è frutto di un ragionamento improntato a rendere questo progetto il più realistico possibile. Si allega al corrente paragrafo un'anteprima di come viene renderizzata l'email una volta inviata.
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[width=\linewidth]{../Resources/Images/email-rifugio.png}
+		\end{minipage}
+	\end{citabox}
 	\subsubsection{Composer (\texttt{vendor})}
 	È stato fatto uso di Composer come programma applicativo per l'installazione delle librerie necessarie all'interno del progetto di \textbf{Emogrifier} (CSS inline parser) e \textbf{PHPMailer} (composizione automatica dell'email). Questa scelta permette la scalabilità del progetto, in quanto risulta semplice l'integrazione di nuove librerie senza l'obbligo di scaricarle manualmente, e la delegazione del compito di gestione delle dipendenze tra, per l'appunto, librerie.
 	\subsubsection{\texttt{db-access.php}}
