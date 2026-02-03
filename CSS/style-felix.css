@@ -1,4 +1,3 @@
-/* === HERO SECTION === */
 .hero {
     padding: 1em 0.5em;
     text-align: center;
@@ -17,9 +16,6 @@
     color: var(--txtcolor);
     margin-bottom: 1.5em;
 }
-
-
-/* === CONTAINER ANIMALI === */
 
 .animali-trovati {
     display: inline;
@@ -54,7 +50,6 @@
     flex-direction: column;
     margin:1.5em 1em 2em;
 }
-/*=== CARD ANIMALE === */
 
 .animal-list {
     list-style: none;
@@ -158,7 +153,6 @@
     align-self: flex-start;
 }
 
-/* === PANORAMICA ANIMALE === */
 #scheda-con-visita {
     max-width: 70em;
     margin: 3em auto;
@@ -177,7 +171,6 @@
     align-items: start;
 }
 
-/* === IMMAGINE ANIMALE === */
 .animal-image {
     grid-area: foto;
     width: 100%;
@@ -189,7 +182,6 @@
     transition: transform 0.3s ease;
 }
 
-/* === INFO PRINCIPALI === */
 .animal-info {
     grid-area: info;
     background-color: var(--bgdecoration);
@@ -210,7 +202,6 @@
     background: var(--bgdecoration);
 }
 
-/* === STATUS BADGE === */
 .status-badge {
     display: inline-block;
     padding: 0.6em 1.2em;
@@ -223,7 +214,6 @@
     box-shadow: var(--brownshadow);
 }
 
-/* === INFO GRID === */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -259,7 +249,6 @@
     margin-left: 0;  
 }
 
-/* === STORIA === */
 .descriptions {
     grid-area: storia;
     background-color: var(--bgdecoration);
@@ -297,7 +286,6 @@
     color: var(--txtcolor);
 }
 
-/* === CARATTERISTICHE === */
 .features {
     grid-area: caratteristiche;
     background-color: var(--bgdecoration);
@@ -350,7 +338,6 @@
     flex-shrink: 0;
 }
 
-/* === VISITA === */
 #chiedi-visita {
     grid-area: visita;
     padding: 2em;
@@ -361,7 +348,6 @@
     overflow: hidden;
 }
 
-/* Header con flex */
 .visita-header {
     display: flex;
     justify-content: center;
@@ -488,7 +474,6 @@
 }
 
 
-/* Errori specifici sotto i campi */
 .single-form input.error,
 .single-form textarea.error {
     border-color: var(--txtwarning);
@@ -517,12 +502,9 @@
     margin-top: 0.1em;  /* Allineamento verticale */
 }
 
-/* === SUBMIT BUTTON === */
 .submite-bt {
     width: 100%;    
 }
-
-/* PAGINA ERRORE 403 */
 
 .errore {
     text-align: center;
@@ -575,7 +557,6 @@
     min-width: 10em;
 }
 
-/* Heading nascosto visivamente ma accessibile */
 .hidden-header {
     position: absolute;
     width: 1px;
@@ -588,7 +569,6 @@
     border: 0;
 }
 
-/* Codice errore 404 */
 .error-code {
     display: flex;
     align-items: center;
@@ -597,7 +577,6 @@
     margin: 2em 0;
 }
 
-/* Numeri "4" */
 .digit {
     font-size: 10em;
     font-weight: 700;
@@ -605,7 +584,6 @@
     line-height: 1;
 }
 
-/* Cerchio con immagine del cane (sostituisce lo "0") */
 .dog-circle {
     width: 10em;
     height: 10em;

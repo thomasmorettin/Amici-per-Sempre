@@ -42,7 +42,6 @@ section {
     max-width: 100%;
 }
 
-/* Rimuove sfondi e ombre da tutto per risparmiare inchiostro */
 * {
     box-shadow: none;
     text-shadow: none;
@@ -89,14 +88,12 @@ header h1 {
     display: none;
 }
 
-/* Nasconde i pulsanti "Call to Action" (Adotta, Porta in adozione, ecc) */
 .btn-link,
 a[class*="btn-"],
 button {
     display: none;
 }
 
-/* Nasconde la mappa interattiva (iframe) e le icone puramente decorative */
 #google-maps,
 .exp-freccia, /* Frecce delle FAQ */
 .new-window { /* Icona nuova finestra */
@@ -116,12 +113,10 @@ main, section, footer {
     display: block;
 }
 
-/* Titoli */
 h1, h2, h3 {
     break-after: avoid;
 }
 
-/* Gestione Immagini */
 img {
     break-inside: avoid;        /* Non tagliare le immagini a metà pagina */
 }
@@ -235,7 +230,6 @@ footer {
     box-shadow: none;
 }
 
-/* Footer: Dati legali e orari */
 footer #dati-footer {
     display: block;
 }
@@ -257,7 +251,6 @@ footer #dati-footer {
     margin-left: 0;
 }
 
-/* Stampa l'URL completo dopo il link, ma non per link interni o "#" */
 a[href^="http"]::after {
     content: " [" attr(href) "]";
     font-size: 10pt;
@@ -354,4 +347,133 @@ a[href^="http"]::after {
 
 .lista-settimana.hidden {
     display: block;
+}
+
+#section-step-porta-adozione ul li figure img {
+    border-radius: 0.5rem;
+    box-shadow: none;
+    height: 11.5rem;
+}
+
+#section-step-porta-adozione ul li {
+    max-width: 11.5rem;
+    min-width: 11.5rem;
+}
+
+#section-form-porta-adozione {
+    width:90%;
+    justify-content: center;
+    align-items: center;
+    border: 2px;
+}
+
+#section-form-porta-adozione .field-error {
+    display: none;
+}
+
+#razza-select-field {
+    display: none;
+}
+
+#razza-input-field {
+    display: flex;
+}
+
+input::placeholder,
+textarea::placeholder {
+    visibility: hidden;
+}
+
+.features ul li {
+    color: var(--txtcolor);
+}
+
+#chiedi-visita{
+    width:90%;
+    justify-content: center;
+    align-items: center;
+}
+
+#scheda-con-visita {
+    padding: 0.5em;
+    display: block; 
+    box-sizing: border-box;  
+    margin-top:0.5em;
+    background: transparent;        
+    box-shadow: none;               
+    border-radius: 0;  
+     
+}
+
+.animal-info{
+    margin-bottom: 1em;
+}
+
+.animal-image {
+    width: 100%;
+    max-height: 18em;        
+    min-height: 18em;        
+    object-fit: cover;
+    margin-bottom: 1em;
+    display: block;  
+
+}
+
+.descriptions, .features{
+    margin-bottom: 1em;
+}
+
+.visita-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 3em;
+    gap: 1em;
+}
+
+
+.visita-header h3 {
+    font-size: 1.3em;
+    margin: 0;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+#appointment-form.active {
+    opacity: 1;
+    visibility: visible;
+    padding: 1.5em;
+}
+
+.form-row {
+    display: flex;  
+    flex-direction: column;
+    gap: 1em;
+}
+
+#appointment-form {
+    max-height: none;
+    opacity: 1 ;
+    visibility: visible ;
+}
+
+.single-form-group textarea {
+    width: 100%;
+    min-height: 5em;
+    padding: 0.5em;
+}
+
+.cfr-button {
+    display: none;
+}
+
+.submite-bt {
+    display: none; 
+}
+
+#chiedi-visita {
+    break-before: page;        
+}
+
+.form-intro {
+    display: none; 
 }
