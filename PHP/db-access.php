@@ -4,9 +4,9 @@ use mysqli;     // Importa la classe mysqli
 
 class DBAccess {
     private const DB_HOST = "localhost";
-    private const DB_NAME = "tmoretti";
-    private const DB_USER = "tmoretti";
-    private const DB_PWD = "aighoh0ooThivibo";
+    private const DB_NAME = "tec-web";
+    private const DB_USER = "root";
+    private const DB_PWD = "";
 
     private $connection;
 

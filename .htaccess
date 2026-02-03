@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /tmoretti/
+RewriteBase /tec-web/
 
 # 1. Rimuovi index.php dall'URL (Redirect estetico)
 RewriteCond %{THE_REQUEST} /index\.php [NC]
@@ -38,5 +38,5 @@ RewriteRule ^PHP/Controller/razze-json/?$ PHP/Model/razze-json.php [L,QSA]
 RewriteRule ^razze-json/?$ PHP/Model/razze-json.php [L,QSA]
 
 # 6. Pagina inesistente
-ErrorDocument 404 /tmoretti/404.php
-ErrorDocument 500 /tmoretti/500.php
+ErrorDocument 404 /tec-web/404.php
+ErrorDocument 500 /tec-web/500.php

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.10)  3 FEB 2026 08:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.10)  3 FEB 2026 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -644,20 +644,20 @@ File: Resources/logo.pdf Graphic file (type pdf)
 <use Resources/logo.pdf>
 Package pdftex.def Info: Resources/logo.pdf  used on input line 35.
 (pdftex.def)             Requested size: 131.1709pt x 91.03299pt.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
-0.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
+9.
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 40.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 40.
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 39.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
 
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 40.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
 
 
 (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -1219,11 +1219,11 @@ Package rerunfilecheck Info: File `relazione.out' has not changed.
 (rerunfilecheck)             Checksum: 3F9FCC92F23B397985943E7E04AD7BFD;5309.
  ) 
 Here is how much of TeX's memory you used:
- 15938 strings out of 474486
- 257846 string characters out of 5743754
+ 15931 strings out of 474486
+ 257708 string characters out of 5743754
  1940542 words of memory out of 5000000
- 37917 multiletter control sequences out of 15000+600000
- 574852 words of font info for 78 fonts, out of 8000000 for 9000
+ 37910 multiletter control sequences out of 15000+600000
+ 572532 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,9n,93p,1087b,632s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti
@@ -1236,11 +1236,11 @@ ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\thoma\AppData\Local\MiKTeX\fon
 ts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\thoma\AppData\Local\MiKT
 eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\thoma\AppData\Loca
 l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\thoma\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt2488.pk> <C:\Users\thoma\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk>
-Output written on relazione.pdf (18 pages, 394680 bytes).
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\thoma\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1728.pk>
+Output written on relazione.pdf (18 pages, 396299 bytes).
 PDF statistics:
- 863 PDF objects out of 1000 (max. 8388607)
+ 868 PDF objects out of 1000 (max. 8388607)
  90 named destinations out of 1000 (max. 500000)
  314 words of extra memory for PDF output out of 10000 (max. 10000000)
 
