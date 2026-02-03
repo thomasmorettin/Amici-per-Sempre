@@ -10,8 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function loadCalendario() {
-  document.getElementById("btn-mese-prec").classList.remove("hidden");
-  document.getElementById("btn-mese-succ").classList.remove("hidden");
   const notes = document.querySelectorAll(".note-hidden");
   const btns = document.querySelectorAll(".btn-toggle");
   const btnsApp = document.querySelectorAll(".btn-gruppo-cal");
@@ -83,20 +81,28 @@ function hashGiorno() {
       if (parentWeek) {
         document.querySelectorAll(".lista-settimana").forEach(el => {
             el.classList.add("hidden");
-            btn.setAttribute("aria-selected", "false");
         });
         
         document.querySelectorAll(".btn-toggle").forEach(btn => {
             btn.classList.remove("active");
-            btn.setAttribute("aria-selected", "true");
+            btn.setAttribute("aria-selected", "false");
         });
 
         parentWeek.classList.remove("hidden");
 
         const weekID = parentWeek.id;
-        const btn = document.querySelector(`.btn-toggle[data-target='${weekID}']`);
+        const activeBtn = document.querySelector(`.btn-toggle[data-target='${weekID}']`);
         
-        btn.classList.add("active");
+        if (activeBtn) {
+          activeBtn.classList.add("active");
+          activeBtn.setAttribute("aria-selected", "true");
+        }
+
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: "smooth",
+            block: "start"    // Allineamento all'ancora nella pagina
+          })}, 50);   // Attesa che il JS possa aver rimosso correttamente l'attributo hidden
       }
     }
   }
@@ -104,5 +110,7 @@ function hashGiorno() {
 
 // Funzione per il refresh della pagina al cambiamento dell'ancora per il giorno
 function windowReload() {
-  window.onhashchange = () => location.reload();    // Refresh forzato della pagina
+  window.addEventListener("hashchange", () => {
+    hashGiorno();
+  })
 }

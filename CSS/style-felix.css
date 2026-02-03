@@ -456,7 +456,6 @@
 }
 
 .single-form input:focus {
-    outline: none;
     border-color: var(--borderbtn);
     box-shadow: var(--greenshadow);
 }
@@ -485,7 +484,6 @@
 }
 
 .single-form-group textarea:focus {
-    outline: none;
     border-color: var(--borderbtn);
     box-shadow: var(--normalshadow);
 }
