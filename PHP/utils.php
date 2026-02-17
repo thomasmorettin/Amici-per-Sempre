@@ -123,7 +123,7 @@ function sendEmail($destinatario, $nomeUser) {
             $mail->Host       = "smtp.gmail.com";
             $mail->SMTPAuth   = true;
             $mail->Username   = "rifugio.amicipersempre@gmail.com";     // Indirizzo email del rifugio
-            $mail->Password   = "ghwn vgqt wqxz apzn ";      // Password apposita per l'applicazione -> connessione all'indirizzo di posta
+            $mail->Password   = "ghwn vgqt wqxz apzn ";      // Password (ERRATA) apposita per l'applicazione -> connessione all'indirizzo di posta
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = 587;	// Il server dell'Università blocca il traffico uscente (anche da 465)
 
