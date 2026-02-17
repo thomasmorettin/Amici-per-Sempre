@@ -1441,7 +1441,7 @@ dialog .info-required {
         fill: var(--inverttxtcolor);
     }
 
-    .skip-link:hover {
+    #skip-link:hover {
         background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
     }
