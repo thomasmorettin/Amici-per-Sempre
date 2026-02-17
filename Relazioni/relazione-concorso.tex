@@ -1,0 +1,208 @@
+\documentclass[a4paper,10pt]{article}
+
+% ---------------- PACCHETTI ----------------
+\usepackage[utf8]{inputenc}       % encoding
+\usepackage[T1]{fontenc}          % font encoding
+\usepackage[italian]{babel}       % lingua italiana
+\usepackage{graphicx}             % immagini
+\usepackage{amsmath, amssymb}     % matematica
+\usepackage{listings}             % codice sorgente
+\usepackage{xcolor}               % colori
+\usepackage{hyperref}             % link cliccabili
+\usepackage{geometry}             % margini pagina
+\usepackage{mdframed}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\geometry{margin=2.5cm}
+
+\newmdenv[linecolor=black,linewidth=0.5pt,backgroundcolor=white!10,
+innertopmargin=10pt,
+innerbottommargin=10pt,
+innerleftmargin=10pt,
+innerrightmargin=10pt]{citabox}
+\definecolor{colorImportant}{HTML}{963428}
+
+% ---------------- DOCUMENTO ----------------
+\begin{document}
+	
+	\begin{titlepage}
+		\centering
+		\vspace*{\fill}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=3]{Resources/logo.pdf}
+		\end{figure}
+		\vspace{1cm}
+		
+		{\LARGE \textbf{\url{https://caa.studenti.math.unipd.it/tmoretti/}}}\\[0.5cm]
+		{\Huge \textbf{Rifugio per adozione animali}}\\[1.5cm]
+		
+		\rule{\textwidth}{0.5pt}\\[0.5cm] % linea orizzontale elegante
+		{\LARGE Relazione di progetto per Concorso Accattivante Accessibile}\\[0.1cm]
+		\rule{\textwidth}{0.5pt}\\[2cm]
+		
+		\begin{flushright}
+			{\Large \textbf{Università degli Studi di Padova}} \\[0.1cm]
+			{\Large \textbf{L.T. in Informatica}} \\[0.1cm]
+			{\Large \textbf{A.A. 2025/26}} \\[0.5cm]
+		\end{flushright}
+		
+		\begin{flushleft}
+			\textbf{2111001 (Referente)} Thomas Morettin (\href{mailto:thomas.morettin@studenti.unipd.it}{thomas.morettin@studenti.unipd.it}) \\
+			\textbf{2111935} Felician Mario Necsulescu (\href{mailto:felicianmario.necsulescu@studenti.unipd.it}{felicianmario.necsulescu@studenti.unipd.it}) \\
+			\textbf{2111947} Niccolò Feltrin (\href{mailto:niccolo.feltrin@studenti.unipd.it}{niccolo.feltrin@studenti.unipd.it}) \\ [0.5cm]
+			\textbf{Data} 03.02.2026 \\
+			\textbf{Corso} Tecnologie Web \\
+			\textbf{\hspace*{0.5cm}Cod.} SCP4065581 \\
+		\end{flushleft}
+		\vspace{2cm}
+		
+		{\Large \textbf{Credenziali di accesso al sito}}
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{lcc}
+				\toprule
+				\textbf{Ruolo} & \textbf{Username} & \textbf{Password} \\
+				\midrule
+				Amministratore & admin & admin
+			\end{tabular}
+		\end{table}
+		\vspace*{\fill}
+	\end{titlepage}
+	
+	\tableofcontents
+	\clearpage
+	
+	\section{Test di accessibilità}
+	
+	\subsection{Riferimenti normativi}
+	All'interno del documento corrente si vogliono evidenziare gli aspetti tecnici che concorrono al raggiungimento del livello minimo e superiore di accessibilità richiesto dalle Web Content Accessibility Guidelines.\\
+	Per molti dei contenuti il livello è AA della normativa \textbf{WCAG 2.2}, mentre per altri si è riusciti a raggiungere il livello AAA della stessa normativa.
+	
+	\subsection{Test automatici}
+	
+	\subsubsection{W3C Markup Validation Service}
+	Tutte le pagine del sito sono state validate semanticamente, assicurando che non contengono errori di sintassi o violazione delle regole HTML5. Questa verifica garantisce una flusso di lettura stabile per le tecnologie assistive.
+	
+	\subsubsection{Indice di Gulpease}
+	Per il calcolo dell'indice di Gulpease, il quale indica il grado di complessità di un testo scritto, si è fatto uso del tool \href{https://farfalla-project.org/readability_static}{Farfalla Project}. Il punteggio ottenuto per il testo più complesso, nella sezione \textit{Chi siamo} all'interno della \textbf{Homepage}, è pari a 48 indicando una buona comprensione da parte di persone con un livello di istruzione superiore. Tuttavia, si ritiene questo dato parziale in quanto valuta solamente la lunghezza del testo e non la complessità semantica delle parole. Pertanto, per la costruzione dei testi, si è tenuto conto del Nuovo Vocabolario di Base della lingua italiana di Tullio De Mauro, contenente le parole di uso comune nella lingua italiana, comprensibili già per chi possiede la licenza media.
+	
+	\subsubsection{Contrasti colore}
+	Il sito web è stato progettato anche grazie all'uso del tool \href{https://webaim.org/resources/contrastchecker/}{WebAIM Contrast Checker}, il quale ha permesso di individuare i contrasti perfetti tra i diversi colori utilizzati, rispettando sempre il requisito minimo del livello AA (4.5:1). Inoltre, per quanto riguarda il contrasto tra i colori del testo e link non visitati si è mantenuto un valore pari a 3.0:1.\\
+	Per la controprova è stata utilizzata l'estensione \href{https://wave.webaim.org/extension/}{WAVE Browser Extension} per verificare il corretto contrasto direttamente sul sito terminato.
+	
+	\subsection{Test manuali tecnici}
+	
+	\subsubsection{Accessibilità del font}
+	Per la realizzazione del sito si è fatto uso di font \href{https://rsms.me/inter/}{Inter}, il quale è stato progettato appositamente per interfacce utente, ottimizzato per essere leggibile anche a dimensioni molto piccole. Tuttavia si è voluto apportare piccole modifiche al font per permettere una perfetta distinzione tra le lettere, grazie all'utilizzo di \textbf{features OpenType}.\\
+	Inoltre, per garantire la privacy degli utenti e migliorare le performance, i font vengono serviti in modalità \textbf{self-hosting} (formato \texttt{.woff2}, fallback \texttt{.ttf}), eliminando dipendenze da server terzi come Google Fonts.
+	
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}{0.4\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Resources/font.png}
+			\caption{Rendering basilare}
+		\end{subfigure}
+		\hspace{1cm}
+		\begin{subfigure}{0.4\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{Resources/format-font.png}
+			\caption{Rendering formattato (\textbf{OpenType})}
+		\end{subfigure}
+		\caption{Font Inter accessibile}
+	\end{figure}
+	
+	\subsubsection{Pulsante "salta al contenuto"}
+	Nel rispetto della norma \textbf{WCAG 2.4.1} si è optato per l'inserimento di un pulsante \textit{salta al contenuto}, il quale può essere utilizzato dandogli il focus grazie alla navigazione da tastiera. Questo pulsante è il primo elemento, all'apertura di ciascuna pagina, che viene selezionato e riporta al contenuto principale, permettendo di saltare gli elementi di \textit{header} e \textit{breadcrumb} che risultano ripetitivi, in quanto l'utente li ha già "studiati" e con il titolo della pagina stessa sa dove si trova.
+	
+	\subsubsection{Fruibilità da tastiera}
+	Si è verificato che il sito sia fruibile da tastiera, garantendo la navigazione senza l'utilizzo del mouse, in modo coerente con il flusso di lettura. Ciò viene garantito soprattutto nelle pagine che presentano la sezione \textit{Filtri} e i \textit{Dialog} di modifica dei dati.\\
+	È stata rispettata, inoltre, la norma \textbf{WCAG 2.4.7} per quanto riguarda la visibilità del focus, in quanto la pseudo-classe \texttt{:focus-visible()} permette la visualizzazione del riquadro di selezione dell'elemento solamente tramite l'uso della tastiera, lasciando così il layout pulito per gli utenti che selezionano gli elementi con il mouse.
+	
+	\subsubsection{Compromissioni visive}
+	Il tool utilizzato per verificare la piena comprensione del sito da parte di persone con visibilità compromessa è \href{https://chromewebstore.google.com/detail/silktide-accessibility-ch/mpobacholfblmnpnfbiomjkecoojakah}{Silktide Accessibility Checker}. Le compromissioni visive, mediche e non, analizzate sono le seguenti:
+	\begin{itemize}
+		\item \textbf{cataratta} e \textbf{miopia}: il sito risulta leggibile per chi presenta una percentuale di riduzione della qualità visiva pari o inferiore al 20\%;
+		\item \textbf{eccessiva illuminazione esterna}: il sito risulta leggibile in \textit{modalità scura} anche con una forte illuminazione esterna;
+		\item \textbf{perdita di vista periferica/centrale}: il sito risulta leggibile vista la disposizione degli elementi, posizionati centralmente (facilmente identificabili per chi presenta una perdita di vista periferica) e sufficientemente spaziati verticalmente (facilmente identificabili per chi presenta una perdita di vista centrale);
+		\item \textbf{sdoppiamento}, \textbf{mancanza di contrasto} e \textbf{daltonismo}: il sito risulta leggibile grazie ad un font studiato per l'accessibilità e grazie alla distinzione degli elementi (es. \textit{link}, \textit{pulsanti}) non solamente tramite il colore ma anche grazie ad effetti di formattazione/hover del mouse; analizzando tutte le tipologie di daltonismo presentate dal tool è possibile constatare che il sito risulta sempre leggibile e comprensibile;
+		\item \textbf{dislessia}: il sito risulta leggibile anche per utenti che presentano una lieve dislessia, anche se ciò dipende dall'allenamento che l'utente stesso ha maturato nel corso della sua vita.
+	\end{itemize}
+	
+	\subsubsection{Epilessia, vertigini e difficoltà cognitive}
+	Per preservare la comprensione del sito anche per persone che presentano difficoltà cognitive e non creare problemi a livello epilettico o di vertigini per chi è più sensibile si è deciso di adattare tutte le animazioni ad un tempo minimo standard che permetta un movimento lento e non invasivo, pari a \texttt{0.3s}.
+	
+	\subsubsection{Convenzioni interne}
+	Per quanto riguarda l'orientamento dell'utente si è deciso di adottare le seguenti convenzioni interne al sito:
+	\begin{itemize}
+		\item i \textbf{link precedentemente visitati} vengono resi semi-distinguibili rispetto ad un link non ancora visitato, in quanto mantengono la sottolineatura ma prendono il colore del testo, per risultare meno evidenziati rispetto al link mai visitato;
+		\item gli \textbf{elementi cliccabili} e che quindi producono un cambiamento all'interno del sito vengono evidenziati con i toni del verde, per permettere ad utente vedente di comprenderne la funzionalità;
+		\item i link che portano a \textbf{pagine esterne} al sito vengono abbinati ad un'icona che raffigura una freccia che punta verso l'esterno di un quadrato;
+		\item per la \textbf{validazione dei form}, l'identificazione del campo errato non si basa mai solamente sul colore rosso del bordo della input box, ma questo viene accompagnato dalla presenza di icone ed elementi testuali che vengono resi visibili/udibili dall'utente al momento dell'errore.
+	\end{itemize}
+	
+	\subsubsection{Compatibilità per dispositivi mobile}
+	Il sito web è stato progettato per degradare in modo elegante, ciò significa che si adatta perfettamente a dispositivi con schermi ridotti, per la precisione smartphone.\\
+	Per quanto riguarda la visualizzazione desktop la larghezza massima che può occupare la pagina è pari a \texttt{1200px}, misura massima che permette all'utente di non faticare nella lettura del sito o semplicemente muovere ripetutamente la testa nel caso in cui presentasse uno schermo più largo.\\
+	Il layout del sito è quindi fluido e quest'ultimo può essere fruito sia in modalità \textit{portrait} che \textit{landscape}.
+	
+	\subsubsection{Dimensione elementi cliccabili}
+	Nel rispetto della norma \textbf{WCAG 2.5.8} tutti gli elementi cliccabili sono stati progettati per avere una dimensione minima pari a \texttt{24x24px} garantendo il livello minimo AA; tutti i pulsanti, invece, garantiscono un livello di accessibilità AAA con una dimensione minima pari a \texttt{44x44px}.
+	
+	\subsubsection{Compatibilità browser}
+	È stato possibile verificare la compatibilità del sito con i browser più popolari in circolazione, sia grazie allo studio delle proprietà nei fogli di stile supportate che con l'uso del tool (nella sua versione gratuita) \href{https://www.testmuai.com/cross-browser-testing/?_gl=1*z340lb*_up*MQ..*_ga*MTMwNzQ4ODQ5NS4xNzcxMzMwNzUw*_ga_QK7VZQJBWC*czE3NzEzMzA3NDckbzEkZzAkdDE3NzEzMzA3NDckajYwJGwwJGgw}{Lambdatest}. I risultati ottenuti per quanto riguarda la compatibilità \textbf{tier 1} sono i seguenti:
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{lccl}
+			\toprule
+			\textbf{Browser} & \textbf{Versione minima} & \textbf{Data rilascio} & \textbf{Vincolo principale} \\
+			\midrule
+			\textbf{Google Chrome} & 105+ & 08/2022 & Selettore \texttt{:has()} \\
+			\textbf{Microsoft Edge} & 105+ & 09/2022 & Selettore \texttt{:has()} \\
+			\textbf{Apple Safari} & 15.4+ & 09/2022 & Elemento \texttt{<dialog>} e selettore \texttt{:has()} \\
+			\textbf{Mozilla Firefox} & 121+ & 12/2023 & Selettore \texttt{:has()} \\
+			\textbf{Brave} & 1.43+ & 09/2022 & Basato su Chromium 105 \\
+			\textbf{Opera} & 91+ & 09/2022 & Basato su Chromium 105 \\
+		\end{tabular}
+		\caption{Tabella di compatibilità per browser moderni}
+	\end{table}
+	
+	\subsubsection{Zoom da 200\% a 500\%}
+	È stato possibile constatare che il sito rimane perfettamente integro fino allo zoom massimo disponibile all'interno dei browser, ovvero 500\% garantendo l'impossibilità di rottura del layout, testo sovrapposto o reflow (possibilità di scorrimento orizzontale). Per un'esperienza utente ottimale si consiglia di visualizzare il sito con uno zoom massimo pari a 200\%.
+	
+	\subsubsection{Funzionalità di stampa della pagina}
+	Il livello presentazione del sito web include uno studio specifico sul layout di stampa delle pagine, in particolare tutti i pulsanti sono stati rimossi, inclusi elementi non fondamentali come header e dialog. Queste decisioni permettono una stampa pulita e facilmente comprensibile dall'utente senza elementi di distrazione che su un formato cartaceo risulterebbero inutili se non fuorvianti.
+	
+	\subsubsection{Adattabilità a schermi stretti (\texttt{320px})}
+	Nel rispetto della norma \textbf{WCAG 1.4.10} tutte le pagine del sito sono visualizzabili e leggibili con dispositivi di larghezza minima pari a \texttt{320px}. È stato possibile verificare questo criterio grazie al tool integrato in Google Chrome per dispositivi mobile.
+	
+	\subsubsection{Robustezza senza fogli di stile, immagini o JavaScript}
+	È stato constatato che con la disabilitazione dei fogli di stile e della visualizzazione delle immagini la pagina risulta comprensibile e soprattutto ordinata nei contenuti che vengono presentati.\\
+	Si è optato, inoltre, per progettare il comportamento del sito web in modo che fosse robusto anche alla disabilitazione del codice JavaScript, questo per evitare che le pagine potessero non essere comprensibili o disorientanti per l'utente.
+	
+	\subsubsection{Features aggiuntive del progetto}
+	Per la realizzazione del sito si è pensato di inserire come features la possibilità di rimuovere le zampe di sfondo (utilizzate per decorazione e riempimento degli spazi) e la possibilità di cambiare il tema dell'intero sito, come chiaro o scuro; entrambe queste funzionalità sono controllabili tramite due pulsanti posti nell'\textit{header}.\\
+	Sebbene decorativi, questi controlli sono stati resi semanticamente accessibili tramite attributi \texttt{aria-label}, per permettere agli utenti ipovedenti che usano screen reader di personalizzare l'esperienza visiva; pertanto si è pensato ai seguenti scenari:
+	\begin{itemize}
+		\item per una utente \textbf{ipovedente fotosensibile}, il quale necessita di utilizzare lo screen reader per la navigazione, avere lo sguardo rivolto verso uno schermo luminoso potrebbe recargli fastidio, pertanto ha la possibilità di impostare la modalità scura e navigare senza problemi;
+		\item per un utente con \textbf{deficit dell'attenzione}, come per esempio ADHD, risulta fondamentale poter rimuovere possibili elementi di distrazione dal contenuto; inoltre, sempre per un utente ipovedente potrebbe risultare utile.
+	\end{itemize}
+	Entrambi questi pulsanti vengono etichettati per far comprendere all'utente che si tratta di funzioni di accessibilità e non puramente estetiche.
+	
+	\subsection{Test con tecnologie assistive}
+	
+	\subsubsection{Fruibilità tramite screen reader}
+	Il sito è stato testato con l'utilizzo di screen reader, in particolare il tool \href{https://www.nvda.it/}{NVDA}, garantendo una navigazione fluida e comprensibile per persone che presentano una disabilità visiva.\\
+	Tutti i contenuti ed i relativi significati semantici vengono letti correttamente, inclusi gli elementi presenti all'interno dei form di input, con relativi messaggi di errore.\\
+	
+	\section{Modifiche rispetto alla consegna accademica}
+	Nella fase di revisione del progetto, avvenuta conseguentemente alla consegna del lavoro per la valutazione accademica, si è deciso di apportare le seguenti modifiche per dare più risalto all'aspetto di accessibilità del prodotto:
+	\begin{itemize}
+		\item revisione del \textbf{font}: come specificato precedentemente si è fatto uso delle \textbf{features OpenType} per modificare alcuni caratteri ambigui nella formattazione del font rendendoli il più distinguibili possibili gli uni dagli altri;
+		\item inserimento del \textbf{pulsante "salta al contenuto"}: questo aggiunge un elemento accessibile per la navigazione da tastiera, permettendo all'utente di saltare elementi del sito ripetitivi all'interno delle pagine.
+	\end{itemize}
+\end{document}

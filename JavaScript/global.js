@@ -109,14 +109,12 @@ function backgroundSetting() {
   btn.addEventListener("click", () => {
     if (localStorage.getItem(STORAGE_KEY) == "true") {
       root.classList.add("set-background");
-      btn.setAttribute("aria-label", "reimposta immagine di sfondo");
       localStorage.setItem(STORAGE_KEY, "false");
       updateBackgroundButton(false);
     }
 
     else {
       root.classList.remove("set-background");
-      btn.setAttribute("aria-label", "rimuovi immagine di sfondo");
       localStorage.setItem(STORAGE_KEY, "true");
       updateBackgroundButton(true);
     }
@@ -126,11 +124,13 @@ function backgroundSetting() {
     if (flag) {
       btn.classList.add("enabled");
       btn.setAttribute("title", "Ripristina Sfondo");
+      btn.setAttribute("aria-pressed", "true");
     }
 
     else {
       btn.classList.remove("enabled");
       btn.setAttribute("title", "Rimuovi Sfondo");
+      btn.setAttribute("aria-pressed", "false");
     }
   }
 }
@@ -147,14 +147,12 @@ function themeSetting() {
   btn.addEventListener("click", () => {
     if (localStorage.getItem(STORAGE_KEY) == "true") {
       root.dataset.theme = "light";
-      btn.setAttribute("aria-label", "imposta tema chiaro");
       localStorage.setItem(STORAGE_KEY, "false");
       updateButton(false);
     }
 
     else {
       root.dataset.theme = "dark";
-      btn.setAttribute("aria-label", "imposta tema scuro");
       localStorage.setItem(STORAGE_KEY, "true");
       updateButton(true);
     }
@@ -164,11 +162,13 @@ function themeSetting() {
     if (flag) {
       btn.classList.add("light");
       btn.setAttribute("title", "Tema chiaro");
+      btn.setAttribute("aria-label", "imposta tema chiaro");
     }
 
     else {
       btn.classList.remove("light");
       btn.setAttribute("title", "Tema scuro");
+      btn.setAttribute("aria-label", "imposta tema scuro");
     }
   }
 }

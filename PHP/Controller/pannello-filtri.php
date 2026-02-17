@@ -344,18 +344,20 @@ function renderPannelloControlloFiltri($ricerca_html = false): string
         $html .= '          
                     <form id="form-ricerca" method="GET">
                         <input type="text" id="ricerca" name="ricerca" placeholder="Ricerca" aria-label="Ricerca" value="' . $ricerca . '">
-                        <button id="avvia-ricerca" title="Avvia ricerca" type="submit">
-                            <svg aria-hidden="true">
-                                <use href="{{root}}/Resources/icons.svg#search"></use>
-                            </svg>
-                            <span class="abbr">Cerca</span>
-                        </button>
-                        <button class="reset" title="Azzerra ricerca" type="button">
-                            <svg aria-hidden="true">
-                                <use href="{{root}}/Resources/icons.svg#delete"></use>
-                            </svg>
-                            <span class="abbr">Azzera</span>
-                        </button>
+                        <div>
+                            <button id="avvia-ricerca" title="Avvia ricerca" type="submit">
+                                <svg aria-hidden="true">
+                                    <use href="{{root}}/Resources/icons.svg#search"></use>
+                                </svg>
+                                <span class="abbr">Cerca</span>
+                            </button>
+                            <button class="reset" title="Azzerra ricerca" type="button">
+                                <svg aria-hidden="true">
+                                    <use href="{{root}}/Resources/icons.svg#delete"></use>
+                                </svg>
+                                <span class="abbr">Azzera</span>
+                            </button>
+                        </div>
                     </form>';
     }
 

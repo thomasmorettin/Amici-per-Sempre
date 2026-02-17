@@ -1,3 +1,15 @@
 /PHP/vendor/
 /PHP/composer.phar
 .vscode
+/Relazioni/relazione.aux
+/Relazioni/relazione.fdb_latexmk
+/Relazioni/relazione.fls
+/Relazioni/relazione.log
+/Relazioni/relazione.out
+/Relazioni/relazione.synctex.gz
+/Relazioni/relazione.toc
+/Relazioni/relazione-concorso.aux
+/Relazioni/relazione-concorso.log
+/Relazioni/relazione-concorso.out
+/Relazioni/relazione-concorso.toc
+/Relazioni/relazione-concorso.synctex.gz

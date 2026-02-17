@@ -82,6 +82,12 @@
 
 *:focus,
 details > summary:focus {
+    outline: var(--generaloutline);
+    outline-offset: 0.15rem;
+}
+
+*:focus:not(:focus-visible),
+details > summary:focus:not(:focus-visible) {
     outline: none;
 }
 
@@ -104,6 +110,30 @@ details:has(summary:focus-visible),
 }
 
 .outline-elem:focus-visible {
+    outline: var(--generaloutline);
+    outline-offset: 0.15rem;
+}
+
+#skip-link {
+    position: absolute;
+    top: -5em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background-color: var(--bgbtn);
+    color: var(--txtbtncolor);
+    font-weight: bold;
+    padding: var(--generalpadding);
+    border-radius: 0 0 var(--generalradius) var(--generalradius);
+    border: var(--generalbtnborder);
+    border-top: none;
+    box-shadow: var(--greenshadow);
+    text-decoration: none;
+    transition: background-color 0.3s ease, top 0.3s ease;
+}
+
+#skip-link:focus {
+    top: 0;
     outline: var(--generaloutline);
     outline-offset: 0.15rem;
 }
@@ -136,7 +166,9 @@ button {
     height: 2.25rem;
     font-size: 1.25rem;
     font-weight: bold;
-    font-family: inherit;
+    font-family: "Inter", sans-serif;
+    font-variant-numeric: proportional-nums;
+    font-feature-settings: "cv05", "cv08", "zero";
     cursor: pointer;
     text-decoration: none;
     line-height: 1.5rem;
@@ -156,8 +188,18 @@ html {
     background-color: var(--bgcolor);
 }
 
+@font-face {
+    font-family: "Inter";
+    src: url("../Resources/Font/Inter.woff2") format("woff2"),
+         url("../Resources/Font/Inter.ttf") format("ttf");      /* Fallback */
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    font-variant-numeric: proportional-nums;
+    font-feature-settings: "cv05", "cv08", "zero";
+}
+
 html, body {
-    font-size: 100%;
     font-family: "Inter", sans-serif;
     line-height: 1.5rem;
     scroll-padding-top: 7.5rem;
@@ -975,6 +1017,7 @@ footer {
     margin-bottom: 1em;
     box-shadow: var(--greenshadow);
     border: 2px solid var(--borderbtn);
+    box-sizing: border-box;
 }
 
 .dtl-animale summary {
@@ -999,6 +1042,7 @@ footer {
 
 .info-animale {
     display: contents;
+    min-width: 0;
 }
 
 .info-animale > span {
@@ -1024,7 +1068,7 @@ footer {
     font-size: 3em;
     margin-right: 0.1em;
     padding-bottom: 0.05em;
-    animation: blink 1.5s infinite;
+    animation: blink 3s infinite;
 }
 
 .status-richieste.no-dot::before {
@@ -1266,7 +1310,7 @@ dialog .info-required {
 #toast-not {
     position: fixed;
     width: max-content;
-    bottom: 3rem;
+    bottom: 4.75rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -1338,7 +1382,7 @@ dialog .info-required {
     font-size: 1.4em;
     margin-right: 0.1em;
     color: var(--txtimportant);
-    animation: blink 1.5s infinite;
+    animation: blink 3s infinite;
 }
 
 #num-app.no-dot::before {
@@ -1395,6 +1439,11 @@ dialog .info-required {
         background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
         fill: var(--inverttxtcolor);
+    }
+
+    .skip-link:hover {
+        background-color: var(--bgbtnhover);
+        color: var(--inverttxtcolor);
     }
 
     #socials a:hover {
@@ -1625,7 +1674,9 @@ textarea {
     font-size: 1.1em;
     border: 2px solid var(--txtcolor);
     border-radius: var(--generalradius);
-    font-family: "Inter", serif;
+    font-family: "Inter", sans-serif;
+    font-variant-numeric: proportional-nums;
+    font-feature-settings: "cv05", "cv08", "zero";
     color: var(--txtcolor);
     background-color: var(--bgbread);
     transition: border-color 0.3s ease;
@@ -1795,7 +1846,7 @@ textarea {
     flex-direction: row;
     flex: 1;
     gap: 0.5rem;
-    min-width: 20em;
+    min-width: 16rem;
 }
 
 #form-ricerca input {
@@ -2309,7 +2360,7 @@ form {
     font-size: 3em;
     margin-right: 0.1em;
     padding-bottom: 0.05em;
-    animation: blink 1.5s infinite;
+    animation: blink 3s infinite;
 }
 
 .status-da-gestire.no-dot::before {

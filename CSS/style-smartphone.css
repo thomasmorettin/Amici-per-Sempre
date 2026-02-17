@@ -6,6 +6,12 @@
     --bgpaws: url("../Resources/Vectors/Paws-SmartphoneDark.svg")
 }
 
+body {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
 #hamburger {
     display: flex;
     background-color: transparent;
@@ -13,7 +19,6 @@
     flex-direction: column;
     gap: 0.3rem;
     padding: 0.5rem;
-    margin-right: 0.5rem;
     border-radius: 0.5rem;
 }
 
@@ -27,6 +32,7 @@
 
 #toast-not {
     width: calc(100% - 4rem);
+    text-align: center;
 }
 
 #hamburger span:not(:nth-child(2)) {
@@ -138,8 +144,20 @@
 
 #section-esperti ul li figure img {
     align-self: center;
-    width: 20em;
+    width: 19em;
     height: 17.5em;
+}
+
+.richieste {
+    display: none;
+}
+
+#form-ricerca > div {
+    width: fit-content;
+}
+
+#form-ricerca input {
+    width: auto;
 }
 
 #dati-footer {
@@ -227,6 +245,7 @@
 
 .dtl-animale .img-animale {
     height: 5em;
+    max-width: 5em;
 }
 
 .abbr {
@@ -345,6 +364,7 @@
 }
 
 .section-list {
+    padding-top: 1em;
     gap: 1em;
     grid-template-columns: 1fr;
 }
@@ -365,12 +385,11 @@
 
 
 .animal-card img {
-    max-height: 12.5em;      
+    max-height: 12.5em;
     min-height: 12.5em;      
     object-fit: cover;
     width: 100%;
 }
-
 
 #scheda-con-visita {
     padding: 0.5em;
@@ -459,7 +478,7 @@
 }
 
 .errore .pet-images img {
-        height:12em;
+    height:12em;
 }
 
 .errore .messaggio-errore p {
@@ -481,15 +500,15 @@
 }
 
 .errore .messaggio-errore a {
-        padding: 0.4em 1em;
-        max-width: 3em;
+    padding: 0.4em 1em;
+    max-width: 3em;
 }
 
 .error-code .digit {
-        font-size: 6em;
+    font-size: 6em;
 }
 
 .error-code .dog-circle {
-        width: 6em;
-        height: 6em;
+    width: 6em;
+    height: 6em;
 }

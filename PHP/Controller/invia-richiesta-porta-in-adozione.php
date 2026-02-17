@@ -152,7 +152,7 @@ $successo = createRichiestaInserimentoAnimale($persona_id, $note, $peso, $razza,
 
 if ($successo) {
     $_SESSION['success'] = "La richiesta di inserimento animale è stata inviata con successo. Riceverai una email di conferma e le informazioni per i prossimi passi.";
-    sendEmail($email, $nome);
+    // sendEmail($email, $nome);        DISMESSA PER ORA
     header("Location: " . PROJECT_ROOT . "/porta-in-adozione");
     exit;
 } else {

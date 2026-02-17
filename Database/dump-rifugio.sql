@@ -1,4 +1,4 @@
-INSERT INTO `entitadatabile` (`ID`, `Note`, `DataRichiesta`) VALUES
+INSERT INTO `EntitaDatabile` (`ID`, `Note`, `DataRichiesta`) VALUES
 (1, 'Richiesta di adozione - famiglia con giardino', '2026-01-22'),
 (2, 'Richiesta di adozione - appartamento in città', '2026-01-23'),
 (3, 'Richiesta di adozione - casa con altri animali', '2026-01-24'),
@@ -41,7 +41,7 @@ INSERT INTO `entitadatabile` (`ID`, `Note`, `DataRichiesta`) VALUES
 (40, 'Abbandono - perdita di lavoro proprietario', '2026-02-18'),
 (41, 'Nessuna richiesta particolare.', '2026-02-01');
 
-INSERT INTO `persona` (`ID`, `Nome`, `Cognome`, `Email`, `Telefono`) VALUES
+INSERT INTO `Persona` (`ID`, `Nome`, `Cognome`, `Email`, `Telefono`) VALUES
 (1, 'Mario', 'Rossi', 'mario.rossi@email.com', '3331234567'),
 (2, 'Giulia', 'Verdi', 'giulia.verdi@email.com', '3347891234'),
 (3, 'Luca', 'Bianchi', 'luca.bianchi@email.com', '3356789012'),
@@ -64,7 +64,7 @@ INSERT INTO `persona` (`ID`, `Nome`, `Cognome`, `Email`, `Telefono`) VALUES
 (20, 'Martina', 'Caruso', 'martina.caruso@email.com', '3334567901'),
 (21, 'Laura', 'Martini', 'laura.martini@libero.it', '1422251469');
 
-INSERT INTO `razza` (`Nome`, `Lingua`, `Tipo`) VALUES
+INSERT INTO `Razza` (`Nome`, `Lingua`, `Tipo`) VALUES
 ('Abissino', 'it', 'Gatto'),
 ('Barboncino', 'it', 'Cane'),
 ('Beagle', 'en', 'Cane'),
@@ -87,7 +87,7 @@ INSERT INTO `razza` (`Nome`, `Lingua`, `Tipo`) VALUES
 ('Rottweiler', 'en', 'Cane'),
 ('Siamese', 'it', 'Gatto');
 
-INSERT INTO `animalerifugio` (`ID`, `Nome`, `Storia`, `Sesso`, `Peso`, `Eta`, `PthImg`, `Colore`, `Caratteristiche`, `Razza`) VALUES
+INSERT INTO `AnimaleRifugio` (`ID`, `Nome`, `Storia`, `Sesso`, `Peso`, `Eta`, `PthImg`, `Colore`, `Caratteristiche`, `Razza`) VALUES
 (1, 'Max', 'Max è stato trovato abbandonato in un parco durante l\'inverno. Nonostante il difficile inizio, è un cane incredibilmente affettuoso e socievole. Ama giocare con la palla e fare lunghe passeggiate.', 'M', 28.5, 3.50, '001.jpg', 'Dorato', '[\"Sterilizzato\", \"Vaccinato\", \"Con microchip\", \"Socievole con altri cani\", \"Ama i bambini\", \"Adatto alla vita in appartamento\"]', 'Labrador Retriever'),
 (2, 'Luna', 'Luna proviene da un canile sovraffollato dove non riceveva le attenzioni che meritava. All\'inizio era molto timida, ma con pazienza e amore ha imparato a fidarsi. Oggi è una compagna dolce e fedele che aspetta solo di trovare la sua famiglia per sempre.', 'F', 25.0, 4.00, '002.jpg', 'Nero', '[\"Sterilizzata\", \"Vaccinata\", \"Con microchip\", \"Addestrata ai comandi base\", \"Necessita pazienza iniziale\", \"Ottima guardiana\"]', 'Pastore Tedesco'),
 (3, 'Rocky', 'Rocky ha lavorato come cane da guardia per anni prima di essere portato al rifugio. Ha bisogno di un proprietario esperto che sappia gestire la sua forza e il suo carattere forte. Con la persona giusta diventa un compagno leale e protettivo.', 'M', 45.0, 7.50, '003.jpg', 'Nero/Marrone', '[\"Sterilizzato\", \"Vaccinato\", \"Con microchip\", \"Addestrato professionalmente\", \"Necessita proprietario esperto\", \"Non adatto a bambini piccoli\"]', 'Rottweiler'),
@@ -115,7 +115,7 @@ INSERT INTO `animalerifugio` (`ID`, `Nome`, `Storia`, `Sesso`, `Peso`, `Eta`, `P
 (25, 'Nala', 'Nala è una bellissima gattina Abissina dal mantello fulvo e dal carattere vivace. È elegante nei movimenti ed estremamente energica. Ha la particolarità di amare giocare con l\'acqua, cosa rara per un gatto. Perfetta per chi cerca un compagno attivo e curioso.', 'F', 4.5, 2.00, '025.jpg', 'Fulvo', '[\"Sterilizzata\", \"Vaccinata\", \"Con microchip\", \"Solo per vita indoor\", \"Molto elegante\", \"Energica e vivace\", \"Ama giocare con l\'acqua\"]', 'Abissino'),
 (26, 'Panco', 'Panco è stato trovato abbandonato quando aveva 4 anni. Il cane è sempre stato molto calmo e affettuoso, perfetto per chi vuole un amico non troppo rumoroso e facile da mantenere.', 'M', 31.2, 11.05, '026.jpg', 'Marroncino', '[\"Calmo\",\"Affettuoso\",\"Paziente\",\"Obbediente\",\"Di avanzata età\"]', 'Labrador Retriever');
 
-INSERT INTO `animaleesterno` (`ID`, `Sesso`, `Peso`, `Eta`, `Proprietario`, `Razza`) VALUES
+INSERT INTO `AnimaleEsterno` (`ID`, `Sesso`, `Peso`, `Eta`, `Proprietario`, `Razza`) VALUES
 (21, 'M', '15 kg', '5 anni', 1, 'Cocker Spaniel'),
 (22, 'F', '4 kg', '2 anni', 2, 'Chihuahua'),
 (23, 'M', '30 kg', '7 anni', 3, 'Labrador Retriever'),
@@ -137,7 +137,7 @@ INSERT INTO `animaleesterno` (`ID`, `Sesso`, `Peso`, `Eta`, `Proprietario`, `Raz
 (39, 'M', '4 kg', '5 anni', 19, 'Ragdoll'),
 (40, 'F', '6 kg', '2 anni', 20, 'Bengala');
 
-INSERT INTO `ticket` (`ID`, `Richiedente`, `Animale`) VALUES
+INSERT INTO `Ticket` (`ID`, `Richiedente`, `Animale`) VALUES
 (1, 1, 1),
 (2, 2, 13),
 (3, 3, 2),
@@ -160,7 +160,7 @@ INSERT INTO `ticket` (`ID`, `Richiedente`, `Animale`) VALUES
 (20, 20, 22),
 (41, 21, 5);
 
-INSERT INTO `calendario` (`ID`, `Data`, `Ora`) VALUES
+INSERT INTO `Calendario` (`ID`, `Data`, `Ora`) VALUES
 (1, '2026-01-26', '10:00:00'),
 (2, '2026-01-26', '14:30:00'),
 (3, '2026-01-27', '11:00:00'),
@@ -192,5 +192,5 @@ INSERT INTO `calendario` (`ID`, `Data`, `Ora`) VALUES
 (34, '2026-02-12', '14:30:00'),
 (35, '2026-02-13', '16:30:00');
 
-INSERT INTO `utente` (`Nome`, `PasswordHash`) VALUES
+INSERT INTO `Utente` (`Nome`, `PasswordHash`) VALUES
 ('admin', '$2y$10$OSFliIXbZo7iElK/INvlUeR.rXYqcyZSSlDsZ5oc2IeZ0nSEphQ4.');
