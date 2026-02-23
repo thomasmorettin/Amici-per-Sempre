@@ -97,6 +97,8 @@ if (empty($peso)) {
     $errori[] = "Il peso non può superare i 25 caratteri";
 } elseif (!preg_match("/^[a-zA-ZÀ-ÿ0-9 '’-]+$/u", $peso)) {
     $errori[] = "Il peso contiene caratteri non validi";
+} elseif (floatval($peso) <= 0) {
+    $errori[] = "Il peso non può essere un numero negativo o uguale a zero";
 }
 
 // Validazione eta
@@ -106,6 +108,8 @@ if (empty($eta)) {
     $errori[] = "L'età non può superare i 25 caratteri";
 } elseif (!preg_match("/^[a-zA-ZÀ-ÿ0-9 '’-]+$/u", $eta)) {
     $errori[] = "L'età contiene caratteri non validi";
+} elseif ($eta <= 0) {
+    $errori[] = "L'età non può essere un numero negativo o uguale a zero";
 }
 
 // Validazione razza

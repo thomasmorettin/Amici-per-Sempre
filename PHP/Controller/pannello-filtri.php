@@ -101,7 +101,8 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
                             <div class="content">
                                 <div class="inner-content">
                                     <div class="form-field">
-                                        <fieldset class="check-group" aria-labelledby="legenda-tipo-animale">
+                                        <fieldset class="check-group">
+                                            <legend class="solo-sr">Selezione tipo di animale</legend>
                                             <label for="cane">
                                                 <input type="checkbox" id="cane" name="tipo[]" value="Cane" ' . $checked_cane . '>Cane
                                                 <svg aria-hidden="true"><use href="{{root}}/Resources/icons.svg#circle"></use></svg>
@@ -137,7 +138,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
                             <div class="content">
                                 <div class="inner-content">
                                     <div class="form-field">
-                                        <label for="nome">Nome</label>
+                                        <label for="nome">Nome animale</label>
                                         <input type="text" id="nome" name="nome" value="' . $nome . '" placeholder="Es. Fido" data-changed="' . ($nome == "" ? 'false' : 'true') . '">
                                     </div>
                                     <div class="form-field">
@@ -197,7 +198,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
                             <div class="content">
                                 <div class="inner-content">
                                     <div class="form-field">
-                                        <label for="nome_persona">Nome</label>
+                                        <label for="nome_persona">Nome persona</label>
                                         <input type="text" id="nome_persona" name="nome_persona" value="' . $nome_persona . '" placeholder="Es. Mario" data-changed="' . ($nome_persona == "" ? 'false' : 'true') . '">
                                     </div>
                                     <div class="form-field">
@@ -273,7 +274,8 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
                             </div>
                             <div class="content">
                                 <div class="inner-content form-field">
-                                    <fieldset class="check-group" aria-labelledby="legenda-razze-cane">'.
+                                    <fieldset class="check-group">
+                                        <legend class="solo-sr">Filtra per razze canine</legend>'.
                                         $razze_cane_html
                                 .'</fieldset>
                                 </div>
@@ -296,7 +298,8 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
                             </div>
                             <div class="content">
                                 <div class="inner-content form-field">
-                                    <fieldset class="check-group" aria-labelledby="legenda-razze-gatto">'.
+                                    <fieldset class="check-group">
+                                        <legend class="solo-sr">Filtra per razze feline</legend>'.
                                         $razze_gatto_html
                                 .'</fieldset>
                                 </div>

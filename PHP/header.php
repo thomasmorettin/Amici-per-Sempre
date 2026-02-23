@@ -29,8 +29,10 @@ function getNavbarLinks() {
     ];
 
     foreach ($links as $voce) {
-        if ($voce["file"] === $paginaCorr) { $html = "<span class='bold' aria-current='page'>{$voce['testo']}</span>"; }
-        else { $html = "<a href='{$voce['url']}'>{$voce['testo']}</a>"; }
+        $lang = null;
+        if ($voce["testo"] === "Home") { $lang = "lang='en'"; }
+        if ($voce["file"] === $paginaCorr) { $html = "<span class='bold' {$lang} aria-current='page'>{$voce['testo']}</span>"; }
+        else { $html = "<a {$lang} href='{$voce['url']}'>{$voce['testo']}</a>"; }
 
         $menu[$voce["placeholder"]] = $html;
     }

@@ -210,7 +210,6 @@ blockquote {
 #section-dati,
 #section-faqs,
 #section-contatti {
-    break-before: always;
     margin: 0 auto;
 }
 
@@ -468,10 +467,6 @@ textarea::placeholder {
 
 .submite-bt {
     display: none; 
-}
-
-#chiedi-visita {
-    break-before: page;        
 }
 
 .form-intro {

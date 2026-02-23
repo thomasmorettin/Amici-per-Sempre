@@ -147,7 +147,7 @@ if (is_logged_in()) {
                         <span>
                             <span class='nome-animale'>{$animale["infoAnimale"]["nome"]}</span>
                             <span class='dettagli-animale'>{$animale["infoAnimale"]["tipo"]} - <span lang='{$animale["infoAnimale"]["linguaRazza"]}'>{$animale["infoAnimale"]["razza"]}</span></span>
-                            <span class='status-richieste'><span class='num-rich'>{$numRich}</span>&nbsp;<span class='richieste'>nuove richieste</span></span>
+                            <span class='status-richieste'><span class='num-rich'>{$numRich}</span>&nbsp;<span class='richieste'>richieste</span></span>
                         </span>
                     </span>
 

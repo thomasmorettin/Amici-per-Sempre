@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return ` ${nomeCampo} non può superare i 25 caratteri`;
         } else if (!/^[a-zA-ZÀ-ÿ0-9\s'-]+$/.test(valore)) {
             return `${nomeCampo} contiene caratteri non validi`;
+        } else if (valore <= 0) {
+            return `${nomeCampo} non può essere un numero negativo o uguale a zero`;
         }
         
         return null;  // Nessun errore

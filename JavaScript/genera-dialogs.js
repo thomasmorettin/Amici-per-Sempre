@@ -7,82 +7,80 @@ export function checkInput() {
   const error = document.getElementById("msg-errore-app");
   let errors = [];
 
-  function validaData() {
+  function validaForm() {
+    // Svuotiamo gli errori all'inizio di ogni controllo totale
+    errors = []; 
+    const adesso = new Date();
     const oggi = new Date();
     oggi.setHours(0, 0, 0, 0);
 
+    // Reset classi e attributi
     data.classList.remove("error");
-
-    // Controllo di obbligatorietà
-    if (data.value === "") {
-      data.classList.add("error");
-      data.setAttribute("aria-invalid", "true");
-      errors.push("Entrambi i campi sono obbligatori.");
-    }
-
-    // Controllo di data (passata/domenica)
-    if (data.value !== "") {
-      const dataIn = new Date(data.value);
-
-      if (dataIn < oggi) {
-        data.classList.add("error");
-        data.setAttribute("aria-invalid", "true");
-        errors.push("La data non può essere passata.");
-      }
-
-      if (dataIn.getDay() === 0) {
-        data.classList.add("error");
-        data.setAttribute("aria-invalid", "true");
-        errors.push("La data non può essere una domenica.");
-      }
-    }
-
-    validaForm();
-  }
-
-  function validaOra() {
     ora.classList.remove("error");
+    data.setAttribute("aria-invalid", "false");
+    ora.setAttribute("aria-invalid", "false");
 
-    if (ora.value === "") {
-      ora.classList.add("error");
-      ora.setAttribute("aria-invalid", "true");
-      errors.push("Entrambi i campi sono obbligatori.");
-    }
-
-    // Controllo dell'ora
-    if (ora.value !== "") {
-      if (ora.value < "08:30" || ora.value > "19:30") {
-        ora.classList.add("error");
-        ora.setAttribute("aria-invalid", "true");
-        errors.push("L'orario consentito è: 08:30 - 19:30.");
+    // 1. Validazione DATA
+    if (data.value === "") {
+      errors.push("La data è obbligatoria.");
+      data.classList.add("error");
+    } else {
+      const dataIn = new Date(data.value);
+      if (dataIn < oggi) {
+        errors.push("La data non può essere passata.");
+        data.classList.add("error");
+      } else if (dataIn.getDay() === 0) {
+        errors.push("La data non può essere una domenica.");
+        data.classList.add("error");
       }
     }
 
-    validaForm();
-  }
+    // 2. Validazione ORA
+    if (ora.value === "") {
+      errors.push("L'orario è obbligatorio.");
+      ora.classList.add("error");
+    } else {
+      // Controllo range aziendale
+      if (ora.value < "08:30" || ora.value > "19:30") {
+        errors.push("L'orario consentito è: 08:30 - 19:30.");
+        ora.classList.add("error");
+      }
 
-  function validaForm() {
-    // Mostra il primo errore trovato o nasconde il messaggio
+      // FIX: Controllo ora passata se la data è OGGI
+      if (data.value !== "") {
+        const dataIn = new Date(data.value);
+        if (dataIn.toDateString() === oggi.toDateString()) {
+          const oraAdesso = adesso.getHours().toString().padStart(2, '0') + ":" + 
+                            adesso.getMinutes().toString().padStart(2, '0');
+          
+          if (ora.value < oraAdesso) {
+            errors.push("L'orario inserito è già passato.");
+            ora.classList.add("error");
+          }
+        }
+      }
+    }
+
+    // Gestione UI errori
     if (errors.length > 0) {
       error.textContent = errors[0];
       cont.classList.remove("hidden");
-      errors.length = 0;
-      return false;     // Form non valido
+      // Applichiamo aria-invalid agli elementi con classe error
+      if (data.classList.contains("error")) data.setAttribute("aria-invalid", "true");
+      if (ora.classList.contains("error")) ora.setAttribute("aria-invalid", "true");
+      return false;
     } else {
-      data.setAttribute("aria-invalid", "false");
-      ora.setAttribute("aria-invalid", "false");
       error.textContent = "";
       cont.classList.add("hidden");
-      return true;    // Form valido
+      return true;
     }
   }
 
-  // Event listeners
-  data.addEventListener("input", validaData);
-  ora.addEventListener("input", validaOra);
-
-  data.addEventListener("blur", validaData);
-  ora.addEventListener("blur", validaOra);
+  // Event listeners semplificati: tutti chiamano validaForm per un controllo incrociato
+  data.addEventListener("input", validaForm);
+  ora.addEventListener("input", validaForm);
+  data.addEventListener("blur", validaForm);
+  ora.addEventListener("blur", validaForm);
 
   form.addEventListener("submit", function(e) {
     const check = validaForm();
@@ -291,7 +289,7 @@ export function currentNumRich() {
 
   numRich.forEach((num, index) => {
     const currentStat = status[index];
-    (parseInt(num.textContent.trim()) == 1) ? currentStat.innerHTML = "nuova richiesta" : null;
+    (parseInt(num.textContent.trim()) == 1) ? currentStat.innerHTML = "richiesta" : null;
 
     const currentLine = line[index];
     (parseInt(num.textContent.trim()) == 0) ? currentLine.classList.add("no-dot") : null;

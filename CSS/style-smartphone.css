@@ -148,8 +148,9 @@ body {
     height: 17.5em;
 }
 
-.richieste {
-    display: none;
+.nome-animale {
+    word-break: break-all;
+    hyphens: auto;
 }
 
 #form-ricerca > div {

@@ -41,6 +41,32 @@ if (!empty($animali)) {
         $razza = htmlspecialchars($animale['NomeRazza'], ENT_QUOTES, 'UTF-8');
         $tipo = htmlspecialchars($animale['Tipo'], ENT_QUOTES, 'UTF-8');
         $colore = htmlspecialchars($animale['Colore'], ENT_QUOTES, 'UTF-8');
+        $peso = htmlspecialchars($animale['Peso'], ENT_QUOTES, 'UTF-8');
+        $sesso = htmlspecialchars($animale['Sesso'], ENT_QUOTES, 'UTF-8') === 'M' ? 'maschio' : 'femmina';
+        $eta_raw = floatval(htmlspecialchars($animale['Eta'], ENT_QUOTES, 'UTF-8'));
+        $anni = floor($eta_raw);
+        $mesi = round(($eta_raw - $anni) * 12);
+
+        // Gestisci casi particolari
+        if ($mesi == 12) {
+            $anni++;
+            $mesi = 0;
+        }
+
+        // Costruisci la stringa età
+        $eta_formattata = '';
+        if ($anni > 0) {
+            $eta_formattata .= $anni . ($anni == 1 ? ' anno' : ' anni');
+        }
+        if ($mesi > 0) {
+            if ($anni > 0) $eta_formattata .= ' e ';
+            $eta_formattata .= $mesi . ($mesi == 1 ? ' mese' : ' mesi');
+        }
+        if (empty($eta_formattata)) {
+            $eta_formattata = 'Meno di 1 mese';
+        }
+
+        $eta = $eta_formattata;
         $tipo_lower = strtolower($tipo);
         
         // Usa il campo Lingua dal database 
@@ -61,7 +87,7 @@ if (!empty($animali)) {
         <li class="animal-card">
             <a href="%s/adotta/scheda-animale?id=%d" aria-label="%s">
                 <figure>
-                    <img src="%s" alt="">
+                    <img src="%s" alt="%s %s %s di razza %s. Età: %s. Peso: %s kg.">
                     <figcaption>
                         <h3>%s - <span%s>%s</span></h3>
                         <p class="tipo">%s</p>
@@ -73,6 +99,12 @@ if (!empty($animali)) {
             (int)$animale['ID'],
             $aria_label,
             htmlspecialchars("{{root}}/Resources/Animali/" . $animale['PthImg'], ENT_QUOTES, 'UTF-8'),
+            $tipo_lower,
+            $sesso,
+            $colore,
+            $razza,
+            $eta,
+            $peso,
             $nome,
             $lang_razza,
             $razza,

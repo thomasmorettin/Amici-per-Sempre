@@ -229,7 +229,7 @@ html::before {
     height: 100dvh;
     z-index: -1;
     opacity: 0;
-    visibility: 0;
+    visibility: hidden;
     background-image: var(--bgpaws);
     background-repeat: no-repeat;
     background-position: center top;
@@ -335,10 +335,13 @@ header h1 {
 }
 
 #navbar a {
-    color: var(--txtcolor);
     text-decoration: none;
     position: relative;
     padding-bottom: 0.15rem;
+}
+
+#navbar a:visited::after {
+    background-color: var(--txtcolor);
 }
 
 #navbar a::after {
@@ -348,7 +351,7 @@ header h1 {
     left: 0;
     width: 100%;
     height: 0.05rem;
-    background-color: var(--txtcolor);
+    background-color: var(--linkcolor);
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.3s ease;
@@ -370,7 +373,7 @@ header h1 {
 
 .header-btns a,
 .header-btns a:visited,
-.header-btns button {
+#btn-theme {
     width: var(--squarewidth);
     background-color: transparent;
     border: none;
@@ -416,10 +419,15 @@ header h1 {
     display: contents;
 }
 
+#btn-remove-bck {
+    font-size: 1rem;
+}
+
 #btn-remove-bck.enabled {
     fill: var(--inverttxtcolor);
     background-color: var(--bgbtnhover);
     box-shadow: var(--greenshadow);
+    color: var(--inverttxtcolor);
 }
 
 #breadcrumb {
@@ -1435,7 +1443,8 @@ dialog .info-required {
 @media (hover: hover) {
     .btn-link:hover,
     .btn-link:visited:hover,
-    button:hover {
+    button:hover,
+    #btn-theme:hover {
         background-color: var(--bgbtnhover);
         color: var(--inverttxtcolor);
         fill: var(--inverttxtcolor);
@@ -1452,14 +1461,6 @@ dialog .info-required {
 
     #navbar a:hover::after {
         transform: scaleX(1);
-    }
-    
-    #section-esperti figure:hover {
-        transform: scale(1.05) translateZ(0);
-    }
-
-    #section-dati ul li:hover {
-        transform: scale(1.05) translateZ(0);
     }
 
     details summary:hover {
@@ -2012,7 +2013,7 @@ form {
 }
 
 .header {
-    padding: 0.2em 0em 0.2em 0.3em;
+    padding: var(--generalpadding);
     font-size: 1.1em;
     display: flex;
     align-items: center;
@@ -2190,7 +2191,15 @@ form {
 }
 
 .solo-sr {
-    display: none;
+    position: absolute;
+    width: 0.1em;
+    height: 0.1em;
+    padding: 0;
+    margin: -0.1em;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .select-wrapper {
@@ -2408,10 +2417,6 @@ form {
     .header:hover {
     background-color: var(--bgbtnhover);
     color: var(--inverttxtcolor)
-    }
-
-    #section-step-porta-adozione figure:hover {
-    transform: scale(1.05);
     }
 
     #form-filtri .reset:hover,
@@ -3078,9 +3083,5 @@ form {
     .animal-card figure:hover .tipo {
         color: var(--inverttxtcolor);
         border-color: var(--inverttxtcolor);
-    }
-    
-    .animal-image:hover {
-        transform: scale(1.02);
     }
 }
