@@ -123,13 +123,11 @@ function backgroundSetting() {
   function updateBackgroundButton(flag) {
     if (flag) {
       btn.classList.add("enabled");
-      btn.setAttribute("title", "Ripristina Sfondo");
       btn.setAttribute("aria-pressed", "true");
     }
 
     else {
       btn.classList.remove("enabled");
-      btn.setAttribute("title", "Rimuovi Sfondo");
       btn.setAttribute("aria-pressed", "false");
     }
   }
