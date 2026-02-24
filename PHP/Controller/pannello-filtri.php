@@ -202,7 +202,7 @@ function renderPannelloFiltri(?string $action, array $filtri = []): string
                                         <input type="text" id="nome_persona" name="nome_persona" value="' . $nome_persona . '" placeholder="Es. Mario" data-changed="' . ($nome_persona == "" ? 'false' : 'true') . '">
                                     </div>
                                     <div class="form-field">
-                                        <label for="cognome_persona">Cognome</label>
+                                        <label for="cognome_persona">Cognome persona</label>
                                         <input type="text" id="cognome_persona" name="cognome_persona" value="' . $cognome_persona . '" placeholder="Es. Rossi" data-changed="' . ($cognome_persona == "" ? 'false' : 'true') . '">
                                     </div>
                                     <div class="form-field">
