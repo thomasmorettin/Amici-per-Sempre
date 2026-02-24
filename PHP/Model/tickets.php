@@ -8,7 +8,7 @@ function getAnimaliTck($filtri = []) {
     $animali = [];
 
     // QUERY: animali del rifugio
-    $sql = "SELECT A.ID AS IDAnimale, A.Nome AS NomeAnimale, A.Razza AS RazzaAnimale, A.PthImg AS ImgAnimale,
+    $sql = "SELECT A.ID AS IDAnimale, A.Nome AS NomeAnimale, A.Razza AS RazzaAnimale, A.PthImg AS ImgAnimale, A.Colore AS ColoreAnimale, A.Peso AS PesoAnimale, A.Sesso AS SessoAnimale,
             R.Tipo AS TipoAnimale, R.Lingua AS LinguaRazza,
             T.ID AS IDTicket,
             E.Note AS Info, E.DataRichiesta AS DataRich,
@@ -87,6 +87,9 @@ function getAnimaliTck($filtri = []) {
                             "nome" => htmlspecialchars($row["NomeAnimale"], ENT_QUOTES, "UTF-8"),
                             "tipo" => htmlspecialchars($row["TipoAnimale"], ENT_QUOTES, "UTF-8"),
                             "razza" => htmlspecialchars($row["RazzaAnimale"], ENT_QUOTES, "UTF-8"),
+                            "colore" => htmlspecialchars($row["ColoreAnimale"], ENT_QUOTES, "UTF-8"),
+                            "peso" => htmlspecialchars($row["PesoAnimale"], ENT_QUOTES, "UTF-8"),
+                            "sesso" => (htmlspecialchars($row["SessoAnimale"], ENT_QUOTES, "UTF-8") == "M" ? "maschio" : "femmina"),
                             "linguaRazza" => htmlspecialchars($row["LinguaRazza"], ENT_QUOTES, "UTF-8")
                         ],
 

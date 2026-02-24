@@ -87,7 +87,7 @@ if (!empty($animali)) {
         <li class="animal-card">
             <a href="%s/adotta/scheda-animale?id=%d" aria-label="%s">
                 <figure>
-                    <img src="%s" alt="%s %s %s di razza %s. Età: %s. Peso: %s kg.">
+                    <img src="%s" alt="%s %s %s di razza %s. Età: %s, peso: %s kg">
                     <figcaption>
                         <h3>%s - <span%s>%s</span></h3>
                         <p class="tipo">%s</p>

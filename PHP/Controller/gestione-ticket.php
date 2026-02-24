@@ -142,7 +142,7 @@ if (is_logged_in()) {
                 <details class='dtl-animale'>
                 <summary>
                     <span class='info-animale'>
-                        <img src='{{root}}/Resources/Animali/{$animale["infoAnimale"]["foto"]}' class='img-animale' alt='' aria-hidden='true'>
+                        <img src='{{root}}/Resources/Animali/{$animale["infoAnimale"]["foto"]}' class='img-animale' alt='{$animale["infoAnimale"]["tipo"]} {$animale["infoAnimale"]["sesso"]} {$animale["infoAnimale"]["colore"]} di razza {$animale["infoAnimale"]["razza"]}. Peso: {$animale["infoAnimale"]["peso"]} kg' aria-hidden='true'>
 
                         <span>
                             <span class='nome-animale'>{$animale["infoAnimale"]["nome"]}</span>
