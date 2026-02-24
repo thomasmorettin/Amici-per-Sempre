@@ -40,7 +40,7 @@ function getCurrentPath() {
         ],
 
         "gestione-ticket.php" => [
-            "titolo" => "Gestione ticket",
+            "titolo" => "Richieste di adozione",
             "padre" => "amministrazione.php",
             "url" => PROJECT_ROOT . "/gestione-ticket"
         ],
