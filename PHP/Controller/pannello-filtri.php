@@ -336,7 +336,7 @@ function renderPannelloControlloFiltri($ricerca_html = false): string
 
     $html = '            
                 <div id="list-topbar" class="hidden" inert>
-                    <button id="filtra-btn" class="' . (!$ricerca_html ? "alone" : "") . '" title="Pannello filtri">
+                    <button id="filtra-btn" class="' . (!$ricerca_html ? "alone" : "") . '" aria-expanded="false" aria-label="Pannello filtri">
                         <svg aria-hidden="true">
                             <use href="{{root}}/Resources/icons.svg#filter"></use>
                         </svg>

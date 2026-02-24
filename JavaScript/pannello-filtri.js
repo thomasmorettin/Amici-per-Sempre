@@ -1,5 +1,9 @@
 const pannelloPopupWidth = 1024;
 
+const CheckMobile = {
+    wasMobile: false
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     gestioneAccordion();
     gestioneBottonePannelloFiltri();
@@ -18,6 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth > pannelloPopupWidth && recuperaStatoPannello()) {
         pannello.classList.add("open");
         pannello.inert = false;
+        const filtraBtn = document.getElementById("filtra-btn");
+        if (filtraBtn) {
+            filtraBtn.ariaExpanded = "true";
+        }
     }
 
     // Per evitare che quando si inserisca parametri da telefono azioni l'evento resize
@@ -54,6 +62,7 @@ function setupPosizionePanel() {
     const form = document.getElementById('form-filtri');
     const sidepanel = document.getElementById('side-panel');
     const popup = document.getElementById('popup-panel');
+    const filtraBtn = document.getElementById('filtra-btn');
 
     const filter_content_side = sidepanel.querySelector('.filter-content');
     const filter_content_popup = popup.querySelector('.filter-content');
@@ -62,18 +71,26 @@ function setupPosizionePanel() {
         if (sidepanel.classList.contains('open')) {
             sidepanel.classList.toggle('open');
         }
-        filter_content_popup.appendChild(form);
-        popup.classList.add('active');
-        sidepanel.classList.remove('active');
+        if(!CheckMobile.wasMobile) {
+            CheckMobile.wasMobile = true;
+            filter_content_popup.appendChild(form);
+            popup.classList.add('active');
+            sidepanel.classList.remove('active');
+            filtraBtn.removeAttribute('aria-expanded');
+        }
     } else {
         if (popup.classList.contains('open')) {
             document.body.classList.remove("no-scroll");
             popup.classList.toggle('open');
             popup.close();
         }
-        filter_content_side.appendChild(form);
-        sidepanel.classList.add('active');
-        popup.classList.remove('active');
+        if(CheckMobile.wasMobile) {
+            CheckMobile.wasMobile = false;
+            filtraBtn.setAttribute('aria-expanded', 'false');
+            filter_content_side.appendChild(form);
+            sidepanel.classList.add('active');
+            popup.classList.remove('active');
+        }
     }
 }
 
@@ -83,6 +100,7 @@ function chiusuraPopup() {
 
     btnChiudiPopup.addEventListener("click", () => {
         popup.close();
+        popup.classList.toggle('open');
         document.body.classList.remove("no-scroll");
     });
 }
@@ -281,6 +299,13 @@ function gestioneBottonePannelloFiltri() {
     if (filtraBtn) {
         filtraBtn.addEventListener('click', (e) => {
             toggleFilter(e);
+            if (window.innerWidth > pannelloPopupWidth) {
+                if (filtraBtn.ariaExpanded === "true") {
+                    filtraBtn.ariaExpanded = "false";
+                } else {
+                    filtraBtn.ariaExpanded = "true";
+                }
+            }
         });
     } else {
         console.debug('gestioneBottonePannelloFiltri: #filtra-btn non trovato');

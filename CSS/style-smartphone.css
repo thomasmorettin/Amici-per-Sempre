@@ -271,12 +271,8 @@ body {
     display: none;
 }
 
-.info-step {
-    font-size: 1.1rem;
-}
-
 #section-step-porta-adozione {
-    margin: 0em auto 4em auto;
+    margin: 1em auto 4em auto;
 }
 
 #section-step-porta-adozione ul {
@@ -317,12 +313,6 @@ body {
 
 #list-topbar {
     position: revert;
-}
-
-.info-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .step-number {
