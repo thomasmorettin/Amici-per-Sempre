@@ -10,7 +10,16 @@ if (is_logged_in()) {
 
     $dati = [
         "{{current-page}}" => "Amministrazione",
-        "{{page-keywords}}" => "",
+        "{{page-description}}" => "Area amministrativa riservata agli amministratori di Amici per Sempre Rifugio Padova.",
+        "{{page-keywords}}" => "Amici per Sempre,
+                                amministrazione,
+                                area riservata,
+                                calendario appuntamenti,
+                                numero appuntamenti,
+                                richieste di adozione,
+                                richieste di inserimento,
+                                numero richieste di adozione,
+                                numero richieste di inserimento",
         "{{current-js}}" => "amministrazione.js",
         "{{num-app}}" => isset($risAppDB["NumApp"]) ? $risAppDB["NumApp"] : 0,
         "{{num-tck}}" => isset($risAllDB["NumTck"]) ? $risAllDB["NumTck"] : 0,

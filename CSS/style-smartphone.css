@@ -14,9 +14,11 @@ body {
 
 #hamburger {
     display: flex;
+    width: var(--squarewidth);
     background-color: transparent;
     border: none;
     flex-direction: column;
+    justify-self: end;
     gap: 0.3rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -31,7 +33,7 @@ body {
 }
 
 #toast-not {
-    width: calc(100% - 4rem);
+    max-width: calc(100% - 4rem);
     text-align: center;
 }
 
@@ -50,6 +52,7 @@ body {
 .header-btns {
     margin: 0;
     justify-content: center;
+    width: 100%;
 }
 
 #menu-wrapper {

@@ -187,7 +187,13 @@ if (is_logged_in()) {
 
     $dati = [
         "{{current-page}}" => "Tickets",
-        "{{page-keywords}}" => "",
+        "{{page-description}}" => "Gestione delle richieste di adozione per ciascun animale del Rifugio Amici per Sempre Padova.",
+        "{{page-keywords}}" => "Amici per Sempre,
+                                amministrazione,
+                                numero richieste di adozione,
+                                gestione richieste di adozione,
+                                richieste di adozione per animale,
+                                filtri ricerca richieste di adozione",
         "{{type-script}}" => "module",
         "{{current-js}}" => "gestione-ticket.js",
         "{{extra-js}}" => "pannello-filtri.js",

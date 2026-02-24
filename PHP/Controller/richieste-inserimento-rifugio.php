@@ -154,7 +154,12 @@ else { $html = "<p class='no-richieste'>Nessun animale presente nel Rifugio.</p>
 
 $dati = [
     "{{current-page}}" => "Richieste Inserimento Rifugio",
-    "{{page-keywords}}" => "",
+    "{{page-description}}" => "Gestione delle richieste di portare in adozione al Rifugio Amici per Sempre Padova.",
+    "{{page-keywords}}" => "Amici per Sempre,
+                            amministrazione,
+                            richieste di inserimento,
+                            gestione richieste di inserimento al rifugio,
+                            filtri ricerca richieste di inserimento al rifugio",
     "{{type-script}}" => "module",
     "{{current-js}}" => "richieste-inserimento-rifugio.js",
     "{{extra-js}}" => "pannello-filtri.js",

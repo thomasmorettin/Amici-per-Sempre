@@ -53,7 +53,7 @@ foreach ($razze["Gatto"] as $razza) {
 
 $dati = [
     "{{current-page}}" => "Porta in Adozione",
-    '{{page-description}}' => "Contatta il centro di adozione per prenotare una visita e portrare il tuo cane o gatto in adozione. Invia una richiesta compilando il form.",
+    '{{page-description}}' => "Contatta il centro di adozione per prenotare una visita e portare il tuo cane o gatto in adozione. Invia una richiesta compilando il form.",
     "{{page-keywords}}" => "Amici per Sempre, 
                             Porta in Adozione, 
                             porta adozione cane,

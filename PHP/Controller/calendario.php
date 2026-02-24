@@ -191,8 +191,14 @@ if (is_logged_in()) {
 
     $dati = [
         "{{current-page}}" => "Calendario",
-        "{{page-keywords}}" => "",
         "{{type-script}}" => "module",
+        "{{page-description}}" => "Calendario appuntamenti per la visualizzazione/modifica di richieste al Rifugio Amici per Sempre Padova.",
+        "{{page-keywords}}" => "Amici per Sempre,
+                                amministrazione,
+                                numero appuntamenti,
+                                calendario appuntamenti,
+                                appuntamenti adozione,
+                                appuntamenti ingresso in rifugio",
         "{{current-js}}" => "calendario.js",
         "{{mese-anno}}" => "$nomiMesi[$mese] $anno",
         "{{link-prev}}" => $linkPrev,
