@@ -12,6 +12,8 @@
 
 Il seguente progetto è un lavoro realizzato in gruppo per il conseguimento del 75% della valutazione del corso di **Tecnologie Web [SCP4065581]** presso l'Università degli Studi di Padova (L.T. Informatica, A.A. 2025/26).
 
+Questo lavoro è stato selezionato come 2° classificato al concorso [**Accattivante Accessibile 2026**](https://web.math.unipd.it/CAA/).
+
 >La traccia accademica prevede la realizzazione di un sito web in **linguaggio HTML5**, con pagine che degradano in modo elegante e che si attengano alla sintassi XML.
 >
 >Il layout deve essere realizzato in **linguaggio CSS puro (CSS2/CSS3)**, completamente separato da contenuto e comportamento.
