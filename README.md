@@ -35,24 +35,12 @@ Il lavoro è completo dei seguenti elementi:
   <img src="Previews/homepage.png" alt="Homepage">
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="Previews/adotta-dark.png">
-  <img src="Previews/adotta.png" alt="Adotta un animale">
-</picture>
-<picture>
   <source media="(prefers-color-scheme: dark)" srcset="Previews/scheda-animale-dark.png">
   <img src="Previews/scheda-animale.png" alt="Scheda animale del Rifugio">
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="Previews/porta-in-adozione-dark.png">
-  <img src="Previews/porta-in-adozione.png" alt="Porta in adozione un animale">
-</picture>
-<picture>
   <source media="(prefers-color-scheme: dark)" srcset="Previews/calendario-dark.png">
   <img src="Previews/calendario.png" alt="[Amministrazione] Calendario per appuntamenti">
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="Previews/gestione-ticket-dark.png">
-  <img src="Previews/gestione-ticket.png" alt="[Amministrazione] Gestione richieste di adozione">
 </picture>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="Previews/richieste-inserimento-dark.png">
