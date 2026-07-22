@@ -27,7 +27,7 @@ Il lavoro è completo dei seguenti elementi:
 * [HTML](HTML), [CSS](CSS), [JavaScript](JavaScript), [PHP](PHP) completo di tutti i file per lo sviluppo dei livelli contenuto, presentazione e comportamento del sito;
 * [relazione tecnica](Relazioni/relazione.pdf) con gli approfondimenti sui contenuti del lavoro, le modalità di implementazione e la suddivisione dei compiti;
 * [relazione concorso](Relazioni/relazione-concorso.pdf) con le verifiche necessarie all'accessibilità per la partecipazione al concorso [Accattivante Accessibile 2026](https://web.math.unipd.it/CAA/);
-* [database](Databse) completo di struttura per la base di dati (normalizzata) e popolamento iniziale.
+* [database](Database) completo di struttura per la base di dati (normalizzata) e popolamento iniziale.
 
 ## Previews del progetto
 <picture>
