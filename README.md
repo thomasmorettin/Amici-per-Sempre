@@ -10,9 +10,9 @@
 
 #
 
-Il seguente progetto è un lavoro realizzato in gruppo per il conseguimento del 75% della valutazione del corso di **Tecnologie Web [SCP4065581]** presso l'Università degli Studi di Padova (L.T. Informatica, A.A. 2025/26).
+Il seguente progetto è un lavoro realizzato in gruppo per il conseguimento del 75% della valutazione del corso di **Tecnologie Web [SCP4065581]** presso l'Università di Padova (L.T. Informatica, A.A. 2025/26).
 
-Questo lavoro è stato selezionato come 2° classificato al concorso [**Accattivante Accessibile 2026**](https://web.math.unipd.it/CAA/).
+Questo lavoro è stato selezionato come 2° classificato al concorso [Accattivante Accessibile 2026](https://web.math.unipd.it/CAA/).
 
 >La traccia accademica prevede la realizzazione di un sito web in **linguaggio HTML5**, con pagine che degradano in modo elegante e che si attengano alla sintassi XML.
 >
@@ -24,10 +24,10 @@ Questo lavoro è stato selezionato come 2° classificato al concorso [**Accattiv
 
 ## Contenuto del repository
 Il lavoro è completo dei seguenti elementi:
-* [**HTML**](HTML), [**CSS**](CSS), [**JavaScript**](JavaScript), [**PHP**](PHP) completo di tutti i file per lo sviluppo dei livelli contenuto, presentazione e comportamento del sito;
-* [**relazione tecnica**](Relazioni/relazione.pdf) con gli approfondimenti sui contenuti del lavoro, le modalità di implementazione e la suddivisione dei compiti;
-* [**relazione concorso**](Relazioni/relazione-concorso.pdf) con le verifiche necessarie all'accessibilità per la partecipazione al concorso [**Accattivante Accessibile 2026**](https://web.math.unipd.it/CAA/);
-* [**database**](Databse) completo di struttura per la base di dati (normalizzata) e popolamento iniziale.
+* [HTML](HTML), [CSS](CSS), [JavaScript](JavaScript), [PHP](PHP) completo di tutti i file per lo sviluppo dei livelli contenuto, presentazione e comportamento del sito;
+* [relazione tecnica](Relazioni/relazione.pdf) con gli approfondimenti sui contenuti del lavoro, le modalità di implementazione e la suddivisione dei compiti;
+* [relazione concorso](Relazioni/relazione-concorso.pdf) con le verifiche necessarie all'accessibilità per la partecipazione al concorso [Accattivante Accessibile 2026](https://web.math.unipd.it/CAA/);
+* [database](Databse) completo di struttura per la base di dati (normalizzata) e popolamento iniziale.
 
 ## Previews del progetto
 <picture>
@@ -50,7 +50,7 @@ Il lavoro è completo dei seguenti elementi:
 ## Composer (PHPMailer & Emogrifier) - Linux
 Librerie per il funzionamento della procedura di invio **mail automatica** all'invio del form da parte dell'utente (adotta/porta in adozione).
 > [!NOTE]  
-> **Il progetto funziona perfettamente anche senza l'installazione di queste librerie.**
+> Il progetto funziona perfettamente anche senza l'installazione di queste librerie.
 1. Posizionarsi sulla cartella ```/PHP``` all'interno della ```root``` di progetto.
 2. Digitare il seguente comando: ```curl -sS https://getcomposer.org/installer | php```.
 3. Dopo l'installazione del file ```composer.phar``` digitare: ```php composer.phar install```
